@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 140}
+  m_IsPrefabParent: 1
+--- !u!4 &238
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140, guid: a27a2809f5ac42948856acfdf809faee, type: 2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 238}
+  - component: {fileID: 258, guid: 1d4ee1e9fe4a40fc821bdf623197e48d, type: 2}
+  m_Layer: 0
+  m_Name: "SOPW_01"
+  m_TagString:
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140, guid: a27a2809f5ac42948856acfdf809faee, type: 2}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: e55369551c028e4a164c514a274ed352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier:
+  material: {fileID: 2100000, guid: a389900caa054b6cb2ebb926065620a2, type: 2}
+  mSprites:
+  - name: 'SOPW_01'
+    x: 0
+    y: 232
+    width: 265
+    height: 792
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 110
+    paddingRight: 125
+    paddingTop: 134
+    paddingBottom: 98
+  - name: 'SOPW_02'
+    x: 267
+    y: 656
+    width: 286
+    height: 368
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 82
+    paddingRight: 132
+    paddingTop: 8
+    paddingBottom: 0
+  - name: 'SOPW_03'
+    x: 555
+    y: 599
+    width: 265
+    height: 425
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 45
+    paddingRight: 90
+    paddingTop: 36
+    paddingBottom: 9
+  - name: 'SOPW_04'
+    x: 267
+    y: 474
+    width: 242
+    height: 180
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 38
+    paddingTop: 0
+    paddingBottom: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []

@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 137}
+  m_IsPrefabParent: 1
+--- !u!4 &213
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137, guid: 4d863b2cb87b42b4acc990fdb3fdf01e, type: 2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 213}
+  - component: {fileID: 249, guid: d90862f0f1b54ef18c249b8584ff7268, type: 2}
+  m_Layer: 0
+  m_Name: "SHAW_01_00"
+  m_TagString:
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &249
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137, guid: 4d863b2cb87b42b4acc990fdb3fdf01e, type: 2}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: e55369551c028e4a164c514a274ed352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier:
+  material: {fileID: 2100000, guid: e4749bac067444c8bdf8d62118148eb3, type: 2}
+  mSprites:
+  - name: 'SHAW_01'
+    x: 0
+    y: 124
+    width: 329
+    height: 900
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 86
+    paddingRight: 85
+    paddingTop: 73
+    paddingBottom: 51
+  - name: 'SHAW_02'
+    x: 330
+    y: 666
+    width: 341
+    height: 358
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 84
+    paddingRight: 75
+    paddingTop: 18
+    paddingBottom: 0
+  - name: 'SHAW_03'
+    x: 330
+    y: 226
+    width: 360
+    height: 439
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 39
+    paddingTop: 31
+    paddingBottom: 0
+  - name: 'SHAW_04'
+    x: 672
+    y: 844
+    width: 269
+    height: 180
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []

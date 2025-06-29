@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 145}
+  m_IsPrefabParent: 1
+--- !u!4 &217
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145, guid: 3a2a16d4e752427daa2fb326370a9492, type: 2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 217}
+  - component: {fileID: 277, guid: 9ea7f32b18254b5ca66bacbf4378b423, type: 2}
+  m_Layer: 0
+  m_Name: "SOPH_01_00"
+  m_TagString:
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &277
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145, guid: 3a2a16d4e752427daa2fb326370a9492, type: 2}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: e55369551c028e4a164c514a274ed352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier:
+  material: {fileID: 2100000, guid: f38d65228f444468893ed9a1301f3b0a, type: 2}
+  mSprites:
+  - name: 'SOPH_01'
+    x: 0
+    y: 238
+    width: 262
+    height: 786
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 112
+    paddingRight: 126
+    paddingTop: 140
+    paddingBottom: 98
+  - name: 'SOPH_02'
+    x: 263
+    y: 243
+    width: 282
+    height: 362
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 83
+    paddingRight: 135
+    paddingTop: 14
+    paddingBottom: 0
+  - name: 'SOPH_03'
+    x: 263
+    y: 606
+    width: 260
+    height: 418
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 46
+    paddingRight: 94
+    paddingTop: 43
+    paddingBottom: 9
+  - name: 'SOPH_04'
+    x: 263
+    y: 62
+    width: 239
+    height: 180
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 41
+    paddingTop: 0
+    paddingBottom: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []

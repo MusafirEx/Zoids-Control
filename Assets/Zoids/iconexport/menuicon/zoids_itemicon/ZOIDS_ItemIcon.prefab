@@ -1,0 +1,876 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 23}
+  m_IsPrefabParent: 1
+--- !u!4 &34
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 23, guid: 7da478806844487f954938b5fc843607, type: 2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &23
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 34}
+  - component: {fileID: 41, guid: 973069a9a6094a488fe09486f20817a2, type: 2}
+  m_Layer: 0
+  m_Name: "ZOIDS_ItemIcon"
+  m_TagString:
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &41
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 23, guid: 7da478806844487f954938b5fc843607, type: 2}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: e55369551c028e4a164c514a274ed352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier:
+  material: {fileID: 2100000, guid: 18c880a2136d4620b8b139bdfcf634d0, type: 2}
+  mSprites:
+  - name: 'BPCH0000'
+    x: 1098
+    y: 1918
+    width: 133
+    height: 130
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 2
+    paddingBottom: 14
+  - name: 'BPCH0001'
+    x: 963
+    y: 1918
+    width: 133
+    height: 130
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 2
+    paddingBottom: 14
+  - name: 'BPCH0002'
+    x: 1233
+    y: 1918
+    width: 133
+    height: 130
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 2
+    paddingBottom: 14
+  - name: 'BPCH0003'
+    x: 1503
+    y: 1918
+    width: 133
+    height: 130
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 2
+    paddingBottom: 14
+  - name: 'BPCH0004'
+    x: 1368
+    y: 1918
+    width: 133
+    height: 130
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 2
+    paddingBottom: 14
+  - name: 'BPNO0000'
+    x: 0
+    y: 1792
+    width: 133
+    height: 136
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 2
+    paddingBottom: 8
+  - name: 'BT1O_01'
+    x: 815
+    y: 1678
+    width: 138
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 8
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'DEGR0001'
+    x: 822
+    y: 1438
+    width: 133
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'EXZ5_01'
+    x: 270
+    y: 1550
+    width: 133
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'EY1O_17'
+    x: 411
+    y: 1670
+    width: 136
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'GOLD0001'
+    x: 0
+    y: 1544
+    width: 133
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'GOLD0002'
+    x: 405
+    y: 1550
+    width: 133
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'GOLD0003'
+    x: 1092
+    y: 1432
+    width: 133
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'GOLD0004'
+    x: 1236
+    y: 1794
+    width: 133
+    height: 122
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 10
+    paddingBottom: 14
+  - name: 'GOLD0005'
+    x: 1101
+    y: 1792
+    width: 133
+    height: 124
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 8
+    paddingBottom: 14
+  - name: 'GOLD0006'
+    x: 142
+    y: 1918
+    width: 144
+    height: 130
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 0
+    paddingTop: 2
+    paddingBottom: 14
+  - name: 'GOLD0100'
+    x: 1227
+    y: 1432
+    width: 133
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'GT1O_01'
+    x: 1647
+    y: 1570
+    width: 136
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'GT1O_02'
+    x: 675
+    y: 1678
+    width: 138
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 8
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'META0001'
+    x: 135
+    y: 1550
+    width: 133
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'META0002'
+    x: 957
+    y: 1438
+    width: 133
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'NY1O_18'
+    x: 1095
+    y: 1672
+    width: 136
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'PT1D_01'
+    x: 1785
+    y: 1690
+    width: 136
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'PT1M_01'
+    x: 1509
+    y: 1570
+    width: 136
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'PT1W_01'
+    x: 1371
+    y: 1558
+    width: 136
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'PT3M_01'
+    x: 549
+    y: 1558
+    width: 136
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'PT6M_01'
+    x: 1647
+    y: 1450
+    width: 136
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'RECO0001'
+    x: 1638
+    y: 1930
+    width: 144
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'RECO0002'
+    x: 1784
+    y: 1930
+    width: 144
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'RECO0003'
+    x: 1784
+    y: 1810
+    width: 144
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'RECO0004'
+    x: 1638
+    y: 1810
+    width: 144
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'SP1O_18'
+    x: 687
+    y: 1557
+    width: 133
+    height: 119
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 13
+    paddingBottom: 14
+  - name: 'ST1O_01'
+    x: 1785
+    y: 1570
+    width: 136
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'ST1O_02'
+    x: 1509
+    y: 1450
+    width: 136
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'ST1O_03'
+    x: 1371
+    y: 1678
+    width: 136
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'ST1O_04'
+    x: 135
+    y: 1670
+    width: 136
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'ST1O_05'
+    x: 1371
+    y: 1798
+    width: 136
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'ST1O_06'
+    x: 273
+    y: 1670
+    width: 136
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'STAM0000'
+    x: 540
+    y: 1438
+    width: 133
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'TT1O_01'
+    x: 955
+    y: 1678
+    width: 138
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 8
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'UPIT0001'
+    x: 958
+    y: 1558
+    width: 134
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'UPIT0002'
+    x: 822
+    y: 1558
+    width: 134
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'UPIT0003'
+    x: 1094
+    y: 1552
+    width: 134
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'UPIT0004'
+    x: 1366
+    y: 1438
+    width: 134
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'UPIT0005'
+    x: 1230
+    y: 1552
+    width: 134
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'UPIT0006'
+    x: 270
+    y: 1790
+    width: 133
+    height: 126
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 6
+    paddingBottom: 14
+  - name: 'UPIT0007'
+    x: 405
+    y: 1790
+    width: 133
+    height: 126
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 6
+    paddingBottom: 14
+  - name: 'UPIT0008'
+    x: 135
+    y: 1790
+    width: 133
+    height: 126
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 6
+    paddingBottom: 14
+  - name: 'UPIT0009'
+    x: 0
+    y: 1664
+    width: 133
+    height: 126
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 6
+    paddingBottom: 14
+  - name: 'UPIT0010'
+    x: 540
+    y: 1790
+    width: 133
+    height: 126
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 6
+    paddingBottom: 14
+  - name: 'UPIT0011'
+    x: 558
+    y: 1918
+    width: 133
+    height: 130
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 2
+    paddingBottom: 14
+  - name: 'UPIT0012'
+    x: 693
+    y: 1918
+    width: 133
+    height: 130
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 2
+    paddingBottom: 14
+  - name: 'UPIT0013'
+    x: 423
+    y: 1918
+    width: 133
+    height: 130
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 2
+    paddingBottom: 14
+  - name: 'UPIT0014'
+    x: 288
+    y: 1918
+    width: 133
+    height: 130
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 2
+    paddingBottom: 14
+  - name: 'UPIT0015'
+    x: 828
+    y: 1918
+    width: 133
+    height: 130
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 0
+    paddingTop: 2
+    paddingBottom: 14
+  - name: 'UPIT0099'
+    x: 1509
+    y: 1690
+    width: 136
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'UTJG00_00'
+    x: 675
+    y: 1798
+    width: 140
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'UTPZ00_00'
+    x: 959
+    y: 1798
+    width: 140
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'UTSH00_00'
+    x: 817
+    y: 1798
+    width: 140
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'UTSM00_00'
+    x: 0
+    y: 1930
+    width: 140
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'VG1O_18'
+    x: 1233
+    y: 1672
+    width: 136
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'VT1O_18'
+    x: 1647
+    y: 1690
+    width: 136
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  - name: 'WG1O_18'
+    x: 1785
+    y: 1450
+    width: 136
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 14
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []

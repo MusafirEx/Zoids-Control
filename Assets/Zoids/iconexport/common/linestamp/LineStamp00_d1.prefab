@@ -1,0 +1,460 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 128}
+  m_IsPrefabParent: 1
+--- !u!4 &222
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128, guid: b5286bf862b74e4bb3c20cb880ae1e40, type: 2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 222}
+  - component: {fileID: 290, guid: cbbe4635e6de43b6a92255ba0564a3cc, type: 2}
+  m_Layer: 0
+  m_Name: "LineStamp00"
+  m_TagString:
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128, guid: b5286bf862b74e4bb3c20cb880ae1e40, type: 2}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: e55369551c028e4a164c514a274ed352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier:
+  material: {fileID: 2100000, guid: c9f05d663d034afab2597bb8477b80b8, type: 2}
+  mSprites:
+  - name: 'STMP_0001'
+    x: 1178
+    y: 1698
+    width: 195
+    height: 174
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 3
+    paddingTop: 14
+    paddingBottom: 12
+  - name: 'STMP_0002'
+    x: 1575
+    y: 1874
+    width: 196
+    height: 174
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 3
+    paddingTop: 14
+    paddingBottom: 12
+  - name: 'STMP_0003'
+    x: 389
+    y: 1523
+    width: 193
+    height: 174
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 4
+    paddingTop: 14
+    paddingBottom: 12
+  - name: 'STMP_0004'
+    x: 784
+    y: 1698
+    width: 193
+    height: 175
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 4
+    paddingTop: 13
+    paddingBottom: 12
+  - name: 'STMP_0005'
+    x: 1773
+    y: 1874
+    width: 195
+    height: 174
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 3
+    paddingTop: 14
+    paddingBottom: 12
+  - name: 'STMP_0006'
+    x: 1569
+    y: 1526
+    width: 193
+    height: 171
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 4
+    paddingTop: 16
+    paddingBottom: 13
+  - name: 'STMP_0007'
+    x: 1769
+    y: 1699
+    width: 192
+    height: 173
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 4
+    paddingTop: 15
+    paddingBottom: 12
+  - name: 'STMP_0008'
+    x: 1377
+    y: 1874
+    width: 196
+    height: 174
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 3
+    paddingTop: 14
+    paddingBottom: 12
+  - name: 'STMP_0009'
+    x: 0
+    y: 1349
+    width: 193
+    height: 175
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 4
+    paddingTop: 13
+    paddingBottom: 12
+  - name: 'STMP_0010'
+    x: 979
+    y: 1873
+    width: 197
+    height: 175
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 2
+    paddingTop: 13
+    paddingBottom: 12
+  - name: 'STMP_0011'
+    x: 1764
+    y: 1526
+    width: 192
+    height: 171
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 4
+    paddingTop: 16
+    paddingBottom: 13
+  - name: 'STMP_0012'
+    x: 195
+    y: 1348
+    width: 191
+    height: 175
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 5
+    paddingTop: 13
+    paddingBottom: 12
+  - name: 'STMP_0013'
+    x: 0
+    y: 1174
+    width: 193
+    height: 173
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 4
+    paddingTop: 15
+    paddingBottom: 12
+  - name: 'STMP_0014'
+    x: 1178
+    y: 1874
+    width: 197
+    height: 174
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 2
+    paddingTop: 13
+    paddingBottom: 13
+  - name: 'STMP_0015'
+    x: 585
+    y: 1525
+    width: 194
+    height: 174
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 4
+    paddingTop: 14
+    paddingBottom: 12
+  - name: 'STMP_0016'
+    x: 784
+    y: 1875
+    width: 193
+    height: 173
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 4
+    paddingTop: 15
+    paddingBottom: 12
+  - name: 'STMP_0017'
+    x: 1569
+    y: 1350
+    width: 188
+    height: 174
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 5
+    paddingRight: 7
+    paddingTop: 14
+    paddingBottom: 12
+  - name: 'STMP_0018'
+    x: 1375
+    y: 1525
+    width: 192
+    height: 172
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 5
+    paddingTop: 16
+    paddingBottom: 12
+  - name: 'STMP_0019'
+    x: 979
+    y: 1698
+    width: 195
+    height: 173
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 3
+    paddingTop: 15
+    paddingBottom: 12
+  - name: 'STMP_0020'
+    x: 1375
+    y: 1699
+    width: 195
+    height: 173
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 3
+    paddingTop: 15
+    paddingBottom: 12
+  - name: 'STMP_0021'
+    x: 1572
+    y: 1699
+    width: 195
+    height: 173
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 3
+    paddingTop: 15
+    paddingBottom: 12
+  - name: 'STMP_0022'
+    x: 590
+    y: 1701
+    width: 192
+    height: 173
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 4
+    paddingTop: 15
+    paddingBottom: 12
+  - name: 'STMP_0023'
+    x: 390
+    y: 1699
+    width: 193
+    height: 173
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 4
+    paddingTop: 15
+    paddingBottom: 12
+  - name: 'STMP_0024'
+    x: 590
+    y: 1876
+    width: 192
+    height: 172
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 4
+    paddingTop: 16
+    paddingBottom: 12
+  - name: 'STMP_0025'
+    x: 0
+    y: 1698
+    width: 193
+    height: 173
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 4
+    paddingTop: 15
+    paddingBottom: 12
+  - name: 'STMP_0026'
+    x: 0
+    y: 1873
+    width: 195
+    height: 175
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 4
+    paddingTop: 13
+    paddingBottom: 12
+  - name: 'STMP_0027'
+    x: 0
+    y: 1526
+    width: 193
+    height: 170
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 4
+    paddingTop: 17
+    paddingBottom: 13
+  - name: 'STMP_0028'
+    x: 197
+    y: 1875
+    width: 192
+    height: 173
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 4
+    paddingTop: 15
+    paddingBottom: 12
+  - name: 'STMP_0029'
+    x: 195
+    y: 1525
+    width: 192
+    height: 173
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 4
+    paddingTop: 15
+    paddingBottom: 12
+  - name: 'STMP_0030'
+    x: 197
+    y: 1700
+    width: 191
+    height: 173
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 5
+    paddingTop: 15
+    paddingBottom: 12
+  - name: 'STMP_0031'
+    x: 391
+    y: 1874
+    width: 197
+    height: 174
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 2
+    paddingTop: 13
+    paddingBottom: 13
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
