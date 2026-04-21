@@ -889,3 +889,61 @@ MonoBehaviour:
       autoDestroy: 1
       duration: 1.5
     activateSound: {fileID: 0}
+  - prefabID: 15
+    instanceID: -1
+    icon: {fileID: 0}
+    name: Fusion
+    desp: Item's description
+    srcUnit: {fileID: 0}
+    facID: 0
+    index: 0
+    isUnitAbility: 0
+    isFacAbility: 0
+    type: 2
+    targetType: 4
+    requireTarget: 1
+    requireLos: 1
+    rangeMin: 0
+    range: 5
+    aoeRange: 0
+    useLineAOE: 0
+    fov: 60
+    spawnUnitPrefab: {fileID: 0}
+    obstaclePrefab: {fileID: 0}
+    moveCost: 0
+    attackCost: 0
+    abilityCost: 0
+    apCost: 0
+    endAllActionAfterUse: 0
+    cooldown: 1
+    useLimit: 0
+    impactDelay: 0
+    impactType: 0
+    hpModifierMin: 5
+    hpModifierMax: 5
+    apModifierMin: 5
+    apModifierMax: 5
+    damageType: 0
+    attack: 1
+    hitChance: 1
+    critChance: 0
+    critMultiplier: 2
+    factorInTargetStats: 0
+    effHitChance: 0
+    effectIDList: 
+    clearAllEffect: 0
+    switchFaction: 0
+    switchFacControllable: 1
+    duration: 1
+    useAttackSequence: 0
+    aimAtUnit: 0
+    shootObject: {fileID: 0}
+    effectOnUse:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1.5
+    effectOnHit:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1.5
+    activateSound: {fileID: 0}
