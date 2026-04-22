@@ -34,7 +34,14 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
+    changeFormPrefab: {fileID: 0}
+    requiredCarrierUnit: []
+    changeFormRange: 2
+    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -92,7 +99,14 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
+    changeFormPrefab: {fileID: 0}
+    requiredCarrierUnit: []
+    changeFormRange: 2
+    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -151,7 +165,14 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
+    changeFormPrefab: {fileID: 0}
+    requiredCarrierUnit: []
+    changeFormRange: 2
+    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -210,7 +231,14 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
+    changeFormPrefab: {fileID: 0}
+    requiredCarrierUnit: []
+    changeFormRange: 2
+    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -268,7 +296,14 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
+    changeFormPrefab: {fileID: 0}
+    requiredCarrierUnit: []
+    changeFormRange: 2
+    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -326,7 +361,14 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
+    changeFormPrefab: {fileID: 0}
+    requiredCarrierUnit: []
+    changeFormRange: 2
+    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -385,7 +427,14 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
+    changeFormPrefab: {fileID: 0}
+    requiredCarrierUnit: []
+    changeFormRange: 2
+    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -443,7 +492,14 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
+    changeFormPrefab: {fileID: 0}
+    requiredCarrierUnit: []
+    changeFormRange: 2
+    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -501,7 +557,14 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
+    changeFormPrefab: {fileID: 0}
+    requiredCarrierUnit: []
+    changeFormRange: 2
+    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -559,7 +622,14 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
+    changeFormPrefab: {fileID: 0}
+    requiredCarrierUnit: []
+    changeFormRange: 2
+    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -617,7 +687,14 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
+    changeFormPrefab: {fileID: 0}
+    requiredCarrierUnit: []
+    changeFormRange: 2
+    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -675,7 +752,14 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
+    changeFormPrefab: {fileID: 0}
+    requiredCarrierUnit: []
+    changeFormRange: 2
+    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -733,7 +817,14 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
+    changeFormPrefab: {fileID: 0}
+    requiredCarrierUnit: []
+    changeFormRange: 2
+    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 0
@@ -792,7 +883,14 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 90
     spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
+    changeFormPrefab: {fileID: 0}
+    requiredCarrierUnit: []
+    changeFormRange: 2
+    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -850,8 +948,15 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 6632625420895871307, guid: 90a353cb2bfeee847b82f3e737d1e26e,
       type: 3}
+    changeFormPrefab: {fileID: 0}
+    requiredCarrierUnit: []
+    changeFormRange: 2
+    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 0
@@ -891,7 +996,7 @@ MonoBehaviour:
     activateSound: {fileID: 0}
   - prefabID: 15
     instanceID: -1
-    icon: {fileID: 0}
+    icon: {fileID: 1284255970, guid: 0dd901aa51534c659f29ba1e0428b4da, type: 3}
     name: Fusion
     desp: Item's description
     srcUnit: {fileID: 0}
@@ -899,17 +1004,26 @@ MonoBehaviour:
     index: 0
     isUnitAbility: 0
     isFacAbility: 0
-    type: 2
-    targetType: 4
-    requireTarget: 1
+    type: 3
+    targetType: 3
+    requireTarget: 0
     requireLos: 1
     rangeMin: 0
     range: 5
     aoeRange: 0
     useLineAOE: 0
     fov: 60
-    spawnUnitPrefab: {fileID: 0}
+    spawnUnitPrefab: {fileID: 138327419168182712, guid: 531c22376a0d487985fb37be925d5391,
+      type: 3}
+    requiredUnit:
+    - {fileID: 114322598848009904, guid: 6dcbc074dc251864eb9733f676af35db, type: 3}
+    fusionRange: 2
+    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
+    changeFormPrefab: {fileID: 0}
+    requiredCarrierUnit: []
+    changeFormRange: 2
+    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 0

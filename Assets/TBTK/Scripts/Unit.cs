@@ -696,9 +696,17 @@ namespace TBTK{
 			}
 			
 			yield return CRoutine.Get().StartCoroutine(ability.HitTarget(tgtNode));
-			//AbilityHit(ability, target);
-			
-			if(actionCam && actionCamEnd!=null) yield return StartCoroutine(actionCamEnd());
+            //AbilityHit(ability, target);
+            if (ability.type == Ability._AbilityType.Fusion)
+            {
+                if (node != null && node.unit != this)   // fusion replaced this unit on the node
+                {
+                    UnitManager.UnitDestroyed(this);
+                    Destroy(gameObject);
+                    yield break;
+                }
+            }
+            if (actionCam && actionCamEnd!=null) yield return StartCoroutine(actionCamEnd());
 		}
 		
 		//~ public void AbilityHit(Ability ability, Node target){
@@ -911,6 +919,27 @@ namespace TBTK{
 			return GetDummySO();
 			//return CheckUseMeleeAttack(tgtNode) ? soMelee.gameObject : soRange.gameObject ;
 		}
+
+		IEnumerator MeleeStepRoutine(Node targetNode, bool stepIn, float duration=0.12f){
+			if(targetNode==null || node==null) yield break;
+
+			Vector3 startPos=thisT.position;
+			Vector3 targetPos=node.GetPos();
+
+			Vector3 dir=targetNode.GetPos()-node.GetPos();
+			dir.y=0;
+
+			if(stepIn) targetPos=node.GetPos()+dir*0.5f;
+
+			float t=0f;
+			while(t<1f){
+				t+=Time.deltaTime/duration;
+				thisT.position=Vector3.Lerp(startPos, targetPos, t);
+				yield return null;
+			}
+
+			thisT.position=targetPos;
+		}
 		
 		public IEnumerator AttackRoutine(Node targetNode, bool isCounter=false, bool isOverwatch=false){
 			if(!isOverwatch){
@@ -935,6 +964,9 @@ namespace TBTK{
 			yield return StartCoroutine(AimRoutine(targetNode));
 			
 			bool useMelee=CheckUseMeleeAttack(targetNode);
+			bool useJRPGStep=GameControl.JRPGMode() && useMelee;
+			
+			if(useJRPGStep) yield return StartCoroutine(MeleeStepRoutine(targetNode, true, 0.12f));
 			
 			float attackDelay=AnimPlayAttack(useMelee);		AudioPlayAttack(useMelee);
 			if(attackDelay>0) yield return new WaitForSeconds(attackDelay);
@@ -965,6 +997,8 @@ namespace TBTK{
 			
 			if(waitingForAttackAnimation){ while(waitingForAttackAnimation) yield return null; }
 			else yield return new WaitForSeconds(0.2f);
+			
+			if(useJRPGStep) yield return StartCoroutine(MeleeStepRoutine(targetNode, false, 0.12f));
 			
 			if(turretPivot!=thisT) StartCoroutine(ResetAim());
 			

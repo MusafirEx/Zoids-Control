@@ -7,7 +7,7 @@ namespace TBTK{
 	[System.Serializable]
 	public class Ability : TBTKItem{
 		
-		public enum _AbilityType{ Generic, Teleport, SpawnUnit, Charge, Line, Cone, ScanFogOfWar, DeployBlock, None,  }
+		public enum _AbilityType{ Generic, Teleport, SpawnUnit, Fusion, ChangeForm, Charge, Line, Cone, ScanFogOfWar, DeployBlock, None,  }
 		
 		public enum _TargetType{AllNode, AllUnit, HostileUnit, FriendlyUnit, EmptyNode}
 		public enum _ImpactType{None, Negative, Positive}
@@ -40,11 +40,19 @@ namespace TBTK{
 		//[HideInInspector]
 		public bool TargetStraightLineOnly(){ return type==_AbilityType.Charge | type==_AbilityType.Line; }
 		public bool TargetCone(){ return type==_AbilityType.Cone; }
-		
-		public Unit spawnUnitPrefab;
-		public GameObject obstaclePrefab;
-		
-		public int moveCost;
+
+        public Unit spawnUnitPrefab;
+        public Unit[] requiredUnit;
+        public int fusionRange = 2;
+        public bool fusionUseMainNode = true;
+        public GameObject obstaclePrefab;
+
+        public Unit changeFormPrefab;
+        public Unit[] requiredCarrierUnit;
+        public int changeFormRange = 2;
+        public bool changeFormUseMainNode = true;
+
+        public int moveCost;
 		public int attackCost;
 		public int abilityCost;
 		public int apCost;
@@ -173,68 +181,249 @@ namespace TBTK{
 			if(impactDelay>0) yield return new WaitForSeconds(impactDelay);
 			
 			Debug.Log("HitTarget "+type+"   "+obstaclePrefab);
-			
-			if(type==_AbilityType.Generic){
+
+			if (type == _AbilityType.Generic)
+			{
 				//Debug.Log(!isUnitAbility +"   "+ !requireTarget);
-				if(!isUnitAbility && !requireTarget){	//faction ability that doesn't require target will get all valid target on the grid
-					List<Node> nodeList=GridManager.GetTargetNodeForNonTargetingFAbility(this);
+				if (!isUnitAbility && !requireTarget)
+				{   //faction ability that doesn't require target will get all valid target on the grid
+					List<Node> nodeList = GridManager.GetTargetNodeForNonTargetingFAbility(this);
 					//Debug.Log("  "+nodeList.Count);
-					for(int i=0; i<nodeList.Count; i++){
-						
+					for (int i = 0; i < nodeList.Count; i++)
+					{
+
 						nodeList[i].unit.ApplyAttack(this);
 						effectOnHit.Spawn(nodeList[i].GetPos());
 					}
 				}
-				else{
-					int aoe=GetAOE();
-					if(aoe<=0){
-						if(node.unit!=null) node.unit.ApplyAttack(this);
+				else
+				{
+					int aoe = GetAOE();
+					if (aoe <= 0)
+					{
+						if (node.unit != null) node.unit.ApplyAttack(this);
 					}
-					else{
-						List<Node> nodeList=GridManager.GetNodesWithinDistance(node, aoe);
+					else
+					{
+						List<Node> nodeList = GridManager.GetNodesWithinDistance(node, aoe);
 						nodeList.Add(node);
-						
-						for(int i=0; i<nodeList.Count; i++){
-							if(nodeList[i].unit==null) continue; 
-							
-							if(targetType==Ability._TargetType.AllUnit){
+
+						for (int i = 0; i < nodeList.Count; i++)
+						{
+							if (nodeList[i].unit == null) continue;
+
+							if (targetType == Ability._TargetType.AllUnit)
+							{
 								nodeList[i].unit.ApplyAttack(this);
 							}
-							else if(targetType==Ability._TargetType.HostileUnit){
-								if(nodeList[i].unit.GetFacID()!=facID) nodeList[i].unit.ApplyAttack(this);
+							else if (targetType == Ability._TargetType.HostileUnit)
+							{
+								if (nodeList[i].unit.GetFacID() != facID) nodeList[i].unit.ApplyAttack(this);
 							}
-							else if(targetType==Ability._TargetType.FriendlyUnit){
-								if(nodeList[i].unit.GetFacID()==facID) nodeList[i].unit.ApplyAttack(this);
+							else if (targetType == Ability._TargetType.FriendlyUnit)
+							{
+								if (nodeList[i].unit.GetFacID() == facID) nodeList[i].unit.ApplyAttack(this);
 							}
 						}
 					}
 				}
 			}
-			else if(type==_AbilityType.Teleport){
-				if(srcUnit!=null){
-					srcUnit.node.unit=null;
-					srcUnit.node=node;
-					srcUnit.node.unit=srcUnit;
-					srcUnit.GetT().position=node.GetPos();
-					
+			else if (type == _AbilityType.Teleport)
+			{
+				if (srcUnit != null)
+				{
+					srcUnit.node.unit = null;
+					srcUnit.node = node;
+					srcUnit.node.unit = srcUnit;
+					srcUnit.GetT().position = node.GetPos();
+
 					GridManager.SetupFogOfWar();
 					UnitManager.CheckAITrigger(srcUnit);
-					if(node.collectible!=null) yield return srcUnit.StartCoroutine(node.collectible.Trigger(srcUnit));
+					if (node.collectible != null) yield return srcUnit.StartCoroutine(node.collectible.Trigger(srcUnit));
 				}
 			}
-			else if(type==_AbilityType.SpawnUnit){
-				if(spawnUnitPrefab!=null){
-					GameObject obj=(GameObject)MonoBehaviour.Instantiate(spawnUnitPrefab.gameObject, node.GetPos(), Quaternion.identity);
-					Unit unit=obj.GetComponent<Unit>();
-					unit.node=node;	node.unit=unit;
-					unit.hp=unit.GetFullHP();
-					UnitManager.AddUnit(unit, srcUnit!=null ? srcUnit.GetFacID() : facID);
-					
+			else if (type == _AbilityType.SpawnUnit)
+			{
+				if (spawnUnitPrefab != null)
+				{
+					GameObject obj = (GameObject)MonoBehaviour.Instantiate(spawnUnitPrefab.gameObject, node.GetPos(), Quaternion.identity);
+					Unit unit = obj.GetComponent<Unit>();
+					unit.node = node; node.unit = unit;
+					unit.hp = unit.GetFullHP();
+					UnitManager.AddUnit(unit, srcUnit != null ? srcUnit.GetFacID() : facID);
+
 					GridManager.SetupFogOfWar();
 				}
 				else Debug.Log("No unit prefab has been assigned!!");
 			}
-			else if(type==_AbilityType.Charge){
+			else if (type == _AbilityType.Fusion)
+			{
+				if (srcUnit == null)
+				{
+					Debug.Log("Fusion ability requires a source unit");
+				}
+				else if (spawnUnitPrefab == null)
+				{
+					Debug.Log("No fusion result unit prefab has been assigned!!");
+				}
+				else
+				{
+					List<Unit> fusionList = new List<Unit>();
+					bool validFusion = true;
+
+					if (requiredUnit == null || requiredUnit.Length == 0)
+					{
+						Debug.Log("No required fusion units assigned");
+						validFusion = false;
+					}
+					else
+					{
+						List<Unit> nearbyUnits = UnitManager.GetAllFriendlyUnits(srcUnit.GetFacID());
+
+						for (int i = 0; i < requiredUnit.Length; i++)
+						{
+							Unit req = requiredUnit[i];
+							if (req == null) { validFusion = false; break; }
+
+							Unit matched = null;
+
+							for (int n = 0; n < nearbyUnits.Count; n++)
+							{
+								Unit cand = nearbyUnits[n];
+								if (cand == null) continue;
+								if (cand == srcUnit) continue;
+								if (fusionList.Contains(cand)) continue;
+								if (cand.prefabID != req.prefabID) continue;
+								if (GridManager.GetDistance(srcUnit.node, cand.node) > fusionRange) continue;
+
+								matched = cand;
+								break;
+							}
+
+							if (matched != null) fusionList.Add(matched);
+							else
+							{
+								validFusion = false;
+								break;
+							}
+						}
+					}
+
+					if (!validFusion)
+					{
+						Debug.Log("Fusion requirement not met");
+					}
+					else
+					{
+						float hpRatio = 1f;
+						if (srcUnit != null && srcUnit.GetFullHP() > 0) hpRatio = srcUnit.hp / srcUnit.GetFullHP();
+						hpRatio = Mathf.Clamp01(hpRatio);
+						Node spawnNode = fusionUseMainNode ? srcUnit.node : node;
+
+						// remove sub units
+						for (int i = 0; i < fusionList.Count; i++)
+						{
+							Unit fu = fusionList[i];
+							if (fu == null) continue;
+
+							if (fu.node != null) fu.node.unit = null;
+							UnitManager.UnitDestroyed(fu);
+							MonoBehaviour.Destroy(fu.gameObject);
+						}
+
+						// remove main unit
+						// clear main unit from node first, but DO NOT destroy here
+						if (srcUnit.node != null) srcUnit.node.unit = null;
+
+						Quaternion spawnRot = srcUnit != null ? srcUnit.transform.rotation : Quaternion.identity;
+						GameObject obj = (GameObject)MonoBehaviour.Instantiate(spawnUnitPrefab.gameObject, spawnNode.GetPos(), spawnRot);
+						Unit unit = obj.GetComponent<Unit>();
+
+						unit.node = spawnNode;
+						spawnNode.unit = unit;
+
+						unit.hp = unit.GetFullHP() * hpRatio;
+						if (unit.hp < 1) unit.hp = 1;
+
+						UnitManager.AddUnit(unit, facID);
+						GridManager.SetupFogOfWar();
+					}
+				}
+			}
+            else if (type == _AbilityType.ChangeForm)
+            {
+                if (srcUnit == null)
+                {
+                    Debug.Log("ChangeForm ability requires a source unit");
+                }
+                else if (changeFormPrefab == null)
+                {
+                    Debug.Log("No ChangeForm result unit prefab has been assigned!!");
+                }
+                else
+                {
+                    bool validCarrier = false;
+
+                    if (requiredCarrierUnit == null || requiredCarrierUnit.Length == 0)
+                    {
+                        validCarrier = true;
+                    }
+                    else
+                    {
+                        List<Unit> nearbyUnits = UnitManager.GetAllFriendlyUnits(srcUnit.GetFacID());
+
+                        for (int i = 0; i < requiredCarrierUnit.Length; i++)
+                        {
+                            Unit req = requiredCarrierUnit[i];
+                            if (req == null) continue;
+
+                            for (int n = 0; n < nearbyUnits.Count; n++)
+                            {
+                                Unit cand = nearbyUnits[n];
+                                if (cand == null) continue;
+                                if (cand == srcUnit) continue;
+                                if (cand.prefabID != req.prefabID) continue;
+                                if (GridManager.GetDistance(srcUnit.node, cand.node) > changeFormRange) continue;
+
+                                validCarrier = true;
+                                break;
+                            }
+
+                            if (validCarrier) break;
+                        }
+                    }
+
+                    if (!validCarrier)
+                    {
+                        Debug.Log("ChangeForm carrier requirement not met");
+                    }
+                    else
+                    {
+                        float hpRatio = 1f;
+                        if (srcUnit != null && srcUnit.GetFullHP() > 0) hpRatio = srcUnit.hp / srcUnit.GetFullHP();
+                        hpRatio = Mathf.Clamp01(hpRatio);
+
+                        Node spawnNode = changeFormUseMainNode ? srcUnit.node : node;
+
+                        // clear current unit from node first, but DO NOT destroy here
+                        if (srcUnit.node != null) srcUnit.node.unit = null;
+
+                        Quaternion spawnRot = srcUnit != null ? srcUnit.transform.rotation : Quaternion.identity;
+                        GameObject obj = (GameObject)MonoBehaviour.Instantiate(changeFormPrefab.gameObject, spawnNode.GetPos(), spawnRot);
+                        Unit unit = obj.GetComponent<Unit>();
+
+                        unit.node = spawnNode;
+                        spawnNode.unit = unit;
+
+                        unit.hp = unit.GetFullHP() * hpRatio;
+                        if (unit.hp < 1) unit.hp = 1;
+
+                        UnitManager.AddUnit(unit, facID);
+                        GridManager.SetupFogOfWar();
+                    }
+                }
+            }
+            else if (type==_AbilityType.Charge){
 				if(node.unit!=null){
 					float wantedAngle=GridManager.GetAngle(srcUnit.node, node, true);	
 					float tgtDist=GridManager.GetDistance(srcUnit.node, node);
@@ -393,12 +582,21 @@ namespace TBTK{
 			clone.requireTarget=requireTarget;		clone.requireLos=requireLos;
 			clone.rangeMin=rangeMin;					clone.range=range;							clone.aoeRange=aoeRange;		
 			clone.fov=fov;
-			
-			
-			clone.spawnUnitPrefab=spawnUnitPrefab;
-			clone.obstaclePrefab=obstaclePrefab;
-			
-			clone.moveCost=moveCost;				clone.attackCost=attackCost;			clone.abilityCost=abilityCost;
+
+
+            clone.spawnUnitPrefab = spawnUnitPrefab;
+            clone.requiredUnit = requiredUnit != null ? (Unit[])requiredUnit.Clone() : null;
+            clone.fusionRange = fusionRange;
+            clone.fusionUseMainNode = fusionUseMainNode;
+
+            clone.changeFormPrefab = changeFormPrefab;
+            clone.requiredCarrierUnit = requiredCarrierUnit != null ? (Unit[])requiredCarrierUnit.Clone() : null;
+            clone.changeFormRange = changeFormRange;
+            clone.changeFormUseMainNode = changeFormUseMainNode;
+
+            clone.obstaclePrefab = obstaclePrefab;
+
+            clone.moveCost=moveCost;				clone.attackCost=attackCost;			clone.abilityCost=abilityCost;
 			clone.apCost=apCost;						clone.endAllActionAfterUse=endAllActionAfterUse;
 			
 			clone.duration=duration;					clone.cooldown=cooldown;				clone.useLimit=useLimit;

@@ -642,8 +642,8 @@ MonoBehaviour:
     unitList: []
     startingUnitList:
     - {fileID: -4354197186803466328, guid: 0bfcf0484c3744ce8069618274ccfe3b, type: 3}
-    - {fileID: 114787873077125108, guid: 537a2b3652b2cb34faca747e1ce67af6, type: 3}
-    - {fileID: 114322598848009904, guid: 6dcbc074dc251864eb9733f676af35db, type: 3}
+    - {fileID: -4354197186803466328, guid: 0bfcf0484c3744ce8069618274ccfe3b, type: 3}
+    - {fileID: -4354197186803466328, guid: 0bfcf0484c3744ce8069618274ccfe3b, type: 3}
     deployingList: []
     spawnGroupList: []
     loadFromData: 0
@@ -665,9 +665,9 @@ MonoBehaviour:
     playableFaction: 0
     unitList: []
     startingUnitList:
-    - {fileID: 114904674234582632, guid: 177b6235ef0c3104ea4e8cdeeb3e199e, type: 3}
-    - {fileID: 114122694663183878, guid: f3f716372a226654eade41c7d4769756, type: 3}
-    - {fileID: 114944698017459950, guid: 1c60e5d835c866f4faa30b30d42e5fc0, type: 3}
+    - {fileID: 138327419168182712, guid: 531c22376a0d487985fb37be925d5391, type: 3}
+    - {fileID: 138327419168182712, guid: 531c22376a0d487985fb37be925d5391, type: 3}
+    - {fileID: 138327419168182712, guid: 531c22376a0d487985fb37be925d5391, type: 3}
     deployingList: []
     spawnGroupList: []
     loadFromData: 0
@@ -1100,6 +1100,7 @@ MonoBehaviour:
   coverDodgeBonus: 0.25
   enableSideStepping: 0
   enableFogOfWar: 0
+  jrpgMode: 1
   actionInProgress: 0
   gameOver: 0
   winningFac:
@@ -1186,7 +1187,7 @@ MonoBehaviour:
   scrollCursorDrag: 1
   scrollCursorOnEdge: 0
   scrollCursorOnEdgeTH: 10
-  avoidClipping: 1
+  avoidClipping: 0
   scrollSpeed: 5
   zoomSpeed: 5
   rotateSpeed: 0.5
@@ -1203,7 +1204,7 @@ MonoBehaviour:
   smoothTime: 1
   enableActionCam: 1
   actionCamFreqAttack: 1
-  actionCamFreqAbility: 1
+  actionCamFreqAbility: 0
   linkPanLimitToZoom: 0
   limitExtX_ZOut: 10
   limitExtZ_ZOut: 10
@@ -12449,6 +12450,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.00021362305
       objectReference: {fileID: 0}
+    - target: {fileID: 224744072066355420, guid: 6dc42b5f4c9e8e94b973c3b563b9724f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 224780279845913162, guid: 6dc42b5f4c9e8e94b973c3b563b9724f,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -12473,6 +12479,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224786979814596122, guid: 6dc42b5f4c9e8e94b973c3b563b9724f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 40.19995
       objectReference: {fileID: 0}
     - target: {fileID: 224791179729564492, guid: 6dc42b5f4c9e8e94b973c3b563b9724f,
         type: 3}

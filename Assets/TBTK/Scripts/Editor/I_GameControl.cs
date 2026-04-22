@@ -110,6 +110,8 @@ namespace TBTK{
 					
 					cont=new GUIContent("Enable Fog-of-War:", "Check to enable fog-of-war");
 					instance.enableFogOfWar=EditorGUILayout.Toggle(cont, instance.enableFogOfWar);
+					cont=new GUIContent("JRPG Mode:", "Enable JRPG-style melee step forward and back");
+					instance.jrpgMode=EditorGUILayout.Toggle(cont, instance.jrpgMode);
 					
 					cont=new GUIContent("Enable Cover System:", "Check to have obstacle and wall provide cover bonus to adjacent unit");
 					instance.enableCoverSystem=EditorGUILayout.Toggle(cont, instance.enableCoverSystem);
