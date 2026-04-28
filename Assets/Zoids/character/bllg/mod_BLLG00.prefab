@@ -842,8 +842,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 2.5, y: 0, z: 1.75}
   m_LocalScale: {x: 83, y: 83, z: 83}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -894,25 +894,25 @@ MonoBehaviour:
   thisT: {fileID: 0}
   thisObj: {fileID: 0}
   node:
-    idx: 0
-    idxX: 0
-    idxZ: 0
+    idx: 8
+    idxX: 2
+    idxZ: 2
     x: 0
     y: 0
     z: 0
     objT: {fileID: 0}
     rend: {fileID: 0}
-    walkable: 0
+    walkable: 1
     cost: 0
-    pos: {x: 0, y: 0, z: 0}
+    pos: {x: 3.5, y: 0, z: 2.75}
     obstacleT: {fileID: 0}
-    unit: {fileID: 0}
+    unit: {fileID: 138327419168182712}
     collectible: {fileID: 0}
     wallList: []
     coverList: 
-    deployFacID: 0
-    spawnGroupFacID: 0
-    spawnGroupID: 0
+    deployFacID: 1
+    spawnGroupFacID: -1
+    spawnGroupID: -1
     scoreG: 0
     scoreH: 0
     scoreF: 0

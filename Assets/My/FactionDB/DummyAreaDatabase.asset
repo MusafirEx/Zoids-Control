@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80719340e47dd014f85966c062802bca, type: 3}
+  m_Name: DummyAreaDatabase
+  m_EditorClassIdentifier: 
+  areas:
+  - areaId: 0
+    areaName: Desert Test
+    isNaturalArea: 1
+    battleType: AreaBattle
+    environmentPrefab: {fileID: 291, guid: ac70abf0d0cb425abd49f9d33bd4484a, type: 3}
+    enemyFactionId: 1
+    enemyFactionName: Wild
+    enemyUnitIds: 120000001200000012000000
+  - areaId: 1
+    areaName: Forest
+    isNaturalArea: 1
+    battleType: AreaBattle
+    environmentPrefab: {fileID: 325, guid: d401eaa7ff1c42f99a3778de616aaa7a, type: 3}
+    enemyFactionId: 1
+    enemyFactionName: Wild
+    enemyUnitIds: 130000001300000013000000
+  - areaId: 0
+    areaName: Forest
+    isNaturalArea: 1
+    battleType: owned area test
+    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    enemyFactionId: 1
+    enemyFactionName: maybe Aurek Dominion
+    enemyUnitIds: 120000001300000014000000

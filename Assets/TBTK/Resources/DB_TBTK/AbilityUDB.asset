@@ -17,8 +17,7 @@ MonoBehaviour:
     instanceID: 0
     icon: {fileID: 21300102, guid: 829675e3673863042b49e7db0431f3e3, type: 3}
     name: Super Shot
-    desp: Fire an unstoppable that shoot through all units in a line, doing 5-10
-      damage.
+    desp: Fire an unstoppable that shoot through all units in a line, doing 5-10 damage.
     srcUnit: {fileID: 0}
     facID: 0
     index: 0
@@ -34,14 +33,7 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
-    requiredUnit: []
-    fusionRange: 2
-    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
-    changeFormPrefab: {fileID: 0}
-    requiredCarrierUnit: []
-    changeFormRange: 2
-    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -99,14 +91,7 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
-    requiredUnit: []
-    fusionRange: 2
-    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
-    changeFormPrefab: {fileID: 0}
-    requiredCarrierUnit: []
-    changeFormRange: 2
-    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -165,14 +150,7 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
-    requiredUnit: []
-    fusionRange: 2
-    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
-    changeFormPrefab: {fileID: 0}
-    requiredCarrierUnit: []
-    changeFormRange: 2
-    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -231,14 +209,7 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
-    requiredUnit: []
-    fusionRange: 2
-    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
-    changeFormPrefab: {fileID: 0}
-    requiredCarrierUnit: []
-    changeFormRange: 2
-    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -296,14 +267,7 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
-    requiredUnit: []
-    fusionRange: 2
-    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
-    changeFormPrefab: {fileID: 0}
-    requiredCarrierUnit: []
-    changeFormRange: 2
-    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -361,14 +325,7 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
-    requiredUnit: []
-    fusionRange: 2
-    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
-    changeFormPrefab: {fileID: 0}
-    requiredCarrierUnit: []
-    changeFormRange: 2
-    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -410,8 +367,8 @@ MonoBehaviour:
     instanceID: 0
     icon: {fileID: 21300106, guid: 829675e3673863042b49e7db0431f3e3, type: 3}
     name: DOT Debuff
-    desp: Apply a debuff on the target, dealing 1 damage over 4 turns and reduce
-      its attack by 30%
+    desp: Apply a debuff on the target, dealing 1 damage over 4 turns and reduce its
+      attack by 30%
     srcUnit: {fileID: 0}
     facID: 0
     index: 0
@@ -427,14 +384,7 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
-    requiredUnit: []
-    fusionRange: 2
-    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
-    changeFormPrefab: {fileID: 0}
-    requiredCarrierUnit: []
-    changeFormRange: 2
-    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -492,14 +442,7 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
-    requiredUnit: []
-    fusionRange: 2
-    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
-    changeFormPrefab: {fileID: 0}
-    requiredCarrierUnit: []
-    changeFormRange: 2
-    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -557,14 +500,7 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
-    requiredUnit: []
-    fusionRange: 2
-    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
-    changeFormPrefab: {fileID: 0}
-    requiredCarrierUnit: []
-    changeFormRange: 2
-    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -622,14 +558,7 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
-    requiredUnit: []
-    fusionRange: 2
-    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
-    changeFormPrefab: {fileID: 0}
-    requiredCarrierUnit: []
-    changeFormRange: 2
-    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -687,14 +616,7 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
-    requiredUnit: []
-    fusionRange: 2
-    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
-    changeFormPrefab: {fileID: 0}
-    requiredCarrierUnit: []
-    changeFormRange: 2
-    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -752,14 +674,7 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
-    requiredUnit: []
-    fusionRange: 2
-    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
-    changeFormPrefab: {fileID: 0}
-    requiredCarrierUnit: []
-    changeFormRange: 2
-    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -817,14 +732,7 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
-    requiredUnit: []
-    fusionRange: 2
-    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
-    changeFormPrefab: {fileID: 0}
-    requiredCarrierUnit: []
-    changeFormRange: 2
-    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 0
@@ -866,8 +774,7 @@ MonoBehaviour:
     instanceID: 0
     icon: {fileID: 21300102, guid: 829675e3673863042b49e7db0431f3e3, type: 3}
     name: Super Shot Cone
-    desp: Fire an unstoppable that shoot through all units in a line, doing 5-10
-      damage.
+    desp: Fire an unstoppable that shoot through all units in a line, doing 5-10 damage.
     srcUnit: {fileID: 0}
     facID: 0
     index: 0
@@ -883,14 +790,7 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 90
     spawnUnitPrefab: {fileID: 0}
-    requiredUnit: []
-    fusionRange: 2
-    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 0}
-    changeFormPrefab: {fileID: 0}
-    requiredCarrierUnit: []
-    changeFormRange: 2
-    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 1
@@ -948,82 +848,8 @@ MonoBehaviour:
     useLineAOE: 0
     fov: 60
     spawnUnitPrefab: {fileID: 0}
-    requiredUnit: []
-    fusionRange: 2
-    fusionUseMainNode: 1
     obstaclePrefab: {fileID: 6632625420895871307, guid: 90a353cb2bfeee847b82f3e737d1e26e,
       type: 3}
-    changeFormPrefab: {fileID: 0}
-    requiredCarrierUnit: []
-    changeFormRange: 2
-    changeFormUseMainNode: 1
-    moveCost: 0
-    attackCost: 0
-    abilityCost: 0
-    apCost: 0
-    endAllActionAfterUse: 0
-    cooldown: 1
-    useLimit: 0
-    impactDelay: 0
-    impactType: 0
-    hpModifierMin: 5
-    hpModifierMax: 5
-    apModifierMin: 5
-    apModifierMax: 5
-    damageType: 0
-    attack: 1
-    hitChance: 1
-    critChance: 0
-    critMultiplier: 2
-    factorInTargetStats: 0
-    effHitChance: 0
-    effectIDList: 
-    clearAllEffect: 0
-    switchFaction: 0
-    switchFacControllable: 1
-    duration: 1
-    useAttackSequence: 0
-    aimAtUnit: 0
-    shootObject: {fileID: 0}
-    effectOnUse:
-      obj: {fileID: 0}
-      autoDestroy: 1
-      duration: 1.5
-    effectOnHit:
-      obj: {fileID: 0}
-      autoDestroy: 1
-      duration: 1.5
-    activateSound: {fileID: 0}
-  - prefabID: 15
-    instanceID: -1
-    icon: {fileID: 1284255970, guid: 0dd901aa51534c659f29ba1e0428b4da, type: 3}
-    name: Fusion
-    desp: Item's description
-    srcUnit: {fileID: 0}
-    facID: 0
-    index: 0
-    isUnitAbility: 0
-    isFacAbility: 0
-    type: 3
-    targetType: 3
-    requireTarget: 0
-    requireLos: 1
-    rangeMin: 0
-    range: 5
-    aoeRange: 0
-    useLineAOE: 0
-    fov: 60
-    spawnUnitPrefab: {fileID: 138327419168182712, guid: 531c22376a0d487985fb37be925d5391,
-      type: 3}
-    requiredUnit:
-    - {fileID: 114322598848009904, guid: 6dcbc074dc251864eb9733f676af35db, type: 3}
-    fusionRange: 2
-    fusionUseMainNode: 1
-    obstaclePrefab: {fileID: 0}
-    changeFormPrefab: {fileID: 0}
-    requiredCarrierUnit: []
-    changeFormRange: 2
-    changeFormUseMainNode: 1
     moveCost: 0
     attackCost: 0
     abilityCost: 0

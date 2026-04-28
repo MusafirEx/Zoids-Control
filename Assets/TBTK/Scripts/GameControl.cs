@@ -61,8 +61,6 @@ namespace TBTK{
 		public bool enableFogOfWar;
 		public static bool EnableFogOfWar(){ return instance!=null ? instance.enableFogOfWar : false; }
 		
-		public bool jrpgMode=false;
-		public static bool JRPGMode(){ return instance!=null ? instance.jrpgMode : false; }
 		
 		public static GameControl instance;
 		

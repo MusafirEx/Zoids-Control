@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e64c6ebb64f6943b47414cccc8af0a, type: 3}
+  m_Name: FactionStarterDatabase
+  m_EditorClassIdentifier: 
+  factions:
+  - factionId: 0
+    factionName: Aurek Dominion
+    starterUnitIds: 13000000
+    starterOwnedCountPerUnit: 1
+    starterTeamName: Aurek Starter
+  - factionId: 1
+    factionName: Veydran Collective
+    starterUnitIds: 13000000
+    starterOwnedCountPerUnit: 1
+    starterTeamName: Veydran Starter
+  - factionId: 2
+    factionName: Kharvoss Starter
+    starterUnitIds: 
+    starterOwnedCountPerUnit: 1
+    starterTeamName: Kharvoss Covenant
+  - factionId: 3
+    factionName: Musafir Conclave / Nocteris Syndicate
+    starterUnitIds: 
+    starterOwnedCountPerUnit: 1
+    starterTeamName: Musafir Starter

@@ -51,9 +51,7 @@ namespace TBTK {
 				abTypeLabel[i]=type.ToString();
 				if(type==Ability._AbilityType.Generic)		abTypeTooltip[i]="Generic Ability";
 				if(type==Ability._AbilityType.SpawnUnit)	abTypeTooltip[i]="The ability will spawn a new unit on a specific node on the grid";
-                if (type == Ability._AbilityType.Fusion) abTypeTooltip[i] = "The ability Fuse with one or more zoids";
-                if (type == Ability._AbilityType.ChangeForm) abTypeTooltip[i] = "Replace the current unit with another form when near a valid carrier";
-                if (type==Ability._AbilityType.Teleport)	abTypeTooltip[i]="Unit Only - The ability will teleport a specific unit to a specific node on the grid";
+				if(type==Ability._AbilityType.Teleport)	abTypeTooltip[i]="Unit Only - The ability will teleport a specific unit to a specific node on the grid";
 				if(type==Ability._AbilityType.Charge)		abTypeTooltip[i]="Unit Only - The ability enable unit to target a specific direction and move along it.\nThe ability will still applies the generic effect towards the valid unit at the end of the path";
 				if(type==Ability._AbilityType.Line)			abTypeTooltip[i]="Unit Only - The ability enable unit to target and attack a specific direction.\nThe ability will still applies the generic effect towards the all the valid unit along that direction";
 				if(type==Ability._AbilityType.Cone)		abTypeTooltip[i]="Unit Only - The ability enable unit to target and attack a conical shape area.\nThe ability will still applies the generic effect towards the all the valid unit along that direction";
@@ -302,104 +300,26 @@ namespace TBTK {
 					TBE.Label(startX, startY+=spaceY, width, height, "Impact Delay:", "The delay in second before any effect is actually being applied to the target\nThis is for any visual effect (if there's any) to play out");
 					item.impactDelay=EditorGUI.DelayedFloatField(new Rect(startX+spaceX, startY, widthS, height), item.impactDelay);
 					
-					if(item.type==Ability._AbilityType.None)
-				{
-
-				}
-				if (item.type == Ability._AbilityType.SpawnUnit)
-				{
-					item.requireTarget = true;
-					item.targetType = Ability._TargetType.EmptyNode;
-					item.useAttackSequence = false;
-
-					//GUIStyle styleSO=item.spawnUnitPrefab==null ? TBE.conflictS : null;
-					//TBE.Label(startX, startY+=spaceY, width, height, "Spawn Unit:", "", styleSO);
-					//item.spawnUnitPrefab=(Unit)EditorGUI.ObjectField(new Rect(startX+spaceX, startY, width, height), item.spawnUnitPrefab, typeof(Unit), true);
-
-					TBE.Label(startX, startY += spaceY, width, height, "Unit To Spawn:", "The unit prefab to spawn when the ability is used");
-					int unitIdx = UnitDB.GetPrefabIndex(item.spawnUnitPrefab);
-					unitIdx = EditorGUI.Popup(new Rect(startX + spaceX, startY, width, height), unitIdx, UnitDB.label);
-					item.spawnUnitPrefab = unitIdx >= 0 ? UnitDB.GetItem(unitIdx) : null;
-
-					if (GUI.Button(new Rect(startX + spaceX + width + 3, startY, height, height), "-")) item.spawnUnitPrefab = null;
-				}
-                if (item.type == Ability._AbilityType.Fusion)
-                {
-                    item.requireTarget = false;
-                    item.targetType = Ability._TargetType.FriendlyUnit;
-                    item.useAttackSequence = false;
-
-                    TBE.Label(startX, startY += spaceY, width, height, "Fusion Result:", "The fused unit prefab to spawn");
-                    int fusionIdx = UnitDB.GetPrefabIndex(item.spawnUnitPrefab);
-                    fusionIdx = EditorGUI.Popup(new Rect(startX + spaceX, startY, width, height), fusionIdx, UnitDB.label);
-                    item.spawnUnitPrefab = fusionIdx >= 0 ? UnitDB.GetItem(fusionIdx) : null;
-
-                    if (GUI.Button(new Rect(startX + spaceX + width + 3, startY, height, height), "-")) item.spawnUnitPrefab = null;
-
-                    TBE.Label(startX, startY += spaceY, width, height, "Fusion Range:", "Required sub-units must be within this range from main unit");
-                    item.fusionRange = EditorGUI.DelayedIntField(new Rect(startX + spaceX, startY, widthS, height), item.fusionRange);
-
-                    TBE.Label(startX, startY += spaceY, width, height, "Use Main Node:", "Spawn fused unit on main unit node");
-                    item.fusionUseMainNode = EditorGUI.Toggle(new Rect(startX + spaceX, startY, widthS, height), item.fusionUseMainNode);
-
-                    TBE.Label(startX, startY += spaceY, width, height, "Required Units:", "Exact units required for fusion");
-                    if (item.requiredUnit == null) item.requiredUnit = new Unit[0];
-
-                    int newCount = Mathf.Max(0, EditorGUI.DelayedIntField(new Rect(startX + spaceX, startY, widthS, height), item.requiredUnit.Length));
-                    if (newCount != item.requiredUnit.Length)
-                    {
-                        Unit[] newArray = new Unit[newCount];
-                        for (int i = 0; i < Mathf.Min(item.requiredUnit.Length, newCount); i++) newArray[i] = item.requiredUnit[i];
-                        item.requiredUnit = newArray;
-                    }
-
-                    for (int i = 0; i < item.requiredUnit.Length; i++)
-                    {
-                        TBE.Label(startX, startY += spaceY, width, height, " - Required " + (i + 1) + ":", "");
-                        int reqIdx = UnitDB.GetPrefabIndex(item.requiredUnit[i]);
-                        reqIdx = EditorGUI.Popup(new Rect(startX + spaceX, startY, width, height), reqIdx, UnitDB.label);
-                        item.requiredUnit[i] = reqIdx >= 0 ? UnitDB.GetItem(reqIdx) : null;
-                    }
-                }
-                if (item.type == Ability._AbilityType.ChangeForm)
-                {
-                    item.requireTarget = false;
-                    item.targetType = Ability._TargetType.FriendlyUnit;
-                    item.useAttackSequence = false;
-
-                    TBE.Label(startX, startY += spaceY, width, height, "ChangeForm Result:", "The unit prefab to spawn as the new form");
-                    int cfIdx = UnitDB.GetPrefabIndex(item.changeFormPrefab);
-                    cfIdx = EditorGUI.Popup(new Rect(startX + spaceX, startY, width, height), cfIdx, UnitDB.label);
-                    item.changeFormPrefab = cfIdx >= 0 ? UnitDB.GetItem(cfIdx) : null;
-
-                    if (GUI.Button(new Rect(startX + spaceX + width + 3, startY, height, height), "-")) item.changeFormPrefab = null;
-
-                    TBE.Label(startX, startY += spaceY, width, height, "ChangeForm Range:", "Required carrier must be within this range from current unit");
-                    item.changeFormRange = EditorGUI.DelayedIntField(new Rect(startX + spaceX, startY, widthS, height), item.changeFormRange);
-
-                    TBE.Label(startX, startY += spaceY, width, height, "Use Main Node:", "Spawn changed form on current unit node");
-                    item.changeFormUseMainNode = EditorGUI.Toggle(new Rect(startX + spaceX, startY, widthS, height), item.changeFormUseMainNode);
-
-                    TBE.Label(startX, startY += spaceY, width, height, "Required Carrier Units:", "Any one matching nearby carrier is enough");
-                    if (item.requiredCarrierUnit == null) item.requiredCarrierUnit = new Unit[0];
-
-                    int newCount = Mathf.Max(0, EditorGUI.DelayedIntField(new Rect(startX + spaceX, startY, widthS, height), item.requiredCarrierUnit.Length));
-                    if (newCount != item.requiredCarrierUnit.Length)
-                    {
-                        Unit[] newArray = new Unit[newCount];
-                        for (int i = 0; i < Mathf.Min(item.requiredCarrierUnit.Length, newCount); i++) newArray[i] = item.requiredCarrierUnit[i];
-                        item.requiredCarrierUnit = newArray;
-                    }
-
-                    for (int i = 0; i < item.requiredCarrierUnit.Length; i++)
-                    {
-                        TBE.Label(startX, startY += spaceY, width, height, " - Carrier " + (i + 1) + ":", "");
-                        int reqIdx = UnitDB.GetPrefabIndex(item.requiredCarrierUnit[i]);
-                        reqIdx = EditorGUI.Popup(new Rect(startX + spaceX, startY, width, height), reqIdx, UnitDB.label);
-                        item.requiredCarrierUnit[i] = reqIdx >= 0 ? UnitDB.GetItem(reqIdx) : null;
-                    }
-                }
-                if (item.type==Ability._AbilityType.DeployBlock){
+					if(item.type==Ability._AbilityType.None){
+						
+					}
+					if(item.type==Ability._AbilityType.SpawnUnit){
+						item.requireTarget=true;
+						item.targetType=Ability._TargetType.EmptyNode;
+						item.useAttackSequence=false;
+						
+						//GUIStyle styleSO=item.spawnUnitPrefab==null ? TBE.conflictS : null;
+						//TBE.Label(startX, startY+=spaceY, width, height, "Spawn Unit:", "", styleSO);
+						//item.spawnUnitPrefab=(Unit)EditorGUI.ObjectField(new Rect(startX+spaceX, startY, width, height), item.spawnUnitPrefab, typeof(Unit), true);
+						
+						TBE.Label(startX, startY+=spaceY, width, height, "Unit To Spawn:", "The unit prefab to spawn when the ability is used");
+						int unitIdx=UnitDB.GetPrefabIndex(item.spawnUnitPrefab);
+						unitIdx = EditorGUI.Popup(new Rect(startX+spaceX, startY, width, height), unitIdx, UnitDB.label);
+						item.spawnUnitPrefab=unitIdx>=0 ? UnitDB.GetItem(unitIdx) : null;
+						
+						if(GUI.Button(new Rect(startX+spaceX+width+3, startY, height, height), "-")) item.spawnUnitPrefab=null;
+					}
+					if(item.type==Ability._AbilityType.DeployBlock){
 						item.requireTarget=true;
 						item.targetType=Ability._TargetType.EmptyNode;
 						item.useAttackSequence=false;
