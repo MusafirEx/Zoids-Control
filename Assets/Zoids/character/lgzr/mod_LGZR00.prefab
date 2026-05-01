@@ -650,7 +650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e65cdc3be52354583818ea1257da3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabID: 19
+  prefabID: 18
   instanceID: -1
   icon: {fileID: 1527451655, guid: 0dd901aa51534c659f29ba1e0428b4da, type: 3}
   itemName: Liger Zero

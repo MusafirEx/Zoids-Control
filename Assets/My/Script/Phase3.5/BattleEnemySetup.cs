@@ -6,70 +6,65 @@ public class BattleEnemySetup : MonoBehaviour
 {
     [SerializeField] private BattleUnitDatabase battleUnitDatabase;
 
-    public List<Unit> SpawnEnemyUnits(BattleContextData context)
+    public int PrepareEnemyUnitsForDeployment(BattleContextData context)
     {
-        List<Unit> spawned = new List<Unit>();
-
         if (context == null || battleUnitDatabase == null)
         {
-            Debug.LogWarning("BattleEnemySetup missing context or database.");
-            return spawned;
+            Debug.LogWarning("BattlePlayerSetup missing context or database.");
+            return 0;
         }
 
         int facSlot = context.enemyFactionSlotIndex;
-        Debug.Log("Enemy factionSlot=" + facSlot + " unitCount=" + context.enemyUnitIds.Count);
+        Debug.Log("Player factionSlot=" + facSlot + " unitCount=" + context.playerUnitIds.Count);
 
-        List<Faction> factions = UnitManager.GetFactionList();
-        if (factions == null || facSlot < 0 || facSlot >= factions.Count)
+        if (facSlot < 0 || facSlot >= UnitManager.GetFactionList().Count)
         {
-            Debug.LogWarning("Invalid enemy faction slot index: " + facSlot);
-            return spawned;
+            Debug.LogWarning("Invalid player faction slot index: " + facSlot);
+            return 0;
         }
 
         Faction fac = UnitManager.GetFaction(facSlot);
-        Debug.Log("Enemy faction found=" + (fac != null));
-
         if (fac == null)
         {
-            Debug.LogWarning("Enemy faction not found in UnitManager at slot " + facSlot);
-            return spawned;
+            Debug.LogWarning("Player faction not found at slot " + facSlot);
+            return 0;
         }
 
-        List<Node> nodeList = GridManager.GetDeploymentNode(fac.factionID);
-        Debug.Log("Enemy deployment node count=" + (nodeList != null ? nodeList.Count : 0) + " | deployFacID=" + fac.factionID);
+        fac.unitList.Clear();
+        fac.deployingList.Clear();
 
-        if (nodeList == null || nodeList.Count == 0)
+        int preparedCount = 0;
+
+        for (int i = 0; i < context.playerUnitIds.Count; i++)
         {
-            Debug.LogWarning("No enemy deployment nodes found for deployFacID " + fac.factionID);
-            return spawned;
-        }
-
-        for (int i = 0; i < context.enemyUnitIds.Count; i++)
-        {
-            if (nodeList.Count == 0) break;
-
-            int unitId = context.enemyUnitIds[i];
+            int unitId = context.playerUnitIds[i];
             Unit prefab = battleUnitDatabase.GetUnitPrefab(unitId);
             if (prefab == null)
             {
-                Debug.LogWarning("Missing enemy unit prefab for unitId=" + unitId);
+                Debug.LogWarning("Missing player unit prefab for unitId=" + unitId);
                 continue;
             }
 
-            Node node = nodeList[0];
-            nodeList.RemoveAt(0);
+            GameObject clone = Instantiate(prefab.gameObject, new Vector3(0, 99999, 0), Quaternion.identity);
+            clone.transform.parent = UnitManager.GetInstance().transform;
 
-            GameObject clone = Instantiate(prefab.gameObject);
-            Unit unit = UnitManager.PlaceUnit(clone, node, fac.direction, false);
-
-            if (unit != null)
+            Unit unit = clone.GetComponent<Unit>();
+            if (unit == null)
             {
-                fac.unitList.Add(unit);
-                spawned.Add(unit);
-                Debug.Log("Spawned enemy unitId=" + unitId);
+                Debug.LogWarning("Spawned player prefab has no Unit component. unitId=" + unitId);
+                Destroy(clone);
+                continue;
             }
+
+            unit.SetFacID(fac.factionID);
+            unit.playableUnit = fac.playableFaction;
+
+            fac.startingUnitList.Add(unit);
+            preparedCount++;
+
+            Debug.Log("Prepared player deploy unitId=" + unitId);
         }
 
-        return spawned;
+        return preparedCount;
     }
 }

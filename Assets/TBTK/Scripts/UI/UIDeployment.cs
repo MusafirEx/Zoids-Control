@@ -17,7 +17,7 @@ namespace TBTK{
 		public UIButton buttonAutoDeploy;
 		public UIButton buttonEndDeployment;
 		
-		private static UIDeployment instance;
+		public static UIDeployment instance;
 		
 		public override void Awake(){
 			base.Awake();

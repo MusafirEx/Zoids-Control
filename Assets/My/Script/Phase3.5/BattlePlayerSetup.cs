@@ -58,7 +58,7 @@ public class BattlePlayerSetup : MonoBehaviour
             unit.SetFacID(fac.factionID);
             unit.playableUnit = fac.playableFaction;
 
-            fac.deployingList.Add(unit);
+            fac.startingUnitList.Add(unit);
             preparedCount++;
 
             Debug.Log("Prepared player deploy unitId=" + unitId);

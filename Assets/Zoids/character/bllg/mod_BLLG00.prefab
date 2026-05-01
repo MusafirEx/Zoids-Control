@@ -884,7 +884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e65cdc3be52354583818ea1257da3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabID: 18
+  prefabID: 19
   instanceID: -1
   icon: {fileID: 1284255970, guid: 0dd901aa51534c659f29ba1e0428b4da, type: 3}
   itemName: Blade Liger
@@ -933,14 +933,14 @@ MonoBehaviour:
   abilityThisTurn: 0
   canMovePastUnit: 0
   canMovePastObs: 0
-  targetPoint: {fileID: 3539}
+  targetPoint: {fileID: 0}
   radius: 0.3
   soRange: {fileID: 114412276860498308, guid: 09a463b997518ca4ba2b0574c697a0c1, type: 3}
   soMelee: {fileID: 0}
   shootPointSpacing: 0.1
   shootPointList:
-  - {fileID: 6067}
-  turretPivot: {fileID: 4689}
+  - {fileID: 0}
+  turretPivot: {fileID: 0}
   barrelPivot: {fileID: 0}
   snapAiming: 0
   aimInXAxis: 0
@@ -1188,7 +1188,7 @@ MonoBehaviour:
     obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
     autoDestroy: 1
     duration: 1.5
-  animatorT: {fileID: 4689}
+  animatorT: {fileID: 0}
   clipIdle: {fileID: 7400000, guid: a54bdfe4708945319701c77baf17497f, type: 2}
   clipMove: {fileID: 7400000, guid: 62611929b6134b8b8a9cb75973a5bfc1, type: 2}
   clipHit: {fileID: 7400000, guid: 3d6e086244304890b297a868c172b5e7, type: 2}

@@ -1040,7 +1040,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useGlobalSetting: 0
   enableUnitDeployment: 1
-  autoStartBattleOnSceneLoad: 0
   autoEndTurn: 1
   endMoveAfterAttack: 1
   enableCounterAttack: 0
@@ -1054,7 +1053,6 @@ MonoBehaviour:
   coverDodgeBonus: 0.25
   enableSideStepping: 0
   enableFogOfWar: 0
-  jrpgMode: 1
   actionInProgress: 0
   gameOver: 0
   winningFac:

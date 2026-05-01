@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2e7f677d774b341b45ec76cda52bd8, type: 3}
+  m_Name: FactoryUnitDatabase
+  m_EditorClassIdentifier: 
+  units:
+  - unitId: 18
+    unitName: Liger Zero
+    rarity: 3
+    manufactureCost: 100
+    notes: 'Liger Zero is a lion type Zoid originally designed by the Imperial Army.
+      It was stolen during the development process and became known as one of the
+      Republic''s greatest assets. In the republic, it gained multiple conversion
+      systems (CAS: Changing Armor Systems.)'
+  - unitId: 19
+    unitName: Blade Liger
+    rarity: 3
+    manufactureCost: 100
+    notes: Blade Liger is the spiritual successor of the Shield Liger. It boasts
+      excellent close range capabilities without neglecting long range targets, and
+      even carries over the E-Shield technology from its predecessor.
+  - unitId: 20
+    unitName: Lightning Saix
+    rarity: 2
+    manufactureCost: 100
+    notes: "The Lightning Saix is a high-speed land Zoid.\rThe Lightning Saix is
+      well armed, carrying a pair of Pulse Laser Rifles on its back, as well as a
+      pair of small Vulcan Guns in its head. The Saix's Pulse Laser Rifles only point
+      directly forward and cannot be turned, meaning that the Zoid is rather vulnerable
+      to attacks from the flanks or behind. However, the fixed position of the back-mounted
+      weapons is a necessity, as the Saix would lose its balance if the rifles were
+      to turn while running at high speeds."
+  - unitId: 21
+    unitName: Zeek Dober
+    rarity: 1
+    manufactureCost: 100
+    notes: The Zeekdober was designed for high-speed strike and recon operations
+      under direct control of the Emperor. With a maximum speed of 350 km/h, it was,
+      for its time, an exceptionally fast Zoid. Additionally, the Zoid's armour and
+      systems help mask it from detection, making it a very elusive target. The combination
+      of speed and stealth allows the Zeekdober to charge in, attack its target,
+      and escape before the enemy can react.

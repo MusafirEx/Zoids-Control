@@ -17,7 +17,8 @@ MonoBehaviour:
     instanceID: 0
     icon: {fileID: 21300102, guid: 829675e3673863042b49e7db0431f3e3, type: 3}
     name: Super Shot
-    desp: Fire an unstoppable that shoot through all units in a line, doing 5-10 damage.
+    desp: Fire an unstoppable that shoot through all units in a line, doing 5-10
+      damage.
     srcUnit: {fileID: 0}
     facID: 0
     index: 0
@@ -367,8 +368,8 @@ MonoBehaviour:
     instanceID: 0
     icon: {fileID: 21300106, guid: 829675e3673863042b49e7db0431f3e3, type: 3}
     name: DOT Debuff
-    desp: Apply a debuff on the target, dealing 1 damage over 4 turns and reduce its
-      attack by 30%
+    desp: Apply a debuff on the target, dealing 1 damage over 4 turns and reduce
+      its attack by 30%
     srcUnit: {fileID: 0}
     facID: 0
     index: 0
@@ -774,7 +775,8 @@ MonoBehaviour:
     instanceID: 0
     icon: {fileID: 21300102, guid: 829675e3673863042b49e7db0431f3e3, type: 3}
     name: Super Shot Cone
-    desp: Fire an unstoppable that shoot through all units in a line, doing 5-10 damage.
+    desp: Fire an unstoppable that shoot through all units in a line, doing 5-10
+      damage.
     srcUnit: {fileID: 0}
     facID: 0
     index: 0

@@ -99,8 +99,9 @@ namespace TBTK{
 			
 			//gameObject.AddComponent<RoutineManager>();
 		}
+
 		
-		IEnumerator Start(){
+		 IEnumerator Start(){
 			yield return new WaitForSeconds(0.5f);
 			
 			if(UnitManager.RequireManualDeployment()){
