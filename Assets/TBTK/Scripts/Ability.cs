@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +7,7 @@ namespace TBTK{
 	[System.Serializable]
 	public class Ability : TBTKItem{
 		
-		public enum _AbilityType{ Generic, Teleport, SpawnUnit, Charge, Line, Cone, ScanFogOfWar, DeployBlock, None,  }
+		public enum _AbilityType{ Generic, Teleport, SpawnUnit, Fusion, ChangeForm, Charge, Line, Cone, ScanFogOfWar, DeployBlock, None,  }
 		
 		public enum _TargetType{AllNode, AllUnit, HostileUnit, FriendlyUnit, EmptyNode}
 		public enum _ImpactType{None, Negative, Positive}
@@ -42,6 +42,10 @@ namespace TBTK{
 		public bool TargetCone(){ return type==_AbilityType.Cone; }
 		
 		public Unit spawnUnitPrefab;
+		public Unit[] requiredUnit=new Unit[0];
+		public int fusionRange=2;
+		public bool fusionUseMainNode=true;
+		public bool changeFormKeepHPPercent=true;
 		public GameObject obstaclePrefab;
 		
 		public int moveCost;
@@ -167,6 +171,264 @@ namespace TBTK{
 		
 		
 		
+
+		private float GetUnitHPRatio(Unit unit){
+			if(unit==null || unit.GetFullHP()<=0) return 1f;
+			return Mathf.Clamp01((float)unit.hp/(float)unit.GetFullHP());
+		}
+
+		private void ApplyHPRatio(Unit unit, float hpRatio){
+			if(unit==null) return;
+			int hp=Mathf.Max(1, Mathf.RoundToInt(unit.GetFullHP()*Mathf.Clamp01(hpRatio)));
+			unit.hp = hp;
+		}
+
+		private bool HasOptionalRequiredFriendlyUnits(Unit sourceUnit){
+			if(sourceUnit==null) return false;
+			if(requiredUnit==null || requiredUnit.Length==0) return true;
+
+			List<Unit> friendly=UnitManager.GetAllFriendlyUnits(sourceUnit.GetFacID());
+			if(friendly==null) return false;
+
+			for(int i=0; i<requiredUnit.Length; i++){
+				Unit req=requiredUnit[i];
+				if(req==null) continue;
+
+				bool found=false;
+				for(int n=0; n<friendly.Count; n++){
+					Unit cand=friendly[n];
+					if(cand==null || cand==sourceUnit) continue;
+					if(cand.prefabID!=req.prefabID) continue;
+					found=true;
+					break;
+				}
+
+				if(!found) return false;
+			}
+
+			return true;
+		}
+
+		private List<Unit> FindFusionPartners(Unit sourceUnit){
+			List<Unit> partners=new List<Unit>();
+
+			if(sourceUnit==null){
+				Debug.LogWarning("Fusion failed: source unit is null");
+				return partners;
+			}
+
+			if(requiredUnit==null || requiredUnit.Length==0){
+				Debug.LogWarning("Fusion failed: required unit list is empty");
+				return partners;
+			}
+
+			List<Unit> friendly=UnitManager.GetAllFriendlyUnits(sourceUnit.GetFacID());
+			if(friendly==null){
+				Debug.LogWarning("Fusion failed: friendly unit list is null");
+				return partners;
+			}
+
+			for(int i=0; i<requiredUnit.Length; i++){
+				Unit req=requiredUnit[i];
+				if(req==null) continue;
+
+				Unit found=null;
+				for(int n=0; n<friendly.Count; n++){
+					Unit cand=friendly[n];
+					if(cand==null || cand==sourceUnit) continue;
+					if(partners.Contains(cand)) continue;
+					if(cand.prefabID!=req.prefabID) continue;
+					if(cand.node==null || sourceUnit.node==null) continue;
+
+					if(GridManager.GetDistance(sourceUnit.node, cand.node)>fusionRange) continue;
+
+					found=cand;
+					break;
+				}
+
+				if(found==null){
+					Debug.LogWarning("Fusion failed: missing required friendly unit within range for prefabID="+req.prefabID);
+					partners.Clear();
+					return partners;
+				}
+
+				partners.Add(found);
+			}
+
+			return partners;
+		}
+
+		private void SafeRemoveBattleUnit(Unit unit){
+			if(unit==null) return;
+
+			if(unit.node!=null){
+				unit.node.unit=null;
+				unit.node=null;
+			}
+
+			List<Faction> factions=UnitManager.GetFactionList();
+			if(factions!=null){
+				for(int i=0; i<factions.Count; i++){
+					if(factions[i]==null || factions[i].unitList==null) continue;
+					factions[i].unitList.Remove(unit);
+				}
+			}
+
+			List<Unit> allUnits=UnitManager.GetAllUnitList();
+			if(allUnits!=null) allUnits.Remove(unit);
+
+			TBTK.OnUnitDestroyed(unit);
+			UnityEngine.Object.Destroy(unit.gameObject);
+		}
+
+		private void AddReplacementUnitDirect(Unit unit, int facID){
+			if(unit==null) return;
+
+			List<Faction> factions=UnitManager.GetFactionList();
+			if(factions!=null){
+				for(int i=0; i<factions.Count; i++){
+					if(factions[i]==null) continue;
+					if(factions[i].factionID!=facID) continue;
+
+					unit.SetFacID(facID);
+					unit.playableUnit=factions[i].playableFaction;
+					unit.NewTurn();
+
+					if(!factions[i].unitList.Contains(unit)) factions[i].unitList.Add(unit);
+
+					TBTK.OnNewUnit(unit, i);
+					break;
+				}
+			}
+
+			if(TurnControl.IsUnitPerTurn()){
+				List<Unit> allUnits=UnitManager.GetAllUnitList();
+				if(allUnits!=null && !allUnits.Contains(unit)) allUnits.Add(unit);
+			}
+
+			TBTK.OnUnitOrderChanged();
+		}
+
+		private Unit SpawnReplacementUnit(Unit prefab, Node spawnNode, int facID, bool playable, Quaternion rot, float hpRatio){
+			if(prefab==null || spawnNode==null){
+				Debug.LogWarning("Replacement failed: prefab or spawnNode is null");
+				return null;
+			}
+
+			GameObject obj=(GameObject)UnityEngine.Object.Instantiate(prefab.gameObject, spawnNode.GetPos(), rot);
+			Unit newUnit=obj.GetComponent<Unit>();
+			if(newUnit==null){
+				Debug.LogWarning("Replacement failed: spawned prefab has no Unit component");
+				UnityEngine.Object.Destroy(obj);
+				return null;
+			}
+
+			newUnit.SetFacID(facID);
+			newUnit.playableUnit=playable;
+			newUnit.node=spawnNode;
+			spawnNode.unit=newUnit;
+			ApplyHPRatio(newUnit, hpRatio);
+			AddReplacementUnitDirect(newUnit, facID);
+
+			return newUnit;
+		}
+
+		private bool DoChangeFormCAS(Node targetNode){
+			Debug.Log("ChangeForm/CAS attempt");
+
+			if(srcUnit==null){
+				Debug.LogWarning("ChangeForm/CAS failed: srcUnit is null");
+				return false;
+			}
+
+			if(spawnUnitPrefab==null){
+				Debug.LogWarning("ChangeForm/CAS failed: target form unit is not assigned");
+				return false;
+			}
+
+			if(srcUnit.node==null){
+				Debug.LogWarning("ChangeForm/CAS failed: source unit has no node");
+				return false;
+			}
+
+			if(!HasOptionalRequiredFriendlyUnits(srcUnit)){
+				Debug.LogWarning("ChangeForm/CAS failed: required carrier/friendly unit is missing");
+				return false;
+			}
+
+			Node spawnNode=srcUnit.node;
+			int sourceFacID=srcUnit.GetFacID();
+			bool wasSelected=UnitManager.GetSelectedUnit()==srcUnit;
+			Quaternion rot=srcUnit.transform.rotation;
+			float hpRatio=changeFormKeepHPPercent ? GetUnitHPRatio(srcUnit) : 1f;
+
+			SafeRemoveBattleUnit(srcUnit);
+
+			Unit newUnit=SpawnReplacementUnit(spawnUnitPrefab, spawnNode, sourceFacID, true, rot, hpRatio);
+			if(newUnit==null) return false;
+
+			if(wasSelected){
+				UnitManager.TBSelectUnit(newUnit);
+				TBTK.OnSelectUnit(newUnit);
+			}
+
+			GridManager.SetupFogOfWar();
+			Debug.Log("ChangeForm/CAS complete: "+newUnit.gameObject.name);
+			return true;
+		}
+
+		private bool DoFusion(Node targetNode){
+			Debug.Log("Fusion attempt");
+
+			if(srcUnit==null){
+				Debug.LogWarning("Fusion failed: srcUnit is null");
+				return false;
+			}
+
+			if(spawnUnitPrefab==null){
+				Debug.LogWarning("Fusion failed: fused unit prefab is not assigned");
+				return false;
+			}
+
+			if(srcUnit.node==null){
+				Debug.LogWarning("Fusion failed: source unit has no node");
+				return false;
+			}
+
+			List<Unit> partners=FindFusionPartners(srcUnit);
+			if(partners==null || partners.Count==0) return false;
+
+			Node spawnNode=fusionUseMainNode ? srcUnit.node : targetNode;
+			if(spawnNode==null) spawnNode=srcUnit.node;
+			if(spawnNode==null){
+				Debug.LogWarning("Fusion failed: spawn node is null");
+				return false;
+			}
+
+			int sourceFacID=srcUnit.GetFacID();
+			bool wasSelected=UnitManager.GetSelectedUnit()==srcUnit;
+			Quaternion rot=srcUnit.transform.rotation;
+			float hpRatio=GetUnitHPRatio(srcUnit);
+
+			for(int i=0; i<partners.Count; i++){
+				SafeRemoveBattleUnit(partners[i]);
+			}
+
+			SafeRemoveBattleUnit(srcUnit);
+
+			Unit fusedUnit=SpawnReplacementUnit(spawnUnitPrefab, spawnNode, sourceFacID, true, rot, hpRatio);
+			if(fusedUnit==null) return false;
+
+			if(wasSelected){
+				UnitManager.TBSelectUnit(fusedUnit);
+				TBTK.OnSelectUnit(fusedUnit);
+			}
+
+			GridManager.SetupFogOfWar();
+			Debug.Log("Fusion complete: "+fusedUnit.gameObject.name);
+			return true;
+		}
+
 		public IEnumerator HitTarget(Node node){
 			Debug.Log("HitTarget "+type);
 			
@@ -227,12 +489,18 @@ namespace TBTK{
 					GameObject obj=(GameObject)MonoBehaviour.Instantiate(spawnUnitPrefab.gameObject, node.GetPos(), Quaternion.identity);
 					Unit unit=obj.GetComponent<Unit>();
 					unit.node=node;	node.unit=unit;
-					unit.hp=unit.GetFullHP();
+					unit.hp = unit.GetFullHP();
 					UnitManager.AddUnit(unit, srcUnit!=null ? srcUnit.GetFacID() : facID);
 					
 					GridManager.SetupFogOfWar();
 				}
 				else Debug.Log("No unit prefab has been assigned!!");
+			}
+			else if(type==_AbilityType.ChangeForm){
+				DoChangeFormCAS(node);
+			}
+			else if(type==_AbilityType.Fusion){
+				DoFusion(node);
 			}
 			else if(type==_AbilityType.Charge){
 				if(node.unit!=null){
@@ -396,6 +664,10 @@ namespace TBTK{
 			
 			
 			clone.spawnUnitPrefab=spawnUnitPrefab;
+			clone.requiredUnit=requiredUnit!=null ? (Unit[])requiredUnit.Clone() : new Unit[0];
+			clone.fusionRange=fusionRange;
+			clone.fusionUseMainNode=fusionUseMainNode;
+			clone.changeFormKeepHPPercent=changeFormKeepHPPercent;
 			clone.obstaclePrefab=obstaclePrefab;
 			
 			clone.moveCost=moveCost;				clone.attackCost=attackCost;			clone.abilityCost=abilityCost;

@@ -49,3 +49,12 @@ MonoBehaviour:
       systems help mask it from detection, making it a very elusive target. The combination
       of speed and stealth allows the Zeekdober to charge in, attack its target,
       and escape before the enemy can react.
+  - unitId: 21
+    unitName: Red Horn
+    rarity: 2
+    manufactureCost: 100
+    notes: "he Red Horn is intended to oppose the Gojulas and other large Helic Republic-created
+      Zoids. The Red Horn, while relatively slow compared to later designs, possessed
+      sufficient speed for the era of its creation, and boasted a considerable arsenal
+      of weapons. The Red Horn\u2019s weaponry allows it to bombard enemies from
+      a distance, while its horn allows it to engage them in melee combat."

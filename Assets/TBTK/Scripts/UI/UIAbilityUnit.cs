@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -119,13 +119,21 @@ namespace TBTK{
 		}
 		
 		public void OnHoverButtonAura(GameObject butObj){
-			int idx=0;
+			int idx=-1;
 			for(int i=0; i<buttonList_Aura.Count; i++){
 				if(buttonList_Aura[i].rootObj==butObj){ idx=i; break; }
 			}
-			
+
+			if(idx<0 || idx>=buttonList_Aura.Count) return;
+
+			Unit unit=UnitManager.GetSelectedUnit();
+			if(unit==null) return;
+
+			Effect aura=unit.GetAura(idx);
+			if(aura==null) return;
+
 			Vector3 sPos=UI.GetCorner(buttonList_Aura[idx].rectT, 1)+new Vector3(0, 10*buttonList_Aura[idx].rectT.lossyScale.y, 0);
-			UITooltip.ShowAura(UnitManager.GetSelectedUnit().GetAura(idx), sPos, new Vector2(0, 20));
+			UITooltip.ShowAura(aura, sPos, new Vector2(0, 20));
 		}
 		
 		public void OnExitButton(GameObject butObj){
@@ -213,10 +221,18 @@ namespace TBTK{
 			for(int i=0; i<buttonLimit_Aura; i++){
 				if(i<unit.auraIDList.Count){
 					Effect eff=EffectDB.GetPrefab(unit.auraIDList[i]);
-					buttonList_Aura[i].SetImage(eff.icon);
-					activeCount+=1;
+					if(eff!=null){
+						buttonList_Aura[i].SetImage(eff.icon);
+						activeCount+=1;
+						buttonList_Aura[i].SetActive(true);
+					}
+					else{
+						buttonList_Aura[i].SetActive(false);
+					}
 				}
-				buttonList_Aura[i].SetActive(i<unit.auraIDList.Count);
+				else{
+					buttonList_Aura[i].SetActive(false);
+				}
 			}
 			
 			buttonParentRectTAura.gameObject.SetActive(activeCount>0);

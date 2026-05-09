@@ -143,7 +143,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 49.999996, y: 225}
+  m_AnchoredPosition: {x: 50, y: 225}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 20, y: 1}
 --- !u!222 &222044491947409380
@@ -2263,7 +2263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102712924219448}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2290,8 +2290,8 @@ MonoBehaviour:
   enablePerkMenu: 1
   enableUnitInfo: 1
   scaleReferenceWidth: 1600
-  nextSceneName: 
-  menuSceneName: 
+  nextSceneName: MapSelector
+  menuSceneName: MainMenu
 --- !u!114 &114098592326285684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4729,7 +4729,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50.000008, y: -505}
+  m_AnchoredPosition: {x: 50, y: -505}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &114880817252841878
@@ -10079,7 +10079,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 19d5403a7ea67b24b83d3de4f276c9dd, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13404,10 +13403,10 @@ RectTransform:
   - {fileID: 224946227947811602}
   m_Father: {fileID: 224719913692474914}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 60, y: -60}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &222946661623696402
 CanvasRenderer:
@@ -14549,6 +14548,9 @@ MonoBehaviour:
     disabled: {fileID: 0}
     highlight: {fileID: 0}
     button: {fileID: 0}
+  rewardManager: {fileID: 0}
+  applyBattleReward: 1
+  debugRewardLog: 1
 --- !u!1 &1356315469563400
 GameObject:
   m_ObjectHideFlags: 0
@@ -15375,7 +15377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -90.000015, y: -48}
+  m_AnchoredPosition: {x: -90, y: -48}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &222952558246248290
@@ -23033,7 +23035,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Continue
+  m_Text: Return To Map
 --- !u!1 &1691865662477138
 GameObject:
   m_ObjectHideFlags: 0
@@ -24161,7 +24163,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0009765625}
+  m_AnchoredPosition: {x: 0, y: 0.00021362305}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &114299765274689558

@@ -1,4 +1,4 @@
-﻿
+
 using System.Collections;
 using System.Collections.Generic;
 
@@ -223,7 +223,11 @@ namespace TBTK{
 		//public Effect activeAuraMul;
 		//public Effect activeAuraMod;
 		
-		public Effect GetAura(int idx){ return EffectDB.GetPrefab(auraIDList[idx]); }
+		public Effect GetAura(int idx){
+			if(auraIDList==null) return null;
+			if(idx<0 || idx>=auraIDList.Count) return null;
+			return EffectDB.GetPrefab(auraIDList[idx]);
+		}
 		
 		public bool HasAura(){ return auraIDList.Count>0; }
 		
@@ -925,50 +929,144 @@ namespace TBTK{
 			else{
 				RemoveOverwatch();
 			}
-			
+
 			if(!isCounter && !isOverwatch && GameControl.EndMoveAfterAttack()) EndAllAction();
-			
+
 			bool actionCam=(actionCamCheck!=null && actionCamStart!=null && actionCamCheck(true));
 			if(actionCam) yield return StartCoroutine(actionCamStart(GetTargetPoint(), targetNode.GetPos()));
-			//yield return StartCoroutine(CameraControl.ActionCamFadeIn(GetTargetPoint(), targetNode.GetPos()));
-			
-			yield return StartCoroutine(AimRoutine(targetNode));
-			
+
 			bool useMelee=CheckUseMeleeAttack(targetNode);
-			
-			float attackDelay=AnimPlayAttack(useMelee);		AudioPlayAttack(useMelee);
+			bool useJRPGMeleeStep=useMelee && GameControl.JRPGMode() && !isOverwatch;
+			Vector3 jrpgOriginalPos=thisT.position;
+			Quaternion jrpgOriginalRot=thisT.rotation;
+			bool waitedForAttackAnimation=false;
+			bool targetDestroyed=false;
+
+			if(useJRPGMeleeStep){
+				// Move first, then stop completely before attack animation starts
+				yield return StartCoroutine(JRPGMeleeStepToColumn2(targetNode));
+				AnimPlayMove(false);
+				AudioStopMove();
+				yield return new WaitForSeconds(0.12f);
+			}
+
+			yield return StartCoroutine(AimRoutine(targetNode));
+
+			float attackDelay=AnimPlayAttack(useMelee);
+			AudioPlayAttack(useMelee);
+
 			if(attackDelay>0) yield return new WaitForSeconds(attackDelay);
-			
+
 			yield return StartCoroutine(FireShootObject(GetShootObject(targetNode), targetNode, true));
-			
+
 			if(targetNode.unit!=null){
 				Attack attack=new Attack(this, targetNode.unit, null, isCounter, isOverwatch);	
-				
-				//attack.hit=true;	attack.crit=true;
-				
+
 				if(attack.hit){
 					if(!useMelee) effectAttackHit.Spawn(targetNode.unit.GetTargetPoint(), Quaternion.identity);
 					else effectAttackHitMelee.Spawn(targetNode.unit.GetTargetPoint(), Quaternion.identity);
 				}
-				
-				bool targetDestroyed=targetNode.unit.ApplyAttack(attack);
-				//bool targetDestroyed=targetNode.unit.ApplyAttack(this, isCounter, isOverwatch);
-				
+
+				targetDestroyed=targetNode.unit.ApplyAttack(attack);
+			}
+
+			// In JRPG melee mode, finish the attack animation before moving back.
+			// This prevents movement animation from overlapping attack animation.
+			if(waitingForAttackAnimation){
+				while(waitingForAttackAnimation) yield return null;
+				waitedForAttackAnimation=true;
+			}
+
+			if(useJRPGMeleeStep){
+				yield return new WaitForSeconds(0.08f);
+				yield return StartCoroutine(JRPGMeleeReturn(jrpgOriginalPos, jrpgOriginalRot));
+			}
+
+			if(targetNode.unit!=null){
 				if(GameControl.EnableCounterAttack() && !targetDestroyed && !isCounter && !isOverwatch && targetNode.unit.CanCounter(this)){
 					waitingForCounter=true;
 					yield return StartCoroutine(targetNode.unit.AttackRoutine(node, true, false));
 				}
 			}
-			
+
 			if(actionCam && actionCamEnd!=null) yield return StartCoroutine(actionCamEnd());
-			//yield return StartCoroutine(CameraControl.ActionCamFadeOut());
-			
-			if(waitingForAttackAnimation){ while(waitingForAttackAnimation) yield return null; }
-			else yield return new WaitForSeconds(0.2f);
-			
+
+			if(!waitedForAttackAnimation){
+				if(waitingForAttackAnimation){ while(waitingForAttackAnimation) yield return null; }
+				else yield return new WaitForSeconds(0.2f);
+			}
+
 			if(turretPivot!=thisT) StartCoroutine(ResetAim());
-			
+
 			waitingForCounter=false;
+		}
+
+		private IEnumerator JRPGMeleeStepToColumn2(Node targetNode){
+			if(targetNode==null) yield break;
+
+			Vector3 originalPos=thisT.position;
+			Vector3 attackPos=GetJRPGColumn2AttackPosition(targetNode);
+			attackPos.y=originalPos.y;
+
+			while(Rotate(attackPos)>5) yield return null;
+			yield return StartCoroutine(JRPGMoveVisualTo(attackPos, 1.5f));
+
+			// Make sure the unit faces the target before attacking
+			if(targetNode.unit!=null){
+				Vector3 lookDir=targetNode.unit.GetTargetPoint()-thisT.position;
+				lookDir.y=0;
+				if(lookDir.sqrMagnitude>0.01f){
+					thisT.rotation=Quaternion.LookRotation(lookDir);
+				}
+			}
+		}
+
+		private Vector3 GetJRPGColumn2AttackPosition(Node targetNode){
+			// In a 3-column JRPG layout, column 2 is the middle column.
+			// TBTK uses zero-based idxX, so column 2 = idxX 1.
+			int middleColumn=GridManager.DimensionX()/2;
+			int targetRow=targetNode!=null ? targetNode.idxZ : node.idxZ;
+			Node column2Node=GridManager.GetNode(middleColumn, targetRow);
+
+			if(column2Node!=null){
+				return column2Node.GetPos();
+			}
+
+			// Fallback: move to the midpoint between attacker and target.
+			Vector3 startPos=thisT.position;
+			Vector3 targetPos=targetNode!=null ? targetNode.GetPos() : startPos;
+			return Vector3.Lerp(startPos, targetPos, 0.5f);
+		}
+
+		private IEnumerator JRPGMeleeReturn(Vector3 originalPos, Quaternion originalRot){
+			yield return StartCoroutine(JRPGMoveVisualTo(originalPos, 1.5f));
+			thisT.rotation=originalRot;
+		}
+
+		private IEnumerator JRPGMoveVisualTo(Vector3 targetPos, float speedMul=1.5f){
+			CheckMoveSpeed();
+			AnimPlayMove(true);
+			AudioPlayMove();
+
+			while(Vector3.Distance(thisT.position, targetPos)>0.04f){
+				if(enableRotation){
+					Vector3 lookDir=targetPos-thisT.position;
+					lookDir.y=0;
+					if(lookDir.sqrMagnitude>0.01f){
+						Quaternion wantedRot=Quaternion.LookRotation(lookDir);
+						wantedRot=Quaternion.Euler(0, wantedRot.eulerAngles.y, 0);
+						thisT.rotation=Quaternion.Slerp(thisT.rotation, wantedRot, Time.deltaTime*moveSpeed*speedMul);
+					}
+				}
+
+				float currentSpeed=moveSpeed*Time.deltaTime*speedMul;
+				thisT.position=Vector3.MoveTowards(thisT.position, targetPos, currentSpeed);
+				yield return null;
+			}
+
+			thisT.position=targetPos;
+			AnimPlayMove(false);
+			AudioStopMove();
 		}
 		public IEnumerator FireShootObject(GameObject soPrefab, Node tgtNode, bool aimAtUnit, Vector3 offset=default(Vector3)){
 			waitingForHit=true;

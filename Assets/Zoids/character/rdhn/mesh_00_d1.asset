@@ -4,9 +4,10 @@
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: mesh_00_d1
-  serializedVersion: 9
+  serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
     firstByte: 0
@@ -506,6 +507,69 @@ Mesh:
     e33: 1
   m_BoneNameHashes: d5838f240bd5567d48eb5cba352dce4aa4666eb8e23fa49f9b27ea8d2a41134550cce5a7a5db81ef50c634cd2038d2f68aa8e89d645b2744726b638817d66519e011c81776a5d67d86af587f0238a2bca4ac9b7a9f25cd488813f5a8c7166ffba4f06986b1d97650b9020ee9a0b70759619d7c264f0416da
   m_RootBoneNameHash: 613385173
+  m_BonesAABB:
+  - m_Min: {x: Infinity, y: Infinity, z: Infinity}
+    m_Max: {x: -Infinity, y: -Infinity, z: -Infinity}
+  - m_Min: {x: Infinity, y: Infinity, z: Infinity}
+    m_Max: {x: -Infinity, y: -Infinity, z: -Infinity}
+  - m_Min: {x: Infinity, y: Infinity, z: Infinity}
+    m_Max: {x: -Infinity, y: -Infinity, z: -Infinity}
+  - m_Min: {x: -0.70475626, y: -0.4822672, z: -0.23085967}
+    m_Max: {x: 0.36556354, y: 0.36180714, z: 0.2308842}
+  - m_Min: {x: -0.2538624, y: -0.18014622, z: -0.16360445}
+    m_Max: {x: 0.27405733, y: 0.24982521, z: 0.13028392}
+  - m_Min: {x: -0.4659745, y: -0.52524275, z: -0.35358235}
+    m_Max: {x: 0.34007898, y: 0.15158865, z: 0.35360676}
+  - m_Min: {x: -0.29589295, y: -0.06349218, z: -0.22234182}
+    m_Max: {x: 0.17012787, y: 0.16466081, z: 0.22232583}
+  - m_Min: {x: -0.14765427, y: -0.11857498, z: -0.11475614}
+    m_Max: {x: 0.14916396, y: 0.1215924, z: 0.03779939}
+  - m_Min: {x: -0.21366316, y: -0.09265289, z: -0.11475617}
+    m_Max: {x: 0.063238144, y: 0.1276016, z: 0.07251698}
+  - m_Min: {x: -0.19710103, y: -0.08019638, z: -0.14611019}
+    m_Max: {x: 0.1312224, y: 0.13032945, z: 0.15088663}
+  - m_Min: {x: Infinity, y: Infinity, z: Infinity}
+    m_Max: {x: -Infinity, y: -Infinity, z: -Infinity}
+  - m_Min: {x: -0.14765435, y: -0.11857498, z: -0.037823945}
+    m_Max: {x: 0.1491639, y: 0.1215924, z: 0.11477199}
+  - m_Min: {x: -0.21366306, y: -0.09265289, z: -0.072541445}
+    m_Max: {x: 0.06323823, y: 0.1276016, z: 0.11477202}
+  - m_Min: {x: -0.19710103, y: -0.08019638, z: -0.15086222}
+    m_Max: {x: 0.1312224, y: 0.13032945, z: 0.14613461}
+  - m_Min: {x: Infinity, y: Infinity, z: Infinity}
+    m_Max: {x: -Infinity, y: -Infinity, z: -Infinity}
+  - m_Min: {x: Infinity, y: Infinity, z: Infinity}
+    m_Max: {x: -Infinity, y: -Infinity, z: -Infinity}
+  - m_Min: {x: Infinity, y: Infinity, z: Infinity}
+    m_Max: {x: -Infinity, y: -Infinity, z: -Infinity}
+  - m_Min: {x: -0.48485494, y: -0.29343098, z: -0.21356578}
+    m_Max: {x: 0.35239902, y: 0.3490931, z: 0.21358167}
+  - m_Min: {x: -0.15134299, y: -0.4363808, z: -0.10976538}
+    m_Max: {x: 0.15511656, y: 0.12999949, z: 0.10697733}
+  - m_Min: {x: -0.20877707, y: -0.16786268, z: -0.10976544}
+    m_Max: {x: 0.06323251, y: 0.121743225, z: 0.08235198}
+  - m_Min: {x: -0.22197795, y: -0.08224869, z: -0.15211017}
+    m_Max: {x: 0.13488652, y: 0.13033597, z: 0.14488664}
+  - m_Min: {x: Infinity, y: Infinity, z: Infinity}
+    m_Max: {x: -Infinity, y: -Infinity, z: -Infinity}
+  - m_Min: {x: -0.15134275, y: -0.43638095, z: -0.107001886}
+    m_Max: {x: 0.15511683, y: 0.12999937, z: 0.10974082}
+  - m_Min: {x: -0.20877682, y: -0.16786271, z: -0.08233608}
+    m_Max: {x: 0.06323281, y: 0.12174321, z: 0.10974088}
+  - m_Min: {x: -0.22197786, y: -0.08224888, z: -0.14486232}
+    m_Max: {x: 0.13488661, y: 0.13033578, z: 0.15213451}
+  - m_Min: {x: Infinity, y: Infinity, z: Infinity}
+    m_Max: {x: -Infinity, y: -Infinity, z: -Infinity}
+  - m_Min: {x: -0.22067016, y: -0.22894746, z: -0.22018635}
+    m_Max: {x: 0.21160412, y: 0.13098514, z: 0.2201618}
+  - m_Min: {x: -0.2116031, y: -0.094610035, z: -0.080145314}
+    m_Max: {x: 0.031662226, y: 0.08684993, z: 0.08016116}
+  - m_Min: {x: -0.16084892, y: -0.07135731, z: -0.059758797}
+    m_Max: {x: 0.023638725, y: 0.0665845, z: 0.06207574}
+  - m_Min: {x: -0.34107697, y: -0.04984051, z: -0.12935542}
+    m_Max: {x: 0.043924928, y: 0.16581222, z: 0.12937133}
+  m_VariableBoneCountWeights:
+    m_Data: 
   m_MeshCompression: 2
   m_IsReadable: 0
   m_KeepVertices: 0
@@ -513,7 +577,7 @@ Mesh:
   m_IndexFormat: 0
   m_IndexBuffer: 
   m_VertexData:
-    serializedVersion: 2
+    serializedVersion: 3
     m_VertexCount: 0
     m_Channels:
     - stream: 0
@@ -630,8 +694,14 @@ Mesh:
     m_Center: {x: 0.0000001788139, y: 0.4953023, z: -0.09514207}
     m_Extent: {x: 0.4016749, y: 0.4954693, z: 1.322801}
   m_MeshUsageFlags: 1
+  m_CookingOptions: 30
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshMetrics[0]: 1
   m_MeshMetrics[1]: 1
-  m_MeshOptimized: 0
+  m_MeshOptimizationFlags: -1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 

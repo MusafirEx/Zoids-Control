@@ -940,7 +940,7 @@ MonoBehaviour:
       duration: 1.5
     activeVisualEffect: {fileID: 0}
   effectList: []
-  abilityIDList: 
+  abilityIDList: 0f000000
   abilityList: []
   dead: 0
   effectAttackHit:

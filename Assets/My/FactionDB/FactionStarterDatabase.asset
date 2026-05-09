@@ -15,21 +15,29 @@ MonoBehaviour:
   factions:
   - factionId: 0
     factionName: Aurek Dominion
-    starterUnitIds: 13000000
+    factionLogo: {fileID: 986809942, guid: 3063e6b673447e94a9fc58305cbc7463, type: 3}
+    factionColor: {r: 0.627451, g: 0.5529412, b: 0.37647063, a: 1}
+    starterUnitIds: 130000001500000016000000
     starterOwnedCountPerUnit: 1
     starterTeamName: Aurek Starter
   - factionId: 1
     factionName: Veydran Collective
+    factionLogo: {fileID: -282343013, guid: 3063e6b673447e94a9fc58305cbc7463, type: 3}
+    factionColor: {r: 0.25748503, g: 0.98203593, b: 1, a: 1}
     starterUnitIds: 13000000
     starterOwnedCountPerUnit: 1
     starterTeamName: Veydran Starter
   - factionId: 2
     factionName: Kharvoss Starter
-    starterUnitIds: 
+    factionLogo: {fileID: -236749728, guid: 3063e6b673447e94a9fc58305cbc7463, type: 3}
+    factionColor: {r: 0.9490197, g: 0.2627451, b: 0.21960786, a: 1}
+    starterUnitIds: 12000000
     starterOwnedCountPerUnit: 1
     starterTeamName: Kharvoss Covenant
   - factionId: 3
     factionName: Musafir Conclave / Nocteris Syndicate
-    starterUnitIds: 
+    factionLogo: {fileID: -686200073, guid: 3063e6b673447e94a9fc58305cbc7463, type: 3}
+    factionColor: {r: 0.2627451, g: 0.1254902, b: 0.41176474, a: 1}
+    starterUnitIds: 13000000
     starterOwnedCountPerUnit: 1
     starterTeamName: Musafir Starter

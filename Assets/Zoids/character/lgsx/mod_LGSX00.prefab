@@ -335,7 +335,7 @@ MonoBehaviour:
     effduration: 0
     effHP: 0
     effAP: 0
-  auraIDList: 
+  auraIDList: 08000000
   auraMulList: []
   auraModList: []
   attackEffectIDList: 
@@ -477,7 +477,7 @@ MonoBehaviour:
       duration: 1.5
     activeVisualEffect: {fileID: 0}
   effectList: []
-  abilityIDList: 
+  abilityIDList: 10000000
   abilityList: []
   dead: 0
   effectAttackHit:

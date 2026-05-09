@@ -207,7 +207,7 @@ TextureImporter:
         width: 145
         height: 126
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,6 +215,48 @@ TextureImporter:
       bones: []
       spriteID: 51db363b7b5b87a418d56ce5115e9b09
       internalID: 2072600114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dibison
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 1035
+        width: 141
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4080230d67385e4bbb604be5ec4ffdf
+      internalID: 156321196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Redhorn
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 735
+        width: 141
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726e056634b02fa4e83d98e5497e42d1
+      internalID: 1094529738
       vertices: []
       indices: 
       edges: []
@@ -231,8 +273,10 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Blade Liger: 1284255970
+      Dibison: 156321196
       Liger Zero: 1527451655
       Lightning Saix: 248575497
+      Redhorn: 1094529738
       Zeek Dober: 2072600114
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

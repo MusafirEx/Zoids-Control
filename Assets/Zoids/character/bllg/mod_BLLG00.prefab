@@ -861,7 +861,7 @@ Animator:
   m_GameObject: {fileID: 1426}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 7f069dcad273466cacb685692c87e5ab, type: 2}
-  m_Controller: {fileID: 9100000, guid: bdb6dcbdd629f19419ca9e84732634d8, type: 2}
+  m_Controller: {fileID: 9100000, guid: bdf27827ad62eb1419e992ba06d25c0b, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -933,14 +933,14 @@ MonoBehaviour:
   abilityThisTurn: 0
   canMovePastUnit: 0
   canMovePastObs: 0
-  targetPoint: {fileID: 0}
+  targetPoint: {fileID: 3539}
   radius: 0.3
   soRange: {fileID: 114412276860498308, guid: 09a463b997518ca4ba2b0574c697a0c1, type: 3}
   soMelee: {fileID: 0}
   shootPointSpacing: 0.1
   shootPointList:
-  - {fileID: 0}
-  turretPivot: {fileID: 0}
+  - {fileID: 6067}
+  turretPivot: {fileID: 4689}
   barrelPivot: {fileID: 0}
   snapAiming: 0
   aimInXAxis: 0
@@ -1173,7 +1173,7 @@ MonoBehaviour:
       duration: 1.5
     activeVisualEffect: {fileID: 0}
   effectList: []
-  abilityIDList: 
+  abilityIDList: 00000000
   abilityList: []
   dead: 0
   effectAttackHit:
@@ -1188,7 +1188,7 @@ MonoBehaviour:
     obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
     autoDestroy: 1
     duration: 1.5
-  animatorT: {fileID: 0}
+  animatorT: {fileID: 4689}
   clipIdle: {fileID: 7400000, guid: a54bdfe4708945319701c77baf17497f, type: 2}
   clipMove: {fileID: 7400000, guid: 62611929b6134b8b8a9cb75973a5bfc1, type: 2}
   clipHit: {fileID: 7400000, guid: 3d6e086244304890b297a868c172b5e7, type: 2}

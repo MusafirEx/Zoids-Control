@@ -9,45 +9,54 @@ public class BattleSceneBootstrap : MonoBehaviour
     [SerializeField] private BattlePlayerSetup playerSetup;
     [SerializeField] private BattleEnemySetup enemySetup;
 
-    void Start()
+    private IEnumerator Start()
     {
-        //yield return null;
+        yield return null;
 
         if (BattleContextManager.Instance == null || !BattleContextManager.Instance.HasContext)
         {
             Debug.LogWarning("No battle context found.");
-            //yield break;
+            yield break;
         }
 
         BattleContextData context = BattleContextManager.Instance.CurrentContext;
         if (context == null || !context.IsValid())
         {
             Debug.LogWarning("Battle context is invalid.");
-            //yield break;
+            yield break;
         }
 
         if (environmentSpawner != null)
             environmentSpawner.Spawn(context.environmentPrefab);
 
         int preparedPlayerCount = playerSetup != null ? playerSetup.PreparePlayerUnitsForDeployment(context) : 0;
-        int preparedEnemyCount = enemySetup != null ? enemySetup.PrepareEnemyUnitsForDeployment(context) : 0;
+        List<Unit> enemyUnits = enemySetup != null ? enemySetup.SpawnEnemyUnits(context) : new List<Unit>();
 
-        Debug.Log("Battle bootstrap complete. PreparedPlayerUnits=" + preparedPlayerCount + " EnemyUnits=" + preparedPlayerCount);
+        Debug.Log("Battle bootstrap complete. PreparedPlayerUnits=" + preparedPlayerCount + " EnemyUnits=" + enemyUnits.Count);
 
         if (preparedPlayerCount == 0)
         {
             Debug.LogError("Battle start blocked: no player units were prepared for deployment.");
-            //yield break;
+            yield break;
         }
 
-        if (preparedEnemyCount == 0)
+        if (enemyUnits.Count == 0)
         {
-            Debug.LogError("Battle start blocked: no player units were prepared for deployment.");
-            //yield break;
+            Debug.LogError("Battle start blocked: no enemy units were spawned.");
+            yield break;
         }
 
+        if (GameControl.EnableUnitDeployment())
+        {
+            UnitManager.GetInstance().deployingFacIdx = context.playerFactionSlotIndex;
+            UnitManager.GetInstance().NewFactionDeployment();
 
-       
-      //GameControl.instance.Begining();
+            UIDeployment.ShowForCurrentDeployment();
+
+            Debug.Log("Deployment phase started. Waiting for UIDeployment End Deployment button.");
+            yield break;
+        }
+
+        GameControl.ManualStartBattle();
     }
 }

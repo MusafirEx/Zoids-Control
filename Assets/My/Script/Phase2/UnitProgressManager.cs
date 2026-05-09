@@ -1,194 +1,292 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+
+[Serializable]
+public class UnitDataProgressEntry
+{
+    public int unitId;
+    public int dataAmount;
+
+    public UnitDataProgressEntry(int unitId, int dataAmount)
+    {
+        this.unitId = unitId;
+        this.dataAmount = dataAmount;
+    }
+}
+
+[Serializable]
+public class UnitDataProgressSave
+{
+    public List<UnitDataProgressEntry> unitData = new List<UnitDataProgressEntry>();
+}
 
 public class UnitProgressManager : MonoBehaviour
 {
-    public static UnitProgressManager Instance { get; private set; }
-
-    public const string DefaultSaveKey = "zoids_unit_progress_main";
-
-    [Header("Local Save")]
-    [SerializeField] private string saveKey = DefaultSaveKey;
-    [SerializeField] private bool autoLoadOnAwake = true;
-
     [Header("References")]
     [SerializeField] private PlayerProfileManager profileManager;
 
-    public UnitProgressData CurrentData { get; private set; }
+    [Header("Save")]
+    [SerializeField] private string playerPrefsKey = "ZOIDS_UNIT_DATA_PROGRESS_V1";
 
-    public event Action<UnitProgressData> OnProgressLoaded;
-    public event Action<UnitProgressData> OnProgressSaved;
-    public event Action<int, int> OnUnitDataChanged;
-    public event Action<int, int> OnUnitOwnedChanged;
+    [Header("Debug")]
+    [SerializeField] private bool debugLog = true;
+
+    private UnitDataProgressSave progress = new UnitDataProgressSave();
 
     private void Reset()
     {
-        profileManager = FindObjectOfType<PlayerProfileManager>();
+        RefreshRuntimeReferences();
     }
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        RefreshRuntimeReferences();
+        LoadProgress();
+    }
 
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+    private void OnEnable()
+    {
+        RefreshRuntimeReferences();
+    }
+
+    public void RefreshRuntimeReferences()
+    {
+        if (profileManager == null)
+            profileManager = FindFirstObjectByTypeCompat<PlayerProfileManager>();
+
+        if (debugLog && profileManager == null)
+            Debug.LogWarning("[UnitProgressManager] PlayerProfileManager not found during refresh.");
+    }
+
+    private T FindFirstObjectByTypeCompat<T>() where T : UnityEngine.Object
+    {
+#if UNITY_2023_1_OR_NEWER
+        return UnityEngine.Object.FindFirstObjectByType<T>();
+#else
+        return UnityEngine.Object.FindObjectOfType<T>();
+#endif
+    }
+
+    private PlayerProfileData GetProfile()
+    {
+        RefreshRuntimeReferences();
 
         if (profileManager == null)
-            profileManager = FindObjectOfType<PlayerProfileManager>();
+            return null;
 
-        if (autoLoadOnAwake)
-            LoadProgress();
+        PlayerProfileData profile = profileManager.EnsureProfile();
+        if (profile == null)
+            Debug.LogWarning("[UnitProgressManager] Player profile is null.");
+
+        return profile;
     }
 
-    public bool HasSavedProgress()
-    {
-        return PlayerPrefs.HasKey(saveKey) && !string.IsNullOrEmpty(PlayerPrefs.GetString(saveKey, ""));
-    }
-
-    public UnitProgressData LoadProgress()
-    {
-        if (!HasSavedProgress())
-        {
-            CurrentData = new UnitProgressData();
-            CurrentData.Touch();
-            return CurrentData;
-        }
-
-        string json = PlayerPrefs.GetString(saveKey, "");
-        if (string.IsNullOrEmpty(json))
-        {
-            CurrentData = new UnitProgressData();
-            CurrentData.Touch();
-            return CurrentData;
-        }
-
-        try
-        {
-            CurrentData = JsonUtility.FromJson<UnitProgressData>(json);
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError("[UnitProgressManager] Failed to parse unit progress JSON: " + ex.Message);
-            CurrentData = new UnitProgressData();
-        }
-
-        if (CurrentData == null)
-            CurrentData = new UnitProgressData();
-
-        OnProgressLoaded?.Invoke(CurrentData);
-        return CurrentData;
-    }
-
-    public void SaveProgress()
-    {
-        if (CurrentData == null)
-            CurrentData = new UnitProgressData();
-
-        CurrentData.Touch();
-        string json = JsonUtility.ToJson(CurrentData, true);
-        PlayerPrefs.SetString(saveKey, json);
-        PlayerPrefs.Save();
-
-        OnProgressSaved?.Invoke(CurrentData);
-    }
-
-    public void ClearProgress()
-    {
-        CurrentData = new UnitProgressData();
-        PlayerPrefs.DeleteKey(saveKey);
-        PlayerPrefs.Save();
-    }
+    // ---------------------------------------------------------
+    // Unit data progress
+    // Stored here because current PlayerProfileData has no
+    // GetUnitData / SetUnitData methods.
+    // ---------------------------------------------------------
 
     public int GetUnitData(int unitId)
     {
-        EnsureLoaded();
-        return CurrentData.GetDataAmount(unitId);
+        UnitDataProgressEntry entry = GetUnitDataEntry(unitId, false);
+        return entry != null ? entry.dataAmount : 0;
     }
 
-    public void SetUnitData(int unitId, int amount, bool autoSave = true)
+    public void SetUnitData(int unitId, int amount, bool save = true)
     {
-        EnsureLoaded();
-        CurrentData.SetDataAmount(unitId, amount);
+        UnitDataProgressEntry entry = GetUnitDataEntry(unitId, true);
+        entry.dataAmount = Mathf.Max(0, amount);
 
-        OnUnitDataChanged?.Invoke(unitId, CurrentData.GetDataAmount(unitId));
+        TouchProfile();
 
-        if (autoSave)
+        if (save)
             SaveProgress();
     }
 
-    public void AddUnitData(int unitId, int amount, bool autoSave = true)
+    public void AddUnitData(int unitId, int amount, bool save = true)
     {
-        if (amount <= 0)
+        if (amount == 0)
             return;
 
-        EnsureLoaded();
-        CurrentData.AddDataAmount(unitId, amount);
+        UnitDataProgressEntry entry = GetUnitDataEntry(unitId, true);
+        int oldAmount = entry.dataAmount;
+        entry.dataAmount = Mathf.Max(0, entry.dataAmount + amount);
 
-        OnUnitDataChanged?.Invoke(unitId, CurrentData.GetDataAmount(unitId));
+        TouchProfile();
 
-        if (autoSave)
+        if (debugLog)
+            Debug.Log("[UnitProgressManager] Unit " + unitId + " data " + oldAmount + " -> " + entry.dataAmount);
+
+        if (save)
             SaveProgress();
     }
 
-    public bool SpendUnitData(int unitId, int amount, bool autoSave = true)
+    public bool HasEnoughUnitData(int unitId, int amount)
+    {
+        return GetUnitData(unitId) >= amount;
+    }
+
+    public bool SpendUnitData(int unitId, int amount, bool save = true)
     {
         if (amount <= 0)
             return true;
 
-        EnsureLoaded();
-
-        int current = CurrentData.GetDataAmount(unitId);
-        if (current < amount)
+        UnitDataProgressEntry entry = GetUnitDataEntry(unitId, true);
+        if (entry.dataAmount < amount)
             return false;
 
-        CurrentData.SetDataAmount(unitId, current - amount);
-        OnUnitDataChanged?.Invoke(unitId, CurrentData.GetDataAmount(unitId));
+        entry.dataAmount -= amount;
 
-        if (autoSave)
+        TouchProfile();
+
+        if (debugLog)
+            Debug.Log("[UnitProgressManager] Spent " + amount + " data from unit " + unitId + ". Remaining=" + entry.dataAmount);
+
+        if (save)
             SaveProgress();
 
         return true;
     }
 
-    public int GetOwnedCount(int unitId)
+    private UnitDataProgressEntry GetUnitDataEntry(int unitId, bool createIfMissing)
     {
-        if (profileManager == null || profileManager.CurrentProfile == null)
-            return 0;
+        if (progress == null)
+            progress = new UnitDataProgressSave();
 
-        return profileManager.CurrentProfile.GetOwnedCount(unitId);
+        if (progress.unitData == null)
+            progress.unitData = new List<UnitDataProgressEntry>();
+
+        for (int i = 0; i < progress.unitData.Count; i++)
+        {
+            if (progress.unitData[i] != null && progress.unitData[i].unitId == unitId)
+                return progress.unitData[i];
+        }
+
+        if (!createIfMissing)
+            return null;
+
+        UnitDataProgressEntry entry = new UnitDataProgressEntry(unitId, 0);
+        progress.unitData.Add(entry);
+        return entry;
     }
 
-    public void AddOwnedCount(int unitId, int amount, bool autoSave = true)
+    // ---------------------------------------------------------
+    // Owned unit count
+    // FactoryManager expects these methods on UnitProgressManager.
+    // These use PlayerProfileData because it already has ownedUnits.
+    // ---------------------------------------------------------
+
+    public int GetOwnedCount(int unitId)
     {
-        if (amount == 0)
+        PlayerProfileData profile = GetProfile();
+        if (profile == null)
+            return 0;
+
+        return profile.GetOwnedCount(unitId);
+    }
+
+    public void SetOwnedCount(int unitId, int amount, bool save = true)
+    {
+        PlayerProfileData profile = GetProfile();
+        if (profile == null)
             return;
 
-        if (profileManager == null)
-            profileManager = FindObjectOfType<PlayerProfileManager>();
+        profile.SetOwnedCount(unitId, Mathf.Max(0, amount));
+        profile.Touch();
 
-        if (profileManager == null)
+        if (save)
+            SaveProgress();
+    }
+
+    public void AddOwnedCount(int unitId, int amount, bool save = true)
+    {
+        PlayerProfileData profile = GetProfile();
+        if (profile == null)
+            return;
+
+        profile.AddOwnedCount(unitId, amount);
+        profile.Touch();
+
+        if (save)
+            SaveProgress();
+    }
+
+    public bool OwnsUnit(int unitId)
+    {
+        return GetOwnedCount(unitId) > 0;
+    }
+
+    // ---------------------------------------------------------
+    // Save / Load
+    // ---------------------------------------------------------
+
+    public void SaveProgress()
+    {
+        RefreshRuntimeReferences();
+
+        if (progress == null)
+            progress = new UnitDataProgressSave();
+
+        string json = JsonUtility.ToJson(progress);
+        PlayerPrefs.SetString(playerPrefsKey, json);
+        PlayerPrefs.Save();
+
+        if (profileManager != null)
+            profileManager.SaveProfile();
+
+        if (debugLog)
+            Debug.Log("[UnitProgressManager] Progress saved.");
+    }
+
+    public void LoadProgress()
+    {
+        if (!PlayerPrefs.HasKey(playerPrefsKey))
         {
-            Debug.LogError("[UnitProgressManager] Missing PlayerProfileManager reference.");
+            progress = new UnitDataProgressSave();
             return;
         }
 
-        if (profileManager.CurrentProfile == null)
-            profileManager.CreateNewProfile();
+        string json = PlayerPrefs.GetString(playerPrefsKey, "");
+        if (string.IsNullOrEmpty(json))
+        {
+            progress = new UnitDataProgressSave();
+            return;
+        }
 
-        profileManager.CurrentProfile.AddOwnedCount(unitId, amount);
-        OnUnitOwnedChanged?.Invoke(unitId, profileManager.CurrentProfile.GetOwnedCount(unitId));
+        try
+        {
+            progress = JsonUtility.FromJson<UnitDataProgressSave>(json);
+            if (progress == null)
+                progress = new UnitDataProgressSave();
+        }
+        catch
+        {
+            progress = new UnitDataProgressSave();
+        }
 
-        if (autoSave)
-            profileManager.SaveProfile();
+        if (progress.unitData == null)
+            progress.unitData = new List<UnitDataProgressEntry>();
+
+        if (debugLog)
+            Debug.Log("[UnitProgressManager] Progress loaded. Count=" + progress.unitData.Count);
     }
 
-    private void EnsureLoaded()
+    public void ClearProgress()
     {
-        if (CurrentData == null)
-            LoadProgress();
+        progress = new UnitDataProgressSave();
+        PlayerPrefs.DeleteKey(playerPrefsKey);
+        PlayerPrefs.Save();
+
+        if (debugLog)
+            Debug.Log("[UnitProgressManager] Progress cleared.");
+    }
+
+    private void TouchProfile()
+    {
+        PlayerProfileData profile = GetProfile();
+        if (profile != null)
+            profile.Touch();
     }
 }

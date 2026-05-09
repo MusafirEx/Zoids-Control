@@ -1,0 +1,4386 @@
+fileFormatVersion: 2
+guid: e7dc42c70a2404f4a9e2e3614a6b83b3
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI_Atlas_league_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1984
+        width: 247
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bf0c40fafff583458529d79367de6e7
+      internalID: -652451547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_1
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 1995
+        width: 88
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e087b93c55443c249b38b69e64f857a2
+      internalID: -358487072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_2
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 1996
+        width: 89
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58e35d4d40f1e2247a933542c759d3f0
+      internalID: 404790546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1946
+        width: 89
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2b279774e807774795009f0f194cb46
+      internalID: 1621083331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_4
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 1946
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d551c56b428de34c9361222d0f7821e
+      internalID: 403417392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_5
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 1964
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba4175054df930b4c8cd48140c09cfde
+      internalID: -1263551401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_6
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 1838
+        width: 113
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 741a1f87955ce8748b65a46ad04bff99
+      internalID: -1854954377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_7
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 1682
+        width: 56
+        height: 311
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e022ef70130aa27458d04691727f09f7
+      internalID: 1477151329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_8
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 1946
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cd0fbbdabb0ebb43a521e60f61ccf62
+      internalID: 2015584829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_9
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 1916
+        width: 52
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da68bb79d766e6045a7cafaa4db00f34
+      internalID: -172233895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1825
+        width: 146
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77ceb2bcfd725a743b1f2732b2904bad
+      internalID: -1669435872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_11
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 1870
+        width: 47
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46117be0387ce4847a3efb4b68e40286
+      internalID: -1841663590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_12
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 1869
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dba9dba02a598e49a2335c9a6725da0
+      internalID: 1398428612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_13
+      rect:
+        serializedVersion: 2
+        x: 1992
+        y: 1867
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d6e2cdd53222ae4297c87085ff8e799
+      internalID: 33005846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1672
+        width: 151
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acaab4ad83e40264fb7523818a61df4c
+      internalID: 785582337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_15
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 1820
+        width: 45
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8f8b04d50ec28d4591a2d3053ca7d55
+      internalID: 798363843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_16
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 1820
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e725257888c0b14b9d4e305cfb6ea74
+      internalID: -1961314290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_17
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 1820
+        width: 37
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfa462fb44ee1bb49aab05a7df3938fe
+      internalID: 1014562285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_18
+      rect:
+        serializedVersion: 2
+        x: 1778
+        y: 1776
+        width: 50
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72e3f8b8c22ccc54f99c57027976b092
+      internalID: -1177964173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_19
+      rect:
+        serializedVersion: 2
+        x: 1832
+        y: 1775
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e07312f82576e04c803a37405be70d6
+      internalID: -1275778695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_20
+      rect:
+        serializedVersion: 2
+        x: 1884
+        y: 1786
+        width: 56
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfb2b08112062af46b2e39d53b74f5cb
+      internalID: 780496741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_21
+      rect:
+        serializedVersion: 2
+        x: 1943
+        y: 1819
+        width: 46
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7054e3074af3de4694b6919800c4b11
+      internalID: 712198707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_22
+      rect:
+        serializedVersion: 2
+        x: 1992
+        y: 1818
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bcd28d8477747c47b2935a2c9ce9684
+      internalID: 1649707298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_23
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 1683
+        width: 117
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1ab0ca2ae6eeed419032105e134b293
+      internalID: 479553082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_24
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 1782
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88bb5d6010efb674587bebcc20fb4ff6
+      internalID: 912670354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_25
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 1780
+        width: 34
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a71c479bd5285ff48a19f9ffe570adc0
+      internalID: -131227695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_26
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 1776
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3ed7bae126dd184bb3708951db52c99
+      internalID: 1989298125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_27
+      rect:
+        serializedVersion: 2
+        x: 1571
+        y: 1737
+        width: 55
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 972a2a6dbe9724b4281179ea11af46a5
+      internalID: 197201653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_28
+      rect:
+        serializedVersion: 2
+        x: 1629
+        y: 1771
+        width: 71
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b733fbfdca536b46b089982b17cbe64
+      internalID: 399923151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_29
+      rect:
+        serializedVersion: 2
+        x: 1702
+        y: 1775
+        width: 71
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4b0ab770600256449c59912ec0d32ce
+      internalID: 1583423907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_30
+      rect:
+        serializedVersion: 2
+        x: 1898
+        y: 1731
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96b96589b89d5434ebe0ddf66a808ded
+      internalID: 1068899774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_31
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 1730
+        width: 73
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 917eda811fbdb5341b413ea38e63ab1d
+      internalID: -1447245703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_32
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 1738
+        width: 35
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03a5760f517787a4db8cce1b5f9ce39e
+      internalID: 559225753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_33
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1738
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 389f1bfe20363494bbe4d588d54c2c5e
+      internalID: -1135641521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_34
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 1739
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 331409d741ba31945be38d3d90b82ea4
+      internalID: -1309649949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_35
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 1711
+        width: 55
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5c43810d2bf55c4196e734dbae52fa6
+      internalID: -1222452403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_36
+      rect:
+        serializedVersion: 2
+        x: 1691
+        y: 1713
+        width: 55
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6acfa7f9a9100984c97b82f1a8d8efa6
+      internalID: -1128833006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_37
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 1730
+        width: 71
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bef85e4eb91456b428d6ebabbec045fb
+      internalID: 281948485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_38
+      rect:
+        serializedVersion: 2
+        x: 1823
+        y: 1730
+        width: 71
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eb528f5c88f2f0489f97efc66bc8ca9
+      internalID: 1396341724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_39
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 1579
+        width: 132
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3440b125cfe78fe4bbce54423e31bb48
+      internalID: 1249647351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_40
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 1602
+        width: 112
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89cbe7cbe1adc2448bc5d3b8f6bab18f
+      internalID: -307576143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_41
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 1603
+        width: 83
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 425a926dd537f8f4689e05709b6fd581
+      internalID: -963154834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_42
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 1682
+        width: 37
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84d1aa0f86d57bc4984e2c0d87c4bc0f
+      internalID: -319333555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_43
+      rect:
+        serializedVersion: 2
+        x: 1507
+        y: 1681
+        width: 62
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ca802dc8d4e7b34c87aed02e5b115ef
+      internalID: 723216679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_44
+      rect:
+        serializedVersion: 2
+        x: 1571
+        y: 1682
+        width: 61
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c80b33265b6f28b4caed8800e6187f6b
+      internalID: 1548441739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_45
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 1653
+        width: 62
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73b35ec366dd18f449fdcdfd9172ebc6
+      internalID: 1121752608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_46
+      rect:
+        serializedVersion: 2
+        x: 1714
+        y: 1651
+        width: 60
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c32f88d72011a34ea2a8284d6908809
+      internalID: 1984252057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_47
+      rect:
+        serializedVersion: 2
+        x: 1776
+        y: 1682
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea74ca8560857c9479fee2ae364195cd
+      internalID: -2101864520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_48
+      rect:
+        serializedVersion: 2
+        x: 1810
+        y: 1530
+        width: 135
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8408412f54cca034dab1eadbde585705
+      internalID: 1499727161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_49
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 1643
+        width: 78
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c9eddc87350b724796364787d63327e
+      internalID: 909658878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_50
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 1597
+        width: 18
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89453a417fabcd447afa258475fd798c
+      internalID: 1328862339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_51
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 1642
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c430cddd7dadf3e47a931dbc41b4e6ab
+      internalID: 1786624412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_52
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 1482
+        width: 134
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea120ab0049a3b64daee2bfe328217c7
+      internalID: -672897996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_53
+      rect:
+        serializedVersion: 2
+        x: 1339
+        y: 1594
+        width: 103
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 679cd94572f6af047814b265af5aa5d3
+      internalID: -397401632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_54
+      rect:
+        serializedVersion: 2
+        x: 1445
+        y: 1622
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab4c85cf8461f9344aadbcd2208e44ac
+      internalID: 1993110108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_55
+      rect:
+        serializedVersion: 2
+        x: 1508
+        y: 1622
+        width: 61
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a74577b0d7bdd14f9f830cbadf68544
+      internalID: -1782572768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_56
+      rect:
+        serializedVersion: 2
+        x: 1571
+        y: 1622
+        width: 62
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f76f7b14d288a5409a81bf57c25f3a3
+      internalID: -578309510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_57
+      rect:
+        serializedVersion: 2
+        x: 1777
+        y: 1651
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b201c7f60e39a249b3fbb24b3b456c5
+      internalID: 1370878876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_58
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1588
+        width: 61
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b9bb7c3285bd0d49b819d6de74b2f0a
+      internalID: -1468236207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_59
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 1588
+        width: 60
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a33271258c51ab740a7ebb5755997fdc
+      internalID: -1604284033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_60
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 1596
+        width: 45
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24e8f540abc58604b91b78ff6bf057a5
+      internalID: -299685751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_61
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 1614
+        width: 7
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86794d0221ca9eb40be01a264cf397e8
+      internalID: -763303298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_62
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 1611
+        width: 7
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d3c6a436982f094e989da4ec4e1a474
+      internalID: -1538298008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_63
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 1564
+        width: 100
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cd84bf02e0b57247bfcc85c20150477
+      internalID: 831832750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_64
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 1566
+        width: 101
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b68eb6229dbde864fba8d7e53c9f6335
+      internalID: -1684727474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_65
+      rect:
+        serializedVersion: 2
+        x: 1455
+        y: 1594
+        width: 179
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cda436993d54114e83bcee7c9dec214
+      internalID: 1182631207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_66
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 1599
+        width: 65
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c1dc85a4d510f44498432a171ad4868
+      internalID: 290713199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_67
+      rect:
+        serializedVersion: 2
+        x: 1714
+        y: 1598
+        width: 71
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fdf88b640b906c45ae2bfe09fe6c915
+      internalID: 672643918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_68
+      rect:
+        serializedVersion: 2
+        x: 1787
+        y: 1598
+        width: 15
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac285048daf4f4447bda7366ce6b9694
+      internalID: 1398882536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_69
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 1529
+        width: 96
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffeaf040d60c096439ab39f3c8837a80
+      internalID: -1150175971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_70
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1537
+        width: 60
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8b08322de1994a469bce14cc66810a5
+      internalID: 607657644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_71
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 1536
+        width: 61
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d020b4ac2b75fe408b5c9bfc16261e9
+      internalID: 286303592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_72
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 1545
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a150375cb454c64ea5660affb35fff5
+      internalID: 1172500628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_73
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 1379
+        width: 135
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bc42897c8afe46499eef3e428562f21
+      internalID: -2025529389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_74
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 1442
+        width: 120
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9688db7a0aaf5442865c8c59d17cad6
+      internalID: 815324907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_75
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 1572
+        width: 35
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96aef3afe4e388949a9d5a5333f181de
+      internalID: -1536335027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_76
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 1515
+        width: 194
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fb71b03aab938248b1763b00df8a90f
+      internalID: 840306728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_77
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 1530
+        width: 129
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72ccd9a1eced9aa4aacae44c2a4a1e84
+      internalID: -639955075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_78
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 1553
+        width: 91
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7f22ccfaa1d815438b3e07873bed7b6
+      internalID: 844849629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_79
+      rect:
+        serializedVersion: 2
+        x: 1547
+        y: 1553
+        width: 91
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c646ba694837be54f99f91ed5dfdf3b1
+      internalID: 1768519694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_80
+      rect:
+        serializedVersion: 2
+        x: 1643
+        y: 1552
+        width: 26
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23ce905c7bfff6640a3065e346cee31c
+      internalID: -1637349631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_81
+      rect:
+        serializedVersion: 2
+        x: 1671
+        y: 1398
+        width: 135
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0643691a6b439244485484e1b49258eb
+      internalID: 670322521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_82
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1494
+        width: 19
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74f62e7f70181384286d0f78b6efe980
+      internalID: -373242755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_83
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 1493
+        width: 45
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3d77515ac4f931408421a988693f8a2
+      internalID: 2018439945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_84
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 1482
+        width: 66
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e16eeea6e5f8ab489b7b6430cef2c4e
+      internalID: -385622864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_85
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 1442
+        width: 123
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7efe660da2f50d14580f0e9ab094676b
+      internalID: -1874755597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_86
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 1530
+        width: 65
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b73dfe129e4a2b4399e1259c19d0ab5
+      internalID: -906132993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_87
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1475
+        width: 117
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02171c8e162d8fa479b8ba5282cc1b19
+      internalID: -1081830854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_88
+      rect:
+        serializedVersion: 2
+        x: 1346
+        y: 1535
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39810f61614f77c459be2cc5443305a9
+      internalID: 474582364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_89
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 1535
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 541ac86b220a64645832d92446ac68f0
+      internalID: -1854160962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_90
+      rect:
+        serializedVersion: 2
+        x: 1483
+        y: 1398
+        width: 185
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 105e298628a3302489d6b400489a0836
+      internalID: 625386523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_91
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 1459
+        width: 194
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1793ce413e156846a9d38159b71fd57
+      internalID: 1964369225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_92
+      rect:
+        serializedVersion: 2
+        x: 1322
+        y: 1514
+        width: 28
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02ffb7aef0a086f4f97a7f5db9b11247
+      internalID: 624687959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_93
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 1514
+        width: 28
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 839d86a591356dc40bfea3869d2cb8d6
+      internalID: -147614080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_94
+      rect:
+        serializedVersion: 2
+        x: 1423
+        y: 1475
+        width: 57
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbe0b002bbb170043a1a4ef1c4196528
+      internalID: 192917001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_95
+      rect:
+        serializedVersion: 2
+        x: 1809
+        y: 1458
+        width: 38
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd49b1877bb8adf4ea42c55071885c3d
+      internalID: 981551919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_96
+      rect:
+        serializedVersion: 2
+        x: 1854
+        y: 1344
+        width: 160
+        height: 182
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f46f488672c83f7459ca129a507ae682
+      internalID: -1095530936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_97
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1293
+        width: 198
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35128f432621a284b821008c8cfb8a14
+      internalID: 1298385626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_98
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 1330
+        width: 207
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c45c6e028442c3e4cbb93a105f417fba
+      internalID: 1170361901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_99
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 1443
+        width: 194
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 160cc003d5c33cf4d8f166de6b4ddfb5
+      internalID: 558091247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_100
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1476
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38baff84931db6a4da7bb678b51fe589
+      internalID: 506222068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_101
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 1476
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 793755098f9cef747a5e2c1084d1dfee
+      internalID: -1143784424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_102
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 1379
+        width: 417
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a79206f58f41db943bab6a0c61aa928a
+      internalID: -332733269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_103
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 1378
+        width: 35
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b1fdfc645707b045964019d120e77db
+      internalID: -288932757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_104
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 1331
+        width: 262
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b2412684f1eab04e8016e5e345a9579
+      internalID: -1492816012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_105
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 1332
+        width: 204
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c70ec9a436d0b1e478a2b958ccf8d154
+      internalID: -711485992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_106
+      rect:
+        serializedVersion: 2
+        x: 1810
+        y: 1397
+        width: 38
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08497f8d2eb076949a33f550132a8a27
+      internalID: 1671154054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_107
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 1320
+        width: 581
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c65a9de73413f04db194883333ae546
+      internalID: 1906342896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_108
+      rect:
+        serializedVersion: 2
+        x: 1482
+        y: 1331
+        width: 129
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03a3fb56333a34a45beb6fdcff6a2d98
+      internalID: 417945045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_109
+      rect:
+        serializedVersion: 2
+        x: 1614
+        y: 1331
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 766d7b57757ab19428207907377f41c7
+      internalID: 2093902613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_110
+      rect:
+        serializedVersion: 2
+        x: 1643
+        y: 1248
+        width: 208
+        height: 147
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec0fe12d65a933e4a88b3a2c60a57c1c
+      internalID: -368228060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_111
+      rect:
+        serializedVersion: 2
+        x: 1854
+        y: 1295
+        width: 36
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fff8f9d30e34995459361d7acac729bf
+      internalID: 770688598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_112
+      rect:
+        serializedVersion: 2
+        x: 1894
+        y: 988
+        width: 126
+        height: 353
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6bf6f70697501a40accb97e6f2486ad
+      internalID: -1953877279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_113
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 1119
+        width: 206
+        height: 208
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94e02b8b9ead0d341aa537bf1ff99928
+      internalID: -2094751400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_114
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 1118
+        width: 196
+        height: 196
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d37480f96fa35fe49b4b54de5d7bbeca
+      internalID: -1108025849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_115
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1302
+        width: 72
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e9139ce280c824409349b5f6b47b444
+      internalID: 294019015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_116
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 1302
+        width: 71
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8bb12808cdc65f40a4cf6b135e231d0
+      internalID: 1873918535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_117
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 1236
+        width: 409
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1eb5f828929ce549b9dd2d704de46ac
+      internalID: -44397446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_118
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 1248
+        width: 409
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfe78f299f249874e8f580f19bec6865
+      internalID: -383615606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_119
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 932
+        width: 207
+        height: 358
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82a184d9c79b6404094522d89b5d5f8b
+      internalID: 1728957021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_120
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 1128
+        width: 195
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 429d96578417b6448ad9f88728e564e9
+      internalID: -617882890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_121
+      rect:
+        serializedVersion: 2
+        x: 1854
+        y: 1247
+        width: 34
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: febb0c7103d92e1428d90931a475871b
+      internalID: 103700539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_122
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 1128
+        width: 158
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dafd9d570c40d4e47a8759766513a481
+      internalID: -494180868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_123
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 1200
+        width: 179
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4f1cc8fd9e271a4ea7f93ef4a85ecb8
+      internalID: 403962217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_124
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 1186
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b33f5c6b2febd64ea9be3fa1ed249c4
+      internalID: 1520764264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_125
+      rect:
+        serializedVersion: 2
+        x: 1223
+        y: 1050
+        width: 208
+        height: 182
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9aeb4a5bf23bfb43a3cdfb492f95324
+      internalID: 1882487451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_126
+      rect:
+        serializedVersion: 2
+        x: 1435
+        y: 1050
+        width: 194
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b780ab47e7cef25458e512ce31dcf1d6
+      internalID: 2032173115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_127
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 1050
+        width: 194
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67701c1d8ae592f478c82f95e8374f4d
+      internalID: 1473771275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_128
+      rect:
+        serializedVersion: 2
+        x: 1828
+        y: 1185
+        width: 64
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 711994c8dd4ca894f8906a1d4e0826a5
+      internalID: 772667097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_129
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 1129
+        width: 194
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3439e98642ad51645947590ce555135d
+      internalID: 252330004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_130
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 1128
+        width: 44
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffafbd51d838ff04a82ff433df4945a2
+      internalID: -1150552959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_131
+      rect:
+        serializedVersion: 2
+        x: 1829
+        y: 1120
+        width: 60
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d177081280393c24d84913648f7b6ff0
+      internalID: -1132809080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_132
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 933
+        width: 198
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73de004592d538a4a9201efb8ee170ad
+      internalID: 672480776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_133
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 758
+        width: 209
+        height: 357
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cefa0a6336265548a93fde432479fc4
+      internalID: -1708165351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_134
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 1049
+        width: 576
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ca01bb516868f7498718172fe5d3277
+      internalID: 1800624913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_135
+      rect:
+        serializedVersion: 2
+        x: 1828
+        y: 1049
+        width: 59
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9755d0c53e1d9754890bfb2b3add5c85
+      internalID: 474640061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_136
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 1013
+        width: 190
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4356cf77f4ac9ed4190ac631da3273f8
+      internalID: -16647349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_137
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 1013
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78a4aff5a7a91c143925d3dc1663c541
+      internalID: -1794281785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_138
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 1007
+        width: 91
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82754bfea3850414c86aaa29558d3db8
+      internalID: -1229218533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_139
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 1007
+        width: 90
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f02d6d53705c2a5488927128fd256ca3
+      internalID: -1299515373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_140
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 989
+        width: 44
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a650eab27481c04c98f194163374c70
+      internalID: -1075682227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_141
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 988
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6781030c98419a847b9456a202e30731
+      internalID: -178808276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_142
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 988
+        width: 35
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17d167a2938491943b3694a0d16741ac
+      internalID: 1154540614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_143
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 989
+        width: 35
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bce7ead1f9d6779489ba9e1c0ab17916
+      internalID: 570512200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_144
+      rect:
+        serializedVersion: 2
+        x: 1284
+        y: 988
+        width: 70
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fc775b22a7b5224ebdd0030541ed874
+      internalID: -209275461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_145
+      rect:
+        serializedVersion: 2
+        x: 1353
+        y: 988
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f11cf96dcee8754f90eca0f04bb40d2
+      internalID: -1409233484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_146
+      rect:
+        serializedVersion: 2
+        x: 1415
+        y: 988
+        width: 38
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5da914ff4a59d5b4db681dd6311ad6c2
+      internalID: -1540959537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_147
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 988
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffab53a3e27f0a14d9429db1c5361a76
+      internalID: -589635832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_148
+      rect:
+        serializedVersion: 2
+        x: 1492
+        y: 988
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52dc1b2a493b35d47808d8d74c97f085
+      internalID: -1765419206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_149
+      rect:
+        serializedVersion: 2
+        x: 1532
+        y: 989
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fe1bd9fd07c3da4b8d012ba686b231d
+      internalID: -833951293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_150
+      rect:
+        serializedVersion: 2
+        x: 1591
+        y: 988
+        width: 38
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eae5da03b156a441a17e38301838686
+      internalID: 995436325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_151
+      rect:
+        serializedVersion: 2
+        x: 1632
+        y: 988
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: addf13c3597a00349bb2bd0df64debb1
+      internalID: 216086549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_152
+      rect:
+        serializedVersion: 2
+        x: 1672
+        y: 989
+        width: 52
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a22f4bf13054a347a6c46f4abffa28b
+      internalID: 1187205088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_153
+      rect:
+        serializedVersion: 2
+        x: 1726
+        y: 988
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ebef7c9ca14e7a42a321c0269b3c85f
+      internalID: -921979228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_154
+      rect:
+        serializedVersion: 2
+        x: 1765
+        y: 988
+        width: 29
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbe1e8d1ead986b4a9dbf1ff84f2dfa1
+      internalID: 248290195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_155
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 988
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4d798d940d05bf438da07508cd70464
+      internalID: -1519178911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_156
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 988
+        width: 38
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bf184385ad84ae4e92ee4c7810b3f3a
+      internalID: -2115227298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_157
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 758
+        width: 240
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4a379d9df19a2a4cb5e2bc9541d03fd
+      internalID: 990977403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_158
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 759
+        width: 229
+        height: 245
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 036f2ac3f2aae86428ea5ce7508ecff9
+      internalID: 1492345624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_159
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 989
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 404d55ee950191c4ca3a4a8a3f69d4b6
+      internalID: 451518738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_160
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 969
+        width: 195
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa084866792242f4cb2fd4e80a0f7274
+      internalID: -1433020663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_161
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 915
+        width: 112
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c9e38f9a03d58c4f885ae9b9e5cf606
+      internalID: -309784070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_162
+      rect:
+        serializedVersion: 2
+        x: 1442
+        y: 734
+        width: 510
+        height: 252
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 921f679030c5eed41b15710a5fbeb042
+      internalID: 622896662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_163
+      rect:
+        serializedVersion: 2
+        x: 1954
+        y: 917
+        width: 60
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af0e56acf14120b40a5f5588929aea93
+      internalID: -2090644868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_164
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 917
+        width: 29
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d196f0e7b63b1342b07a2519c69e2cb
+      internalID: 1515119823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A_Panel
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 462
+        width: 414
+        height: 468
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9a76d61f13fd0143835050ddb61eeb8
+      internalID: -396446930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_166
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 759
+        width: 206
+        height: 208
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 968ccee104aeb7c489855f363dabd2b1
+      internalID: 266935718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_167
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 759
+        width: 117
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca6580c09438d3e4a9bf7ca4e300b954
+      internalID: 1614349009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_168
+      rect:
+        serializedVersion: 2
+        x: 1954
+        y: 855
+        width: 61
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5cfcff172aff84429bc694b7f1453bd
+      internalID: 1381996976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_169
+      rect:
+        serializedVersion: 2
+        x: 1954
+        y: 799
+        width: 72
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0839fd364e794804394ba0d81c91a6e0
+      internalID: -1303191654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_170
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 466
+        width: 510
+        height: 290
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48cb5d72f1a0f04a87f9e49053d7a15
+      internalID: -1139442974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_171
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 466
+        width: 510
+        height: 290
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94808432f74e7bc478db704fe228a58e
+      internalID: 33368879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_172
+      rect:
+        serializedVersion: 2
+        x: 1954
+        y: 735
+        width: 61
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 860d9f72da668ba44be7741139814803
+      internalID: -1592111230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_173
+      rect:
+        serializedVersion: 2
+        x: 2018
+        y: 735
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ede43b5b6232e84ea9b0f9d742e1d19
+      internalID: -1121855941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_174
+      rect:
+        serializedVersion: 2
+        x: 1442
+        y: 471
+        width: 510
+        height: 258
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fa0d487f5964244783705184913290c
+      internalID: 1996038899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_175
+      rect:
+        serializedVersion: 2
+        x: 1954
+        y: 670
+        width: 74
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09fe4113fedde064aba54c4734c1bf6f
+      internalID: 494279990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_176
+      rect:
+        serializedVersion: 2
+        x: 1955
+        y: 598
+        width: 67
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f778d778e08d2e04b9c55e92b854147f
+      internalID: -2118297007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_177
+      rect:
+        serializedVersion: 2
+        x: 2025
+        y: 645
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a9ab16053b2e6341b7496b6180981db
+      internalID: 460475326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_178
+      rect:
+        serializedVersion: 2
+        x: 1955
+        y: 527
+        width: 90
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1fc710a5e353f140a2e4d5199057a2d
+      internalID: 1865519734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_179
+      rect:
+        serializedVersion: 2
+        x: 2026
+        y: 593
+        width: 13
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8d552941fe77d445b5d0428e29d5a74
+      internalID: -260039560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B_Panel
+      rect:
+        serializedVersion: 2
+        x: 1537
+        y: 0
+        width: 414
+        height: 469
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9465ad0f9aa071041af74459133e8f69
+      internalID: -1217772712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_181
+      rect:
+        serializedVersion: 2
+        x: 1955
+        y: 454
+        width: 90
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2de02fada2c70d041867e1310187c410
+      internalID: -1476488035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_182
+      rect:
+        serializedVersion: 2
+        x: 2025
+        y: 462
+        width: 20
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb56c1db164f39d47b85256fbd727c32
+      internalID: 1100392102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_183
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 510
+        height: 460
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ab39260d4f729840969f11e5e1f33c6
+      internalID: 354669101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_184
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 510
+        height: 460
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be5bf86baf4fb0a439e51d7c8e9a994b
+      internalID: -582718862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_185
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 510
+        height: 460
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c00e8ea983933ed4da95559191ad574b
+      internalID: 645225532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_186
+      rect:
+        serializedVersion: 2
+        x: 1955
+        y: 382
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16b3beb4e0bbea8489bd821b1857a3c8
+      internalID: -548920942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_187
+      rect:
+        serializedVersion: 2
+        x: 2028
+        y: 382
+        width: 18
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80cbd79cf5e45ac4d99036eb3fe9f56d
+      internalID: -1480940755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_188
+      rect:
+        serializedVersion: 2
+        x: 1954
+        y: 311
+        width: 72
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31b40c2f5b08b07419c5bdd58e2d2f4c
+      internalID: 959154855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_189
+      rect:
+        serializedVersion: 2
+        x: 1955
+        y: 238
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c1824c28f4179d4ea2d0af0eb1bec0a
+      internalID: 1732978219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_190
+      rect:
+        serializedVersion: 2
+        x: 1955
+        y: 159
+        width: 64
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b27718f7c1072954da2db30ccc65b534
+      internalID: 1542615870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_191
+      rect:
+        serializedVersion: 2
+        x: 1955
+        y: 81
+        width: 74
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16a4dd7bd3478b5459a10e39899cbed5
+      internalID: 200262105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_league_192
+      rect:
+        serializedVersion: 2
+        x: 1955
+        y: 0
+        width: 78
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 622d18e5bef08864caa54c5c31a08eb2
+      internalID: 576646938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 8347ccd3ebf1a09498a5c0d1d037f53b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      A_Panel: -396446930
+      B_Panel: -1217772712
+      UI_Atlas_league_0: -652451547
+      UI_Atlas_league_1: -358487072
+      UI_Atlas_league_10: -1669435872
+      UI_Atlas_league_100: 506222068
+      UI_Atlas_league_101: -1143784424
+      UI_Atlas_league_102: -332733269
+      UI_Atlas_league_103: -288932757
+      UI_Atlas_league_104: -1492816012
+      UI_Atlas_league_105: -711485992
+      UI_Atlas_league_106: 1671154054
+      UI_Atlas_league_107: 1906342896
+      UI_Atlas_league_108: 417945045
+      UI_Atlas_league_109: 2093902613
+      UI_Atlas_league_11: -1841663590
+      UI_Atlas_league_110: -368228060
+      UI_Atlas_league_111: 770688598
+      UI_Atlas_league_112: -1953877279
+      UI_Atlas_league_113: -2094751400
+      UI_Atlas_league_114: -1108025849
+      UI_Atlas_league_115: 294019015
+      UI_Atlas_league_116: 1873918535
+      UI_Atlas_league_117: -44397446
+      UI_Atlas_league_118: -383615606
+      UI_Atlas_league_119: 1728957021
+      UI_Atlas_league_12: 1398428612
+      UI_Atlas_league_120: -617882890
+      UI_Atlas_league_121: 103700539
+      UI_Atlas_league_122: -494180868
+      UI_Atlas_league_123: 403962217
+      UI_Atlas_league_124: 1520764264
+      UI_Atlas_league_125: 1882487451
+      UI_Atlas_league_126: 2032173115
+      UI_Atlas_league_127: 1473771275
+      UI_Atlas_league_128: 772667097
+      UI_Atlas_league_129: 252330004
+      UI_Atlas_league_13: 33005846
+      UI_Atlas_league_130: -1150552959
+      UI_Atlas_league_131: -1132809080
+      UI_Atlas_league_132: 672480776
+      UI_Atlas_league_133: -1708165351
+      UI_Atlas_league_134: 1800624913
+      UI_Atlas_league_135: 474640061
+      UI_Atlas_league_136: -16647349
+      UI_Atlas_league_137: -1794281785
+      UI_Atlas_league_138: -1229218533
+      UI_Atlas_league_139: -1299515373
+      UI_Atlas_league_14: 785582337
+      UI_Atlas_league_140: -1075682227
+      UI_Atlas_league_141: -178808276
+      UI_Atlas_league_142: 1154540614
+      UI_Atlas_league_143: 570512200
+      UI_Atlas_league_144: -209275461
+      UI_Atlas_league_145: -1409233484
+      UI_Atlas_league_146: -1540959537
+      UI_Atlas_league_147: -589635832
+      UI_Atlas_league_148: -1765419206
+      UI_Atlas_league_149: -833951293
+      UI_Atlas_league_15: 798363843
+      UI_Atlas_league_150: 995436325
+      UI_Atlas_league_151: 216086549
+      UI_Atlas_league_152: 1187205088
+      UI_Atlas_league_153: -921979228
+      UI_Atlas_league_154: 248290195
+      UI_Atlas_league_155: -1519178911
+      UI_Atlas_league_156: -2115227298
+      UI_Atlas_league_157: 990977403
+      UI_Atlas_league_158: 1492345624
+      UI_Atlas_league_159: 451518738
+      UI_Atlas_league_16: -1961314290
+      UI_Atlas_league_160: -1433020663
+      UI_Atlas_league_161: -309784070
+      UI_Atlas_league_162: 622896662
+      UI_Atlas_league_163: -2090644868
+      UI_Atlas_league_164: 1515119823
+      UI_Atlas_league_166: 266935718
+      UI_Atlas_league_167: 1614349009
+      UI_Atlas_league_168: 1381996976
+      UI_Atlas_league_169: -1303191654
+      UI_Atlas_league_17: 1014562285
+      UI_Atlas_league_170: -1139442974
+      UI_Atlas_league_171: 33368879
+      UI_Atlas_league_172: -1592111230
+      UI_Atlas_league_173: -1121855941
+      UI_Atlas_league_174: 1996038899
+      UI_Atlas_league_175: 494279990
+      UI_Atlas_league_176: -2118297007
+      UI_Atlas_league_177: 460475326
+      UI_Atlas_league_178: 1865519734
+      UI_Atlas_league_179: -260039560
+      UI_Atlas_league_18: -1177964173
+      UI_Atlas_league_181: -1476488035
+      UI_Atlas_league_182: 1100392102
+      UI_Atlas_league_183: 354669101
+      UI_Atlas_league_184: -582718862
+      UI_Atlas_league_185: 645225532
+      UI_Atlas_league_186: -548920942
+      UI_Atlas_league_187: -1480940755
+      UI_Atlas_league_188: 959154855
+      UI_Atlas_league_189: 1732978219
+      UI_Atlas_league_19: -1275778695
+      UI_Atlas_league_190: 1542615870
+      UI_Atlas_league_191: 200262105
+      UI_Atlas_league_192: 576646938
+      UI_Atlas_league_2: 404790546
+      UI_Atlas_league_20: 780496741
+      UI_Atlas_league_21: 712198707
+      UI_Atlas_league_22: 1649707298
+      UI_Atlas_league_23: 479553082
+      UI_Atlas_league_24: 912670354
+      UI_Atlas_league_25: -131227695
+      UI_Atlas_league_26: 1989298125
+      UI_Atlas_league_27: 197201653
+      UI_Atlas_league_28: 399923151
+      UI_Atlas_league_29: 1583423907
+      UI_Atlas_league_3: 1621083331
+      UI_Atlas_league_30: 1068899774
+      UI_Atlas_league_31: -1447245703
+      UI_Atlas_league_32: 559225753
+      UI_Atlas_league_33: -1135641521
+      UI_Atlas_league_34: -1309649949
+      UI_Atlas_league_35: -1222452403
+      UI_Atlas_league_36: -1128833006
+      UI_Atlas_league_37: 281948485
+      UI_Atlas_league_38: 1396341724
+      UI_Atlas_league_39: 1249647351
+      UI_Atlas_league_4: 403417392
+      UI_Atlas_league_40: -307576143
+      UI_Atlas_league_41: -963154834
+      UI_Atlas_league_42: -319333555
+      UI_Atlas_league_43: 723216679
+      UI_Atlas_league_44: 1548441739
+      UI_Atlas_league_45: 1121752608
+      UI_Atlas_league_46: 1984252057
+      UI_Atlas_league_47: -2101864520
+      UI_Atlas_league_48: 1499727161
+      UI_Atlas_league_49: 909658878
+      UI_Atlas_league_5: -1263551401
+      UI_Atlas_league_50: 1328862339
+      UI_Atlas_league_51: 1786624412
+      UI_Atlas_league_52: -672897996
+      UI_Atlas_league_53: -397401632
+      UI_Atlas_league_54: 1993110108
+      UI_Atlas_league_55: -1782572768
+      UI_Atlas_league_56: -578309510
+      UI_Atlas_league_57: 1370878876
+      UI_Atlas_league_58: -1468236207
+      UI_Atlas_league_59: -1604284033
+      UI_Atlas_league_6: -1854954377
+      UI_Atlas_league_60: -299685751
+      UI_Atlas_league_61: -763303298
+      UI_Atlas_league_62: -1538298008
+      UI_Atlas_league_63: 831832750
+      UI_Atlas_league_64: -1684727474
+      UI_Atlas_league_65: 1182631207
+      UI_Atlas_league_66: 290713199
+      UI_Atlas_league_67: 672643918
+      UI_Atlas_league_68: 1398882536
+      UI_Atlas_league_69: -1150175971
+      UI_Atlas_league_7: 1477151329
+      UI_Atlas_league_70: 607657644
+      UI_Atlas_league_71: 286303592
+      UI_Atlas_league_72: 1172500628
+      UI_Atlas_league_73: -2025529389
+      UI_Atlas_league_74: 815324907
+      UI_Atlas_league_75: -1536335027
+      UI_Atlas_league_76: 840306728
+      UI_Atlas_league_77: -639955075
+      UI_Atlas_league_78: 844849629
+      UI_Atlas_league_79: 1768519694
+      UI_Atlas_league_8: 2015584829
+      UI_Atlas_league_80: -1637349631
+      UI_Atlas_league_81: 670322521
+      UI_Atlas_league_82: -373242755
+      UI_Atlas_league_83: 2018439945
+      UI_Atlas_league_84: -385622864
+      UI_Atlas_league_85: -1874755597
+      UI_Atlas_league_86: -906132993
+      UI_Atlas_league_87: -1081830854
+      UI_Atlas_league_88: 474582364
+      UI_Atlas_league_89: -1854160962
+      UI_Atlas_league_9: -172233895
+      UI_Atlas_league_90: 625386523
+      UI_Atlas_league_91: 1964369225
+      UI_Atlas_league_92: 624687959
+      UI_Atlas_league_93: -147614080
+      UI_Atlas_league_94: 192917001
+      UI_Atlas_league_95: 981551919
+      UI_Atlas_league_96: -1095530936
+      UI_Atlas_league_97: 1298385626
+      UI_Atlas_league_98: 1170361901
+      UI_Atlas_league_99: 558091247
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

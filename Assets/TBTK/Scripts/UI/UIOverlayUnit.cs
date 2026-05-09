@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -146,21 +146,37 @@ namespace TBTK{
 		}
 		
 		void Update(){
-			if(unit==null || unit.hp<=0 || !unit.GetObj().activeInHierarchy){
+			if(thisObj==null) thisObj=gameObject;
+			if(rectT==null && thisObj!=null) rectT=thisObj.GetComponent<RectTransform>();
+
+			if(unit==null || unit.gameObject==null){
 				unit=null;
-				thisObj.SetActive(false);
+				if(thisObj!=null) thisObj.SetActive(false);
 				return;
 			}
-			
+
+			GameObject unitObj=unit.GetObj();
+			if(unit.hp<=0 || unitObj==null || !unitObj.activeInHierarchy){
+				unit=null;
+				if(thisObj!=null) thisObj.SetActive(false);
+				return;
+			}
+
+			if(unit.node==null){
+				unit=null;
+				if(thisObj!=null) thisObj.SetActive(false);
+				return;
+			}
+
 			if(!unit.node.IsVisible()){
-				rectT.localPosition=new Vector3(1, 1, 1) * -99;
+				if(rectT!=null) rectT.localPosition=new Vector3(1, 1, 1) * -99;
 				return;
 			}
-			
+
 			UpdateScreenPos();
-			
-			sliderHP.value=unit.GetHPRatio();
-			
+
+			if(sliderHP!=null) sliderHP.value=unit.GetHPRatio();
+
 			//~ if(!UIControl.AlwaysShowHPOverlay()){
 				//~ canvasG.alpha = (slider.value>=1 && (sliderSH.value<=0 || sliderSH.value>=1)) ? 0 : 1 ;
 			//~ }

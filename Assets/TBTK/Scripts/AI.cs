@@ -81,7 +81,7 @@ namespace TBTK{
 		public static IEnumerator _MoveUnit(Unit unit){
 			actionInProgress=true;
 			
-			TBTK.OnGameMessage("- AI's Turn -");
+			TBTK.OnGameMessage("- Enemy's Turn -");
 			TBTK.OnSelectUnit(unit);
 			
 			yield return instance.StartCoroutine(AIRoutineUnit(unit));
@@ -98,7 +98,7 @@ namespace TBTK{
 		public static IEnumerator _MoveFaction(Faction faction){
 			actionInProgress=true;
 			
-			TBTK.OnGameMessage("- AI's Turn -");
+			TBTK.OnGameMessage(" Enemy's Turn -");
 			
 			List<Unit> unitList=new List<Unit>( faction.unitList );
 			

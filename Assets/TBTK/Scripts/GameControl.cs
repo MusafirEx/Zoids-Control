@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -16,6 +16,9 @@ namespace TBTK{
 		public bool useGlobalSetting=false;
 		
 		public bool enableUnitDeployment=true;
+		public bool autoStartBattleOnSceneLoad=true;
+		private bool battleStarted=false;
+		public static bool BattleStarted(){ return instance!=null && instance.battleStarted; }
 		public static bool EnableUnitDeployment(){ return instance.enableUnitDeployment; }
 		
 		public bool autoEndTurn=false;
@@ -61,6 +64,8 @@ namespace TBTK{
 		public bool enableFogOfWar;
 		public static bool EnableFogOfWar(){ return instance!=null ? instance.enableFogOfWar : false; }
 		
+		public bool jrpgMode=false;
+		public static bool JRPGMode(){ return instance!=null ? instance.jrpgMode : false; }
 		
 		public static GameControl instance;
 		
@@ -99,24 +104,94 @@ namespace TBTK{
 			
 			//gameObject.AddComponent<RoutineManager>();
 		}
-
 		
-		 IEnumerator Start(){
+		IEnumerator Start(){
 			yield return new WaitForSeconds(0.5f);
-			
-			if(UnitManager.RequireManualDeployment()){
-				while(UnitManager.DeployingUnit()) yield return null;
+
+			if(!autoStartBattleOnSceneLoad){
+				Debug.Log("GameControl auto start disabled. Waiting for manual battle start.");
+				yield break;
 			}
-			
-			Debug.Log("Start Game");
-			UnitManager.StartGame();
-			TurnControl.StartGame();
-			
-			GridManager.SetupFogOfWar();
-			
-			TBTK.OnGameStart();	//inform UI to start game
+
+			StartBattleNow();
 		}
 		
+
+		public static void ManualStartBattle(){
+			Debug.Log("ManualStartBattle called");
+			if(instance==null) return;
+			instance.StartBattleNow();
+		}
+
+        private void StartBattleNow()
+        {
+            Debug.Log("StartBattleNow called | RequireManualDeployment=" + UnitManager.RequireManualDeployment() +
+                      " | DeployingUnit=" + UnitManager.DeployingUnit() +
+                      " | deployedUnitCount=" + CountDeployedUnitsInFactions());
+
+            if (battleStarted) return;
+
+            if (UnitManager.RequireManualDeployment() && UnitManager.DeployingUnit())
+            {
+                Debug.Log("ManualStartBattle blocked: deployment is still active.");
+                return;
+            }
+
+            if (CountDeployedUnitsInFactions() <= 0)
+            {
+                Debug.LogWarning("ManualStartBattle blocked: no deployed units found in faction unit lists.");
+                return;
+            }
+
+            Debug.Log("Start Game");
+            UnitManager.StartGame();
+            TurnControl.StartGame();
+            StartCoroutine(ForceSelectFirstPlayableUnitAfterStart());
+
+            GridManager.SetupFogOfWar();
+
+            battleStarted = true;
+            TBTK.OnGameStart();
+        }
+
+        private IEnumerator ForceSelectFirstPlayableUnitAfterStart()
+        {
+            yield return null;
+
+            if (UnitManager.GetSelectedUnit() != null) yield break;
+
+            List<Faction> factionList = UnitManager.GetFactionList();
+            for (int i = 0; i < factionList.Count; i++)
+            {
+                if (factionList[i] == null || !factionList[i].playableFaction) continue;
+                if (factionList[i].unitList == null || factionList[i].unitList.Count == 0) continue;
+
+                UnitManager.TBSelectUnit(factionList[i].unitList[0]);
+                TBTK.OnSelectFaction(factionList[i]);
+                Debug.Log("Force selected first playable unit for UI ability refresh.");
+                yield break;
+            }
+        }
+
+        private int CountDeployedUnitsInFactions()
+        {
+            int count = 0;
+            List<Faction> factionList = UnitManager.GetFactionList();
+            if (factionList == null) return 0;
+
+            for (int i = 0; i < factionList.Count; i++)
+            {
+                if (factionList[i] == null || factionList[i].unitList == null) continue;
+                count += factionList[i].unitList.Count;
+            }
+
+            return count;
+        }
+
+        public static void ResetBattleStartedFlag(){
+			if(instance!=null) instance.battleStarted=false;
+		}
+
 		public static bool EndTurn(){
 			if(IsGameOver()) return false;
 			if(ActionInProgress()) return false;

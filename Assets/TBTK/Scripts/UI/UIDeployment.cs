@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -97,6 +97,7 @@ namespace TBTK{
 		
 		
 		public void OnEndDeploymentButton(){
+			Debug.Log("OnEndDeploymentButton Clicked");
 			//confirmation prompt
 			if(!UnitManager.CheckDeploymentHasUnitOnGrid()){
 				string text="Must at least have one unit deployed!";
@@ -113,10 +114,17 @@ namespace TBTK{
 			EndDeployment();
 		}
 		public void EndDeployment(){
+			Debug.Log("EndDeployment Start");
 			int nextFacIdx=UnitManager.EndDeployment();
 			
-			if(nextFacIdx>=0) StartCoroutine(NextFaction(nextFacIdx));
-			else UI.FadeOut(canvasGroup, 0.25f, thisObj);	//base.Hide();
+			if(nextFacIdx>=0){
+				StartCoroutine(NextFaction(nextFacIdx));
+			}
+			else{
+				UI.FadeOut(canvasGroup, 0.25f, thisObj);	//base.Hide();
+				Debug.Log("Deployment finished. Calling ManualStartBattle");
+				GameControl.ManualStartBattle();
+			}
 		}
 		
 		public IEnumerator NextFaction(int nextFacIdx){
@@ -180,6 +188,16 @@ namespace TBTK{
 		}
 		
 		
+
+		public static void ShowForCurrentDeployment(){
+			if(instance==null) return;
+			if(!UnitManager.DeployingUnit()) return;
+
+			instance.thisObj.SetActive(true);
+			UI.FadeIn(instance.canvasGroup, 0.25f);
+			instance._UpdateDisplay(UnitManager.GetDeployingFacIdx());
+		}
+
 		//public static void Show(Faction fac){}// instance._Show(fac); }
 		//~ public void _Show(Faction fac){
 			//~ Debug.Log("_Show()   !!!!!");

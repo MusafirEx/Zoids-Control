@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -51,6 +51,8 @@ namespace TBTK {
 				abTypeLabel[i]=type.ToString();
 				if(type==Ability._AbilityType.Generic)		abTypeTooltip[i]="Generic Ability";
 				if(type==Ability._AbilityType.SpawnUnit)	abTypeTooltip[i]="The ability will spawn a new unit on a specific node on the grid";
+				if(type==Ability._AbilityType.Fusion)	abTypeTooltip[i]="Fusion ability: combine required friendly unit(s) into a fused unit during battle";
+				if(type==Ability._AbilityType.ChangeForm)	abTypeTooltip[i]="ChangeForm / CAS: change the source unit into another form during battle";
 				if(type==Ability._AbilityType.Teleport)	abTypeTooltip[i]="Unit Only - The ability will teleport a specific unit to a specific node on the grid";
 				if(type==Ability._AbilityType.Charge)		abTypeTooltip[i]="Unit Only - The ability enable unit to target a specific direction and move along it.\nThe ability will still applies the generic effect towards the valid unit at the end of the path";
 				if(type==Ability._AbilityType.Line)			abTypeTooltip[i]="Unit Only - The ability enable unit to target and attack a specific direction.\nThe ability will still applies the generic effect towards the all the valid unit along that direction";
@@ -165,6 +167,8 @@ namespace TBTK {
 				if(!editUnitAbility){
 					bool revert=false;
 					if(item.type==Ability._AbilityType.Teleport)	revert=true;
+					if(item.type==Ability._AbilityType.Fusion)		revert=true;
+					if(item.type==Ability._AbilityType.ChangeForm)	revert=true;
 					if(item.type==Ability._AbilityType.Charge)		revert=true;
 					if(item.type==Ability._AbilityType.Line)			revert=true;
 					if(item.type==Ability._AbilityType.Cone)		revert=true;
@@ -255,7 +259,7 @@ namespace TBTK {
 						}
 					}
 					
-					bool typeSupportAOE=!(item.type==Ability._AbilityType.Teleport || item.type==Ability._AbilityType.SpawnUnit || item.type==Ability._AbilityType.DeployBlock || item.type==Ability._AbilityType.Cone);
+					bool typeSupportAOE=!(item.type==Ability._AbilityType.Teleport || item.type==Ability._AbilityType.SpawnUnit || item.type==Ability._AbilityType.Fusion || item.type==Ability._AbilityType.ChangeForm || item.type==Ability._AbilityType.DeployBlock || item.type==Ability._AbilityType.Cone);
 					TBE.Label(startX, startY+=spaceY, width, height, "AOE Range:", "The effective area-of-effect (AOE) range of the ability at the target node");
 					if((!editUnitAbility && !item.requireTarget) || !typeSupportAOE) TBE.Label(startX+spaceX, startY, widthS, height, "n/a", "");
 					else{
@@ -318,6 +322,93 @@ namespace TBTK {
 						item.spawnUnitPrefab=unitIdx>=0 ? UnitDB.GetItem(unitIdx) : null;
 						
 						if(GUI.Button(new Rect(startX+spaceX+width+3, startY, height, height), "-")) item.spawnUnitPrefab=null;
+					}
+					if(item.type==Ability._AbilityType.ChangeForm){
+						item.requireTarget=false;
+						item.useAttackSequence=false;
+
+						TBE.Label(startX, startY+=spaceY, width, height, "Target Form Unit:", "The unit prefab/form this unit changes into");
+						int formUnitIdx=UnitDB.GetPrefabIndex(item.spawnUnitPrefab);
+						formUnitIdx = EditorGUI.Popup(new Rect(startX+spaceX, startY, width, height), formUnitIdx, UnitDB.label);
+						item.spawnUnitPrefab=formUnitIdx>=0 ? UnitDB.GetItem(formUnitIdx) : null;
+						if(GUI.Button(new Rect(startX+spaceX+width+3, startY, height, height), "-")) item.spawnUnitPrefab=null;
+
+						TBE.Label(startX, startY+=spaceY, width, height, "Keep HP %:", "If enabled, the new form keeps the same HP percentage as the original form");
+						item.changeFormKeepHPPercent=EditorGUI.Toggle(new Rect(startX+spaceX, startY, widthS, height), item.changeFormKeepHPPercent);
+
+						if(item.requiredUnit==null) item.requiredUnit=new Unit[0];
+
+						TBE.Label(startX, startY+=spaceY, width, height, "Carrier Count:", "Optional required friendly unit/carrier count. Empty is allowed for ChangeForm / CAS.");
+						int reqCount=EditorGUI.DelayedIntField(new Rect(startX+spaceX, startY, widthS, height), item.requiredUnit.Length);
+						if(reqCount<0) reqCount=0;
+
+						if(reqCount!=item.requiredUnit.Length){
+							Unit[] newReq=new Unit[reqCount];
+							for(int i=0; i<Mathf.Min(reqCount, item.requiredUnit.Length); i++) newReq[i]=item.requiredUnit[i];
+							item.requiredUnit=newReq;
+						}
+
+						for(int i=0; i<item.requiredUnit.Length; i++){
+							TBE.Label(startX, startY+=spaceY, width, height, " - Carrier "+(i+1)+":", "Optional required friendly carrier/unit prefab");
+							int reqIdx=UnitDB.GetPrefabIndex(item.requiredUnit[i]);
+							reqIdx = EditorGUI.Popup(new Rect(startX+spaceX, startY, width, height), reqIdx, UnitDB.label);
+							item.requiredUnit[i]=reqIdx>=0 ? UnitDB.GetItem(reqIdx) : null;
+
+							if(GUI.Button(new Rect(startX+spaceX+width+3, startY, height, height), "-")){
+								List<Unit> reqList=new List<Unit>(item.requiredUnit);
+								reqList.RemoveAt(i);
+								item.requiredUnit=reqList.ToArray();
+								break;
+							}
+						}
+					}
+					if(item.type==Ability._AbilityType.Fusion){
+						item.requireTarget=false;
+						item.useAttackSequence=false;
+
+						TBE.Label(startX, startY+=spaceY, width, height, "Fusion Target:", "No clicked target required. Fusion searches required friendly unit(s) automatically by range.");
+						TBE.Label(startX, startY+=spaceY, width, height, "Fused Unit:", "The fused unit prefab created when fusion succeeds");
+						int fusedUnitIdx=UnitDB.GetPrefabIndex(item.spawnUnitPrefab);
+						fusedUnitIdx = EditorGUI.Popup(new Rect(startX+spaceX, startY, width, height), fusedUnitIdx, UnitDB.label);
+						item.spawnUnitPrefab=fusedUnitIdx>=0 ? UnitDB.GetItem(fusedUnitIdx) : null;
+						if(GUI.Button(new Rect(startX+spaceX+width+3, startY, height, height), "-")) item.spawnUnitPrefab=null;
+
+						TBE.Label(startX, startY+=spaceY, width, height, "Fusion Range:", "Required friendly unit(s) must be within this range from the source unit");
+						item.fusionRange=EditorGUI.DelayedIntField(new Rect(startX+spaceX, startY, widthS, height), item.fusionRange);
+						if(item.fusionRange<0) item.fusionRange=0;
+
+						TBE.Label(startX, startY+=spaceY, width, height, "Use Main Node:", "If true, fused unit appears on the source unit node. If false, it appears on the selected target node.");
+						item.fusionUseMainNode=EditorGUI.Toggle(new Rect(startX+spaceX, startY, widthS, height), item.fusionUseMainNode);
+
+						if(item.requiredUnit==null) item.requiredUnit=new Unit[0];
+
+						TBE.Label(startX, startY+=spaceY, width, height, "Required Count:", "Number of required friendly unit prefab(s). Fusion requires at least one.");
+						int reqCount=EditorGUI.DelayedIntField(new Rect(startX+spaceX, startY, widthS, height), item.requiredUnit.Length);
+						if(reqCount<0) reqCount=0;
+
+						if(reqCount!=item.requiredUnit.Length){
+							Unit[] newReq=new Unit[reqCount];
+							for(int i=0; i<Mathf.Min(reqCount, item.requiredUnit.Length); i++) newReq[i]=item.requiredUnit[i];
+							item.requiredUnit=newReq;
+						}
+
+						if(item.requiredUnit.Length==0){
+							TBE.Label(startX+spaceX+widthS+10, startY, width, height, "Fusion requires at least one unit", "", TBE.conflictS);
+						}
+
+						for(int i=0; i<item.requiredUnit.Length; i++){
+							TBE.Label(startX, startY+=spaceY, width, height, " - Required "+(i+1)+":", "Required friendly unit prefab");
+							int reqIdx=UnitDB.GetPrefabIndex(item.requiredUnit[i]);
+							reqIdx = EditorGUI.Popup(new Rect(startX+spaceX, startY, width, height), reqIdx, UnitDB.label);
+							item.requiredUnit[i]=reqIdx>=0 ? UnitDB.GetItem(reqIdx) : null;
+
+							if(GUI.Button(new Rect(startX+spaceX+width+3, startY, height, height), "-")){
+								List<Unit> reqList=new List<Unit>(item.requiredUnit);
+								reqList.RemoveAt(i);
+								item.requiredUnit=reqList.ToArray();
+								break;
+							}
+						}
 					}
 					if(item.type==Ability._AbilityType.DeployBlock){
 						item.requireTarget=true;
