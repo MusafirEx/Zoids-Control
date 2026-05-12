@@ -112,6 +112,9 @@ MonoBehaviour:
     listState: 0
   loadedFromCache: 0
   value: 50
+  rarity: 0
+  factoryCost: 100
+  unitDescription: 
   facID: 0
   playableUnit: 0
   aiBehaviour: 1

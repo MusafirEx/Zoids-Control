@@ -13,7 +13,7 @@ public class SceneButtonLoader : MonoBehaviour,IPointerEnterHandler
     /// Load scene using array index number.
     /// Example: LoadSceneByArrayNumber(0)
     /// </summary>
-    public void LoadSceneByArrayNumber()
+    public void LoadScene()
     {
         SceneManager.LoadScene(sceneNames);
     }

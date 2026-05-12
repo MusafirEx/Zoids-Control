@@ -686,7 +686,13 @@ MonoBehaviour:
     tempScoreG: 0
     listState: 0
   loadedFromCache: 0
-  value: 50
+  value: 100
+  rarity: 3
+  factoryCost: 100
+  unitDescription: 'Liger Zero is a lion type Zoid originally designed by the Imperial
+    Army. It was stolen during the development process and became known as one of
+    the Republic''s greatest assets. In the republic, it gained multiple conversion
+    systems (CAS: Changing Armor Systems.)'
   facID: 0
   playableUnit: 0
   aiBehaviour: 0

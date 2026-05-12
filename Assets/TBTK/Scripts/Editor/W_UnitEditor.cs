@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -179,11 +179,21 @@ namespace TBTK {
 			
 				startY=TBE.DrawBasicInfo(startX, startY, unit);
 			
-			//startY+=spaceY;
-				
-				TBE.Label(startX, startY, width, height, "Value:", "Just an arbitary number use for squad selection screen in demo");
+			//startY+=spaceY;				TBE.Label(startX, startY, width, height, "Value:", "Just an arbitary number use for squad selection screen in demo");
 				unit.value=EditorGUI.IntField(new Rect(startX+spaceX-10, startY, widthS, height), unit.value);
-			
+
+				startY+=10;
+
+				TBE.Label(startX, startY+=spaceY, width, height, "Rarity:", "Zoids rarity used by factory rewards, colosseum balance, and manufacture logic");
+				unit.rarity=(UnitRarity)EditorGUI.EnumPopup(new Rect(startX+spaceX-10, startY, width, height), unit.rarity);
+
+				TBE.Label(startX, startY+=spaceY, width, height, "Factory Cost:", "How much unit data is required to manufacture one copy of this Zoid in the factory");
+				unit.factoryCost=EditorGUI.DelayedIntField(new Rect(startX+spaceX-10, startY, widthS, height), unit.factoryCost);
+				if(unit.factoryCost<1) unit.factoryCost=1;
+
+				TBE.Label(startX, startY+=spaceY, width, height, "Description:", "Unit description shown in factory/team/colosseum UI");
+				unit.unitDescription=EditorGUI.TextField(new Rect(startX+spaceX-10, startY, width*1.5f, height), unit.unitDescription);
+
 				startY+=10+spaceY;
 			
 				foldSetting=EditorGUI.Foldout(new Rect(startX, startY, spaceX, height), foldSetting, "Settings", TBE.foldoutS);

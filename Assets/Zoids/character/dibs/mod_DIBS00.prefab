@@ -695,7 +695,13 @@ MonoBehaviour:
     tempScoreG: 0
     listState: 0
   loadedFromCache: 0
-  value: 50
+  value: 100
+  rarity: 0
+  factoryCost: 100
+  unitDescription: The Dibison is has one of the heaviest weapon loadouts ever seen
+    on a Zoid. The Dibison's principal weapons are an array of seventeen 105mm mortars
+    mounted on its back. Long-ranged and capable of indirect fire, the weapons can
+    be used to saturate an area or focus on a single target.
   facID: 0
   playableUnit: 0
   aiBehaviour: 0

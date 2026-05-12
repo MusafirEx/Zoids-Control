@@ -545,7 +545,15 @@ MonoBehaviour:
     tempScoreG: 0
     listState: 0
   loadedFromCache: 0
-  value: 50
+  value: 100
+  rarity: 2
+  factoryCost: 100
+  unitDescription: "he Red Horn is intended to oppose the Gojulas and other large
+    Helic Republic-created Zoids. The Red Horn, while relatively slow compared to
+    later designs, possessed sufficient speed for the era of its creation, and boasted
+    a considerable arsenal of weapons. The Red Horn\u2019s weaponry allows it to
+    bombard enemies from a distance, while its horn allows it to engage them in melee
+    combat."
   facID: 0
   playableUnit: 0
   aiBehaviour: 0

@@ -17,6 +17,11 @@ namespace TBTK{
 		
 		
 		public int value=50;
+
+		[Header("Zoids Factory")]
+		public UnitRarity rarity=UnitRarity.Common;
+		public int factoryCost=100;
+		[TextArea] public string unitDescription="";
 		
 		[Space(5)] 
 		public int facID;	//in runtime, this also correspond to the faction index in factionList

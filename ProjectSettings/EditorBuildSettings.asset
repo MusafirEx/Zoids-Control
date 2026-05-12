@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/My/Scene/MapSelector.unity
     guid: 91b895b27813be941883a807ea7eb7a7
+  - enabled: 1
+    path: Assets/My/Scene/FactoryScene.unity
+    guid: 72f45e556607052458bf99191482b8f1
   m_configObjects: {}

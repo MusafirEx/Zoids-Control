@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 18caf72ac3ccbe04f95528247defc35d
+guid: 58cdd35b02728cf42a43a8c849a1a3ea
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 500
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -121,84 +121,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: UI_Atlas_menu_d1_0
-      rect:
-        serializedVersion: 2
-        x: 1459
-        y: 1391
-        width: 199
-        height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1aa17ef49f466734eb4efc38ba38c103
-      internalID: 277418777
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Atlas_menu_d1_1
-      rect:
-        serializedVersion: 2
-        x: 1435
-        y: 1445
-        width: 313
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 155, y: 0, z: 155, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2871ac2db698d9e4f9eb3fbaf8c0261e
-      internalID: -1857099723
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hand_Pointing
-      rect:
-        serializedVersion: 2
-        x: 1166
-        y: 1054
-        width: 104
-        height: 119
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 810633db4aadd8c47959b76a290d17af
-      internalID: -1489269971
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 18b9595abdeb9c3468ec534b61fdb1d3
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Hand_Pointing: -1489269971
-      UI_Atlas_menu_d1_0: 277418777
-      UI_Atlas_menu_d1_1: -1857099723
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
