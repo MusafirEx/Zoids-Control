@@ -8,14 +8,14 @@ public class BattlePlayerSetup : MonoBehaviour
 
     public int PreparePlayerUnitsForDeployment(BattleContextData context)
     {
-        if (context == null || battleUnitDatabase == null)
+        if (context == null)
         {
-            Debug.LogWarning("BattlePlayerSetup missing context or database.");
+            Debug.LogWarning("BattlePlayerSetup missing context.");
             return 0;
         }
 
         int facSlot = context.playerFactionSlotIndex;
-        Debug.Log("Player factionSlot=" + facSlot + " unitCount=" + context.playerUnitIds.Count);
+        Debug.Log("Player factionSlot=" + facSlot + " unitCount=" + context.playerUnitIds.Count + " battleType=" + context.battleType);
 
         List<Faction> factions = UnitManager.GetFactionList();
         if (factions == null || facSlot < 0 || facSlot >= factions.Count)
@@ -40,10 +40,10 @@ public class BattlePlayerSetup : MonoBehaviour
         {
             int unitId = context.playerUnitIds[i];
 
-            Unit prefab = battleUnitDatabase.GetUnitPrefab(unitId);
+            Unit prefab = GetUnitPrefabForBattle(unitId, context.battleType, true);
             if (prefab == null)
             {
-                Debug.LogWarning("Missing player unit prefab for unitId=" + unitId);
+                Debug.LogWarning("Missing player unit prefab for unitId=" + unitId + " battleType=" + context.battleType);
                 continue;
             }
 
@@ -69,5 +69,26 @@ public class BattlePlayerSetup : MonoBehaviour
         }
 
         return preparedCount;
+    }
+
+    private Unit GetUnitPrefabForBattle(int unitId, string battleType, bool isPlayer)
+    {
+        // Area Battle originally uses BattleUnitDatabase.
+        if (battleUnitDatabase != null)
+        {
+            Unit prefab = battleUnitDatabase.GetUnitPrefab(unitId);
+            if (prefab != null)
+                return prefab;
+        }
+
+        // Colosseum uses UnitDB because Team Manager stores UnitDB prefab IDs.
+        if (battleType == "ColosseumBattle")
+        {
+            Unit prefab = UnitDB.GetPrefab(unitId);
+            if (prefab != null)
+                return prefab;
+        }
+
+        return null;
     }
 }

@@ -3,12 +3,14 @@ using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-namespace TBTK{
+namespace TBTK
+{
 
 	public class UIUnitInfo : UIScreen {
 		
-		public Text labelName;
+		public TMP_Text labelName;
 		
 		public Slider sliderHP;
 		public Slider sliderAP;

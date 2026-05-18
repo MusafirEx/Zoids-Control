@@ -475,8 +475,20 @@ MonoBehaviour:
   clipAttackMelee: {fileID: 0}
   animAttackDelayRange: 0
   animAttackDelayMelee: 0
-  clipAbilityList: []
-  animAbilityDelayList: []
+  clipAbilityList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  animAbilityDelayList:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   loopMoveSound: 0
   selectSound: {fileID: 0}
   moveSound: {fileID: 0}

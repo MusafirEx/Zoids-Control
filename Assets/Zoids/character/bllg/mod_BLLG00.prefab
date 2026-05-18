@@ -922,16 +922,19 @@ MonoBehaviour:
   value: 100
   rarity: 3
   factoryCost: 100
-  unitDescription: Blade Liger is the spiritual successor of the Shield Liger. It
-    boasts excellent close range capabilities without neglecting long range targets,
-    and even carries over the E-Shield technology from its predecessor.
+  unitDescription: 'Role: Speed Melee
+
+    Size: Large
+
+    Attack Type: Melee-focused
+    hybrid'
   facID: 0
   playableUnit: 0
   aiBehaviour: 0
   requireTrigger: 0
   triggered: 0
-  hp: 10
-  ap: 2
+  hp: 145
+  ap: 5
   moveThisTurn: 0
   attackThisTurn: 0
   counterThisTurn: 0
@@ -950,42 +953,42 @@ MonoBehaviour:
   snapAiming: 0
   aimInXAxis: 0
   rotateWhileAiming: 1
-  moveSpeed: 3
+  moveSpeed: 2
   hasMeleeAttack: 1
   requireLOSToAttack: 1
   armorType: 0
   damageType: 0
   stats:
-    hp: 12
-    ap: 12
-    hpRegen: 0
-    apRegen: 4
-    attack: 80
-    defense: 30
-    hit: 70
-    dodge: 10
-    dmgHPMin: 4
-    dmgHPMax: 5
+    hp: 145
+    ap: 5
+    hpRegen: 1
+    apRegen: 1
+    attack: 38
+    defense: 21
+    hit: 87
+    dodge: 27
+    dmgHPMin: 27
+    dmgHPMax: 44
     dmgAPMin: 0
     dmgAPMax: 0
-    critChance: 0.15
-    critReduc: 0
-    critMultiplier: 2
+    critChance: 0.18
+    critReduc: 9
+    critMultiplier: 1.5
     cDmgMultip: 0.5
     cHitPenalty: 0.5
     cCritPenalty: 0.5
     oDmgMultip: 0.5
     oHitPenalty: 0.5
     oCritPenalty: 0.5
-    attackRange: 5
-    attackRangeMin: 1
-    moveRange: 3
-    turnPriority: 9
-    sight: 6
+    attackRange: 7
+    attackRangeMin: 0
+    moveRange: 6
+    turnPriority: 16
+    sight: 5
     moveLimit: 1
     attackLimit: 1
     counterLimit: 1
-    abilityLimit: 1
+    abilityLimit: 2
     abDuration: 2
     abCooldown: 2
     abUseLimit: 0
@@ -997,21 +1000,21 @@ MonoBehaviour:
     effAP: 0
   damageTypeMelee: 0
   statsMelee:
-    hp: 10
-    ap: 10
-    hpRegen: 0
-    apRegen: 2
-    attack: 80
-    defense: 20
-    hit: 70
-    dodge: 20
-    dmgHPMin: 4
-    dmgHPMax: 7
-    dmgAPMin: 4
-    dmgAPMax: 7
-    critChance: 0.15
-    critReduc: 0
-    critMultiplier: 2
+    hp: 145
+    ap: 5
+    hpRegen: 1
+    apRegen: 1
+    attack: 61
+    defense: 21
+    hit: 95
+    dodge: 27
+    dmgHPMin: 44
+    dmgHPMax: 70
+    dmgAPMin: 0
+    dmgAPMax: 0
+    critChance: 0.21
+    critReduc: 9
+    critMultiplier: 1.5
     cDmgMultip: 0.5
     cHitPenalty: 0.5
     cCritPenalty: 0.5
@@ -1020,13 +1023,13 @@ MonoBehaviour:
     oCritPenalty: 0.5
     attackRange: 2
     attackRangeMin: 0
-    moveRange: 3
-    turnPriority: 1
-    sight: 10
+    moveRange: 6
+    turnPriority: 16
+    sight: 5
     moveLimit: 1
     attackLimit: 1
     counterLimit: 1
-    abilityLimit: 1
+    abilityLimit: 2
     abDuration: 2
     abCooldown: 2
     abUseLimit: 0
@@ -1178,15 +1181,15 @@ MonoBehaviour:
       duration: 1.5
     activeVisualEffect: {fileID: 0}
   effectList: []
-  abilityIDList: 00000000
+  abilityIDList: 
   abilityList: []
   dead: 0
   effectAttackHit:
-    obj: {fileID: 0}
+    obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
     autoDestroy: 1
     duration: 1.5
   effectAttackHitMelee:
-    obj: {fileID: 0}
+    obj: {fileID: 1408636310352560, guid: 3cf93ee15e741f84eb5a729b20e1a1a5, type: 3}
     autoDestroy: 1
     duration: 1.5
   effectOnDestroyed:

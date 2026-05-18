@@ -173,7 +173,7 @@ TextureImporter:
         width: 104
         height: 119
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,6 +181,300 @@ TextureImporter:
       bones: []
       spriteID: 810633db4aadd8c47959b76a290d17af
       internalID: -1489269971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 1826
+        width: 43
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 775fe74ab245a9b408a84db5061ef464
+      internalID: 227178048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clear
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 272
+        width: 148
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4898d88283e3e240a2eaffa2953db33
+      internalID: -893786906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_menu_d1_2
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 1364
+        width: 73
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2a1501b29d5f024aae38e2082147ac1
+      internalID: 1540137658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Save
+      rect:
+        serializedVersion: 2
+        x: 1239
+        y: 1555
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec9328b70226a7449922237041d3cda9
+      internalID: 926518415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Close
+      rect:
+        serializedVersion: 2
+        x: 1899
+        y: 1466
+        width: 136
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47a470ab1a35e1848b454dd0eda845b8
+      internalID: -1644376773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_menu_d1_3
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1198
+        width: 79
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d465471fd740e6458562aadd5547e0b
+      internalID: -896179013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamManager
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 196
+        width: 358
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 594b74b7c87501f4e9a25fd8bd16028c
+      internalID: 1161918176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colosseum
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 194
+        width: 358
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3fb784f8518715419b2cf24914a5322
+      internalID: 604703483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Red
+      rect:
+        serializedVersion: 2
+        x: 1657
+        y: 1016
+        width: 186
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6198c6a5628b8aa4d8c58d41bc982441
+      internalID: 960539930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Red_H
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 1008
+        width: 186
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f8cb30f34968274fb0b63ca9b33bbf2
+      internalID: -1488416937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_menu_d1_4
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 956
+        width: 229
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 112, y: 40, z: 112, w: 40}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85f8927de37b580488a1919bfaf9830a
+      internalID: -1231528735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_menu_d1_5
+      rect:
+        serializedVersion: 2
+        x: 1927
+        y: 818
+        width: 111
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 52, y: 55, z: 52, w: 55}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8986e744cc1c9e2479e7e3ce467faa11
+      internalID: -906547661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_menu_d1_6
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 1106
+        width: 110
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 50, y: 62, z: 50, w: 62}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fab10a8d20a2da4eb9849aaa5a3ddfd
+      internalID: 844117423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nameplate
+      rect:
+        serializedVersion: 2
+        x: 1443
+        y: 878
+        width: 314
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a33c7f5e9abe5d49987f612488e7a4d
+      internalID: 1403828658
       vertices: []
       indices: 
       edges: []
@@ -196,9 +490,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Arrow: 227178048
+      Button_Red: 960539930
+      Button_Red_H: -1488416937
+      Clear: -893786906
+      Close: -1644376773
+      Colosseum: 604703483
       Hand_Pointing: -1489269971
+      Nameplate: 1403828658
+      Save: 926518415
+      TeamManager: 1161918176
       UI_Atlas_menu_d1_0: 277418777
       UI_Atlas_menu_d1_1: -1857099723
+      UI_Atlas_menu_d1_2: 1540137658
+      UI_Atlas_menu_d1_3: -896179013
+      UI_Atlas_menu_d1_4: -1231528735
+      UI_Atlas_menu_d1_5: -906547661
+      UI_Atlas_menu_d1_6: 844117423
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

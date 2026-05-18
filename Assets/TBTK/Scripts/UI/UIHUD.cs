@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -10,6 +10,11 @@ namespace TBTK{
 		
 		public int maxUnitOrderItem;
 		public List<UIButton> unitOrderList=new List<UIButton>();
+		
+		[Header("Unit Order Color")]
+		public Color unitOrderPlayerColor=new Color(0.2f, 0.45f, 1f, 1f);
+		public Color unitOrderEnemyColor=new Color(1f, 0.2f, 0.2f, 1f);
+		public Color unitOrderNeutralColor=Color.white;
 		
 		[Space(8)]
 		public UIButton buttonPerk;
@@ -108,15 +113,36 @@ namespace TBTK{
 		}
 		void UpdateUnitOrderList(){
 			if(!TurnControl.IsUnitPerTurn()) return;
-			
+
 			List<Unit> unitList=UnitManager.GetAllUnitList();
 			for(int i=0; i<unitOrderList.Count; i++){
 				if(i<unitList.Count){
 					unitOrderList[i].SetImage(unitList[i].icon);
 					unitOrderList[i].SetHighlight(i==TurnControl.GetTurn());
+					ApplyUnitOrderColor(unitOrderList[i], unitList[i]);
 					unitOrderList[i].SetActive(true);
 				}
-				else unitOrderList[i].SetActive(false);
+				else{
+					ApplyUnitOrderColor(unitOrderList[i], null);
+					unitOrderList[i].SetActive(false);
+				}
+			}
+		}
+
+		void ApplyUnitOrderColor(UIButton uiButton, Unit unit){
+			if(uiButton==null) return;
+
+			Color color=unitOrderNeutralColor;
+			if(unit!=null) color=unit.playableUnit ? unitOrderPlayerColor : unitOrderEnemyColor;
+
+			if(uiButton.button!=null && uiButton.button.targetGraphic!=null){
+				uiButton.button.targetGraphic.color=color;
+				return;
+			}
+
+			if(uiButton.rootObj!=null){
+				Image img=uiButton.rootObj.GetComponent<Image>();
+				if(img!=null) img.color=color;
 			}
 		}
 		

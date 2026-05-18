@@ -689,17 +689,19 @@ MonoBehaviour:
   value: 100
   rarity: 3
   factoryCost: 100
-  unitDescription: 'Liger Zero is a lion type Zoid originally designed by the Imperial
-    Army. It was stolen during the development process and became known as one of
-    the Republic''s greatest assets. In the republic, it gained multiple conversion
-    systems (CAS: Changing Armor Systems.)'
+  unitDescription: 'Role: Speed Melee
+
+    Size: Large
+
+    Attack Type: Melee-focused
+    hybrid'
   facID: 0
   playableUnit: 0
   aiBehaviour: 0
   requireTrigger: 1
   triggered: 0
-  hp: 10
-  ap: 2
+  hp: 155
+  ap: 5
   moveThisTurn: 0
   attackThisTurn: 0
   counterThisTurn: 0
@@ -718,42 +720,42 @@ MonoBehaviour:
   snapAiming: 0
   aimInXAxis: 0
   rotateWhileAiming: 1
-  moveSpeed: 3
+  moveSpeed: 2
   hasMeleeAttack: 1
   requireLOSToAttack: 1
   armorType: 0
   damageType: 0
   stats:
-    hp: 10
-    ap: 10
-    hpRegen: 0
-    apRegen: 2
-    attack: 80
+    hp: 155
+    ap: 5
+    hpRegen: 1
+    apRegen: 1
+    attack: 35
     defense: 20
-    hit: 70
-    dodge: 20
-    dmgHPMin: 4
-    dmgHPMax: 7
+    hit: 91
+    dodge: 29
+    dmgHPMin: 25
+    dmgHPMax: 40
     dmgAPMin: 0
     dmgAPMax: 0
-    critChance: 0.15
-    critReduc: 0
-    critMultiplier: 2
+    critChance: 0.16
+    critReduc: 8
+    critMultiplier: 1.5
     cDmgMultip: 0.5
     cHitPenalty: 0.5
     cCritPenalty: 0.5
     oDmgMultip: 0.5
     oHitPenalty: 0.5
     oCritPenalty: 0.5
-    attackRange: 5
-    attackRangeMin: 1
-    moveRange: 3
-    turnPriority: 9
-    sight: 6
+    attackRange: 7
+    attackRangeMin: 0
+    moveRange: 7
+    turnPriority: 18
+    sight: 5
     moveLimit: 1
     attackLimit: 1
     counterLimit: 1
-    abilityLimit: 1
+    abilityLimit: 2
     abDuration: 2
     abCooldown: 2
     abUseLimit: 0
@@ -765,21 +767,21 @@ MonoBehaviour:
     effAP: 0
   damageTypeMelee: 0
   statsMelee:
-    hp: 10
-    ap: 10
-    hpRegen: 0
-    apRegen: 2
-    attack: 80
+    hp: 155
+    ap: 5
+    hpRegen: 1
+    apRegen: 1
+    attack: 56
     defense: 20
-    hit: 70
-    dodge: 20
-    dmgHPMin: 4
-    dmgHPMax: 7
-    dmgAPMin: 4
-    dmgAPMax: 7
-    critChance: 0.15
-    critReduc: 0
-    critMultiplier: 2
+    hit: 96
+    dodge: 29
+    dmgHPMin: 40
+    dmgHPMax: 64
+    dmgAPMin: 0
+    dmgAPMax: 0
+    critChance: 0.19
+    critReduc: 8
+    critMultiplier: 1.5
     cDmgMultip: 0.5
     cHitPenalty: 0.5
     cCritPenalty: 0.5
@@ -788,13 +790,13 @@ MonoBehaviour:
     oCritPenalty: 0.5
     attackRange: 2
     attackRangeMin: 0
-    moveRange: 3
-    turnPriority: 1
-    sight: 10
+    moveRange: 7
+    turnPriority: 18
+    sight: 5
     moveLimit: 1
     attackLimit: 1
     counterLimit: 1
-    abilityLimit: 1
+    abilityLimit: 2
     abDuration: 2
     abCooldown: 2
     abUseLimit: 0
@@ -946,15 +948,15 @@ MonoBehaviour:
       duration: 1.5
     activeVisualEffect: {fileID: 0}
   effectList: []
-  abilityIDList: 0f000000
+  abilityIDList: 
   abilityList: []
   dead: 0
   effectAttackHit:
-    obj: {fileID: 0}
+    obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
     autoDestroy: 1
     duration: 1.5
   effectAttackHitMelee:
-    obj: {fileID: 0}
+    obj: {fileID: 1408636310352560, guid: 3cf93ee15e741f84eb5a729b20e1a1a5, type: 3}
     autoDestroy: 1
     duration: 1.5
   effectOnDestroyed:
@@ -969,7 +971,7 @@ MonoBehaviour:
   clipAttackRange: {fileID: 7400000, guid: 97311aa60ca046c2a1c31e2446e3940e, type: 2}
   clipAttackMelee: {fileID: 7400000, guid: 110e947fb3fc4596b9b29b67db5ebb3a, type: 2}
   animAttackDelayRange: 0.3
-  animAttackDelayMelee: 1
+  animAttackDelayMelee: 1.18
   clipAbilityList:
   - {fileID: 0}
   - {fileID: 0}

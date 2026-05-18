@@ -261,6 +261,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ZOIDS_CharIcon_00_0
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 526
+        width: 80
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a52ae99874d2cf4a93c9dca9bf0785b
+      internalID: -677926973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LigerZero_Jager
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 1602
+        width: 142
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cb1c92d85eee6149a9fe0471d8056bf
+      internalID: -574966007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LigerZero_Schenider
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 1565
+        width: 143
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cb09cd7e14a08745bd1baa2f4afdfac
+      internalID: 2056357784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LigerZero_Panzer
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 916
+        width: 142
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e0e6be7e3f9c2e48915df7155b660e9
+      internalID: 1155697118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -275,8 +359,12 @@ TextureImporter:
       Blade Liger: 1284255970
       Dibison: 156321196
       Liger Zero: 1527451655
+      LigerZero_Jager: -574966007
+      LigerZero_Panzer: 1155697118
+      LigerZero_Schenider: 2056357784
       Lightning Saix: 248575497
       Redhorn: 1094529738
+      ZOIDS_CharIcon_00_0: -677926973
       Zeek Dober: 2072600114
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

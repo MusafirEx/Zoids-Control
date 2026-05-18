@@ -1449,13 +1449,13 @@ TextureImporter:
       name: UI_Atlas_league_63
       rect:
         serializedVersion: 2
-        x: 1134
-        y: 1564
-        width: 100
-        height: 65
+        x: 1149
+        y: 1565
+        width: 66
+        height: 62
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 48, y: 30, z: 48, w: 30}
+      border: {x: 32, y: 30, z: 32, w: 30}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2211,7 +2211,7 @@ TextureImporter:
         height: 68
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 93, y: 29, z: 93, w: 29}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2316,7 +2316,7 @@ TextureImporter:
         height: 123
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 127, y: 81, z: 127, w: 32}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2484,7 +2484,7 @@ TextureImporter:
         height: 353
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 60, y: 0, z: 60, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2605,12 +2605,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1231
-        y: 1248
-        width: 409
-        height: 81
+        y: 1263
+        width: 396
+        height: 66
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 195, y: 0, z: 195, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0

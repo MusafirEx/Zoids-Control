@@ -1,10 +1,12 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-namespace TBTK{
+namespace TBTK
+{
 
 	public class UIPerkScreen : UIScreen {
 		
@@ -20,7 +22,7 @@ namespace TBTK{
 		//public RectTransform selectHighlightT;
 		
 		[Space(5)]
-		public Text lbPerkCurrency;
+		public TMP_Text lbPerkCurrency;
 		public Text lbPerkPoint;
 		
 		[Space(10)]
@@ -159,7 +161,7 @@ namespace TBTK{
 			
 			//lbPerkCount.text="Purchased Perk: "+PerkManager.GetPurchasedPerkCount();
 			
-			lbPerkCurrency.text="currency: <size="+(lbPerkCurrency.fontSize+7)+">"+PerkManager.GetPerkCurrency()+"</size>";
+			lbPerkCurrency.text="Skill Point: <size="+(lbPerkCurrency.fontSize+7)+">"+PerkManager.GetPerkCurrency()+"</size>";
 			lbPerkPoint.text="point: <size="+(lbPerkPoint.fontSize+7)+">"+PerkManager.GetPerkPoint()+"</size>";
 		}
 		
@@ -205,6 +207,8 @@ namespace TBTK{
 				UpdateList();
 				buttonUnlock.SetActive(false);
 				UIMessage.DisplayMessage(lbPerkName.text+" unlocked!");
+				
+				if(PerkSceneController.Instance!=null) PerkSceneController.Instance.OnPerkUnlockedFromUI();
 			}
 			else UIMessage.DisplayMessage(output);
 		}

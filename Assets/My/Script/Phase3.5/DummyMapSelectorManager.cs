@@ -7,6 +7,8 @@ public class DummyMapSelectorManager : MonoBehaviour
     [SerializeField] private DummyAreaDatabase areaDatabase;
     [SerializeField] private PlayerProfileManager profileManager;
     [SerializeField] private BattleContextManager battleContextManager;
+    [SerializeField] private PlayerZoidTeamManager teamManager;
+    [SerializeField] private AreaMapGameJoltSyncController mapSyncController;
 
     [Header("Fallback Player Setup")]
     [SerializeField] private int fallbackPlayerFactionId = 0;
@@ -27,6 +29,8 @@ public class DummyMapSelectorManager : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool debugLog = true;
 
+    public GameObject NotificationPanel;
+
     private void Reset()
     {
         RefreshRuntimeReferences();
@@ -45,6 +49,12 @@ public class DummyMapSelectorManager : MonoBehaviour
     public bool TrySelectArea(int areaId)
     {
         RefreshRuntimeReferences();
+
+        if (mapSyncController != null && mapSyncController.IsSyncing)
+        {
+            Debug.LogWarning("[DummyMapSelectorManager] Cannot select area while map data is syncing.");
+            return false;
+        }
 
         if (areaDatabase == null)
         {
@@ -160,11 +170,32 @@ public class DummyMapSelectorManager : MonoBehaviour
 
     private void RefreshRuntimeReferences()
     {
+        if (profileManager == null && PlayerProfileManager.Instance != null)
+            profileManager = PlayerProfileManager.Instance;
+
+        if (battleContextManager == null && BattleContextManager.Instance != null)
+            battleContextManager = BattleContextManager.Instance;
+
+        if (teamManager == null && PlayerZoidTeamManager.Instance != null)
+            teamManager = PlayerZoidTeamManager.Instance;
+
+        if (mapSyncController == null && AreaMapGameJoltSyncController.Instance != null)
+            mapSyncController = AreaMapGameJoltSyncController.Instance;
+
         if (profileManager == null)
             profileManager = FindFirstObjectByTypeCompat<PlayerProfileManager>();
 
         if (battleContextManager == null)
             battleContextManager = FindFirstObjectByTypeCompat<BattleContextManager>();
+
+        if (teamManager == null && PlayerZoidTeamManager.Instance != null)
+            teamManager = PlayerZoidTeamManager.Instance;
+
+        if (teamManager == null)
+            teamManager = FindFirstObjectByTypeCompat<PlayerZoidTeamManager>();
+
+        if (mapSyncController == null)
+            mapSyncController = FindFirstObjectByTypeCompat<AreaMapGameJoltSyncController>();
 
         if (debugLog)
         {
@@ -173,15 +204,18 @@ public class DummyMapSelectorManager : MonoBehaviour
 
             if (battleContextManager == null)
                 Debug.LogWarning("[DummyMapSelectorManager] BattleContextManager not found during refresh.");
+
+            if (teamManager == null)
+                Debug.LogWarning("[DummyMapSelectorManager] PlayerZoidTeamManager not found during refresh.");
         }
     }
 
     private T FindFirstObjectByTypeCompat<T>() where T : Object
     {
 #if UNITY_2023_1_OR_NEWER
-        return Object.FindFirstObjectByType<T>();
+        return Object.FindFirstObjectByType<T>(FindObjectsInactive.Include);
 #else
-        return Object.FindObjectOfType<T>();
+        return Object.FindObjectOfType<T>(true);
 #endif
     }
 
@@ -208,13 +242,36 @@ public class DummyMapSelectorManager : MonoBehaviour
 
     private List<int> BuildPlayerTeam()
     {
-        if (profileManager != null && profileManager.CurrentProfile != null &&
-            profileManager.CurrentProfile.activeTeamUnitIds != null &&
-            profileManager.CurrentProfile.activeTeamUnitIds.Count > 0)
+        // Area Battle team rule:
+        // Use Team 1 first.
+        // If Team 1 is empty, use Team 2.
+        // If Team 2 is empty, use Team 3.
+        // If all teams are empty, block battle.
+        if (teamManager == null)
+            teamManager = FindFirstObjectByTypeCompat<PlayerZoidTeamManager>();
+
+        if (teamManager == null)
         {
-            return new List<int>(profileManager.CurrentProfile.activeTeamUnitIds);
+            Debug.LogWarning("[DummyMapSelectorManager] PlayerZoidTeamManager missing. Cannot load player battle team.");
+            Debug.LogWarning("[DummyMapSelectorManager] All your team is empty cant go to battle");
+            return new List<int>();
         }
 
-        return new List<int>(fallbackPlayerUnitIds);
+        for (int teamIndex = 0; teamIndex < 3; teamIndex++)
+        {
+            List<int> teamUnits = teamManager.GetTeamUnitIds(teamIndex);
+
+            if (teamUnits != null && teamUnits.Count > 0)
+            {
+                if (debugLog)
+                    Debug.Log("[DummyMapSelectorManager] Using Team " + (teamIndex + 1) + " from PlayerZoidTeamManager. UnitCount=" + teamUnits.Count);
+
+                return new List<int>(teamUnits);
+            }
+        }
+
+        Debug.LogWarning("[DummyMapSelectorManager] All your team is empty cant go to battle");
+        NotificationPanel.GetComponent<Animator>().SetTrigger("Show");
+        return new List<int>();
     }
 }

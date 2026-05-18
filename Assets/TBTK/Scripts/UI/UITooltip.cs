@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace TBTK{
 
@@ -12,7 +13,7 @@ namespace TBTK{
 		//~ public List<UIButton> buttonList=new List<UIButton>();
 		
 		public GameObject tooltipObj;
-		public Text tooltipLabel;
+		public TMP_Text tooltipLabel;
 		
 		private RectTransform tooltipRectT;
 		private RectTransform labelRectT;

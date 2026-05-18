@@ -123,37 +123,16 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Back
+      name: Buuton_Green
       rect:
         serializedVersion: 2
-        x: 411
-        y: 578
-        width: 194
-        height: 68
+        x: 612
+        y: 554
+        width: 188
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 24f3532cb19b1d342b19de68a726e0da
-      internalID: 1767520137
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Atlas_preload_1
-      rect:
-        serializedVersion: 2
-        x: 609
-        y: 550
-        width: 194
-        height: 68
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 92, y: 28, z: 92, w: 28}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -270,10 +249,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Atlas_preload_7
+      name: Button_Blue_H
       rect:
         serializedVersion: 2
-        x: 813
+        x: 811
         y: 542
         width: 194
         height: 68
@@ -354,7 +333,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Atlas_preload_11
+      name: Button_Blue
       rect:
         serializedVersion: 2
         x: 813
@@ -363,7 +342,7 @@ TextureImporter:
         height: 68
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 95, y: 32, z: 95, w: 32}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -447,7 +426,7 @@ TextureImporter:
         height: 184
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 165, y: 85, z: 165, w: 85}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -462,13 +441,13 @@ TextureImporter:
       name: UI_Atlas_preload_16
       rect:
         serializedVersion: 2
-        x: 3
-        y: 181
-        width: 337
-        height: 185
+        x: 7
+        y: 187
+        width: 327
+        height: 175
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 161, y: 85, z: 165, w: 89}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -585,7 +564,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Atlas_preload_22
+      name: Box
       rect:
         serializedVersion: 2
         x: 900
@@ -678,7 +657,7 @@ TextureImporter:
         height: 172
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 393, y: 78, z: 103, w: 78}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -857,6 +836,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Buuton_Green_Highlight
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 582
+        width: 188
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 92, y: 28, z: 92, w: 28}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67beb0836c30dd145b32b629d4fe3937
+      internalID: 1314163524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -870,10 +870,13 @@ TextureImporter:
     nameFileIdTable:
       A: -713722580
       Back: 1767520137
+      Box: -367161603
+      Button_Blue: 176619432
+      Button_Blue_H: 538319840
+      Buuton_Green: -46438893
+      Buuton_Green_Highlight: 1314163524
       Highlight: 689374026
-      UI_Atlas_preload_1: -46438893
       UI_Atlas_preload_10: -565336564
-      UI_Atlas_preload_11: 176619432
       UI_Atlas_preload_12: 951255176
       UI_Atlas_preload_13: -1784641974
       UI_Atlas_preload_14: 1348308190
@@ -884,7 +887,6 @@ TextureImporter:
       UI_Atlas_preload_19: -1705646950
       UI_Atlas_preload_2: -520114528
       UI_Atlas_preload_21: -417839982
-      UI_Atlas_preload_22: -367161603
       UI_Atlas_preload_23: -841985991
       UI_Atlas_preload_25: -949082026
       UI_Atlas_preload_26: -1190575411
@@ -900,7 +902,6 @@ TextureImporter:
       UI_Atlas_preload_4: 212047538
       UI_Atlas_preload_5: 916682067
       UI_Atlas_preload_6: -1920844540
-      UI_Atlas_preload_7: 538319840
       UI_Atlas_preload_8: -601061728
       UI_Atlas_preload_9: -2011181895
   mipmapLimitGroupName: 

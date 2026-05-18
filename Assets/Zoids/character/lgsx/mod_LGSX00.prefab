@@ -226,20 +226,19 @@ MonoBehaviour:
   value: 100
   rarity: 2
   factoryCost: 100
-  unitDescription: The Lightning Saix is a high-speed land Zoid. The Lightning Saix
-    is well armed, carrying a pair of Pulse Laser Rifles on its back, as well as
-    a pair of small Vulcan Guns in its head. The Saix's Pulse Laser Rifles only point
-    directly forward and cannot be turned, meaning that the Zoid is rather vulnerable
-    to attacks from the flanks or behind. However, the fixed position of the back-mounted
-    weapons is a necessity, as the Saix would lose its balance if the rifles were
-    to turn while running at high speeds.
+  unitDescription: 'Role: Speed Melee
+
+    Size: Medium
+
+    Attack Type: Melee-focused
+    hybrid'
   facID: 0
   playableUnit: 0
   aiBehaviour: 0
   requireTrigger: 0
   triggered: 0
-  hp: 10
-  ap: 2
+  hp: 115
+  ap: 4
   moveThisTurn: 0
   attackThisTurn: 0
   counterThisTurn: 0
@@ -258,38 +257,38 @@ MonoBehaviour:
   snapAiming: 0
   aimInXAxis: 0
   rotateWhileAiming: 1
-  moveSpeed: 3
+  moveSpeed: 2
   hasMeleeAttack: 1
   requireLOSToAttack: 1
   armorType: 0
   damageType: 0
   stats:
-    hp: 12
-    ap: 12
+    hp: 115
+    ap: 4
     hpRegen: 0
-    apRegen: 4
-    attack: 80
-    defense: 30
-    hit: 70
-    dodge: 10
-    dmgHPMin: 4
-    dmgHPMax: 5
+    apRegen: 1
+    attack: 27
+    defense: 18
+    hit: 85
+    dodge: 24
+    dmgHPMin: 19
+    dmgHPMax: 31
     dmgAPMin: 0
     dmgAPMax: 0
-    critChance: 0.15
-    critReduc: 0
-    critMultiplier: 2
+    critChance: 0.16
+    critReduc: 7
+    critMultiplier: 1.5
     cDmgMultip: 0.5
     cHitPenalty: 0.5
     cCritPenalty: 0.5
     oDmgMultip: 0.5
     oHitPenalty: 0.5
     oCritPenalty: 0.5
-    attackRange: 5
-    attackRangeMin: 1
-    moveRange: 3
-    turnPriority: 9
-    sight: 6
+    attackRange: 7
+    attackRangeMin: 0
+    moveRange: 6
+    turnPriority: 15
+    sight: 5
     moveLimit: 1
     attackLimit: 1
     counterLimit: 1
@@ -305,21 +304,21 @@ MonoBehaviour:
     effAP: 0
   damageTypeMelee: 0
   statsMelee:
-    hp: 10
-    ap: 10
+    hp: 115
+    ap: 4
     hpRegen: 0
-    apRegen: 2
-    attack: 80
-    defense: 20
-    hit: 70
-    dodge: 20
-    dmgHPMin: 4
-    dmgHPMax: 7
-    dmgAPMin: 4
-    dmgAPMax: 7
-    critChance: 0.15
-    critReduc: 0
-    critMultiplier: 2
+    apRegen: 1
+    attack: 42
+    defense: 18
+    hit: 93
+    dodge: 24
+    dmgHPMin: 30
+    dmgHPMax: 48
+    dmgAPMin: 0
+    dmgAPMax: 0
+    critChance: 0.19
+    critReduc: 7
+    critMultiplier: 1.5
     cDmgMultip: 0.5
     cHitPenalty: 0.5
     cCritPenalty: 0.5
@@ -328,9 +327,9 @@ MonoBehaviour:
     oCritPenalty: 0.5
     attackRange: 2
     attackRangeMin: 0
-    moveRange: 3
-    turnPriority: 1
-    sight: 10
+    moveRange: 6
+    turnPriority: 15
+    sight: 5
     moveLimit: 1
     attackLimit: 1
     counterLimit: 1
@@ -344,7 +343,7 @@ MonoBehaviour:
     effduration: 0
     effHP: 0
     effAP: 0
-  auraIDList: 08000000
+  auraIDList: 
   auraMulList: []
   auraModList: []
   attackEffectIDList: 
@@ -486,15 +485,15 @@ MonoBehaviour:
       duration: 1.5
     activeVisualEffect: {fileID: 0}
   effectList: []
-  abilityIDList: 10000000
+  abilityIDList: 
   abilityList: []
   dead: 0
   effectAttackHit:
-    obj: {fileID: 0}
+    obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
     autoDestroy: 1
     duration: 1.5
   effectAttackHitMelee:
-    obj: {fileID: 0}
+    obj: {fileID: 1408636310352560, guid: 3cf93ee15e741f84eb5a729b20e1a1a5, type: 3}
     autoDestroy: 1
     duration: 1.5
   effectOnDestroyed:
@@ -509,7 +508,7 @@ MonoBehaviour:
   clipAttackRange: {fileID: 7400000, guid: dd807e0cb0594a0e96a5d54e99ffc40f, type: 2}
   clipAttackMelee: {fileID: 7400000, guid: deb1f15650364df39b0855167a5a883a, type: 2}
   animAttackDelayRange: 0.3
-  animAttackDelayMelee: 0.38
+  animAttackDelayMelee: 0.42
   clipAbilityList:
   - {fileID: 0}
   - {fileID: 0}

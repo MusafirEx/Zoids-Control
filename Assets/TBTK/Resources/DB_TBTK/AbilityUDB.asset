@@ -26,7 +26,7 @@ MonoBehaviour:
     isFacAbility: 0
     type: 4
     targetType: 0
-    requireTarget: 1
+    requireTarget: 0
     requireLos: 0
     rangeMin: 0
     range: 5
@@ -64,7 +64,7 @@ MonoBehaviour:
     switchFaction: 0
     switchFacControllable: 1
     duration: 1
-    useAttackSequence: 1
+    useAttackSequence: 0
     aimAtUnit: 1
     shootObject: {fileID: 0}
     effectOnUse:
@@ -214,7 +214,7 @@ MonoBehaviour:
     isFacAbility: 0
     type: 3
     targetType: 2
-    requireTarget: 1
+    requireTarget: 0
     requireLos: 0
     rangeMin: 0
     range: 5
@@ -1016,9 +1016,10 @@ MonoBehaviour:
     activateSound: {fileID: 0}
   - prefabID: 16
     instanceID: -1
-    icon: {fileID: 1527451655, guid: 0dd901aa51534c659f29ba1e0428b4da, type: 3}
-    name: Change Form
-    desp: Item's description
+    icon: {fileID: -574966007, guid: 0dd901aa51534c659f29ba1e0428b4da, type: 3}
+    name: JAGER CAS
+    desp: 'The second CAS to be developed for the Liger Zero. It focuses on speed
+      and maneuverability. '
     srcUnit: {fileID: 0}
     facID: 0
     index: 0
@@ -1033,7 +1034,7 @@ MonoBehaviour:
     aoeRange: 0
     useLineAOE: 0
     fov: 60
-    spawnUnitPrefab: {fileID: -4354197186803466328, guid: 0bfcf0484c3744ce8069618274ccfe3b,
+    spawnUnitPrefab: {fileID: -5201215917033341885, guid: 387970f5e8724034b41717a7598e4184,
       type: 3}
     requiredUnit: []
     fusionRange: 2
@@ -1075,6 +1076,200 @@ MonoBehaviour:
       duration: 1.5
     effectOnHit:
       obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1.5
+    activateSound: {fileID: 8300000, guid: 317173f4bc8b0e0479be7e77062bd997, type: 3}
+  - prefabID: 17
+    instanceID: -1
+    icon: {fileID: 1155697118, guid: 0dd901aa51534c659f29ba1e0428b4da, type: 3}
+    name: PANZER CAS
+    desp: The CP-21 Liger Zero Panzer is specifically designed to be a heavy-artillery
+      Zoid.
+    srcUnit: {fileID: 0}
+    facID: 0
+    index: 0
+    isUnitAbility: 0
+    isFacAbility: 0
+    type: 4
+    targetType: 3
+    requireTarget: 0
+    requireLos: 0
+    rangeMin: 0
+    range: 5
+    aoeRange: 0
+    useLineAOE: 0
+    fov: 60
+    spawnUnitPrefab: {fileID: -2189805427929086001, guid: 700b4982429d4d28932fdd5cc4fb06c0,
+      type: 3}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
+    changeFormKeepHPPercent: 1
+    obstaclePrefab: {fileID: 6632625420895871307, guid: 90a353cb2bfeee847b82f3e737d1e26e,
+      type: 3}
+    moveCost: 0
+    attackCost: 0
+    abilityCost: 0
+    apCost: 0
+    endAllActionAfterUse: 0
+    cooldown: 1
+    useLimit: 0
+    impactDelay: 0
+    impactType: 0
+    hpModifierMin: 5
+    hpModifierMax: 5
+    apModifierMin: 5
+    apModifierMax: 5
+    damageType: 0
+    attack: 1
+    hitChance: 1
+    critChance: 0
+    critMultiplier: 2
+    factorInTargetStats: 0
+    effHitChance: 0
+    effectIDList: 
+    clearAllEffect: 0
+    switchFaction: 0
+    switchFacControllable: 1
+    duration: 1
+    useAttackSequence: 0
+    aimAtUnit: 0
+    shootObject: {fileID: 0}
+    effectOnUse:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1.5
+    effectOnHit:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1.5
+    activateSound: {fileID: 8300000, guid: 317173f4bc8b0e0479be7e77062bd997, type: 3}
+  - prefabID: 18
+    instanceID: -1
+    icon: {fileID: 2056357784, guid: 0dd901aa51534c659f29ba1e0428b4da, type: 3}
+    name: SCENEIDER CAS
+    desp: The first CAS Unit for the Liger Zero to be developed, and was released
+      as the CP-17 Schneider Unit.
+    srcUnit: {fileID: 0}
+    facID: 0
+    index: 0
+    isUnitAbility: 0
+    isFacAbility: 0
+    type: 4
+    targetType: 3
+    requireTarget: 0
+    requireLos: 0
+    rangeMin: 0
+    range: 5
+    aoeRange: 0
+    useLineAOE: 0
+    fov: 60
+    spawnUnitPrefab: {fileID: -3139401339251525811, guid: bcfe78d7263f402b98e767eb4f678181,
+      type: 3}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
+    changeFormKeepHPPercent: 1
+    obstaclePrefab: {fileID: 6632625420895871307, guid: 90a353cb2bfeee847b82f3e737d1e26e,
+      type: 3}
+    moveCost: 0
+    attackCost: 0
+    abilityCost: 0
+    apCost: 0
+    endAllActionAfterUse: 0
+    cooldown: 1
+    useLimit: 0
+    impactDelay: 0
+    impactType: 0
+    hpModifierMin: 5
+    hpModifierMax: 5
+    apModifierMin: 5
+    apModifierMax: 5
+    damageType: 0
+    attack: 1
+    hitChance: 1
+    critChance: 0
+    critMultiplier: 2
+    factorInTargetStats: 0
+    effHitChance: 0
+    effectIDList: 
+    clearAllEffect: 0
+    switchFaction: 0
+    switchFacControllable: 1
+    duration: 1
+    useAttackSequence: 0
+    aimAtUnit: 0
+    shootObject: {fileID: 0}
+    effectOnUse:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1.5
+    effectOnHit:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1.5
+    activateSound: {fileID: 8300000, guid: 317173f4bc8b0e0479be7e77062bd997, type: 3}
+  - prefabID: 19
+    instanceID: 0
+    icon: {fileID: 21300000, guid: 3777a6c67783c9d4990115ca148bb2a1, type: 3}
+    name: Megalo Max
+    desp: Fire an unstoppable that shoot through all units in a line, doing 5-10
+      damage.
+    srcUnit: {fileID: 0}
+    facID: 0
+    index: 0
+    isUnitAbility: 0
+    isFacAbility: 0
+    type: 5
+    targetType: 0
+    requireTarget: 1
+    requireLos: 0
+    rangeMin: 2
+    range: 7
+    aoeRange: 0
+    useLineAOE: 0
+    fov: 90
+    spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
+    changeFormKeepHPPercent: 1
+    obstaclePrefab: {fileID: 0}
+    moveCost: 0
+    attackCost: 0
+    abilityCost: 0
+    apCost: 5
+    endAllActionAfterUse: 1
+    cooldown: 3
+    useLimit: 0
+    impactDelay: 3
+    impactType: 1
+    hpModifierMin: 5
+    hpModifierMax: 10
+    apModifierMin: 0
+    apModifierMax: 0
+    damageType: 0
+    attack: 100
+    hitChance: 100
+    critChance: 0.5
+    critMultiplier: 2
+    factorInTargetStats: 1
+    effHitChance: 1
+    effectIDList: 
+    clearAllEffect: 0
+    switchFaction: 0
+    switchFacControllable: 1
+    duration: 1
+    useAttackSequence: 1
+    aimAtUnit: 1
+    shootObject: {fileID: 114531568714686454, guid: 4004113fd6c045b4cae9b8f5f74728f9,
+      type: 3}
+    effectOnUse:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1.5
+    effectOnHit:
+      obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
       autoDestroy: 1
       duration: 1.5
     activateSound: {fileID: 0}

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -21,9 +21,9 @@ namespace TBTK{
 		
 		[Space(8)]
 		public int currency=0;
-		public static int GetPerkCurrency(){ return instance.currency; }
-		public static void GainCurrency(int value){ instance.currency+=value; }
-		public static void SpendCurrency(int value){ instance.currency=Mathf.Max(0, instance.currency-value); }
+		public static int GetPerkCurrency(){ return instance!=null ? instance.currency : cacheCurrency; }
+		public static void GainCurrency(int value){ if(instance==null) return; instance.currency+=value; cacheCurrency=instance.currency; }
+		public static void SpendCurrency(int value){ if(instance==null) return; instance.currency=Mathf.Max(0, instance.currency-value); cacheCurrency=instance.currency; }
 		
 		[HideInInspector] public int perkPoint=0;
 		public static int GetPerkPoint(){ return instance.perkPoint; }
@@ -37,6 +37,7 @@ namespace TBTK{
 		public static Perk GetPerkOfIndex(int idx){ return instance.perkList[idx]; }
 		
 		private static PerkManager instance;
+		public static PerkManager Instance { get { return instance; } }
 		public static bool PerkSystemEnabled(){ return instance!=null ; }
 		
 		void Awake() {
@@ -68,6 +69,40 @@ namespace TBTK{
 				}
 			}
 		}
+
+		void Start(){
+			SyncFromZoidsPerkProgress();
+		}
+
+		void OnEnable(){
+			SyncFromZoidsPerkProgress();
+		}
+
+		public static void SyncCurrencyFromZoidsProgress(){
+			if(instance!=null) instance.SyncFromZoidsPerkProgress();
+		}
+
+		public void SyncFromZoidsPerkProgress(){
+			ZoidsPerkProgressManager progress=ZoidsPerkProgressManager.Instance;
+			if(progress==null || progress.CurrentData==null) return;
+
+			currency=progress.CurrentData.currency;
+			cacheCurrency=currency;
+
+			if(progress.CurrentData.unlockedPerkIds!=null){
+				unlockedIDList=new List<int>(progress.CurrentData.unlockedPerkIds);
+				cacheUnlockedIDList=new List<int>(progress.CurrentData.unlockedPerkIds);
+			}
+
+			for(int i=0; i<perkList.Count; i++){
+				if(unlockedIDList.Contains(perkList[i].prefabID) && !perkList[i].unlocked){
+					_UnlockPerk(perkList[i], false);
+				}
+			}
+
+			Debug.Log("[PerkManager] Synced from ZoidsPerkProgressManager. Currency="+currency+" Unlocked="+unlockedIDList.Count);
+		}
+
 		
 		void OnDestroy(){
 			if(!saveProgressToCache) return;

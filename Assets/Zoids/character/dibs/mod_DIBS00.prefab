@@ -698,70 +698,74 @@ MonoBehaviour:
   value: 100
   rarity: 0
   factoryCost: 100
-  unitDescription: The Dibison is has one of the heaviest weapon loadouts ever seen
-    on a Zoid. The Dibison's principal weapons are an array of seventeen 105mm mortars
-    mounted on its back. Long-ranged and capable of indirect fire, the weapons can
-    be used to saturate an area or focus on a single target.
+  unitDescription: 'Role: Artillery / Gunner
+
+    Size: Large
+
+    Attack Type: Ranged-focused
+    hybrid'
   facID: 0
   playableUnit: 0
   aiBehaviour: 0
   requireTrigger: 0
   triggered: 0
-  hp: 10
-  ap: 2
+  hp: 85
+  ap: 3
   moveThisTurn: 0
   attackThisTurn: 0
   counterThisTurn: 0
   abilityThisTurn: 0
   canMovePastUnit: 0
   canMovePastObs: 0
-  targetPoint: {fileID: 0}
+  targetPoint: {fileID: 3369}
   radius: 0.3
   soRange: {fileID: 114412276860498308, guid: 09a463b997518ca4ba2b0574c697a0c1, type: 3}
   soMelee: {fileID: 0}
   shootPointSpacing: 0.1
   shootPointList:
-  - {fileID: 0}
-  turretPivot: {fileID: 0}
+  - {fileID: 5836}
+  - {fileID: 6032}
+  - {fileID: 6088}
+  turretPivot: {fileID: 4380}
   barrelPivot: {fileID: 0}
   snapAiming: 0
   aimInXAxis: 0
   rotateWhileAiming: 1
-  moveSpeed: 3
+  moveSpeed: 1.5
   hasMeleeAttack: 1
   requireLOSToAttack: 1
-  armorType: 0
+  armorType: 1
   damageType: 0
   stats:
-    hp: 12
-    ap: 12
+    hp: 85
+    ap: 3
     hpRegen: 0
-    apRegen: 4
-    attack: 80
-    defense: 30
-    hit: 70
-    dodge: 10
-    dmgHPMin: 4
-    dmgHPMax: 5
+    apRegen: 1
+    attack: 32
+    defense: 12
+    hit: 78
+    dodge: 9
+    dmgHPMin: 23
+    dmgHPMax: 37
     dmgAPMin: 0
     dmgAPMax: 0
-    critChance: 0.15
-    critReduc: 0
-    critMultiplier: 2
+    critChance: 0.1
+    critReduc: 6
+    critMultiplier: 1.5
     cDmgMultip: 0.5
     cHitPenalty: 0.5
     cCritPenalty: 0.5
     oDmgMultip: 0.5
     oHitPenalty: 0.5
     oCritPenalty: 0.5
-    attackRange: 5
-    attackRangeMin: 1
-    moveRange: 3
-    turnPriority: 9
+    attackRange: 7
+    attackRangeMin: 0
+    moveRange: 2
+    turnPriority: 5
     sight: 6
     moveLimit: 1
     attackLimit: 1
-    counterLimit: 1
+    counterLimit: 0
     abilityLimit: 1
     abDuration: 2
     abCooldown: 2
@@ -774,21 +778,21 @@ MonoBehaviour:
     effAP: 0
   damageTypeMelee: 0
   statsMelee:
-    hp: 10
-    ap: 10
+    hp: 85
+    ap: 3
     hpRegen: 0
-    apRegen: 2
-    attack: 80
-    defense: 20
-    hit: 70
-    dodge: 20
-    dmgHPMin: 4
-    dmgHPMax: 7
-    dmgAPMin: 4
-    dmgAPMax: 7
-    critChance: 0.15
-    critReduc: 0
-    critMultiplier: 2
+    apRegen: 1
+    attack: 18
+    defense: 12
+    hit: 77
+    dodge: 9
+    dmgHPMin: 13
+    dmgHPMax: 21
+    dmgAPMin: 0
+    dmgAPMax: 0
+    critChance: 0.11
+    critReduc: 6
+    critMultiplier: 1.5
     cDmgMultip: 0.5
     cHitPenalty: 0.5
     cCritPenalty: 0.5
@@ -797,12 +801,12 @@ MonoBehaviour:
     oCritPenalty: 0.5
     attackRange: 2
     attackRangeMin: 0
-    moveRange: 3
-    turnPriority: 1
-    sight: 10
+    moveRange: 2
+    turnPriority: 5
+    sight: 6
     moveLimit: 1
     attackLimit: 1
-    counterLimit: 1
+    counterLimit: 0
     abilityLimit: 1
     abDuration: 2
     abCooldown: 2
@@ -955,22 +959,22 @@ MonoBehaviour:
       duration: 1.5
     activeVisualEffect: {fileID: 0}
   effectList: []
-  abilityIDList: 02000000
+  abilityIDList: 13000000
   abilityList: []
   dead: 0
   effectAttackHit:
-    obj: {fileID: 0}
+    obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
     autoDestroy: 1
     duration: 1.5
   effectAttackHitMelee:
-    obj: {fileID: 0}
+    obj: {fileID: 1408636310352560, guid: 3cf93ee15e741f84eb5a729b20e1a1a5, type: 3}
     autoDestroy: 1
     duration: 1.5
   effectOnDestroyed:
     obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
     autoDestroy: 1
     duration: 1.5
-  animatorT: {fileID: 0}
+  animatorT: {fileID: 4380}
   clipIdle: {fileID: 7400000, guid: 1a6c1fbf68ef47388087c3954cf90bc6, type: 2}
   clipMove: {fileID: 7400000, guid: 7dae805a0f2f4c5db4e82030f08e975b, type: 2}
   clipHit: {fileID: 7400000, guid: 3d6e086244304890b297a868c172b5e7, type: 2}
@@ -987,7 +991,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   animAbilityDelayList:
-  - 3
+  - 4.3
   - 0
   - 0
   - 0
