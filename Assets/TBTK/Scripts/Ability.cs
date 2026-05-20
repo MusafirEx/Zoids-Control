@@ -10,6 +10,7 @@ namespace TBTK{
 		public enum _AbilityType{ Generic, Teleport, SpawnUnit, Fusion, ChangeForm, Charge, Line, Cone, ScanFogOfWar, DeployBlock, None,  }
 		
 		public enum _TargetType{AllNode, AllUnit, HostileUnit, FriendlyUnit, EmptyNode}
+		public enum _SkillRangeType{Distance, Melee}
 		public enum _ImpactType{None, Negative, Positive}
 		
 		
@@ -30,6 +31,7 @@ namespace TBTK{
 		public _TargetType targetType;
 		public bool requireTarget=true;
 		public bool requireLos=true;
+		public _SkillRangeType skillRangeType=_SkillRangeType.Distance;
 		public int rangeMin=0;
 		public int range=5;
 		public int aoeRange=0;
@@ -630,11 +632,21 @@ namespace TBTK{
 			else 			return critMultiplier * PerkManager.GetFAbilityMulCritM(prefabID) + PerkManager.GetFAbilityModCritM(prefabID);
 		}
 		
+		public bool IsMeleeSkill(){ return skillRangeType==_SkillRangeType.Melee; }
+
 		public int GetRangeMin(){
+			if(IsMeleeSkill() && srcUnit!=null && srcUnit.hasMeleeAttack && srcUnit.statsMelee!=null){
+				return Mathf.Max(0, Mathf.RoundToInt(srcUnit.statsMelee.attackRangeMin));
+			}
+
 			if(IsUAB()) return (int)(rangeMin * PerkManager.GetUAbilityMulRange(prefabID) + PerkManager.GetUAbilityModRange(prefabID));
 			else 			return rangeMin;
 		}
 		public int GetRange(){
+			if(IsMeleeSkill() && srcUnit!=null && srcUnit.hasMeleeAttack && srcUnit.statsMelee!=null){
+				return Mathf.Max(0, Mathf.RoundToInt(srcUnit.statsMelee.attackRange));
+			}
+
 			if(IsUAB()) return (int)(range * PerkManager.GetUAbilityMulRange(prefabID) + PerkManager.GetUAbilityModRange(prefabID));
 			else 			return range;
 		}
@@ -659,6 +671,7 @@ namespace TBTK{
 			
 			clone.targetType=targetType;
 			clone.requireTarget=requireTarget;		clone.requireLos=requireLos;
+			clone.skillRangeType=skillRangeType;
 			clone.rangeMin=rangeMin;					clone.range=range;							clone.aoeRange=aoeRange;		
 			clone.fov=fov;
 			

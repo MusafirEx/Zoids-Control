@@ -4678,6 +4678,8 @@ GameObject:
   - component: {fileID: 1244467516}
   - component: {fileID: 1244467515}
   - component: {fileID: 1244467518}
+  - component: {fileID: 1244467520}
+  - component: {fileID: 1244467519}
   m_Layer: 0
   m_Name: ZoidsGameJoltSystem
   m_TagString: Untagged
@@ -4756,13 +4758,53 @@ MonoBehaviour:
   gameJoltAccountManager: {fileID: 1244467516}
   profileManager: {fileID: 635276745271711923}
   factionSelectionManager: {fileID: 3616119004153787901}
+  cloudSaveManager: {fileID: 0}
   localPlayerId: LOCAL_PLAYER
   localPlayerName: Local Player
   dontDestroyOnLoad: 1
   ensureProfileOnStart: 1
   refreshFactionSelectionAfterProfile: 1
   replaceUninitializedLocalProfileWithGameJolt: 1
+  autoUploadCloudAfterFactionChoice: 1
   debugLog: 1
+--- !u!114 &1244467519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244467514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6189ce065805834990878cd56f6658e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accountManager: {fileID: 1244467516}
+  profileManager: {fileID: 635276745271711923}
+  unitProgressManager: {fileID: 9207115550407371521}
+  trophyRules:
+  - enabled: 0
+    debugName: 
+    trophyId: 0
+    conditionType: 12
+    requiredAmount: 5
+    unitId: 0
+  checkOnStart: 0
+  checkOnEnable: 0
+  debugLog: 1
+--- !u!114 &1244467520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244467514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1fa833781d30ad4bbf7bba596d36475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  createTrophyManagerIfMissing: 1
 --- !u!1 &1251667788
 GameObject:
   m_ObjectHideFlags: 0
@@ -5994,7 +6036,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 79303412}
+      - m_Target: {fileID: 1474150260}
         m_TargetAssemblyTypeName: FactionSelectButtonBridge, Assembly-CSharp
         m_MethodName: ChooseFaction
         m_Mode: 1
@@ -7815,7 +7857,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 79303412}
+      - m_Target: {fileID: 1923393550}
         m_TargetAssemblyTypeName: FactionSelectButtonBridge, Assembly-CSharp
         m_MethodName: ChooseFaction
         m_Mode: 1
@@ -8880,11 +8922,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profileManager: {fileID: 635276745271711923}
   starterDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  cloudSaveManager: {fileID: 0}
   factionSelectionPanel: {fileID: 1501325815}
   mainMenuSelectionPanel: {fileID: 1821936907}
   createLocalProfileIfMissing: 1
   offlinePlayerId: LOCAL_PLAYER
   offlinePlayerName: Local Player
+  uploadToGameJoltAfterFactionChosen: 1
+  canvasBlockerPanel: {fileID: 0}
+  blockerStatusLabel: {fileID: 0}
   refreshPanelsOnStart: 1
   debugLog: 1
 --- !u!4 &4139419336780712683

@@ -860,7 +860,7 @@ MonoBehaviour:
   snapAiming: 0
   aimInXAxis: 0
   rotateWhileAiming: 1
-  moveSpeed: 7
+  moveSpeed: 2
   hasMeleeAttack: 1
   requireLOSToAttack: 1
   armorType: 0

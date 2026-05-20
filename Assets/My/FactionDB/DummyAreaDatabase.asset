@@ -17,7 +17,7 @@ MonoBehaviour:
     areaName: Verdant Plains
     isNaturalArea: 1
     battleType: AreaBattle
-    environmentPrefab: {fileID: 291, guid: ac70abf0d0cb425abd49f9d33bd4484a, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Wild
     enemyUnitIds: 12000000
@@ -25,7 +25,7 @@ MonoBehaviour:
     areaName: Glacier Crown Range
     isNaturalArea: 1
     battleType: AreaBattle
-    environmentPrefab: {fileID: 325, guid: d401eaa7ff1c42f99a3778de616aaa7a, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Wild
     enemyUnitIds: 13000000
@@ -33,7 +33,7 @@ MonoBehaviour:
     areaName: Ironhoof Meadow
     isNaturalArea: 1
     battleType: AreaBattle
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: maybe Aurek Dominion
     enemyUnitIds: 120000001300000014000000
@@ -41,373 +41,173 @@ MonoBehaviour:
     areaName: Stormpeak Ridge
     isNaturalArea: 1
     battleType: BattleArea
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: maybe Aurek Dominion
     enemyUnitIds: 14000000
   - areaId: 4
-    areaName: Town
-    isNaturalArea: 0
+    areaName: Hulu Langat
+    isNaturalArea: 1
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
   - areaId: 5
-    areaName: Forest
-    isNaturalArea: 0
+    areaName: Cerakah Hill
+    isNaturalArea: 1
     battleType: Araea Battle
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
   - areaId: 6
-    areaName: Snow
+    areaName: Sabak Bernam
     isNaturalArea: 0
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
+    enemyUnitIds: 1300000014000000
   - areaId: 7
-    areaName: Town
-    isNaturalArea: 0
+    areaName: Air Tawar
+    isNaturalArea: 1
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
+    enemyUnitIds: 150000001600000017000000
   - areaId: 8
-    areaName: Town
-    isNaturalArea: 0
+    areaName: Jelebu
+    isNaturalArea: 1
     battleType: owned area test
     environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
   - areaId: 9
-    areaName: Town
+    areaName: Celah Kankang
+    isNaturalArea: 1
+    battleType: owned area test
+    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    enemyFactionId: 1
+    enemyFactionName: Aurek Dominion
+    enemyUnitIds: 1300000012000000
+  - areaId: 9
+    areaName: Battu Kaves
+    isNaturalArea: 1
+    battleType: owned area test
+    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    enemyFactionId: 1
+    enemyFactionName: Aurek Dominion
+    enemyUnitIds: 1400000015000000
+  - areaId: 11
+    areaName: Tanjung Hope
+    isNaturalArea: 1
+    battleType: owned area test
+    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    enemyFactionId: 1
+    enemyFactionName: Aurek Dominion
+    enemyUnitIds: 13000000
+  - areaId: 12
+    areaName: Kuala Hilir
+    isNaturalArea: 1
+    battleType: owned area test
+    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    enemyFactionId: 1
+    enemyFactionName: Aurek Dominion
+    enemyUnitIds: 13000000
+  - areaId: 13
+    areaName: Selimut Putih
+    isNaturalArea: 1
+    battleType: owned area test
+    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    enemyFactionId: 1
+    enemyFactionName: Aurek Dominion
+    enemyUnitIds: 13000000
+  - areaId: 14
+    areaName: Kopiah White
     isNaturalArea: 0
     battleType: owned area test
     environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
+  - areaId: 15
+    areaName: Padang Guling
+    isNaturalArea: 1
+    battleType: owned area test
+    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    enemyFactionId: 1
+    enemyFactionName: Aurek Dominion
+    enemyUnitIds: 13000000
+  - areaId: 16
+    areaName: Pagar Laut
+    isNaturalArea: 1
+    battleType: owned area test
+    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    enemyFactionId: 1
+    enemyFactionName: Aurek Dominion
+    enemyUnitIds: 13000000
+  - areaId: 17
+    areaName: Hutan Jembut
+    isNaturalArea: 1
+    battleType: owned area test
+    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    enemyFactionId: 1
+    enemyFactionName: Aurek Dominion
+    enemyUnitIds: 13000000
+  - areaId: 18
+    areaName: Hutan Terowong II
     isNaturalArea: 0
     battleType: owned area test
     environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
+  - areaId: 19
+    areaName: Hutan Terowong
+    isNaturalArea: 1
     battleType: owned area test
     environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
+  - areaId: 20
+    areaName: Pat Forest
+    isNaturalArea: 1
     battleType: owned area test
     environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
+  - areaId: 21
+    areaName: Rata Plain
+    isNaturalArea: 1
     battleType: owned area test
     environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
+  - areaId: 22
+    areaName: Lurus Plain
+    isNaturalArea: 1
     battleType: owned area test
     environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
+  - areaId: 23
+    areaName: Pangkal Punai
+    isNaturalArea: 1
     battleType: owned area test
     environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
-    battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
-    enemyFactionId: 1
-    enemyFactionName: Aurek Dominion
-    enemyUnitIds: 13000000
-  - areaId: 9
-    areaName: Town
-    isNaturalArea: 0
+  - areaId: 24
+    areaName: TuWellTu Hill
+    isNaturalArea: 1
     battleType: owned area test
     environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
     enemyFactionId: 1

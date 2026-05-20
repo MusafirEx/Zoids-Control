@@ -250,8 +250,17 @@ namespace TBTK {
 					}
 				
 					if(editUnitAbility){
-						TBE.Label(startX, startY+=spaceY, width, height, "Range (min/max):", "The effective range of the ability");
+						TBE.Label(startX, startY+=spaceY, width, height, "Skill Range Type:", "Distance uses the ability range fields. Melee uses the source unit's statsMelee attack range and blocks activation if target is outside melee range.");
 						if(!item.requireTarget) TBE.Label(startX+spaceX, startY, widthS, height, "n/a");
+						else item.skillRangeType=(Ability._SkillRangeType)EditorGUI.EnumPopup(new Rect(startX+spaceX, startY, width, height), item.skillRangeType);
+
+						TBE.Label(startX, startY+=spaceY, width, height, "Range (min/max):", "The effective range of the ability. If Skill Range Type is Melee, runtime uses Unit.statsMelee attack range instead.");
+						if(!item.requireTarget) TBE.Label(startX+spaceX, startY, widthS, height, "n/a");
+						else if(item.skillRangeType==Ability._SkillRangeType.Melee){
+							GUI.color=Color.grey;
+							TBE.Label(startX+spaceX, startY, width, height, "uses Unit.statsMelee range");
+							GUI.color=Color.white;
+						}
 						else{
 							GUI.color=item.rangeMin>1 ? Color.white : Color.grey ;
 							item.rangeMin=EditorGUI.DelayedIntField(new Rect(startX+spaceX, startY, widthS, height), item.rangeMin); GUI.color=Color.white;

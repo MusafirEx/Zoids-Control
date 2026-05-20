@@ -843,6 +843,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70149354}
   m_CullTransparentMesh: 1
+--- !u!1 &98836366
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 98836367}
+  - component: {fileID: 98836369}
+  - component: {fileID: 98836368}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &98836367
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98836366}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 727109401}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 248}
+  m_SizeDelta: {x: 525.2558, y: 204.87793}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &98836368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98836366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: c165e56ae17492a41b7d2658ec3443a5, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &98836369
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98836366}
+  m_CullTransparentMesh: 1
 --- !u!1 &129756853
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,7 +1069,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &144142605
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1870,12 +1945,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 744340186}
+  - {fileID: 98836367}
   m_Father: {fileID: 1665325380}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1366, y: 768}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.000061035156, y: 0}
+  m_SizeDelta: {x: 1044.6709, y: 456.1599}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &727109402
 MonoBehaviour:
@@ -1899,7 +1975,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: -582718862, guid: e7dc42c70a2404f4a9e2e3614a6b83b3, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -3054,11 +3130,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profileManager: {fileID: 49252274}
   starterDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  cloudSaveManager: {fileID: 0}
   factionSelectionPanel: {fileID: 0}
   mainMenuSelectionPanel: {fileID: 0}
   createLocalProfileIfMissing: 1
   offlinePlayerId: LOCAL_PLAYER
   offlinePlayerName: Local Player
+  uploadToGameJoltAfterFactionChosen: 1
+  canvasBlockerPanel: {fileID: 0}
+  blockerStatusLabel: {fileID: 0}
   refreshPanelsOnStart: 1
   debugLog: 1
 --- !u!4 &1556579165
@@ -4647,12 +4727,14 @@ MonoBehaviour:
   gameJoltAccountManager: {fileID: 2122999756}
   profileManager: {fileID: 49252274}
   factionSelectionManager: {fileID: 1556579164}
+  cloudSaveManager: {fileID: 0}
   localPlayerId: LOCAL_PLAYER
   localPlayerName: Local Player
   dontDestroyOnLoad: 1
   ensureProfileOnStart: 1
   refreshFactionSelectionAfterProfile: 1
   replaceUninitializedLocalProfileWithGameJolt: 1
+  autoUploadCloudAfterFactionChoice: 1
   debugLog: 1
 --- !u!114 &2122999755
 MonoBehaviour:

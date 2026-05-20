@@ -262,15 +262,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ZOIDS_CharIcon_00_0
+      name: BerserkFury
       rect:
         serializedVersion: 2
-        x: 839
-        y: 526
-        width: 80
-        height: 201
+        x: 884
+        y: 1783
+        width: 143
+        height: 118
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -312,7 +312,7 @@ TextureImporter:
         width: 143
         height: 121
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -333,7 +333,7 @@ TextureImporter:
         width: 142
         height: 124
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -356,6 +356,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      BerserkFury: -677926973
       Blade Liger: 1284255970
       Dibison: 156321196
       Liger Zero: 1527451655
@@ -364,7 +365,6 @@ TextureImporter:
       LigerZero_Schenider: 2056357784
       Lightning Saix: 248575497
       Redhorn: 1094529738
-      ZOIDS_CharIcon_00_0: -677926973
       Zeek Dober: 2072600114
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

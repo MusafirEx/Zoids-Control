@@ -3,7 +3,7 @@ guid: 898e1a8544244dc49d735a3a7798ba0d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -108,6 +108,19 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1004,6 +1017,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Empty
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 465
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d7a8d921992da643bb506f17e895a55
+      internalID: 2062656797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1015,6 +1049,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Empty: -1302607689
       UI_Atlas_HUD_icon_0: 1624840731
       UI_Atlas_HUD_icon_1: 1748822712
       UI_Atlas_HUD_icon_10: 1374711629
@@ -1035,7 +1070,6 @@ TextureImporter:
       UI_Atlas_HUD_icon_113: -1644686936
       UI_Atlas_HUD_icon_114: -728078777
       UI_Atlas_HUD_icon_115: -1875382729
-      UI_Atlas_HUD_icon_12: -1302607689
       UI_Atlas_HUD_icon_13: -743570512
       UI_Atlas_HUD_icon_14: -1981678906
       UI_Atlas_HUD_icon_15: 1522604248

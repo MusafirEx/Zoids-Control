@@ -27,6 +27,7 @@ MonoBehaviour:
     targetType: 0
     requireTarget: 1
     requireLos: 0
+    skillRangeType: 0
     rangeMin: 0
     range: 0
     aoeRange: 0
@@ -89,6 +90,7 @@ MonoBehaviour:
     targetType: 0
     requireTarget: 1
     requireLos: 0
+    skillRangeType: 0
     rangeMin: 0
     range: 0
     aoeRange: 0
@@ -151,6 +153,7 @@ MonoBehaviour:
     targetType: 0
     requireTarget: 1
     requireLos: 0
+    skillRangeType: 0
     rangeMin: 0
     range: 0
     aoeRange: 4
@@ -213,6 +216,7 @@ MonoBehaviour:
     targetType: 3
     requireTarget: 0
     requireLos: 0
+    skillRangeType: 0
     rangeMin: 0
     range: 0
     aoeRange: 0
@@ -276,6 +280,7 @@ MonoBehaviour:
     targetType: 3
     requireTarget: 0
     requireLos: 0
+    skillRangeType: 0
     rangeMin: 0
     range: 0
     aoeRange: 0
@@ -338,6 +343,7 @@ MonoBehaviour:
     targetType: 4
     requireTarget: 1
     requireLos: 1
+    skillRangeType: 0
     rangeMin: 0
     range: 5
     aoeRange: 0
@@ -402,6 +408,7 @@ MonoBehaviour:
     targetType: 2
     requireTarget: 1
     requireLos: 0
+    skillRangeType: 0
     rangeMin: 0
     range: 0
     aoeRange: 0
