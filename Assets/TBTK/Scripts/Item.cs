@@ -22,7 +22,7 @@ namespace TBTK{
 	
 	
 	public class TBMonoItem : MonoBehaviour {
-		[HideInInspector] public int prefabID=-1;
+		/*[HideInInspector]*/ public int prefabID=-1;
 		[HideInInspector] public int instanceID=-1;	
 		
 		public Sprite icon;
