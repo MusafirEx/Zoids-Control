@@ -524,10 +524,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536197566}
-        m_TargetAssemblyTypeName: DummyMapSelectorTestUI, Assembly-CSharp
-        m_MethodName: SelectArea
-        m_Mode: 3
+      - m_Target: {fileID: 42656319}
+        m_TargetAssemblyTypeName: DummyAreaStatusUI, Assembly-CSharp
+        m_MethodName: OnSelectAreaButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -786,10 +786,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536197566}
-        m_TargetAssemblyTypeName: DummyMapSelectorTestUI, Assembly-CSharp
-        m_MethodName: SelectArea
-        m_Mode: 3
+      - m_Target: {fileID: 99310490}
+        m_TargetAssemblyTypeName: DummyAreaStatusUI, Assembly-CSharp
+        m_MethodName: OnSelectAreaButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1347,10 +1347,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536197566}
-        m_TargetAssemblyTypeName: DummyMapSelectorTestUI, Assembly-CSharp
-        m_MethodName: SelectArea
-        m_Mode: 3
+      - m_Target: {fileID: 195267803}
+        m_TargetAssemblyTypeName: DummyAreaStatusUI, Assembly-CSharp
+        m_MethodName: OnSelectAreaButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1515,10 +1515,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536197566}
-        m_TargetAssemblyTypeName: DummyMapSelectorTestUI, Assembly-CSharp
-        m_MethodName: SelectArea
-        m_Mode: 3
+      - m_Target: {fileID: 229067772}
+        m_TargetAssemblyTypeName: DummyAreaStatusUI, Assembly-CSharp
+        m_MethodName: OnSelectAreaButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2812,10 +2812,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536197566}
-        m_TargetAssemblyTypeName: DummyMapSelectorTestUI, Assembly-CSharp
-        m_MethodName: SelectArea
-        m_Mode: 3
+      - m_Target: {fileID: 408194583}
+        m_TargetAssemblyTypeName: DummyAreaStatusUI, Assembly-CSharp
+        m_MethodName: OnSelectAreaButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3567,10 +3567,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536197566}
-        m_TargetAssemblyTypeName: DummyMapSelectorTestUI, Assembly-CSharp
-        m_MethodName: SelectArea
-        m_Mode: 3
+      - m_Target: {fileID: 532513611}
+        m_TargetAssemblyTypeName: DummyAreaStatusUI, Assembly-CSharp
+        m_MethodName: OnSelectAreaButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6652,10 +6652,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536197566}
-        m_TargetAssemblyTypeName: DummyMapSelectorTestUI, Assembly-CSharp
-        m_MethodName: SelectArea
-        m_Mode: 3
+      - m_Target: {fileID: 925862389}
+        m_TargetAssemblyTypeName: DummyAreaStatusUI, Assembly-CSharp
+        m_MethodName: OnSelectAreaButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7369,10 +7369,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536197566}
-        m_TargetAssemblyTypeName: DummyMapSelectorTestUI, Assembly-CSharp
-        m_MethodName: SelectArea
-        m_Mode: 3
+      - m_Target: {fileID: 1176927688}
+        m_TargetAssemblyTypeName: DummyAreaStatusUI, Assembly-CSharp
+        m_MethodName: OnSelectAreaButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7537,10 +7537,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536197566}
-        m_TargetAssemblyTypeName: DummyMapSelectorTestUI, Assembly-CSharp
-        m_MethodName: SelectArea
-        m_Mode: 3
+      - m_Target: {fileID: 1203591293}
+        m_TargetAssemblyTypeName: DummyAreaStatusUI, Assembly-CSharp
+        m_MethodName: OnSelectAreaButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8894,10 +8894,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536197566}
-        m_TargetAssemblyTypeName: DummyMapSelectorTestUI, Assembly-CSharp
-        m_MethodName: SelectArea
-        m_Mode: 3
+      - m_Target: {fileID: 1427933411}
+        m_TargetAssemblyTypeName: DummyAreaStatusUI, Assembly-CSharp
+        m_MethodName: OnSelectAreaButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9127,7 +9127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1449533415
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9269,10 +9269,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536197566}
-        m_TargetAssemblyTypeName: DummyMapSelectorTestUI, Assembly-CSharp
-        m_MethodName: SelectArea
-        m_Mode: 3
+      - m_Target: {fileID: 1452935151}
+        m_TargetAssemblyTypeName: DummyAreaStatusUI, Assembly-CSharp
+        m_MethodName: OnSelectAreaButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9512,10 +9512,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536197566}
-        m_TargetAssemblyTypeName: DummyMapSelectorTestUI, Assembly-CSharp
-        m_MethodName: SelectArea
-        m_Mode: 3
+      - m_Target: {fileID: 1470561607}
+        m_TargetAssemblyTypeName: DummyAreaStatusUI, Assembly-CSharp
+        m_MethodName: OnSelectAreaButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10054,10 +10054,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536197566}
-        m_TargetAssemblyTypeName: DummyMapSelectorTestUI, Assembly-CSharp
-        m_MethodName: SelectArea
-        m_Mode: 3
+      - m_Target: {fileID: 1644212332}
+        m_TargetAssemblyTypeName: DummyAreaStatusUI, Assembly-CSharp
+        m_MethodName: OnSelectAreaButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11083,6 +11083,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863699427}
   m_CullTransparentMesh: 1
+--- !u!1001 &1938540187
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1121, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
+      propertyPath: m_Name
+      value: mod_DIBS00
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
 --- !u!1 &1941473697
 GameObject:
   m_ObjectHideFlags: 0
@@ -12030,10 +12087,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536197566}
-        m_TargetAssemblyTypeName: DummyMapSelectorTestUI, Assembly-CSharp
-        m_MethodName: SelectArea
-        m_Mode: 3
+      - m_Target: {fileID: 2019895318}
+        m_TargetAssemblyTypeName: DummyAreaStatusUI, Assembly-CSharp
+        m_MethodName: OnSelectAreaButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12440,10 +12497,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536197566}
-        m_TargetAssemblyTypeName: DummyMapSelectorTestUI, Assembly-CSharp
-        m_MethodName: SelectArea
-        m_Mode: 3
+      - m_Target: {fileID: 2075814767}
+        m_TargetAssemblyTypeName: DummyAreaStatusUI, Assembly-CSharp
+        m_MethodName: OnSelectAreaButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13239,3 +13296,4 @@ SceneRoots:
   - {fileID: 1244467517}
   - {fileID: 1057744507}
   - {fileID: 1273536258}
+  - {fileID: 1938540187}

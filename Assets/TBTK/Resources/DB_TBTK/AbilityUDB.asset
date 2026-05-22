@@ -1257,8 +1257,8 @@ MonoBehaviour:
     obstaclePrefab: {fileID: 0}
     moveCost: 0
     attackCost: 0
-    abilityCost: 0
-    apCost: 5
+    abilityCost: 1
+    apCost: 0
     endAllActionAfterUse: 1
     cooldown: 3
     useLimit: 0

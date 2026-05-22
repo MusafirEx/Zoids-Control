@@ -481,7 +481,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 116, y: 233}
+  m_AnchoredPosition: {x: 546, y: 319}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &324227289
@@ -3396,8 +3396,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progressManager: {fileID: 903637672}
-  factoryManager: {fileID: 0}
-  testUnitId: 18
+  factoryManager: {fileID: 359413915}
+  testUnitId: 0
 --- !u!222 &1530586167
 CanvasRenderer:
   m_ObjectHideFlags: 0

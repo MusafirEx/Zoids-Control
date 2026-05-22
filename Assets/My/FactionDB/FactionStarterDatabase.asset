@@ -38,6 +38,6 @@ MonoBehaviour:
     factionName: Nocteris Syndicate
     factionLogo: {fileID: -686200073, guid: 3063e6b673447e94a9fc58305cbc7463, type: 3}
     factionColor: {r: 0.2627451, g: 0.1254902, b: 0.41176474, a: 1}
-    starterUnitIds: 
+    starterUnitIds: 00000000
     starterOwnedCountPerUnit: 1
     starterTeamName: Nocteris Syndicate

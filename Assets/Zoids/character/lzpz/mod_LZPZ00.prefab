@@ -785,7 +785,7 @@ MonoBehaviour:
   stats:
     hp: 150
     ap: 5
-    hpRegen: 1
+    hpRegen: 0
     apRegen: 1
     attack: 37
     defense: 24

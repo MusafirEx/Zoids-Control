@@ -723,9 +723,7 @@ MonoBehaviour:
   soMelee: {fileID: 0}
   shootPointSpacing: 0.1
   shootPointList:
-  - {fileID: 5836}
-  - {fileID: 6032}
-  - {fileID: 6088}
+  - {fileID: 5746}
   turretPivot: {fileID: 4380}
   barrelPivot: {fileID: 0}
   snapAiming: 0

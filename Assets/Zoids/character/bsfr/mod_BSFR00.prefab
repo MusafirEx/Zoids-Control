@@ -717,7 +717,7 @@ MonoBehaviour:
   stats:
     hp: 180
     ap: 6
-    hpRegen: 1
+    hpRegen: 0
     apRegen: 1
     attack: 42
     defense: 23
@@ -727,7 +727,7 @@ MonoBehaviour:
     dmgHPMax: 48
     dmgAPMin: 0
     dmgAPMax: 0
-    critChance: 15
+    critChance: 0.15
     critReduc: 7
     critMultiplier: 1.6
     cDmgMultip: 0.5
@@ -768,7 +768,7 @@ MonoBehaviour:
     dmgHPMax: 67
     dmgAPMin: 0
     dmgAPMax: 0
-    critChance: 18
+    critChance: 0.18
     critReduc: 7
     critMultiplier: 1.6
     cDmgMultip: 0.5

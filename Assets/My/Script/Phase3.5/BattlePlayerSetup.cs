@@ -76,7 +76,7 @@ public class BattlePlayerSetup : MonoBehaviour
         // Area Battle originally uses BattleUnitDatabase.
         if (battleUnitDatabase != null)
         {
-            Unit prefab = battleUnitDatabase.GetUnitPrefab(unitId);
+            Unit prefab = UnitDB.GetPrefab(unitId);
             if (prefab != null)
                 return prefab;
         }

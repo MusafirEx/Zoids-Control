@@ -25,3 +25,11 @@ MonoBehaviour:
     unitName: Lightning Saix
     unitPrefab: {fileID: 8692425835141335775, guid: b518f36c81bf4991b6531d810bb068ea,
       type: 3}
+  - unitId: 20
+    unitName: Lightning Saix
+    unitPrefab: {fileID: 8692425835141335775, guid: b518f36c81bf4991b6531d810bb068ea,
+      type: 3}
+  - unitId: 20
+    unitName: Lightning Saix
+    unitPrefab: {fileID: 8692425835141335775, guid: b518f36c81bf4991b6531d810bb068ea,
+      type: 3}

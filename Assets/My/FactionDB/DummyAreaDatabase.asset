@@ -81,7 +81,7 @@ MonoBehaviour:
     areaName: Jelebu
     isNaturalArea: 1
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
@@ -89,23 +89,23 @@ MonoBehaviour:
     areaName: Celah Kankang
     isNaturalArea: 1
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 1300000012000000
-  - areaId: 9
-    areaName: Battu Kaves
+  - areaId: 10
+    areaName: Batu Caves
     isNaturalArea: 1
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
-    enemyUnitIds: 1400000015000000
+    enemyUnitIds: 1300000012000000
   - areaId: 11
     areaName: Tanjung Hope
     isNaturalArea: 1
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
