@@ -40,7 +40,7 @@ public class DummyAreaStatusUI : MonoBehaviour, IPointerEnterHandler, IPointerEx
     [SerializeField] private bool clampTooltipToCanvas = true;
 
     [Header("Sound")]
-    [SerializeField] private AudioSource sfx;
+    //[SerializeField] private AudioSource sfx;
     [SerializeField] private AudioClip sfxSound;
 
     [Header("References")]
@@ -48,6 +48,8 @@ public class DummyAreaStatusUI : MonoBehaviour, IPointerEnterHandler, IPointerEx
     [SerializeField] private AreaMapGameJoltSyncController mapSyncController;
     [SerializeField] private DummyAreaDatabase areaDatabase;
     [SerializeField] private FactionStarterDatabase factionDatabase;
+    [SerializeField] private MapSFX SoundManager;
+
 
     [Header("Refresh")]
     [SerializeField] private bool refreshEverySecond = true;
@@ -122,8 +124,8 @@ public class DummyAreaStatusUI : MonoBehaviour, IPointerEnterHandler, IPointerEx
         else if (label != null)
             label.gameObject.SetActive(true);
 
-        if (sfx != null && sfxSound != null)
-            sfx.PlayOneShot(sfxSound);
+        if (sfxSound != null)
+            SoundManager.sfx.PlayOneShot(sfxSound);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -193,6 +195,8 @@ public class DummyAreaStatusUI : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
         if (tooltipCanvas == null && tooltipPanel != null)
             tooltipCanvas = tooltipPanel.GetComponentInParent<Canvas>();
+        if(SoundManager==null)
+            SoundManager = MapSFX.Instance;
     }
 
     private string BuildTooltipText()

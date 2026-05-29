@@ -254,13 +254,8 @@ namespace TBTK {
 						if(!item.requireTarget) TBE.Label(startX+spaceX, startY, widthS, height, "n/a");
 						else item.skillRangeType=(Ability._SkillRangeType)EditorGUI.EnumPopup(new Rect(startX+spaceX, startY, width, height), item.skillRangeType);
 
-						TBE.Label(startX, startY+=spaceY, width, height, "Range (min/max):", "The effective range of the ability. If Skill Range Type is Melee, runtime uses Unit.statsMelee attack range instead.");
+						TBE.Label(startX, startY+=spaceY, width, height, "Range (min/max):", "The effective range of the ability. Distance and Melee abilities both use this ability range.");
 						if(!item.requireTarget) TBE.Label(startX+spaceX, startY, widthS, height, "n/a");
-						else if(item.skillRangeType==Ability._SkillRangeType.Melee){
-							GUI.color=Color.grey;
-							TBE.Label(startX+spaceX, startY, width, height, "uses Unit.statsMelee range");
-							GUI.color=Color.white;
-						}
 						else{
 							GUI.color=item.rangeMin>1 ? Color.white : Color.grey ;
 							item.rangeMin=EditorGUI.DelayedIntField(new Rect(startX+spaceX, startY, widthS, height), item.rangeMin); GUI.color=Color.white;
@@ -286,17 +281,52 @@ namespace TBTK {
 					startY+=spaceY*0.5f;
 					
 					if(editUnitAbility){
-						TBE.Label(startX, startY+=spaceY, width, height, "Use Attack Sequence:", "Check to have the unit using the ability runs a standard attack sequence at the target (the unit will aim towards the target and fire a shoot-object)");
+						TBE.Label(startX, startY+=spaceY, width, height, "Use Attack Sequence:", "Check to use the standard attack sequence. If disabled, the unit uses Ability1/Ability2/etc animation trigger instead.");
 						if(!item.requireTarget) TBE.Label(startX+spaceX+10, startY, widthS, height, "n/a");
 						else item.useAttackSequence=EditorGUI.Toggle(new Rect(startX+spaceX+10, startY, widthS, height), item.useAttackSequence);
+
+						if(!item.useAttackSequence){
+							TBE.Label(startX, startY+=spaceY, width, height, "Fire SO With Ability Anim:", "If enabled, the unit uses Ability1/Ability2/etc animation and still fires the ShootObject after the animation delay.");
+							if(!item.requireTarget) TBE.Label(startX+spaceX+10, startY, widthS, height, "n/a");
+							else item.fireShootObjectWithAbilityAnimation=EditorGUI.Toggle(new Rect(startX+spaceX+10, startY, widthS, height), item.fireShootObjectWithAbilityAnimation);
+						}
+						else item.fireShootObjectWithAbilityAnimation=false;
+
+						bool abilityWillFireSO=item.useAttackSequence || item.fireShootObjectWithAbilityAnimation;
 						
 						TBE.Label(startX, startY+=spaceY, width, height, "Aim At Target Unit:", "Check to have the unit aim at the unit (if there's one) when using the ability\nOtherwise the ability will aim at the node");
-						if(!item.requireTarget || !item.useAttackSequence || item.type==Ability._AbilityType.Line ||  item.type==Ability._AbilityType.Cone) TBE.Label(startX+spaceX+10, startY, widthS, height, "-");
+						if(!item.requireTarget || !abilityWillFireSO || item.type==Ability._AbilityType.Line ||  item.type==Ability._AbilityType.Cone) TBE.Label(startX+spaceX+10, startY, widthS, height, "-");
 						else item.aimAtUnit=EditorGUI.Toggle(new Rect(startX+spaceX+10, startY, widthS, height), item.aimAtUnit);
 						
-						TBE.Label(startX, startY+=spaceY, width, height, "Shoot Object:", "OPTIONAL: The alternate shoot-object to use for the ability\nIf left unassgined, the unit will use its default shoot-object");
-						if(!item.requireTarget || !item.useAttackSequence) TBE.Label(startX+spaceX+10, startY, width, height, "-");
+						TBE.Label(startX, startY+=spaceY, width, height, "Shoot Object:", "OPTIONAL: The alternate shoot-object to use for the ability\nIf left unassigned, the unit will use its default shoot-object");
+						if(!item.requireTarget || !abilityWillFireSO) TBE.Label(startX+spaceX+10, startY, width, height, "-");
 						else item.shootObject=(ShootObject)EditorGUI.ObjectField(new Rect(startX+spaceX+10, startY, width-10, height), item.shootObject, typeof(ShootObject), true);
+
+						if(!item.useAttackSequence){
+							TBE.Label(startX, startY+=spaceY, width, height, "Ability Anim Trigger:", "Animator trigger used when Use Attack Sequence is disabled. Example: Ability1, Ability2, Ability3.");
+							item.abilityAnimationTrigger=EditorGUI.DelayedTextField(new Rect(startX+spaceX+10, startY, width-10, height), item.abilityAnimationTrigger);
+							if(string.IsNullOrEmpty(item.abilityAnimationTrigger)) item.abilityAnimationTrigger="Ability"+(selectID+1);
+
+							TBE.Label(startX, startY+=spaceY, width, height, "Ability Anim State:", "Animator state name that must finish before JRPG melee unit returns. Usually same as the trigger: Ability1, Ability2, Ability3.");
+							item.abilityAnimationState=EditorGUI.DelayedTextField(new Rect(startX+spaceX+10, startY, width-10, height), item.abilityAnimationState);
+							if(string.IsNullOrEmpty(item.abilityAnimationState)) item.abilityAnimationState=item.abilityAnimationTrigger;
+
+							TBE.Label(startX, startY+=spaceY, width, height, "Wait Anim Complete:", "If enabled, JRPG melee ability will wait until Ability1/Ability2/etc animation is complete before returning to original position.");
+							item.waitForAbilityAnimationComplete=EditorGUI.Toggle(new Rect(startX+spaceX+10, startY, widthS, height), item.waitForAbilityAnimationComplete);
+
+							TBE.Label(startX, startY+=spaceY, width, height, "Anim Layer/Timeout:", "Animator layer index and safety timeout. Timeout prevents lock if state name is wrong or animation loops.");
+							item.abilityAnimationLayer=EditorGUI.DelayedIntField(new Rect(startX+spaceX+10, startY, widthS, height), item.abilityAnimationLayer);
+							item.abilityAnimationTimeout=EditorGUI.DelayedFloatField(new Rect(startX+spaceX+10+widthS, startY, widthS, height), item.abilityAnimationTimeout);
+							if(item.abilityAnimationLayer<0) item.abilityAnimationLayer=0;
+							if(item.abilityAnimationTimeout<0.1f) item.abilityAnimationTimeout=0.1f;
+						}
+
+						TBE.Label(startX, startY+=spaceY, width, height, "JRPG Melee Step Dist:", "JRPG mode only. For melee ability, the unit moves visually to this distance from the target, measured in node-size units. The unit does not occupy that node.");
+						if(!item.requireTarget || item.skillRangeType!=Ability._SkillRangeType.Melee) TBE.Label(startX+spaceX+10, startY, widthS, height, "-");
+						else{
+							item.jrpgMeleeStepDistance=EditorGUI.DelayedFloatField(new Rect(startX+spaceX+10, startY, widthS, height), item.jrpgMeleeStepDistance);
+							if(item.jrpgMeleeStepDistance<0.05f) item.jrpgMeleeStepDistance=0.05f;
+						}
 					
 						//startY+=10;
 					}

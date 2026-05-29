@@ -752,6 +752,8 @@ MonoBehaviour:
 
     Attack Type: Melee-focused
     hybrid'
+  limitedOwned: 0
+  ownedLimit: 1
   facID: 0
   playableUnit: 0
   aiBehaviour: 0
@@ -1005,7 +1007,7 @@ MonoBehaviour:
       duration: 1.5
     activeVisualEffect: {fileID: 0}
   effectList: []
-  abilityIDList: 
+  abilityIDList: 14000000
   abilityList: []
   dead: 0
   effectAttackHit:
@@ -1025,31 +1027,47 @@ MonoBehaviour:
   clipMove: {fileID: 7400000, guid: c7fdd775276544f6a39803ee6cbe9045, type: 2}
   clipHit: {fileID: 7400000, guid: 4dd0ec2348b04951a2ff21f414299234, type: 2}
   clipDestroyed: {fileID: 7400000, guid: 99271959bad144748cafb0f5d5274d37, type: 2}
+  useStunAnimation: 1
+  stunAnimatorBool: Stunned
+  clipStunned: {fileID: 0}
   clipAttackRange: {fileID: 7400000, guid: 97311aa60ca046c2a1c31e2446e3940e, type: 2}
   clipAttackMelee: {fileID: 7400000, guid: 110e947fb3fc4596b9b29b67db5ebb3a, type: 2}
   animAttackDelayRange: 0.3
   animAttackDelayMelee: 1
   clipAbilityList:
-  - {fileID: 0}
+  - {fileID: 7400000, guid: fb24fb900c6a4afdb447ecc63c09a2cc, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   animAbilityDelayList:
+  - 0.9
   - 0
   - 0
   - 0
   - 0
   - 0
-  - 0
+  abilityShootPointSetList:
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
   loopMoveSound: 1
   selectSound: {fileID: 8300000, guid: c87582d740b14c52835a10e99867f45f, type: 3}
   moveSound: {fileID: 8300000, guid: 13c370424c054beb92fc2fd58dbcba52, type: 3}
   attackRangeSound: {fileID: 8300000, guid: 6bee9726ffe64ff2bee4d0c5951e2ed3, type: 3}
   attackMeleeSound: {fileID: 8300000, guid: aa9b4f7f239747508db226919bb707cf, type: 3}
   hitSound: {fileID: 8300000, guid: aef8741825604af58acbd5eaa8251c98, type: 3}
-  destroySound: {fileID: 8300000, guid: 848431d9be8a434fa4a71eb48ff59c5f, type: 3}
+  destroySound: {fileID: 8300000, guid: f4a8a8410147403aafc3d0d8bd3df787, type: 3}
 --- !u!114 &-5357851896007981282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1105,6 +1123,8 @@ MonoBehaviour:
     Army. It was stolen during the development process and became known as one of
     the Republic''s greatest assets. In the republic, it gained multiple conversion
     systems (CAS: Changing Armor Systems.)'
+  limitedOwned: 0
+  ownedLimit: 1
   facID: 0
   playableUnit: 0
   aiBehaviour: 0
@@ -1378,6 +1398,9 @@ MonoBehaviour:
   clipMove: {fileID: 7400000, guid: c7fdd775276544f6a39803ee6cbe9045, type: 2}
   clipHit: {fileID: 7400000, guid: 4dd0ec2348b04951a2ff21f414299234, type: 2}
   clipDestroyed: {fileID: 7400000, guid: 99271959bad144748cafb0f5d5274d37, type: 2}
+  useStunAnimation: 1
+  stunAnimatorBool: Stunned
+  clipStunned: {fileID: 0}
   clipAttackRange: {fileID: 7400000, guid: 97311aa60ca046c2a1c31e2446e3940e, type: 2}
   clipAttackMelee: {fileID: 7400000, guid: 110e947fb3fc4596b9b29b67db5ebb3a, type: 2}
   animAttackDelayRange: 0.3
@@ -1396,6 +1419,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  abilityShootPointSetList: []
   loopMoveSound: 1
   selectSound: {fileID: 8300000, guid: c87582d740b14c52835a10e99867f45f, type: 3}
   moveSound: {fileID: 8300000, guid: 13c370424c054beb92fc2fd58dbcba52, type: 3}

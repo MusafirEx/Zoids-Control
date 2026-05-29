@@ -1,11 +1,13 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ZoidsGameJoltMenuUI : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private ZoidsGameJoltAccountManager accountManager;
     [SerializeField] private ZoidsGameJoltCloudSaveManager cloudSaveManager;
+    [SerializeField] private Image ProfileLogo;
 
     [Header("UI")]
     [SerializeField] private TMP_Text statusText;
@@ -74,7 +76,10 @@ public class ZoidsGameJoltMenuUI : MonoBehaviour
         }
 
         if (accountManager.IsLoggedIn)
-            SetStatus( accountManager.Username);
+        {
+            SetStatus(accountManager.Username);
+            LogoChanger();
+        }
         else
             SetStatus("Not logged in");
     }
@@ -184,5 +189,11 @@ public class ZoidsGameJoltMenuUI : MonoBehaviour
             statusText.text = text;
 
         Debug.Log("[ZoidsGameJoltMenuUI] " + text);
+    }
+
+    public void LogoChanger()
+    {
+      ProfileLogo.sprite = FactionSelectionManager.instance.starterDatabase.GetFaction(PlayerProfileManager.Instance.CurrentProfile.chosenFactionId).FactionMainLogo;
+        
     }
 }

@@ -4,7 +4,7 @@ using TMPro;
 using TBTK;
 using UnityEngine.EventSystems;
 
-public class PlayerZoidTeamUnitItemUI : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
+public class PlayerZoidTeamUnitItemUI : MonoBehaviour,IPointerClickHandler,IPointerExitHandler
 {
     [Header("UI")]
      public TMP_Text labelName;
@@ -14,7 +14,7 @@ public class PlayerZoidTeamUnitItemUI : MonoBehaviour,IPointerEnterHandler,IPoin
     [SerializeField] private Button button;
 
     public AudioClip fxClip;
-    public AudioSource fxSource;
+    private MapSFX soundManager;
     
 
     private PlayerZoidTeamUI ownerUI;
@@ -33,6 +33,11 @@ public class PlayerZoidTeamUnitItemUI : MonoBehaviour,IPointerEnterHandler,IPoin
 
         if (button != null)
             button.onClick.AddListener(OnClick);
+    }
+
+    public void Start()
+    {
+        soundManager = MapSFX.Instance;
     }
 
     public void Setup(PlayerZoidTeamUI owner, int unitId, int listIndex, bool isTeamListItem)
@@ -97,9 +102,9 @@ public class PlayerZoidTeamUnitItemUI : MonoBehaviour,IPointerEnterHandler,IPoin
             ownerUI.SelectAvailableListItem(this);
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
-        fxSource.PlayOneShot(fxClip);
+        soundManager.sfx.PlayOneShot(fxClip);
     }
 
     public void OnPointerExit(PointerEventData eventData)

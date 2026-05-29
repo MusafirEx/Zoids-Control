@@ -9,6 +9,7 @@ public class FactionStarterData
     public int factionId = 0;
     public string factionName = "New Faction";
     public Sprite factionLogo;
+    public Sprite FactionMainLogo;
     public Color factionColor;
 
     [Header("Starter Team")]

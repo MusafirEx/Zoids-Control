@@ -16,13 +16,15 @@ MonoBehaviour:
   - factionId: 0
     factionName: Aurek Dominion
     factionLogo: {fileID: 986809942, guid: 3063e6b673447e94a9fc58305cbc7463, type: 3}
+    FactionMainLogo: {fileID: 21300000, guid: b8aeed54d4e7c84449bf31238ac7e8c5, type: 3}
     factionColor: {r: 0.627451, g: 0.5529412, b: 0.37647063, a: 1}
-    starterUnitIds: 1200000013000000
+    starterUnitIds: 0000000001000000
     starterOwnedCountPerUnit: 1
     starterTeamName: Aurek Dominion
   - factionId: 1
     factionName: Veydran Collective
     factionLogo: {fileID: -282343013, guid: 3063e6b673447e94a9fc58305cbc7463, type: 3}
+    FactionMainLogo: {fileID: 21300000, guid: a714eb5471ebdec46ae827f33e1d4181, type: 3}
     factionColor: {r: 0.25748503, g: 0.98203593, b: 1, a: 1}
     starterUnitIds: 1300000014000000
     starterOwnedCountPerUnit: 1
@@ -30,6 +32,7 @@ MonoBehaviour:
   - factionId: 2
     factionName: Kharvoss Covenant
     factionLogo: {fileID: -236749728, guid: 3063e6b673447e94a9fc58305cbc7463, type: 3}
+    FactionMainLogo: {fileID: 21300000, guid: 6256e1f00801d8e42bf4f8369354e9cd, type: 3}
     factionColor: {r: 0.9490197, g: 0.2627451, b: 0.21960786, a: 1}
     starterUnitIds: 1200000014000000
     starterOwnedCountPerUnit: 1
@@ -37,6 +40,7 @@ MonoBehaviour:
   - factionId: 3
     factionName: Nocteris Syndicate
     factionLogo: {fileID: -686200073, guid: 3063e6b673447e94a9fc58305cbc7463, type: 3}
+    FactionMainLogo: {fileID: 21300000, guid: b0b7adcafb6807445ab781ac46eca69f, type: 3}
     factionColor: {r: 0.2627451, g: 0.1254902, b: 0.41176474, a: 1}
     starterUnitIds: 00000000
     starterOwnedCountPerUnit: 1

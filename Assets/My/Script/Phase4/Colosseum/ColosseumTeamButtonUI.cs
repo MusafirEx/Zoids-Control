@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class ColosseumTeamButtonUI : MonoBehaviour
+public class ColosseumTeamButtonUI : MonoBehaviour,IPointerClickHandler
 {
     [Header("UI")]
     [SerializeField] private TMP_Text label;
     [SerializeField] private Image selectedHighlight;
     [SerializeField] private Button button;
+    private MapSFX soundManager;
+    public AudioClip buttonHoverFx;
 
     private ColosseumSetupUI owner;
     private int teamIndex = 0;
@@ -19,6 +22,11 @@ public class ColosseumTeamButtonUI : MonoBehaviour
 
         if (button != null)
             button.onClick.AddListener(OnClick);
+    }
+
+    public void Start()
+    {
+        soundManager= MapSFX.Instance;
     }
 
     public void Setup(ColosseumSetupUI owner, int teamIndex, string teamName, int unitCount, bool selected)
@@ -47,5 +55,10 @@ public class ColosseumTeamButtonUI : MonoBehaviour
             return;
 
         owner.SelectTeam(teamIndex);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        soundManager.sfx.PlayOneShot(buttonHoverFx);
     }
 }

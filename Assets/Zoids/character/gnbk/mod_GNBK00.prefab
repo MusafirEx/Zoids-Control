@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4242}
   - component: {fileID: 8338}
+  - component: {fileID: -2771836746403720155}
   m_Layer: 0
   m_Name: mod_GNBK00
   m_TagString: 
@@ -44,7 +45,7 @@ Animator:
   m_GameObject: {fileID: 119}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 6c731602901748199963902b16bb6bef, type: 2}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a404f37be7b38444bae1c027d0fc3f71, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -55,6 +56,377 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-2771836746403720155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3e65cdc3be52354583818ea1257da3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabID: 3
+  instanceID: -1
+  icon: {fileID: 146385383, guid: 0dd901aa51534c659f29ba1e0428b4da, type: 3}
+  itemName: Geno Breaker
+  desp: 'The Geno Breaker is a main rival to the Blade Liger.  Designed for speed
+    and mobility, instead of back-mounted cannons like in the Geno Saurer the Geno
+    Breaker has a large thruster pack, allowing the Zoid limited flight capability. '
+  thisT: {fileID: 0}
+  thisObj: {fileID: 0}
+  node:
+    idx: 8
+    idxX: 2
+    idxZ: 2
+    x: 0
+    y: 0
+    z: 0
+    objT: {fileID: 0}
+    rend: {fileID: 0}
+    walkable: 1
+    cost: 0
+    pos: {x: 3.5, y: 0, z: 2.75}
+    obstacleT: {fileID: 0}
+    unit: {fileID: -2771836746403720155}
+    collectible: {fileID: 0}
+    wallList: []
+    coverList: 
+    deployFacID: 1
+    spawnGroupFacID: -1
+    spawnGroupID: -1
+    scoreG: 0
+    scoreH: 0
+    scoreF: 0
+    tempScoreG: 0
+    listState: 0
+  loadedFromCache: 0
+  value: 100
+  rarity: 3
+  factoryCost: 100
+  unitDescription: 'The Geno Breaker is a main rival to the Blade Liger.  Designed
+    for speed and mobility, instead of back-mounted cannons like in the Geno Saurer
+    the Geno Breaker has a large thruster pack, allowing the Zoid limited flight
+    capability. '
+  limitedOwned: 0
+  ownedLimit: 1
+  facID: 0
+  playableUnit: 0
+  aiBehaviour: 0
+  requireTrigger: 0
+  triggered: 0
+  hp: 175
+  ap: 6
+  moveThisTurn: 0
+  attackThisTurn: 0
+  counterThisTurn: 0
+  abilityThisTurn: 0
+  canMovePastUnit: 0
+  canMovePastObs: 0
+  targetPoint: {fileID: 4408}
+  radius: 0.3
+  soRange: {fileID: 114412276860498308, guid: 09a463b997518ca4ba2b0574c697a0c1, type: 3}
+  soMelee: {fileID: 0}
+  shootPointSpacing: 0.1
+  shootPointList:
+  - {fileID: 7349}
+  turretPivot: {fileID: 4242}
+  barrelPivot: {fileID: 0}
+  snapAiming: 0
+  aimInXAxis: 0
+  rotateWhileAiming: 1
+  moveSpeed: 2
+  hasMeleeAttack: 1
+  requireLOSToAttack: 1
+  armorType: 1
+  damageType: 0
+  stats:
+    hp: 175
+    ap: 6
+    hpRegen: 0
+    apRegen: 1
+    attack: 43
+    defense: 26
+    hit: 88
+    dodge: 22
+    dmgHPMin: 31
+    dmgHPMax: 49
+    dmgAPMin: 0
+    dmgAPMax: 0
+    critChance: 0.16
+    critReduc: 9
+    critMultiplier: 1.6
+    cDmgMultip: 0.5
+    cHitPenalty: 0.5
+    cCritPenalty: 0.5
+    oDmgMultip: 0.5
+    oHitPenalty: 0.5
+    oCritPenalty: 0.5
+    attackRange: 7
+    attackRangeMin: 0
+    moveRange: 5
+    turnPriority: 15
+    sight: 6
+    moveLimit: 1
+    attackLimit: 1
+    counterLimit: 0
+    abilityLimit: 2
+    abDuration: 2
+    abCooldown: 2
+    abUseLimit: 0
+    abApCost: 0
+    abAoeRange: 0
+    abEffHitChance: 0
+    effduration: 0
+    effHP: 0
+    effAP: 0
+  damageTypeMelee: 0
+  statsMelee:
+    hp: 175
+    ap: 6
+    hpRegen: 1
+    apRegen: 1
+    attack: 59
+    defense: 26
+    hit: 92
+    dodge: 22
+    dmgHPMin: 42
+    dmgHPMax: 68
+    dmgAPMin: 0
+    dmgAPMax: 0
+    critChance: 0.19
+    critReduc: 9
+    critMultiplier: 1.6
+    cDmgMultip: 0.5
+    cHitPenalty: 0.5
+    cCritPenalty: 0.5
+    oDmgMultip: 0.5
+    oHitPenalty: 0.5
+    oCritPenalty: 0.5
+    attackRange: 1
+    attackRangeMin: 0
+    moveRange: 5
+    turnPriority: 15
+    sight: 6
+    moveLimit: 1
+    attackLimit: 1
+    counterLimit: 0
+    abilityLimit: 2
+    abDuration: 2
+    abCooldown: 2
+    abUseLimit: 0
+    abApCost: 0
+    abAoeRange: 0
+    abEffHitChance: 0
+    effduration: 0
+    effHP: 0
+    effAP: 0
+  auraIDList: 
+  auraMulList: []
+  auraModList: []
+  attackEffectIDList: 
+  overwatching: 0
+  tempFacID: -1
+  tempFacDur: -1
+  tempFacControl: 0
+  immuneEffectList: 
+  activeEffectMod:
+    prefabID: -1
+    instanceID: -1
+    icon: {fileID: 0}
+    name: Item
+    desp: Item's description
+    showInUnitInfo: 1
+    stackable: 0
+    duration: 1
+    durationRemain: 1
+    range: 2
+    impactType: 0
+    damageType: 0
+    hpModifierMin: 5
+    hpModifierMax: 5
+    apModifierMin: 5
+    apModifierMax: 5
+    effType: 1
+    stats:
+      hp: 0
+      ap: 0
+      hpRegen: 0
+      apRegen: 0
+      attack: 0
+      defense: 0
+      hit: 0
+      dodge: 0
+      dmgHPMin: 0
+      dmgHPMax: 0
+      dmgAPMin: 0
+      dmgAPMax: 0
+      critChance: 0
+      critReduc: 0
+      critMultiplier: 0
+      cDmgMultip: 0
+      cHitPenalty: 0
+      cCritPenalty: 0
+      oDmgMultip: 0
+      oHitPenalty: 0
+      oCritPenalty: 0
+      attackRange: 0
+      attackRangeMin: 0
+      moveRange: 0
+      turnPriority: 0
+      sight: 0
+      moveLimit: 0
+      attackLimit: 0
+      counterLimit: 0
+      abilityLimit: 0
+      abDuration: 0
+      abCooldown: 0
+      abUseLimit: 0
+      abApCost: 0
+      abAoeRange: 0
+      abEffHitChance: 0
+      effduration: 0
+      effHP: 0
+      effAP: 0
+    overwatch: 0
+    stun: 0
+    disableAbility: 0
+    hitVisualEffect:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1.5
+    activeVisualEffect: {fileID: 0}
+  activeEffectMul:
+    prefabID: -1
+    instanceID: -1
+    icon: {fileID: 0}
+    name: Item
+    desp: Item's description
+    showInUnitInfo: 1
+    stackable: 0
+    duration: 1
+    durationRemain: 1
+    range: 2
+    impactType: 0
+    damageType: 0
+    hpModifierMin: 5
+    hpModifierMax: 5
+    apModifierMin: 5
+    apModifierMax: 5
+    effType: 1
+    stats:
+      hp: 1
+      ap: 1
+      hpRegen: 1
+      apRegen: 1
+      attack: 1
+      defense: 1
+      hit: 1
+      dodge: 1
+      dmgHPMin: 1
+      dmgHPMax: 1
+      dmgAPMin: 1
+      dmgAPMax: 1
+      critChance: 1
+      critReduc: 1
+      critMultiplier: 1
+      cDmgMultip: 1
+      cHitPenalty: 1
+      cCritPenalty: 1
+      oDmgMultip: 1
+      oHitPenalty: 1
+      oCritPenalty: 1
+      attackRange: 1
+      attackRangeMin: 1
+      moveRange: 1
+      turnPriority: 1
+      sight: 1
+      moveLimit: 1
+      attackLimit: 1
+      counterLimit: 1
+      abilityLimit: 1
+      abDuration: 1
+      abCooldown: 1
+      abUseLimit: 1
+      abApCost: 1
+      abAoeRange: 1
+      abEffHitChance: 1
+      effduration: 1
+      effHP: 1
+      effAP: 1
+    overwatch: 0
+    stun: 0
+    disableAbility: 0
+    hitVisualEffect:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1.5
+    activeVisualEffect: {fileID: 0}
+  effectList: []
+  abilityIDList: 0f000000
+  abilityList: []
+  dead: 0
+  effectAttackHit:
+    obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
+    autoDestroy: 1
+    duration: 1.5
+  effectAttackHitMelee:
+    obj: {fileID: 1408636310352560, guid: 3cf93ee15e741f84eb5a729b20e1a1a5, type: 3}
+    autoDestroy: 1
+    duration: 1.5
+  effectOnDestroyed:
+    obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
+    autoDestroy: 1
+    duration: 1.5
+  animatorT: {fileID: 4242}
+  clipIdle: {fileID: 7400000, guid: 21114bad0c1d48e3971b6a9e4762e711, type: 2}
+  clipMove: {fileID: 7400000, guid: f0dd33ba2d884c58ab22ccb414caeffa, type: 2}
+  clipHit: {fileID: 7400000, guid: d41ee760db21466ebcaf9b047af733db, type: 2}
+  clipDestroyed: {fileID: 7400000, guid: 8c859209f63740dc8dde0359b3d94f0d, type: 2}
+  useStunAnimation: 1
+  stunAnimatorBool: Stunned
+  clipStunned: {fileID: 0}
+  clipAttackRange: {fileID: 7400000, guid: 14d19fa5372d4d929508fdc9f537395c, type: 2}
+  clipAttackMelee: {fileID: 7400000, guid: 24f03dde36724aff96f414e0e3b13e8d, type: 2}
+  animAttackDelayRange: 0.28
+  animAttackDelayMelee: 1.1
+  clipAbilityList:
+  - {fileID: 7400000, guid: 2f3be869679c45b890506b30db718a67, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  animAbilityDelayList:
+  - 1.45
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  abilityShootPointSetList:
+  - shootPointList:
+    - {fileID: 7349}
+    shootPointSpacing: 0
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  loopMoveSound: 1
+  selectSound: {fileID: 8300000, guid: cf2844bf87fb4192a746b2bda89ae724, type: 3}
+  moveSound: {fileID: 8300000, guid: 13c370424c054beb92fc2fd58dbcba52, type: 3}
+  attackRangeSound: {fileID: 8300000, guid: 6bee9726ffe64ff2bee4d0c5951e2ed3, type: 3}
+  attackMeleeSound: {fileID: 8300000, guid: aa9b4f7f239747508db226919bb707cf, type: 3}
+  hitSound: {fileID: 8300000, guid: aef8741825604af58acbd5eaa8251c98, type: 3}
+  destroySound: {fileID: 8300000, guid: ea0a3e96d7c44fbea50587f048a6fb5e, type: 3}
 --- !u!1 &163
 GameObject:
   m_ObjectHideFlags: 0

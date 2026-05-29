@@ -6,7 +6,7 @@ public class FactionSelectionManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private PlayerProfileManager profileManager;
-    [SerializeField] private FactionStarterDatabase starterDatabase;
+    [SerializeField] public FactionStarterDatabase starterDatabase;
     [SerializeField] private ZoidsGameJoltCloudSaveManager cloudSaveManager;
 
     [Header("Panels")]
@@ -39,6 +39,8 @@ public class FactionSelectionManager : MonoBehaviour
     public event Action<PlayerProfileData> OnFactionChosen;
     public event Action<int> OnFactionChoiceRejected;
 
+    public static FactionSelectionManager instance { get; private set; }
+
     private void Reset()
     {
         RefreshRuntimeReferences();
@@ -46,6 +48,7 @@ public class FactionSelectionManager : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
         RefreshRuntimeReferences();
     }
 

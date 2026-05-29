@@ -6,6 +6,9 @@ public class BattleEnemySetup : MonoBehaviour
 {
     [SerializeField] private BattleUnitDatabase battleUnitDatabase;
 
+    [Header("Spawn Placement")]
+    [SerializeField] private bool randomizeEnemyDeploymentNodes = true;
+
     [Header("Debug")]
     [SerializeField] private bool debugLog = true;
 
@@ -63,9 +66,20 @@ public class BattleEnemySetup : MonoBehaviour
             return spawned;
         }
 
+        // Important:
+        // GridManager.GetDeploymentNode may return the original deployment node list.
+        // Make a copy first, so random shuffle does not permanently change the original grid list.
+        nodeList = new List<Node>(nodeList);
+
+        if (randomizeEnemyDeploymentNodes)
+        {
+            ShuffleNodes(nodeList);
+        }
+
         Debug.Log("[BattleEnemySetup] Enemy deployment node count=" + nodeList.Count +
                   " selectedFacID=" + fac.factionID +
-                  " facSlot=" + facSlot);
+                  " facSlot=" + facSlot +
+                  " randomize=" + randomizeEnemyDeploymentNodes);
 
         for (int i = 0; i < context.enemyUnitIds.Count; i++)
         {
@@ -159,6 +173,21 @@ public class BattleEnemySetup : MonoBehaviour
         }
 
         return new List<Node>();
+    }
+
+    private void ShuffleNodes(List<Node> nodes)
+    {
+        if (nodes == null || nodes.Count <= 1)
+            return;
+
+        for (int i = 0; i < nodes.Count; i++)
+        {
+            int randomIndex = Random.Range(i, nodes.Count);
+
+            Node temp = nodes[i];
+            nodes[i] = nodes[randomIndex];
+            nodes[randomIndex] = temp;
+        }
     }
 
     private Unit GetUnitPrefabForBattle(int unitId, string battleType)

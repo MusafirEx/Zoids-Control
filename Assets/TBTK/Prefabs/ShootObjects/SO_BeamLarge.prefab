@@ -5232,7 +5232,7 @@ MonoBehaviour:
   trailList: []
   lines:
   - {fileID: 120337160565499386}
-  beamDuration: 0.5
+  beamDuration: 3
   startWidth: 0.3
   effectDuration: 0.5
   attachToShootPoint: 0
@@ -5244,8 +5244,8 @@ MonoBehaviour:
     obj: {fileID: 0}
     autoDestroy: 1
     duration: 1.5
-  shootSound: {fileID: 0}
-  hitSound: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: f19cd55d8be84230861dd6a2c0db867d, type: 3}
+  hitSound: {fileID: 8300000, guid: 18c9da9b1b674f5ca1a6df5b8d2087e5, type: 3}
   tgtUnit: {fileID: 0}
   tgtRadius: 0
   targetPos: {x: 0, y: 0, z: 0}

@@ -446,7 +446,7 @@ TextureImporter:
         width: 110
         height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 50, y: 62, z: 50, w: 62}
       outline: []
       physicsShape: []
@@ -467,7 +467,7 @@ TextureImporter:
         width: 314
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -475,6 +475,27 @@ TextureImporter:
       bones: []
       spriteID: 1a33c7f5e9abe5d49987f612488e7a4d
       internalID: 1403828658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Perk
+      rect:
+        serializedVersion: 2
+        x: 1866
+        y: 1334
+        width: 64
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 420db918cf552694eb0b756eeaf2306f
+      internalID: 1823440272
       vertices: []
       indices: 
       edges: []
@@ -498,6 +519,7 @@ TextureImporter:
       Colosseum: 604703483
       Hand_Pointing: -1489269971
       Nameplate: 1403828658
+      Perk: 1823440272
       Save: 926518415
       TeamManager: 1161918176
       UI_Atlas_menu_d1_0: 277418777

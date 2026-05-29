@@ -16,7 +16,7 @@ public class FactoryUnitButtonUI : MonoBehaviour,IPointerEnterHandler,IPointerCl
 
     public AudioClip fxClick;
     public AudioClip fXHover;
-    public AudioSource fxSource;
+    private MapSFX soundManager;
 
     private Unit unitDefinition;
     private FactoryManager factoryManager;
@@ -34,6 +34,11 @@ public class FactoryUnitButtonUI : MonoBehaviour,IPointerEnterHandler,IPointerCl
 
         if (button != null)
             button.onClick.AddListener(OnClick);
+    }
+
+    public void Start()
+    {
+        soundManager = MapSFX.Instance;
     }
 
     public void Setup(Unit unit, FactoryManager manager, FactoryListUI ownerList)
@@ -64,12 +69,14 @@ public class FactoryUnitButtonUI : MonoBehaviour,IPointerEnterHandler,IPointerCl
         int data = factoryManager != null ? factoryManager.GetCurrentData(UnitId) : 0;
         int cost = factoryManager != null ? factoryManager.GetManufactureCost(UnitId) : unitDefinition.value;
         int owned = factoryManager != null ? factoryManager.GetOwnedCount(UnitId) : 0;
+        bool limitedOwned = factoryManager != null && factoryManager.IsOwnedLimited(UnitId);
+        string ownedLimitLabel = factoryManager != null ? factoryManager.GetOwnedLimitLabel(UnitId) : "Unlimited";
 
         if (labelData != null)
             labelData.text = "Data: \n" + data + " / " + cost;
 
         if (labelOwned != null)
-            labelOwned.text = "Owned: \n" + owned;
+            labelOwned.text = limitedOwned ? "Owned: \n" + owned + " / " + ownedLimitLabel : "Owned: \n" + owned;
     }
 
     public void SetSelected(bool selected)
@@ -88,11 +95,11 @@ public class FactoryUnitButtonUI : MonoBehaviour,IPointerEnterHandler,IPointerCl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        fxSource.PlayOneShot(fXHover);
+        soundManager.sfx.PlayOneShot(fXHover);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        fxSource.PlayOneShot(fxClick);
+        soundManager.sfx.PlayOneShot(fxClick);
     }
 }

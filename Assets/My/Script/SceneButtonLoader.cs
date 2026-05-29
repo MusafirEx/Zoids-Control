@@ -6,13 +6,20 @@ public class SceneButtonLoader : MonoBehaviour,IPointerEnterHandler
 {
     [Header("Scene Names")]
     public string sceneNames;
-    public AudioSource buttonFxSource;
+    public MapSFX SoundManager;
     public AudioClip buttonFxClip;
 
     /// <summary>
     /// Load scene using array index number.
     /// Example: LoadSceneByArrayNumber(0)
     /// </summary>
+    /// 
+
+    public void Start()
+    {
+      SoundManager = MapSFX.Instance;  
+    }
+
     public void LoadScene()
     {
         SceneManager.LoadScene(sceneNames);
@@ -20,6 +27,6 @@ public class SceneButtonLoader : MonoBehaviour,IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        buttonFxSource.PlayOneShot(buttonFxClip);
+        SoundManager.sfx.PlayOneShot(buttonFxClip);
     }
 }

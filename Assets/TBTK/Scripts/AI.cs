@@ -56,6 +56,20 @@ namespace TBTK{
 		public float pursueMultiplier=1;
 		[Tooltip("How much cover is going to be weight into making the AI decision\nOnly applies when cover system is enabled ")]
 		public float coverMultiplier=1;
+
+		[Space(10)]
+		[Tooltip("Allow AI to use Unit Abilities, not only normal attacks")]
+		public bool useAbilities=true;
+		[Tooltip("Overall weight added to ability scores. Increase if AI rarely uses abilities.")]
+		public float abilityMultiplier=1;
+		[Tooltip("How much ability HP/AP impact affects AI decision.")]
+		public float abilityImpactMultiplier=1;
+		[Tooltip("How much AOE/multi-target ability value affects AI decision.")]
+		public float abilityAOEMultiplier=1;
+		[Tooltip("How much effect/status/special ability value affects AI decision.")]
+		public float abilityEffectMultiplier=1;
+		[Tooltip("Minimum score required before AI chooses an ability. Prevents wasting weak abilities.")]
+		public float minimumAbilityScore=25;
 		
 		public static float dmgMul(){ return instance.damageMultiplier; }
 		public static float hitMul(){ return instance.hitChanceMultiplier; }
@@ -133,10 +147,10 @@ namespace TBTK{
 		}
 		
 		public static IEnumerator AIRoutineUnit(Unit unit){
-			if(unit.IsStunned()) yield break;
+			if(unit==null || unit.IsStunned()) yield break;
 			
 			int safetyCounter=0;
-			while(unit.CanMove() || unit.CanAttack()){
+			while(unit!=null && unit.hp>0 && (unit.CanMove() || unit.CanAttack() || UnitHasUsableAbility(unit))){
 				AIAction action=AnalyseAction(unit);
 				
 				if(action==null){
@@ -144,19 +158,42 @@ namespace TBTK{
 					yield break;
 				}
 				
-				if(action.tgtNode==unit.node && action.tgtUnit==null){
+				if(action.tgtNode==unit.node && action.tgtUnit==null && !action.IsAbilityAction()){
 					safetyCounter+=1;
 					if(safetyCounter>3) yield break;
 					else continue;
 				}
+				else safetyCounter=0;
 				
-				if(action.tgtNode!=unit.node){
+				if(action.tgtNode!=null && action.tgtNode!=unit.node){
 					yield return instance.StartCoroutine(unit.MoveRoutine(action.tgtNode));
 				}
 				
-				if(unit.hp<=0) yield break;
+				if(unit==null || unit.hp<=0) yield break;
 				
-				if(unit!=null && action.tgtUnit!=null){
+					if(action.IsAbilityAction()){
+						// Re-check after moving because movement can spend AP/move count.
+						if(action.ability!=null && unit!=null && action.ability.IsAvailable()==Ability._AbilityStatus.Ready){
+							Node abilityTarget=action.abilityTargetNode!=null ? action.abilityTargetNode : unit.node;
+
+							// Line/Cone skills use the target node as a direction/area reference.
+							// Make the AI face the actual useful enemy/friendly target before starting the ability animation.
+							yield return instance.StartCoroutine(RotateUnitTowardAbilityLookTarget(unit, action));
+
+							// Unit.UseAbilityRoutine() changes Line target to tgtNode.abLineParent.
+							// For AI, force that parent to the real look target so the unit does not turn to a wrong/stale node.
+							if(action.ability.type==Ability._AbilityType.Line && abilityTarget!=null && action.abilityLookNode!=null){
+								abilityTarget.abLineParent=action.abilityLookNode;
+							}
+
+							yield return instance.StartCoroutine(unit.UseAbilityRoutine(action.ability, abilityTarget));
+
+							// AI rule: after using one ability, this unit's AI turn ends immediately.
+							// This also safely handles ChangeForm/CAS and Fusion, because those abilities replace/destroy the source Unit.
+							yield break;
+						}
+					}
+				else if(unit!=null && action.tgtUnit!=null){
 					yield return instance.StartCoroutine(unit.AttackRoutine(action.tgtUnit.node));
 				}
 				
@@ -197,7 +234,7 @@ namespace TBTK{
 				float coverScore=100 * (cover[0]!=0 ? cover[0] : cover[1]) * 0.5f ; 	//bcz full cover value is 2
 				
 				if(attackNodeList.Count>0){
-					if(unitDamage<=-99) unitDamage=(unit.GetDmgHPMin() + unit.GetDmgHPMax()) * 0.5f;
+					if(unitDamage<=-99) unitDamage=Mathf.Max(1f, (unit.GetDmgHPMin() + unit.GetDmgHPMax()) * 0.5f);
 					
 					for(int n=0; n<attackNodeList.Count; n++){
 						AIAction action=new AIAction(walkableList[i], attackNodeList[n].unit);
@@ -289,6 +326,8 @@ namespace TBTK{
 				
 					actionList.Add(action);
 				}
+
+				AddAbilityActions(unit, walkableList[i], coverScore, actionList);
 			}
 			
 			if(IsAggressive(unit)){
@@ -296,7 +335,8 @@ namespace TBTK{
 					if(!actionList[i].CachedScore()) continue;
 					
 					float range=maxNearestDistToHostile-minNearestDistToHostile;
-					actionList[i].scoreAlt=1-(actionList[i].scoreAlt-minNearestDistToHostile)/range;
+					if(range<=0) actionList[i].scoreAlt=1;
+					else actionList[i].scoreAlt=1-(actionList[i].scoreAlt-minNearestDistToHostile)/range;
 					
 					//Debug.Log(i+" alt score - "+actionList[i].scoreAlt+"   "+actionList[i].score);
 					//actionList[i].scoreAlt=(maxNearestDistToHostile-actionList[i].scoreAlt);///maxNearestDistToHostile * instance.pursueMultiplier;
@@ -448,8 +488,427 @@ namespace TBTK{
 		}
 		*/
 		
+
+		private static bool UnitHasUsableAbility(Unit unit){
+			if(instance==null || !instance.useAbilities || unit==null || unit.AbilityDisabled()) return false;
+			if(unit.abilityList==null) return false;
+			for(int i=0; i<unit.abilityList.Count; i++){
+				Ability ability=unit.abilityList[i];
+				if(ability==null) continue;
+				if(ability.IsAvailable()==Ability._AbilityStatus.Ready) return true;
+			}
+			return false;
+		}
+
+		private static void AddAbilityActions(Unit unit, Node moveNode, float coverScore, List<AIAction> actionList){
+			if(instance==null || !instance.useAbilities || unit==null || moveNode==null || actionList==null) return;
+			if(unit.AbilityDisabled() || unit.abilityList==null) return;
+
+			for(int i=0; i<unit.abilityList.Count; i++){
+				Ability ability=unit.abilityList[i];
+				if(ability==null) continue;
+				if(ability.IsAvailable()!=Ability._AbilityStatus.Ready) continue;
+
+				List<Node> targetList=GetPotentialAbilityTargetNodes(unit, moveNode, ability);
+				for(int n=0; n<targetList.Count; n++){
+					Node tgtNode=targetList[n];
+					float score=EvaluateAbilityScore(unit, moveNode, ability, tgtNode);
+					if(score<instance.minimumAbilityScore) continue;
+
+					AIAction action=new AIAction(moveNode, coverScore);
+					action.ability=ability;
+					action.abilityIdx=i;
+					action.abilityTargetNode=tgtNode;
+					action.abilityLookNode=GetBestAbilityLookNode(unit, moveNode, ability, tgtNode);
+					action.score+=score*instance.abilityMultiplier;
+					actionList.Add(action);
+				}
+			}
+		}
+
+		private static List<Node> GetPotentialAbilityTargetNodes(Unit unit, Node moveNode, Ability ability){
+			List<Node> targetList=new List<Node>();
+			if(unit==null || moveNode==null || ability==null) return targetList;
+
+			if(!ability.requireTarget){
+				// Non-targeted unit abilities are effectively used on the acting unit/current node.
+				// Never let AI use non-targeted offensive abilities, because they can hit the AI's own unit.
+				if(IsOffensiveAbility(ability)) return targetList;
+
+				// Allow self-support and special replacement abilities such as ChangeForm/Fusion.
+				targetList.Add(moveNode);
+				return targetList;
+			}
+
+			// Use normal-attack style target gathering for unit-targeted abilities.
+			// Offensive abilities start from hostile units only.
+			// Friendly/support abilities start from friendly units only.
+			// This is safer than scanning every node first because it avoids choosing own-team nodes
+			// unless the ability is explicitly a friendly/support ability.
+			bool targetEmptyNodeOnly=ability.targetType==Ability._TargetType.EmptyNode;
+
+			if(IsOffensiveAbility(ability) && !targetEmptyNodeOnly){
+				List<Unit> hostileList=UnitManager.GetAllHostileUnits(unit.GetFacID());
+				for(int i=0; i<hostileList.Count; i++){
+					Unit target=hostileList[i];
+					if(target==null || target.node==null) continue;
+					TryAddAbilityTargetNode(unit, moveNode, ability, target.node, targetList);
+				}
+				return targetList;
+			}
+
+			if(IsSupportAbility(ability) && !targetEmptyNodeOnly){
+				List<Unit> friendlyList=UnitManager.GetAllFriendlyUnits(unit.GetFacID());
+				for(int i=0; i<friendlyList.Count; i++){
+					Unit target=friendlyList[i];
+					if(target==null) continue;
+
+					// If the AI is evaluating a support ability on itself after movement,
+					// target the simulated future moveNode, not the unit's old node.
+					Node targetNode=(target==unit) ? moveNode : target.node;
+					if(targetNode==null) continue;
+					TryAddAbilityTargetNode(unit, moveNode, ability, targetNode, targetList);
+				}
+				return targetList;
+			}
+
+			// Empty-node and neutral node abilities still use node-based scanning.
+			List<Node> candidates=GridManager.GetNodesWithinDistance(moveNode, ability.GetRange());
+			if(candidates==null) candidates=new List<Node>();
+			if(!candidates.Contains(moveNode)) candidates.Add(moveNode);
+
+			for(int i=0; i<candidates.Count; i++){
+				TryAddAbilityTargetNode(unit, moveNode, ability, candidates[i], targetList);
+			}
+
+			return targetList;
+		}
+
+		private static void TryAddAbilityTargetNode(Unit unit, Node moveNode, Ability ability, Node node, List<Node> targetList){
+			if(unit==null || moveNode==null || ability==null || node==null || targetList==null) return;
+			if(targetList.Contains(node)) return;
+
+			int dist=GridManager.GetDistance(moveNode, node);
+			if(dist<ability.GetRangeMin() || dist>ability.GetRange()) return;
+			if(ability.requireLos && !GridManager.CheckLOS(moveNode, node, unit.GetSight())) return;
+
+			if(IsValidAbilityTarget(unit, moveNode, ability, node)) targetList.Add(node);
+		}
+
+		private static bool IsOffensiveAbility(Ability ability){
+			if(ability==null) return false;
+			return ability.HasNegativeImpact() || ability.switchFaction;
+		}
+
+		private static bool IsSupportAbility(Ability ability){
+			if(ability==null) return false;
+			return ability.HasPositiveImpact() || ability.clearAllEffect;
+		}
+
+		private static Unit GetPlannedNodeUnit(Unit actingUnit, Node moveNode, Node checkNode){
+			if(actingUnit==null || checkNode==null) return null;
+
+			// During AI evaluation, moveNode is a simulated future position.
+			// Grid node.unit is not updated yet, but after movement the acting unit will occupy moveNode.
+			// Treat moveNode as occupied by the acting unit so AI will not target its own future node
+			// with Hostile/Negative/AllUnit/AllNode abilities.
+			if(moveNode!=null && checkNode==moveNode) return actingUnit;
+
+			return checkNode.unit;
+		}
+
+		private static bool IsSameFaction(Unit a, Unit b){
+			if(a==null || b==null) return false;
+			return a.GetFacID()==b.GetFacID();
+		}
+
+		private static bool IsUsefulUnitTarget(Unit user, Ability ability, Unit target){
+			if(user==null || ability==null || target==null) return false;
+
+			bool sameFac=target.GetFacID()==user.GetFacID();
+
+			// Explicit target type always wins.
+			if(ability.targetType==Ability._TargetType.HostileUnit) return !sameFac;
+			if(ability.targetType==Ability._TargetType.FriendlyUnit) return sameFac;
+
+			// For AllUnit/AllNode, infer safe target side from the ability impact.
+			// This prevents AI from using damage/debuff abilities on its own team.
+			if(IsOffensiveAbility(ability)) return !sameFac;
+			if(IsSupportAbility(ability)) return sameFac;
+
+			return true;
+		}
+
+		private static bool IsValidAbilityTarget(Unit unit, Node moveNode, Ability ability, Node node){
+			if(unit==null || moveNode==null || ability==null || node==null) return false;
+
+			if(ability.type==Ability._AbilityType.Line || ability.type==Ability._AbilityType.Cone){
+				// Line/Cone target node is mainly used as direction.
+				// Only accept the direction if the estimated affected area contains useful targets
+				// and does not cause friendly-fire for offensive abilities.
+				return DirectionHasUsefulTargets(unit, moveNode, ability, node);
+			}
+
+			Unit plannedTargetUnit=GetPlannedNodeUnit(unit, moveNode, node);
+
+			// Important:
+			// moveNode is where the AI will stand after moving.
+			// Even if node.unit is null now, moveNode will become occupied by the AI unit.
+			// Therefore moveNode must NOT be treated as EmptyNode.
+			if(ability.targetType==Ability._TargetType.EmptyNode) return plannedTargetUnit==null;
+
+			if(ability.targetType==Ability._TargetType.AllNode){
+				if(plannedTargetUnit==null){
+					// Empty AllNode target is allowed only if the estimated AOE/direction
+					// has useful affected units or this is a real non-damaging node ability.
+					if(IsOffensiveAbility(ability) || IsSupportAbility(ability)){
+						List<Node> affectedNodes=GetEstimatedAffectedNodes(unit, moveNode, ability, node);
+						for(int i=0; i<affectedNodes.Count; i++){
+							Unit affectedUnit=GetPlannedNodeUnit(unit, moveNode, affectedNodes[i]);
+							if(affectedUnit!=null && IsUsefulUnitTarget(unit, ability, affectedUnit)) return true;
+						}
+						return false;
+					}
+
+					return true;
+				}
+
+				return IsUsefulUnitTarget(unit, ability, plannedTargetUnit);
+			}
+
+			if(ability.targetType==Ability._TargetType.AllUnit){
+				return plannedTargetUnit!=null && IsUsefulUnitTarget(unit, ability, plannedTargetUnit);
+			}
+
+			if(ability.targetType==Ability._TargetType.HostileUnit){
+				return plannedTargetUnit!=null && !IsSameFaction(plannedTargetUnit, unit);
+			}
+
+			if(ability.targetType==Ability._TargetType.FriendlyUnit){
+				return plannedTargetUnit!=null && IsSameFaction(plannedTargetUnit, unit);
+			}
+
+			return false;
+		}
+
+		private static bool DirectionHasUsefulTargets(Unit unit, Node moveNode, Ability ability, Node targetNode){
+			List<Node> affectedNodes=GetEstimatedAffectedNodes(unit, moveNode, ability, targetNode);
+			if(affectedNodes==null || affectedNodes.Count==0) return false;
+
+			bool hasUseful=false;
+			for(int i=0; i<affectedNodes.Count; i++){
+				Node node=affectedNodes[i];
+				if(node==null) continue;
+
+				Unit affectedUnit=GetPlannedNodeUnit(unit, moveNode, node);
+				if(affectedUnit==null) continue;
+
+				bool sameFac=IsSameFaction(affectedUnit, unit);
+
+				// Offensive line/cone should never be selected if it hits own team,
+				// including the AI's simulated future node.
+				if(IsOffensiveAbility(ability) && sameFac) return false;
+
+				// Support line/cone should never be selected if it benefits enemy.
+				if(IsSupportAbility(ability) && !sameFac) return false;
+
+				if(IsUsefulUnitTarget(unit, ability, affectedUnit)) hasUseful=true;
+			}
+
+			return hasUseful;
+		}
+
+		private static float EvaluateAbilityScore(Unit unit, Node moveNode, Ability ability, Node targetNode){
+			if(unit==null || moveNode==null || ability==null) return 0;
+
+			float score=0;
+
+			if(ability.type==Ability._AbilityType.ChangeForm) score+=100*instance.abilityEffectMultiplier;
+			if(ability.type==Ability._AbilityType.Fusion) score+=130*instance.abilityEffectMultiplier;
+			if(ability.type==Ability._AbilityType.SpawnUnit) score+=70*instance.abilityEffectMultiplier;
+			if(ability.type==Ability._AbilityType.DeployBlock) score+=35*instance.abilityEffectMultiplier;
+			if(ability.type==Ability._AbilityType.ScanFogOfWar) score+=25*instance.abilityEffectMultiplier;
+
+			List<Node> affectedNodes=GetEstimatedAffectedNodes(unit, moveNode, ability, targetNode);
+			if(affectedNodes.Count==0 && targetNode!=null) affectedNodes.Add(targetNode);
+
+			int affectedUsefulCount=0;
+			int badFriendlyHitCount=0;
+			int badEnemySupportCount=0;
+
+			for(int i=0; i<affectedNodes.Count; i++){
+				Node node=affectedNodes[i];
+				if(node==null) continue;
+
+				Unit target=GetPlannedNodeUnit(unit, moveNode, node);
+				if(target==null) continue;
+
+				bool sameFac=IsSameFaction(target, unit);
+
+				// Hard safety: AI must not choose offensive abilities that hit friendly units.
+				// This includes the AI's future moveNode, because after moving it becomes occupied by this unit.
+				if(IsOffensiveAbility(ability) && sameFac){
+					badFriendlyHitCount+=1;
+					continue;
+				}
+
+				// Hard safety: AI must not choose support abilities that affect hostile units.
+				if(IsSupportAbility(ability) && !sameFac){
+					badEnemySupportCount+=1;
+					continue;
+				}
+
+				if(ability.HasNegativeImpact() && !sameFac){
+					float hpImpact=(ability.GetHPMin()+ability.GetHPMax())*0.5f;
+					float apImpact=(ability.GetAPMin()+ability.GetAPMax())*0.25f;
+					float hitScore=Mathf.Clamp01(ability.GetHit())*100f*instance.hitChanceMultiplier;
+					float critScore=Mathf.Clamp01(ability.GetCritChance())*100f*instance.critChanceMultiplier;
+
+					score+=(hpImpact+apImpact)*instance.abilityImpactMultiplier;
+					score+=hitScore+critScore;
+
+					if(target.hp>0 && hpImpact>=target.hp) score+=75; // kill bonus
+					affectedUsefulCount+=1;
+				}
+				else if(ability.HasPositiveImpact() && sameFac){
+					float missingHP=Mathf.Max(0, target.GetFullHP()-target.hp);
+					float missingAP=Mathf.Max(0, target.GetFullAP()-target.ap);
+					float hpHeal=Mathf.Min(missingHP, (ability.GetHPMin()+ability.GetHPMax())*0.5f);
+					float apHeal=Mathf.Min(missingAP, (ability.GetAPMin()+ability.GetAPMax())*0.5f);
+
+					score+=(hpHeal+apHeal)*instance.abilityImpactMultiplier;
+					if(hpHeal>0 || apHeal>0) affectedUsefulCount+=1;
+				}
+			}
+
+			if(badFriendlyHitCount>0 || badEnemySupportCount>0) return 0;
+
+			if(affectedUsefulCount>1) score+=(affectedUsefulCount-1)*40*instance.abilityAOEMultiplier;
+
+			if(ability.effectIDList!=null && ability.effectIDList.Count>0){
+				// Effects follow the selected target side. HostileUnit effects are treated as offensive;
+				// FriendlyUnit effects are treated as support. AllUnit/AllNode still need at least one useful target.
+				score+=ability.effectIDList.Count*25*instance.abilityEffectMultiplier;
+			}
+			if(ability.clearAllEffect) score+=30*instance.abilityEffectMultiplier;
+			if(ability.switchFaction) score+=90*instance.abilityEffectMultiplier;
+
+			// Penalise abilities that have no useful target, so AI does not waste them or use them on own team.
+			if(ability.requireTarget && affectedUsefulCount==0 && (ability.type==Ability._AbilityType.Generic || ability.type==Ability._AbilityType.Line || ability.type==Ability._AbilityType.Cone)) score=0;
+
+			return score;
+		}
+
+		private static List<Node> GetEstimatedAffectedNodes(Unit unit, Node moveNode, Ability ability, Node targetNode){
+			List<Node> result=new List<Node>();
+			if(unit==null || moveNode==null || ability==null || targetNode==null) return result;
+
+			if(ability.type==Ability._AbilityType.Line){
+				result=GridManager.GetNodesInALine(moveNode, GridManager.GetAngle(targetNode, moveNode, true), ability.GetRange(), ability.GetRangeMin());
+				return result!=null ? result : new List<Node>();
+			}
+
+			if(ability.type==Ability._AbilityType.Cone){
+				result=GridManager.GetNodesInACone(moveNode, targetNode, ability.GetRange(), ability.GetRangeMin(), ability.fov);
+				return result!=null ? result : new List<Node>();
+			}
+
+			int aoe=ability.GetAOE();
+			if(aoe>0){
+				result=GridManager.GetNodesWithinDistance(targetNode, aoe);
+				if(result==null) result=new List<Node>();
+			}
+
+			if(!result.Contains(targetNode)) result.Add(targetNode);
+			return result;
+		}
+
+
+		private static Node GetBestAbilityLookNode(Unit unit, Node moveNode, Ability ability, Node targetNode){
+			if(unit==null || moveNode==null || ability==null || targetNode==null) return targetNode;
+
+			// For normal targeted abilities, face the chosen target node.
+			if(ability.type!=Ability._AbilityType.Line && ability.type!=Ability._AbilityType.Cone) return targetNode;
+
+			List<Node> affectedNodes=GetEstimatedAffectedNodes(unit, moveNode, ability, targetNode);
+			if(affectedNodes==null || affectedNodes.Count==0) return targetNode;
+
+			Node bestNode=null;
+			float bestScore=-Mathf.Infinity;
+
+			for(int i=0; i<affectedNodes.Count; i++){
+				Node node=affectedNodes[i];
+				if(node==null) continue;
+
+				Unit affectedUnit=GetPlannedNodeUnit(unit, moveNode, node);
+				if(affectedUnit==null) continue;
+				if(!IsUsefulUnitTarget(unit, ability, affectedUnit)) continue;
+
+				float score=0;
+
+				if(IsOffensiveAbility(ability) && !IsSameFaction(affectedUnit, unit)){
+					score+=1000;
+					score+=Mathf.Max(0, affectedUnit.hp);
+				}
+				else if(IsSupportAbility(ability) && IsSameFaction(affectedUnit, unit)){
+					score+=1000;
+					score+=Mathf.Max(0, affectedUnit.GetFullHP()-affectedUnit.hp);
+				}
+				else{
+					continue;
+				}
+
+				// Prefer the explicit clicked/selected target if it is useful.
+				if(node==targetNode) score+=250;
+
+				// Prefer closer/central targets for cleaner facing.
+				score-=GridManager.GetDistance(moveNode, node);
+
+				if(score>bestScore){
+					bestScore=score;
+					bestNode=node;
+				}
+			}
+
+			return bestNode!=null ? bestNode : targetNode;
+		}
+
+		private static IEnumerator RotateUnitTowardAbilityLookTarget(Unit unit, AIAction action){
+			if(unit==null || action==null || action.ability==null) yield break;
+			if(action.ability.type!=Ability._AbilityType.Line && action.ability.type!=Ability._AbilityType.Cone) yield break;
+
+			Node lookNode=action.abilityLookNode!=null ? action.abilityLookNode : action.abilityTargetNode;
+			if(lookNode==null) yield break;
+
+			Vector3 lookPos=lookNode.GetPos();
+			if(lookNode.unit!=null) lookPos=lookNode.unit.GetTargetPoint();
+
+			float timer=1.25f;
+			while(unit!=null && timer>0 && RotateUnitTowards(unit, lookPos)>2f){
+				timer-=Time.deltaTime;
+				yield return null;
+			}
+		}
+
+		private static float RotateUnitTowards(Unit unit, Vector3 targetPos){
+			if(!Unit.enableRotation || unit==null) return 0;
+
+			Vector3 dir=targetPos-unit.transform.position;
+			dir.y=0;
+			if(dir.sqrMagnitude<0.001f) return 0;
+
+			Quaternion wantedRot=Quaternion.LookRotation(dir);
+			wantedRot=Quaternion.Euler(0, wantedRot.eulerAngles.y, 0);
+
+			float speed=Mathf.Max(1f, unit.moveSpeed)*3f;
+			unit.transform.rotation=Quaternion.Slerp(unit.transform.rotation, wantedRot, Time.deltaTime*speed);
+
+			return Quaternion.Angle(unit.transform.rotation, wantedRot);
+		}
+
 		public static Vector2 CheckCover(Node node, Unit unit, List<Unit> hostileList){
 			if(!GameControl.EnableCoverSystem()) return Vector2.zero;
+			if(hostileList==null || hostileList.Count==0) return Vector2.zero;
 			
 			//consider xcom style side stepping for square grid
 			
@@ -494,6 +953,12 @@ namespace TBTK{
 		public Unit tgtUnit;
 		public float score=0;
 		public float scoreAlt=-999;	//used to temporarily cache value
+
+		// Ability action support. If ability is assigned, tgtNode is the move node and abilityTargetNode is the clicked/target node.
+		public Ability ability;
+		public int abilityIdx=-1;
+		public Node abilityTargetNode;
+		public Node abilityLookNode;
 		
 		public AIAction(Node node, Unit tgtU=null){
 			tgtNode=node;	tgtUnit=tgtU;
@@ -503,6 +968,7 @@ namespace TBTK{
 		}
 		
 		public bool CachedScore(){ return scoreAlt!=-999; }
+		public bool IsAbilityAction(){ return ability!=null && abilityIdx>=0; }
 	}
 	
 }

@@ -684,6 +684,8 @@ MonoBehaviour:
   factoryCost: 100
   unitDescription: Berserk Fury features the ability to utilize the CAS to equip
     many different weapons, giving it adaptability to different situations
+  limitedOwned: 0
+  ownedLimit: 1
   facID: 0
   playableUnit: 0
   aiBehaviour: 0
@@ -937,7 +939,7 @@ MonoBehaviour:
       duration: 1.5
     activeVisualEffect: {fileID: 0}
   effectList: []
-  abilityIDList: 
+  abilityIDList: 0f000000
   abilityList: []
   dead: 0
   effectAttackHit:
@@ -957,6 +959,9 @@ MonoBehaviour:
   clipMove: {fileID: 7400000, guid: a6223918aadd4a18a6f69855cf8aeaf8, type: 2}
   clipHit: {fileID: 7400000, guid: 8aa09e91d8a14c3886b73df59c38bf3e, type: 2}
   clipDestroyed: {fileID: 7400000, guid: 97b1b85dd14c447e8287245220ab5a7b, type: 2}
+  useStunAnimation: 1
+  stunAnimatorBool: Stunned
+  clipStunned: {fileID: 0}
   clipAttackRange: {fileID: 7400000, guid: 00b3ad1467e94d5f83ea02e66671885c, type: 2}
   clipAttackMelee: {fileID: 7400000, guid: 92d9c93ffdad481096b40c97cf2217f4, type: 2}
   animAttackDelayRange: 0.28
@@ -969,19 +974,35 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   animAbilityDelayList:
-  - 1.28
+  - 1.45
   - 0
   - 0
   - 0
   - 0
   - 0
+  abilityShootPointSetList:
+  - shootPointList:
+    - {fileID: 7959}
+    - {fileID: 7061}
+    - {fileID: 7960}
+    shootPointSpacing: 0
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
   loopMoveSound: 1
   selectSound: {fileID: 8300000, guid: cf2844bf87fb4192a746b2bda89ae724, type: 3}
   moveSound: {fileID: 8300000, guid: 13c370424c054beb92fc2fd58dbcba52, type: 3}
   attackRangeSound: {fileID: 8300000, guid: 6bee9726ffe64ff2bee4d0c5951e2ed3, type: 3}
   attackMeleeSound: {fileID: 8300000, guid: aa9b4f7f239747508db226919bb707cf, type: 3}
   hitSound: {fileID: 8300000, guid: aef8741825604af58acbd5eaa8251c98, type: 3}
-  destroySound: {fileID: 8300000, guid: 848431d9be8a434fa4a71eb48ff59c5f, type: 3}
+  destroySound: {fileID: 8300000, guid: ea0a3e96d7c44fbea50587f048a6fb5e, type: 3}
 --- !u!1 &1493
 GameObject:
   m_ObjectHideFlags: 0

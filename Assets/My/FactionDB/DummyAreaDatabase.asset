@@ -113,7 +113,7 @@ MonoBehaviour:
     areaName: Kuala Hilir
     isNaturalArea: 1
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
@@ -121,7 +121,7 @@ MonoBehaviour:
     areaName: Selimut Putih
     isNaturalArea: 1
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
@@ -129,7 +129,7 @@ MonoBehaviour:
     areaName: Kopiah White
     isNaturalArea: 0
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
@@ -137,7 +137,7 @@ MonoBehaviour:
     areaName: Padang Guling
     isNaturalArea: 1
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
@@ -145,7 +145,7 @@ MonoBehaviour:
     areaName: Pagar Laut
     isNaturalArea: 1
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
@@ -153,7 +153,7 @@ MonoBehaviour:
     areaName: Hutan Jembut
     isNaturalArea: 1
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
@@ -161,7 +161,7 @@ MonoBehaviour:
     areaName: Hutan Terowong II
     isNaturalArea: 0
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
@@ -169,7 +169,7 @@ MonoBehaviour:
     areaName: Hutan Terowong
     isNaturalArea: 1
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
@@ -177,7 +177,7 @@ MonoBehaviour:
     areaName: Pat Forest
     isNaturalArea: 1
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
@@ -185,7 +185,7 @@ MonoBehaviour:
     areaName: Rata Plain
     isNaturalArea: 1
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
@@ -193,7 +193,7 @@ MonoBehaviour:
     areaName: Lurus Plain
     isNaturalArea: 1
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
@@ -201,7 +201,7 @@ MonoBehaviour:
     areaName: Pangkal Punai
     isNaturalArea: 1
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000
@@ -209,7 +209,7 @@ MonoBehaviour:
     areaName: TuWellTu Hill
     isNaturalArea: 1
     battleType: owned area test
-    environmentPrefab: {fileID: 270, guid: 70e3273c2b2c4ad189188417bc98795c, type: 3}
+    environmentPrefab: {fileID: 0}
     enemyFactionId: 1
     enemyFactionName: Aurek Dominion
     enemyUnitIds: 13000000

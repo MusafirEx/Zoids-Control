@@ -270,7 +270,7 @@ TextureImporter:
         width: 143
         height: 118
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -345,6 +345,132 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: DarkHorn
+      rect:
+        serializedVersion: 2
+        x: 1317
+        y: 604
+        width: 143
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b004e4c5ff24d5441976ae53233279a0
+      internalID: -1499122017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Genobreaker
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 1201
+        width: 140
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b67bc0a10ec9c75459297c25931f31f2
+      internalID: 146385383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GenoSaurer
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 1
+        width: 141
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb0192573de9ff44f97f4f45451da8ea
+      internalID: -848061037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Command Wolf
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 255
+        width: 140
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50bda0e4bc3ed1a40b03d2ccf24cab20
+      internalID: 1852647845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dimetrodon
+      rect:
+        serializedVersion: 2
+        x: 1309
+        y: 853
+        width: 138
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2cb3025bfc6aa14fba6118caeb663b1
+      internalID: -1364282818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elephander
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 1817
+        width: 139
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d97b262759a8d6b4b9921bd3eaa74152
+      internalID: -1889333995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -358,7 +484,13 @@ TextureImporter:
     nameFileIdTable:
       BerserkFury: -677926973
       Blade Liger: 1284255970
+      Command Wolf: 1852647845
+      DarkHorn: -1499122017
       Dibison: 156321196
+      Dimetrodon: -1364282818
+      Elephander: -1889333995
+      GenoSaurer: -848061037
+      Genobreaker: 146385383
       Liger Zero: 1527451655
       LigerZero_Jager: -574966007
       LigerZero_Panzer: 1155697118

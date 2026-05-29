@@ -65,8 +65,15 @@ MonoBehaviour:
     switchFacControllable: 1
     duration: 1
     useAttackSequence: 0
+    fireShootObjectWithAbilityAnimation: 0
     aimAtUnit: 0
     shootObject: {fileID: 0}
+    abilityAnimationTrigger: Ability1
+    abilityAnimationState: Ability1
+    abilityAnimationLayer: 0
+    waitForAbilityAnimationComplete: 1
+    abilityAnimationTimeout: 8
+    jrpgMeleeStepDistance: 2
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -128,8 +135,15 @@ MonoBehaviour:
     switchFacControllable: 1
     duration: 1
     useAttackSequence: 0
+    fireShootObjectWithAbilityAnimation: 0
     aimAtUnit: 0
     shootObject: {fileID: 0}
+    abilityAnimationTrigger: Ability1
+    abilityAnimationState: Ability1
+    abilityAnimationLayer: 0
+    waitForAbilityAnimationComplete: 1
+    abilityAnimationTimeout: 8
+    jrpgMeleeStepDistance: 2
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -191,8 +205,15 @@ MonoBehaviour:
     switchFacControllable: 1
     duration: 2
     useAttackSequence: 0
+    fireShootObjectWithAbilityAnimation: 0
     aimAtUnit: 0
     shootObject: {fileID: 0}
+    abilityAnimationTrigger: Ability1
+    abilityAnimationState: Ability1
+    abilityAnimationLayer: 0
+    waitForAbilityAnimationComplete: 1
+    abilityAnimationTimeout: 8
+    jrpgMeleeStepDistance: 2
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -254,8 +275,15 @@ MonoBehaviour:
     switchFacControllable: 1
     duration: 1
     useAttackSequence: 0
+    fireShootObjectWithAbilityAnimation: 0
     aimAtUnit: 0
     shootObject: {fileID: 0}
+    abilityAnimationTrigger: Ability1
+    abilityAnimationState: Ability1
+    abilityAnimationLayer: 0
+    waitForAbilityAnimationComplete: 1
+    abilityAnimationTimeout: 8
+    jrpgMeleeStepDistance: 2
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -318,8 +346,15 @@ MonoBehaviour:
     switchFacControllable: 1
     duration: 1
     useAttackSequence: 0
+    fireShootObjectWithAbilityAnimation: 0
     aimAtUnit: 0
     shootObject: {fileID: 0}
+    abilityAnimationTrigger: Ability1
+    abilityAnimationState: Ability1
+    abilityAnimationLayer: 0
+    waitForAbilityAnimationComplete: 1
+    abilityAnimationTimeout: 8
+    jrpgMeleeStepDistance: 2
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -382,8 +417,15 @@ MonoBehaviour:
     switchFacControllable: 1
     duration: 1
     useAttackSequence: 0
+    fireShootObjectWithAbilityAnimation: 0
     aimAtUnit: 0
     shootObject: {fileID: 0}
+    abilityAnimationTrigger: Ability1
+    abilityAnimationState: Ability1
+    abilityAnimationLayer: 0
+    waitForAbilityAnimationComplete: 1
+    abilityAnimationTimeout: 8
+    jrpgMeleeStepDistance: 2
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -446,8 +488,15 @@ MonoBehaviour:
     switchFacControllable: 1
     duration: 1
     useAttackSequence: 0
+    fireShootObjectWithAbilityAnimation: 0
     aimAtUnit: 0
     shootObject: {fileID: 0}
+    abilityAnimationTrigger: Ability1
+    abilityAnimationState: Ability1
+    abilityAnimationLayer: 0
+    waitForAbilityAnimationComplete: 1
+    abilityAnimationTimeout: 8
+    jrpgMeleeStepDistance: 2
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1

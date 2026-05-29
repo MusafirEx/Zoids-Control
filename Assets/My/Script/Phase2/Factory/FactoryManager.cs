@@ -123,6 +123,10 @@ public class FactoryManager : MonoBehaviour
             return false;
 
         quantity = Mathf.Max(1, quantity);
+
+        if (!CanOwnMore(unitId, quantity))
+            return false;
+
         return progressManager.GetUnitData(unitId) >= GetManufactureCost(unitId) * quantity;
     }
 
@@ -151,6 +155,49 @@ public class FactoryManager : MonoBehaviour
         return progressManager.GetOwnedCount(unitId);
     }
 
+    public bool IsOwnedLimited(int unitId)
+    {
+        Unit unit = GetUnitDefinition(unitId);
+        return unit != null && unit.limitedOwned;
+    }
+
+    public int GetOwnedLimit(int unitId)
+    {
+        Unit unit = GetUnitDefinition(unitId);
+        if (unit == null || !unit.limitedOwned)
+            return int.MaxValue;
+
+        return Mathf.Max(1, unit.ownedLimit);
+    }
+
+    public string GetOwnedLimitLabel(int unitId)
+    {
+        return IsOwnedLimited(unitId) ? GetOwnedLimit(unitId).ToString() : "Unlimited";
+    }
+
+    public int GetRemainingOwnedCapacity(int unitId)
+    {
+        if (!IsOwnedLimited(unitId))
+            return int.MaxValue;
+
+        return Mathf.Max(0, GetOwnedLimit(unitId) - GetOwnedCount(unitId));
+    }
+
+    public bool CanOwnMore(int unitId)
+    {
+        return CanOwnMore(unitId, 1);
+    }
+
+    public bool CanOwnMore(int unitId, int quantity)
+    {
+        quantity = Mathf.Max(1, quantity);
+
+        if (!IsOwnedLimited(unitId))
+            return true;
+
+        return GetOwnedCount(unitId) + quantity <= GetOwnedLimit(unitId);
+    }
+
     public bool TryManufacture(int unitId)
     {
         return TryManufacture(unitId, 1);
@@ -169,6 +216,18 @@ public class FactoryManager : MonoBehaviour
 
         quantity = Mathf.Max(1, quantity);
         int totalCost = GetManufactureCost(unitId) * quantity;
+
+        if (!CanOwnMore(unitId, quantity))
+        {
+            if (debugLog)
+                Debug.LogWarning("[FactoryManager] Manufacture failed. Owned limit reached. unitId=" + unitId +
+                                 " owned=" + GetOwnedCount(unitId) +
+                                 " limit=" + GetOwnedLimitLabel(unitId) +
+                                 " requested=" + quantity);
+
+            OnManufactureFailed?.Invoke(unitId);
+            return false;
+        }
 
         if (!progressManager.SpendUnitData(unitId, totalCost, false))
         {

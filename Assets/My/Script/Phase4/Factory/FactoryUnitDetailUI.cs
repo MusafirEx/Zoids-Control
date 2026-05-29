@@ -78,7 +78,11 @@ public class FactoryUnitDetailUI : MonoBehaviour
         int costPerUnit = factoryManager.GetManufactureCost(currentUnitId);
         int totalCost = costPerUnit * Mathf.Max(1, quantity);
         int owned = factoryManager.GetOwnedCount(currentUnitId);
-        bool canManufacture = data >= totalCost;
+        bool enoughData = data >= totalCost;
+        bool canOwnMore = factoryManager.CanOwnMore(currentUnitId, quantity);
+        bool limitedOwned = factoryManager.IsOwnedLimited(currentUnitId);
+        string ownedLimitLabel = factoryManager.GetOwnedLimitLabel(currentUnitId);
+        bool canManufacture = enoughData && canOwnMore;
         bool blockedBySync = listUI != null && listUI.IsCloudSyncing;
 
         string displayName = !string.IsNullOrEmpty(unit.itemName) ? unit.itemName : unit.gameObject.name;
@@ -93,7 +97,7 @@ public class FactoryUnitDetailUI : MonoBehaviour
             labelData.text = "Data: " + data + " / " + totalCost;
 
         if (labelOwned != null)
-            labelOwned.text = "Owned: " + owned;
+            labelOwned.text = limitedOwned ? "Owned: " + owned + " / " + ownedLimitLabel : "Owned: " + owned;
 
         if (labelDescription != null)
             labelDescription.text = !string.IsNullOrEmpty(unit.unitDescription) ? unit.unitDescription : unit.desp;
@@ -111,8 +115,10 @@ public class FactoryUnitDetailUI : MonoBehaviour
         {
             if (blockedBySync)
                 labelStatus.text = "Syncing with Game Jolt...";
+            else if (!canOwnMore)
+                labelStatus.text = limitedOwned ? "Owned limit reached: " + owned + " / " + ownedLimitLabel : "Cannot own more units";
             else
-                labelStatus.text = canManufacture ? "Ready to manufacture" : "Need " + Mathf.Max(0, totalCost - data) + " more data";
+                labelStatus.text = enoughData ? "Ready to manufacture" : "Need " + Mathf.Max(0, totalCost - data) + " more data";
         }
     }
 

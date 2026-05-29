@@ -554,6 +554,8 @@ MonoBehaviour:
 
     Attack Type: Ranged-focused
     hybrid'
+  limitedOwned: 0
+  ownedLimit: 1
   facID: 0
   playableUnit: 0
   aiBehaviour: 0
@@ -586,7 +588,7 @@ MonoBehaviour:
   damageType: 0
   stats:
     hp: 120
-    ap: 4
+    ap: 5
     hpRegen: 0
     apRegen: 1
     attack: 48
@@ -827,6 +829,9 @@ MonoBehaviour:
   clipMove: {fileID: 7400000, guid: a35c6ab5d39842a2863b43519d9171f6, type: 2}
   clipHit: {fileID: 7400000, guid: c4bb543d386845f4bcec1dece9864880, type: 2}
   clipDestroyed: {fileID: 7400000, guid: 7c606aabe16f4ccd82d1edcc23ebf929, type: 2}
+  useStunAnimation: 1
+  stunAnimatorBool: Stunned
+  clipStunned: {fileID: 0}
   clipAttackRange: {fileID: 7400000, guid: 49bf80da27324aa0858d44f6b799d58e, type: 2}
   clipAttackMelee: {fileID: 7400000, guid: c80c21a8e54441a4a3fa97b9c14ce7ba, type: 2}
   animAttackDelayRange: 0.3
@@ -845,13 +850,26 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  abilityShootPointSetList:
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
   loopMoveSound: 1
   selectSound: {fileID: 8300000, guid: 53726d4281c64775a8da6e790c315a0c, type: 3}
   moveSound: {fileID: 8300000, guid: 2f1d571b52cf44f492e54187e6f24d0c, type: 3}
   attackRangeSound: {fileID: 8300000, guid: 6bee9726ffe64ff2bee4d0c5951e2ed3, type: 3}
   attackMeleeSound: {fileID: 8300000, guid: aa9b4f7f239747508db226919bb707cf, type: 3}
   hitSound: {fileID: 8300000, guid: aef8741825604af58acbd5eaa8251c98, type: 3}
-  destroySound: {fileID: 8300000, guid: 848431d9be8a434fa4a71eb48ff59c5f, type: 3}
+  destroySound: {fileID: 8300000, guid: ac61ff25ff554ab5a2b69972c24ec01a, type: 3}
 --- !u!1 &897
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,12 @@ using UnityEngine;
 
 namespace TBTK{
 
+	[System.Serializable]
+	public class UnitAbilityShootPointSet {
+		public List<Transform> shootPointList=new List<Transform>();
+		public float shootPointSpacing=-1;	// negative value means use unit.shootPointSpacing
+	}
+
 	public class Unit : TBMonoItem {
 		
 		public static bool enableRotation=true;
@@ -22,6 +28,13 @@ namespace TBTK{
 		public UnitRarity rarity=UnitRarity.Common;
 		public int factoryCost=100;
 		[TextArea] public string unitDescription="";
+
+		[Header("Ownership Limit")]
+		public bool limitedOwned=false;
+		public int ownedLimit=1;
+		public bool IsOwnedLimited(){ return limitedOwned; }
+		public int GetOwnedLimit(){ return !limitedOwned ? int.MaxValue : Mathf.Max(1, ownedLimit); }
+		public string GetOwnedLimitLabel(){ return !limitedOwned ? "Unlimited" : Mathf.Max(1, ownedLimit).ToString(); }
 		
 		[Space(5)] 
 		public int facID;	//in runtime, this also correspond to the faction index in factionList
@@ -79,8 +92,8 @@ namespace TBTK{
 		public int moveThisTurn=0;
 		
 		public int GetAttackLimit(){ return (int)(stats.attackLimit * GetAttackLimitMul()) + (int)GetAttackLimitMod(); }
-		public float GetAttackLimitMul(){ 		return activeEffectMul.stats.moveLimit 	* PerkManager.GetUnitMulAttackLim(prefabID); 		}
-		public float GetAttackLimitMod(){ 	return activeEffectMod.stats.moveLimit 	+ PerkManager.GetUnitModAttackLim(prefabID); 		}
+		public float GetAttackLimitMul(){ 		return activeEffectMul.stats.attackLimit 	* PerkManager.GetUnitMulAttackLim(prefabID); 		}
+		public float GetAttackLimitMod(){ 	return activeEffectMod.stats.attackLimit 	+ PerkManager.GetUnitModAttackLim(prefabID); 		}
 		public int GetAttackRemain(){ return GetAttackLimit()-attackThisTurn; }
 		public int attackThisTurn=0;
 		
@@ -167,8 +180,12 @@ namespace TBTK{
 		public void NewTurn(bool restoreFullHP=false){	//restoreFullHP is used when the game start
 			if(restoreFullHP) hp=GetFullHP();
 			
-			if(GameControl.RestoreAPOnTurn()) ap=GetFullAP();
-			else ap=Mathf.Min(ap+GetAPRegen(), GetFullAP());
+			float oldAP=ap;
+			float fullAP=GetFullAP();
+			float regenAP=GetAPRegen();
+			
+			if(GameControl.RestoreAPOnTurn()) ap=fullAP;
+			else ap=Mathf.Min(ap+regenAP, fullAP);
 			
 			hp=Mathf.Min(hp+GetHPRegen(), GetFullHP());
 			
@@ -176,6 +193,9 @@ namespace TBTK{
 			attackThisTurn=0;
 			counterThisTurn=0;
 			abilityThisTurn=0;
+			UpdateStunAnimation();
+
+			Debug.Log("[AP NewTurn] "+name+" AP "+oldAP+" -> "+ap+" / "+fullAP+" regen="+regenAP+" restoreFull="+GameControl.RestoreAPOnTurn()+" turn="+TurnControl.GetTurn()+" round="+TurnControl.GetRound());
 		}
 		
 		
@@ -441,11 +461,11 @@ namespace TBTK{
 			
 			public float GetOHitPenalty(){	return stats.oHitPenalty	* GetMulOHitPen()		 + GetModOHitPen();								}
 			public float GetMulOHitPen(){ 	return activeEffectMul.stats.oHitPenalty 		* PerkManager.GetUnitMulOHitPen(prefabID)			* UnitManager.GetAuraOHitPenaltyMul(this, node) ; 		}
-			public float GetModOHitPen(){ 	return activeEffectMod.stats.cHitPenalty 	+ PerkManager.GetUnitModOHitPen(prefabID)		+ UnitManager.GetAuraOHitPenaltyMod(this, node) ; 		}
+			public float GetModOHitPen(){ 	return activeEffectMod.stats.oHitPenalty 	+ PerkManager.GetUnitModOHitPen(prefabID)		+ UnitManager.GetAuraOHitPenaltyMod(this, node) ; 		}
 			
 			public float GetOCritPenalty(){	return stats.oCritPenalty	* GetMulOCritPen() 		+GetModOCritPen();									}
-			public float GetMulOCritPen(){ 	return activeEffectMul.stats.oCritPenalty 	* PerkManager.GetUnitMulOCritPen(prefabID)		* UnitManager.GetAuraODmgMul(this, node) ; 		}
-			public float GetModOCritPen(){ return activeEffectMod.stats.oCritPenalty 	+ PerkManager.GetUnitModOCritPen(prefabID)		+ UnitManager.GetAuraODmgMod(this, node) ; 	}
+			public float GetMulOCritPen(){ 	return activeEffectMul.stats.oCritPenalty 	* PerkManager.GetUnitMulOCritPen(prefabID)		* UnitManager.GetAuraOCritPenaltyMul(this, node) ; 		}
+			public float GetModOCritPen(){ return activeEffectMod.stats.oCritPenalty 	+ PerkManager.GetUnitModOCritPen(prefabID)		+ UnitManager.GetAuraOCritPenaltyMod(this, node) ; 	}
 		
 		public int GetAttackRange(){ 		return (int)Mathf.Round(stats.attackRange	* GetMulARange() 	+ GetModARange()); 						}
 		public float GetMulARange(){ 		return activeEffectMul.stats.attackRange 	* PerkManager.GetUnitMulARange(prefabID)			* UnitManager.GetAuraAttackRangeMul(this, node) ; 		}
@@ -558,6 +578,8 @@ namespace TBTK{
 					activeEffectMod.stats.ApplyModifier(effectList[i].stats);
 				}
 			}
+			
+			UpdateStunAnimation();
 		}
 		
 		public void RemoveOverwatch(){
@@ -673,30 +695,65 @@ namespace TBTK{
 			//StartCoroutine(_UseAbility(abilityList[idx], target)); 
 		}
 		public IEnumerator UseAbilityRoutine(Ability ability, Node tgtNode){
+			if(ability==null) yield break;
+
 			bool actionCam=(actionCamCheck!=null && actionCamStart!=null && actionCamCheck(false));
-			if(actionCam) yield return StartCoroutine(actionCamStart(GetTargetPoint(), tgtNode.GetPos()));
+			if(actionCam && tgtNode!=null) yield return StartCoroutine(actionCamStart(GetTargetPoint(), tgtNode.GetPos()));
 			
 			ability.Activate();
+
+			bool useAbilityMeleeStep=false;
+			Vector3 jrpgAbilityOriginalPos=thisT.position;
+			Quaternion jrpgAbilityOriginalRot=thisT.rotation;
+			bool waitedForAbilityAnimation=false;
+			bool abilityReplacesSourceUnit=(ability.type==Ability._AbilityType.ChangeForm || ability.type==Ability._AbilityType.Fusion);
 			
-			if(ability.requireTarget){
+			if(ability.requireTarget && tgtNode!=null){
 				if(ability.IsLine()) tgtNode=tgtNode.abLineParent;
-				
-				//yield return StartCoroutine(AbilityRoutine(target, ability));
-				while(Rotate(tgtNode.GetPos())>2) yield return null;
+
+				useAbilityMeleeStep=ability.IsMeleeSkill() && GameControl.JRPGMode();
+
+				if(useAbilityMeleeStep){
+					// Ability melee in JRPG mode moves visually only. It does not change node ownership or pathing.
+					yield return StartCoroutine(JRPGAbilityMeleeStepToTarget(tgtNode, ability.jrpgMeleeStepDistance));
+					AnimPlayMove(false);
+					AudioStopMove();
+					yield return new WaitForSeconds(0.12f);
+				}
+				else{
+					while(Rotate(tgtNode.GetPos())>2) yield return null;
+				}
 			
 				if(ability.useAttackSequence){
-					bool useMelee=CheckUseMeleeAttack(tgtNode);
-					float attackDelay=AnimPlayAttack(useMelee);		AudioPlayAttack(useMelee);
+					// Distance ability must stay as ranged/default attack even when target is close.
+					// Melee ability uses melee attack animation/logic only when Skill Range Type is Melee.
+					bool useMelee=ability.IsMeleeSkill();
+					bool useAbilityShootPoint=(ability.skillRangeType==Ability._SkillRangeType.Distance);
+					float attackDelay=0;
+
+					attackDelay=AnimPlayAttack(useMelee);
+					AudioPlayAttack(useMelee);
+
 					if(attackDelay>0) yield return new WaitForSeconds(attackDelay);
-			
+	
 					GameObject soObj=ability.shootObject!=null ? ability.shootObject.gameObject : GetShootObject(tgtNode);
-					//Vector3 offset=new Vector3(0, (ability.IsLine() ? shootPointList[0].position.y-node.GetPos().y : 0), 0);
-					Vector3 offset=new Vector3(0, shootPointList[0].position.y-node.GetPos().y, 0);
-					yield return StartCoroutine(FireShootObject(soObj, tgtNode, ability.aimAtUnit & ability.type!=Ability._AbilityType.Line, offset));
+					List<Transform> usedShootPointList=useAbilityShootPoint ? GetAbilityShootPointList(ability.index) : shootPointList;
+					Transform firstShootPoint=GetFirstShootPoint(usedShootPointList);
+					Vector3 offset=new Vector3(0, firstShootPoint.position.y-node.GetPos().y, 0);
+					yield return StartCoroutine(FireShootObject(soObj, tgtNode, ability.aimAtUnit & ability.type!=Ability._AbilityType.Line, offset, usedShootPointList, GetAbilityShootPointSpacing(ability.index)));
 				}
 				else{
 					float animationDelay=AnimPlayAbility(ability.index);
 					if(animationDelay>0) yield return new WaitForSeconds(animationDelay);
+
+					if(ability.fireShootObjectWithAbilityAnimation){
+						bool useAbilityShootPoint=(ability.skillRangeType==Ability._SkillRangeType.Distance);
+						GameObject soObj=ability.shootObject!=null ? ability.shootObject.gameObject : GetShootObject(tgtNode);
+						List<Transform> usedShootPointList=useAbilityShootPoint ? GetAbilityShootPointList(ability.index) : shootPointList;
+						Transform firstShootPoint=GetFirstShootPoint(usedShootPointList);
+						Vector3 offset=new Vector3(0, firstShootPoint.position.y-node.GetPos().y, 0);
+						yield return StartCoroutine(FireShootObject(soObj, tgtNode, ability.aimAtUnit & ability.type!=Ability._AbilityType.Line, offset, usedShootPointList, GetAbilityShootPointSpacing(ability.index)));
+					}
 				}
 			}
 			else{
@@ -706,9 +763,31 @@ namespace TBTK{
 			
 			yield return CRoutine.Get().StartCoroutine(ability.HitTarget(tgtNode));
 			//AbilityHit(ability, target);
+
+			// ChangeForm/CAS and Fusion destroy this source Unit and spawn a replacement.
+			// Do not continue this coroutine on the destroyed Unit, or Unity will throw MissingReferenceException.
+			if(abilityReplacesSourceUnit || this==null || thisObj==null){
+				if(actionCam && actionCamEnd!=null) yield return CRoutine.Get().StartCoroutine(actionCamEnd());
+				yield break;
+			}
+
+			// Finish any animation-event controlled attack before returning to the original JRPG position.
+			if(waitingForAttackAnimation){
+				while(waitingForAttackAnimation) yield return null;
+				waitedForAbilityAnimation=true;
+			}
+
+			if(useAbilityMeleeStep){
+				yield return new WaitForSeconds(0.08f);
+				yield return StartCoroutine(JRPGMeleeReturn(jrpgAbilityOriginalPos, jrpgAbilityOriginalRot));
+			}
+			else if(!waitedForAbilityAnimation && waitingForAttackAnimation){
+				while(waitingForAttackAnimation) yield return null;
+			}
 			
 			if(actionCam && actionCamEnd!=null) yield return StartCoroutine(actionCamEnd());
 		}
+
 		
 		//~ public void AbilityHit(Ability ability, Node target){
 			//~ ability.HitTarget(target);
@@ -804,8 +883,13 @@ namespace TBTK{
 			CheckMoveSpeed();
 			
 			moveThisTurn+=1;
-			ap-=GameControl.GetAPPerMove();//+path.Count*GameControl.GetAPPerNode();
-			for(int i=0; i<path.Count; i++) ap-=path[i].cost;
+
+			// Only spend AP for movement when the GameControl setting allows it.
+			// Previously AP was reduced even when Use AP To Move was disabled.
+			if(GameControl.UseAPToMove()){
+				ap-=GameControl.GetAPPerMove();//+path.Count*GameControl.GetAPPerNode();
+				for(int i=0; i<path.Count; i++) ap-=path[i].cost;
+			}
 			
 			waitingForMoveRoutine=true;
 			
@@ -925,7 +1009,12 @@ namespace TBTK{
 			if(!isOverwatch){
 				if(!isCounter){
 					attackThisTurn+=1;
-					ap-=GameControl.GetAPPerAttack();
+
+					// Only spend AP for attack when the GameControl setting allows it.
+					// Previously AP was reduced even when Use AP To Attack was disabled.
+					if(GameControl.UseAPToAttack()){
+						ap-=GameControl.GetAPPerAttack();
+					}
 				}
 				else{
 					counterThisTurn+=1;
@@ -1026,6 +1115,46 @@ namespace TBTK{
 			}
 		}
 
+		private IEnumerator JRPGAbilityMeleeStepToTarget(Node targetNode, float distanceFromTargetInNodes=2f){
+			if(targetNode==null) yield break;
+
+			Vector3 attackPos=GetJRPGAbilityMeleeAttackPosition(targetNode, distanceFromTargetInNodes);
+
+			while(Rotate(attackPos)>5) yield return null;
+			yield return StartCoroutine(JRPGMoveVisualTo(attackPos, 1.5f));
+
+			Vector3 lookTarget=targetNode.GetPos();
+			if(targetNode.unit!=null) lookTarget=targetNode.unit.GetTargetPoint();
+
+			Vector3 lookDir=lookTarget-thisT.position;
+			lookDir.y=0;
+			if(lookDir.sqrMagnitude>0.01f){
+				thisT.rotation=Quaternion.LookRotation(lookDir);
+			}
+		}
+
+		private Vector3 GetJRPGAbilityMeleeAttackPosition(Node targetNode, float distanceFromTargetInNodes=2f){
+			Vector3 startPos=thisT.position;
+			Vector3 targetPos=targetNode!=null ? targetNode.GetPos() : startPos;
+			if(targetNode!=null && targetNode.unit!=null) targetPos=targetNode.unit.GetTargetPoint();
+
+			Vector3 dir=startPos-targetPos;
+			dir.y=0;
+
+			if(dir.sqrMagnitude<0.01f){
+				dir=-thisT.forward;
+				dir.y=0;
+			}
+
+			dir.Normalize();
+			float nodeSize=GridManager.GetNodeSize();
+			float distance=Mathf.Max(0.05f, distanceFromTargetInNodes)*nodeSize;
+			Vector3 attackPos=targetPos + dir*distance;
+			attackPos.y=startPos.y;
+
+			return attackPos;
+		}
+
 		private Vector3 GetJRPGColumn2AttackPosition(Node targetNode){
 			// In a 3-column JRPG layout, column 2 is the middle column.
 			// TBTK uses zero-based idxX, so column 2 = idxX 1.
@@ -1073,23 +1202,32 @@ namespace TBTK{
 			AnimPlayMove(false);
 			AudioStopMove();
 		}
-		public IEnumerator FireShootObject(GameObject soPrefab, Node tgtNode, bool aimAtUnit, Vector3 offset=default(Vector3)){
+		public IEnumerator FireShootObject(GameObject soPrefab, Node tgtNode, bool aimAtUnit, Vector3 offset=default(Vector3), List<Transform> customShootPointList=null, float customShootPointSpacing=-1){
 			waitingForHit=true;
 			
-			for(int i=0; i<shootPointList.Count; i++){
-				GameObject sObj=(GameObject)Instantiate(soPrefab, shootPointList[i].position, shootPointList[i].rotation);
+			List<Transform> usedShootPointList=HasValidShootPoint(customShootPointList) ? customShootPointList : shootPointList;
+			if(!HasValidShootPoint(usedShootPointList)){
+				usedShootPointList=new List<Transform>();
+				usedShootPointList.Add(thisT);
+			}
+			
+			float usedSpacing=customShootPointSpacing>=0 ? customShootPointSpacing : shootPointSpacing;
+			
+			for(int i=0; i<usedShootPointList.Count; i++){
+				Transform shootPoint=usedShootPointList[i]!=null ? usedShootPointList[i] : thisT;
+				GameObject sObj=(GameObject)Instantiate(soPrefab, shootPoint.position, shootPoint.rotation);
 				ShootObject soInstance=sObj.GetComponent<ShootObject>();
 				
 				if(aimAtUnit && tgtNode.unit!=null){
-					if(i==shootPointList.Count-1) soInstance.InitShoot(tgtNode.unit, HitCallback, shootPointList[i]);
-					else soInstance.InitShoot(tgtNode.unit, null, shootPointList[i]);
+					if(i==usedShootPointList.Count-1) soInstance.InitShoot(tgtNode.unit, HitCallback, shootPoint);
+					else soInstance.InitShoot(tgtNode.unit, null, shootPoint);
 				}
 				else{
-					if(i==shootPointList.Count-1) soInstance.InitShoot(tgtNode, HitCallback, shootPointList[i], offset);
-					else soInstance.InitShoot(tgtNode, null, shootPointList[i], offset);
+					if(i==usedShootPointList.Count-1) soInstance.InitShoot(tgtNode, HitCallback, shootPoint, offset);
+					else soInstance.InitShoot(tgtNode, null, shootPoint, offset);
 				}
 				
-				if(i<shootPointList.Count-1) yield return new WaitForSeconds(shootPointSpacing);
+				if(i<usedShootPointList.Count-1) yield return new WaitForSeconds(usedSpacing);
 			}
 			
 			while(waitingForHit) yield return null;
@@ -1218,7 +1356,12 @@ namespace TBTK{
 		}
 		
 		public void EndAllAction(){
-			ap=0;
+			// End remaining actions without forcing AP to 0 when AP cost systems are disabled.
+			// This fixes AP suddenly becoming 0 after one attack when End Move After Attack is enabled.
+			/*if(GameControl.UseAPToMove() || GameControl.UseAPToAttack()){
+				ap=0;
+			}*/
+
 			moveThisTurn=(int)stats.moveLimit;		
 			//attackThisTurn=(int)stats.attackLimit;			//dont end attack incase the unit can do two attack in a single turn
 			abilityThisTurn=(int)stats.abilityLimit;
@@ -1261,6 +1404,12 @@ namespace TBTK{
 		public AnimationClip clipHit;
 		public AnimationClip clipDestroyed;
 		
+		[Space(5)]
+		[Header("Status Animation")]
+		public bool useStunAnimation=true;
+		public string stunAnimatorBool="Stunned";
+		public AnimationClip clipStunned;
+		
 		public AnimationClip clipAttackRange;
 		public AnimationClip clipAttackMelee;
 		public float animAttackDelayRange=0;
@@ -1268,7 +1417,54 @@ namespace TBTK{
 		
 		public List<AnimationClip> clipAbilityList=new List<AnimationClip>();
 		public List<float> animAbilityDelayList=new List<float>();
+		public List<UnitAbilityShootPointSet> abilityShootPointSetList=new List<UnitAbilityShootPointSet>();
 		
+		private void EnsureAbilityShootPointSetList(){
+			int count=Mathf.Max(clipAbilityList.Count, 6);
+			while(abilityShootPointSetList.Count<count) abilityShootPointSetList.Add(new UnitAbilityShootPointSet());
+			for(int i=0; i<abilityShootPointSetList.Count; i++){
+				if(abilityShootPointSetList[i]==null) abilityShootPointSetList[i]=new UnitAbilityShootPointSet();
+			}
+		}
+
+		private bool HasAbilityAnimation(int idx){
+			return idx>=0 && clipAbilityList.Count>idx && clipAbilityList[idx]!=null;
+		}
+
+		private bool HasValidShootPoint(List<Transform> list){
+			if(list==null || list.Count==0) return false;
+			for(int i=0; i<list.Count; i++){
+				if(list[i]!=null) return true;
+			}
+			return false;
+		}
+
+		private List<Transform> GetAbilityShootPointList(int abilityIdx){
+			EnsureAbilityShootPointSetList();
+			if(abilityIdx>=0 && abilityShootPointSetList.Count>abilityIdx && abilityShootPointSetList[abilityIdx]!=null && HasValidShootPoint(abilityShootPointSetList[abilityIdx].shootPointList)) return abilityShootPointSetList[abilityIdx].shootPointList;
+			return shootPointList;
+		}
+
+		private float GetAbilityShootPointSpacing(int abilityIdx){
+			EnsureAbilityShootPointSetList();
+			if(abilityIdx>=0 && abilityShootPointSetList.Count>abilityIdx && abilityShootPointSetList[abilityIdx]!=null) return abilityShootPointSetList[abilityIdx].shootPointSpacing;
+			return -1;
+		}
+
+		private Transform GetFirstShootPoint(List<Transform> list){
+			if(list!=null){
+				for(int i=0; i<list.Count; i++){
+					if(list[i]!=null) return list[i];
+				}
+			}
+			if(shootPointList!=null){
+				for(int i=0; i<shootPointList.Count; i++){
+					if(shootPointList[i]!=null) return shootPointList[i];
+				}
+			}
+			return thisT;
+		}
+
 		private void InitAnimation(){
 			if(animatorT!=null) animator=animatorT.GetComponent<Animator>();
 			if(animator==null) return;
@@ -1287,17 +1483,35 @@ namespace TBTK{
 			if(clipAttackRange!=null) 	aniOverrideController["AttackRange"] = clipAttackRange;
 			if(clipAttackMelee!=null) 	aniOverrideController["AttackMelee"] = clipAttackMelee;
 			if(clipDestroyed!=null) 	aniOverrideController["Destroyed"] = clipDestroyed;
+			if(clipStunned!=null) 		aniOverrideController["Stunned"] = clipStunned;
 			
-			for(int i=0; i<6; i++){
+			EnsureAbilityShootPointSetList();
+			for(int i=0; i<Mathf.Min(6, clipAbilityList.Count); i++){
 				if(clipAbilityList[i]==null) continue;
 				aniOverrideController["Ability"+(i+1)] = clipAbilityList[i];
 			}
+			
+			UpdateStunAnimation();
+		}
+		
+		public void UpdateStunAnimation(){
+			if(!useStunAnimation) return;
+			if(animator==null) return;
+			if(string.IsNullOrEmpty(stunAnimatorBool)) return;
+			animator.SetBool(stunAnimatorBool, IsStunned());
 		}
 		
 		private float AnimPlayAbility(int idx){
 			Debug.Log("AnimPlayAbility  "+idx);
 			if(animator==null || idx<0 || clipAbilityList.Count<=idx || clipAbilityList[idx]==null) return 0;
+
 			animator.SetTrigger("Ability"+(idx+1));
+
+			// Ability1 / Ability2 / Ability3 etc must be allowed to finish before JRPG melee return.
+			// The returned value below is only the hit/shoot delay, not the full animation length.
+			// So we also start the same wait flag used by AttackRange/AttackMelee.
+			StartCoroutine(WaitingForAttackAnimation(clipAbilityList[idx].length));
+
 			return animAbilityDelayList.Count>idx ? animAbilityDelayList[idx] : 0;
 		}
 		

@@ -473,12 +473,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &42656320
 MonoBehaviour:
@@ -558,7 +558,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -735,12 +735,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &99310491
 MonoBehaviour:
@@ -820,7 +820,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -978,12 +978,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &147108726
 MonoBehaviour:
@@ -1063,7 +1063,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1229,6 +1229,150 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179490994}
   m_CullTransparentMesh: 1
+--- !u!1 &193562389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 193562390}
+  - component: {fileID: 193562392}
+  - component: {fileID: 193562391}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &193562390
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193562389}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 908886480}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1.210022, y: 2.0856}
+  m_SizeDelta: {x: 516.05, y: 132.2252}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &193562391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193562389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'New Text
+
+
+    thg
+
+    gfhfgh
+
+    hgfh
+
+    cxascz'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: a188fcdc1277de440a5b9aa86645a2f1, type: 2}
+  m_sharedMaterial: {fileID: 85457958515100782, guid: a188fcdc1277de440a5b9aa86645a2f1,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 21.07
+  m_fontSizeBase: 21.07
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 2
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &193562392
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193562389}
+  m_CullTransparentMesh: 1
 --- !u!1 &195267801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,12 +1440,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &195267804
 MonoBehaviour:
@@ -1381,7 +1525,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1464,12 +1608,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &229067773
 MonoBehaviour:
@@ -1549,7 +1693,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1806,12 +1950,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &280988174
 MonoBehaviour:
@@ -1891,7 +2035,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -2761,12 +2905,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &408194584
 MonoBehaviour:
@@ -2846,7 +2990,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -3254,12 +3398,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &492577948
 MonoBehaviour:
@@ -3339,7 +3483,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -3516,12 +3660,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &532513612
 MonoBehaviour:
@@ -3601,7 +3745,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -3669,7 +3813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneNames: MainMenu
-  buttonFxSource: {fileID: 1075266112}
+  SoundManager: {fileID: 0}
   buttonFxClip: {fileID: 8300000, guid: 79c1013c719fb094081e2799c615b4d6, type: 3}
 --- !u!114 &535526363
 MonoBehaviour:
@@ -3727,7 +3871,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1075266112}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: PlayOneShot
         m_Mode: 2
@@ -4520,134 +4664,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625893820}
   m_CullTransparentMesh: 1
---- !u!1 &651525238
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 651525239}
-  - component: {fileID: 651525240}
-  m_Layer: 0
-  m_Name: BGM
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &651525239
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 651525238}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2016098657}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &651525240
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 651525238}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a7faabc59d930844b92f13b13fdacca0, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.5
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &655481116
 GameObject:
   m_ObjectHideFlags: 0
@@ -5315,12 +5331,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &758226365
 MonoBehaviour:
@@ -5400,7 +5416,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -5483,12 +5499,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &790172057
 MonoBehaviour:
@@ -5568,7 +5584,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -6107,12 +6123,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &850990989
 MonoBehaviour:
@@ -6192,7 +6208,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -6492,6 +6508,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890036427}
   m_CullTransparentMesh: 1
+--- !u!1 &908886479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 908886480}
+  - component: {fileID: 908886482}
+  - component: {fileID: 908886481}
+  m_Layer: 5
+  m_Name: Window
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &908886480
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908886479}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1919755339}
+  - {fileID: 193562390}
+  m_Father: {fileID: 1061799180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -605, y: -17}
+  m_SizeDelta: {x: 550, y: 170}
+  m_Pivot: {x: -0.1, y: -0.1}
+--- !u!114 &908886481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908886479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 844117423, guid: 18caf72ac3ccbe04f95528247defc35d, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 0.24
+--- !u!222 &908886482
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908886479}
+  m_CullTransparentMesh: 1
 --- !u!1 &923446531
 GameObject:
   m_ObjectHideFlags: 0
@@ -6686,7 +6779,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -6728,12 +6821,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!1 &954686828
 GameObject:
@@ -6857,6 +6950,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1061799179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1061799180}
+  - component: {fileID: 1061799181}
+  m_Layer: 5
+  m_Name: Area Info
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1061799180
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061799179}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 908886480}
+  m_Father: {fileID: 1981627107}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1061799181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061799179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e152d71c6c2bf4fbe6e0a938028bb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalAreaManager: {fileID: 0}
+  targetText: {fileID: 193562391}
+  currentTotalArea: 15
+  knownFactions:
+  - factionId: 0
+    factionName: Aurek Dominion
+  - factionId: 1
+    factionName: Veydran Collective
+  - factionId: 2
+    factionName: Kharvoss Covenant
+  - factionId: 3
+    factionName: Nocteris Syndicate
+  showZeroCountFactions: 1
+  showUnownedAreas: 1
+  title: AREA OWNERSHIP
+  emptyText: No global area data loaded.
+  unownedLabel: Unowned
+  refreshOnEnable: 1
+  downloadIfNoData: 1
+  debugLog: 0
 --- !u!1 &1074421343
 GameObject:
   m_ObjectHideFlags: 0
@@ -6955,134 +7117,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &1075266110
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1075266111}
-  - component: {fileID: 1075266112}
-  m_Layer: 0
-  m_Name: SFX
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1075266111
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1075266110}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2016098657}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1075266112
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1075266110}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 0.5
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1176693635
 GameObject:
   m_ObjectHideFlags: 0
@@ -7150,12 +7184,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &1176693638
 MonoBehaviour:
@@ -7235,7 +7269,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -7318,12 +7352,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &1176927689
 MonoBehaviour:
@@ -7403,7 +7437,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -7486,12 +7520,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &1203591294
 MonoBehaviour:
@@ -7571,7 +7605,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -8241,12 +8275,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &1307960947
 MonoBehaviour:
@@ -8326,7 +8360,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -8491,7 +8525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1353898728
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8843,12 +8877,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &1427933412
 MonoBehaviour:
@@ -8928,7 +8962,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -9011,12 +9045,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &1433071059
 MonoBehaviour:
@@ -9096,7 +9130,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -9218,12 +9252,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &1452935152
 MonoBehaviour:
@@ -9303,7 +9337,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -9461,12 +9495,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &1470561608
 MonoBehaviour:
@@ -9546,7 +9580,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -10088,7 +10122,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -10130,12 +10164,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!1 &1658052899
 GameObject:
@@ -11083,63 +11117,100 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863699427}
   m_CullTransparentMesh: 1
---- !u!1001 &1938540187
-PrefabInstance:
+--- !u!1 &1919755338
+GameObject:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1121, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
-      propertyPath: m_Name
-      value: mod_DIBS00
-      objectReference: {fileID: 0}
-    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4380, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 10f45eae8ba84d3bbd2b6a4d1482bb06, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1919755339}
+  - component: {fileID: 1919755342}
+  - component: {fileID: 1919755341}
+  - component: {fileID: 1919755340}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1919755339
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919755338}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0001001, y: 1.0001001, z: 1.0001001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 908886480}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 689.89746, y: 19.912151}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1919755340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919755338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
+--- !u!114 &1919755341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919755338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: bc5ad8f020b5142428c8dbecc291e922, type: 3}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'Tooltip - desp desp desp desp desp desp '
+--- !u!222 &1919755342
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919755338}
+  m_CullTransparentMesh: 1
 --- !u!1 &1941473697
 GameObject:
   m_ObjectHideFlags: 0
@@ -11155,7 +11226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1941473698
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11434,6 +11505,7 @@ RectTransform:
   - {fileID: 535526361}
   - {fileID: 1074421344}
   - {fileID: 1856177373}
+  - {fileID: 1061799180}
   - {fileID: 954686829}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11777,12 +11849,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &1991049011
 MonoBehaviour:
@@ -11862,7 +11934,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -11969,39 +12041,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004877595}
   m_CullTransparentMesh: 1
---- !u!1 &2016098656
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2016098657}
-  m_Layer: 0
-  m_Name: AudioManger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2016098657
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016098656}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 646.9138, y: 239.85075, z: 9.216705}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 651525239}
-  - {fileID: 1075266111}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2019895313
 GameObject:
   m_ObjectHideFlags: 0
@@ -12121,7 +12160,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -12163,12 +12202,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!1 &2053585051
 GameObject:
@@ -12446,12 +12485,12 @@ MonoBehaviour:
   tooltipOffset: {x: 20, y: 20}
   followMouse: 0
   clampTooltipToCanvas: 1
-  sfx: {fileID: 1075266112}
   sfxSound: {fileID: 8300000, guid: ccad6a2bd5e18bc45a9eca8f8ab4b6a4, type: 3}
   selectorManager: {fileID: 231402595}
   mapSyncController: {fileID: 489140760}
   areaDatabase: {fileID: 11400000, guid: a047cf2af22c96945a3cecb6a0dd31a0, type: 2}
   factionDatabase: {fileID: 11400000, guid: 408f6050d106e8a4fa0efd96f3f69848, type: 2}
+  SoundManager: {fileID: 0}
   refreshEverySecond: 1
 --- !u!114 &2075814768
 MonoBehaviour:
@@ -12531,7 +12570,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0eb1b35d97ed8024cbbec93bf7a05742, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -13284,7 +13323,6 @@ SceneRoots:
   - {fileID: 1585731551}
   - {fileID: 573775192}
   - {fileID: 1679777956}
-  - {fileID: 2016098657}
   - {fileID: 406568776}
   - {fileID: 8977774642423844943}
   - {fileID: 6576443850187910198}
@@ -13296,4 +13334,3 @@ SceneRoots:
   - {fileID: 1244467517}
   - {fileID: 1057744507}
   - {fileID: 1273536258}
-  - {fileID: 1938540187}

@@ -136,7 +136,8 @@ namespace TBTK{
 			InitShoot(cb, shootP);
 		}
 		public void InitShoot(HitCallback cb=null, Transform shootP=null){
-			if(attachToShootPoint) thisT.parent=shootPoint;
+			shootPoint=shootP;
+			if(attachToShootPoint && shootPoint!=null) thisT.parent=shootPoint;
 			
 			shot=true;	hit=false; shootTime=Time.time;
 			

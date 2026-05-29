@@ -107,8 +107,18 @@ namespace TBTK{
 		
 		//animation
 		public bool useAttackSequence;
+		public bool fireShootObjectWithAbilityAnimation=false;	//When Use Attack Sequence is false, still fire ShootObject after AbilityX animation
 		public bool aimAtUnit;
 		public ShootObject shootObject;
+
+		[Header("Ability Animation")]
+		public string abilityAnimationTrigger="Ability1";	//Used when Use Attack Sequence is false. Example: Ability1, Ability2, Ability3.
+		public string abilityAnimationState="Ability1";		//Animator state name to wait for before JRPG melee unit returns. Usually same as trigger.
+		public int abilityAnimationLayer=0;
+		public bool waitForAbilityAnimationComplete=true;	//JRPG mode: wait until Ability1/Ability2/etc animation completes before returning.
+		public float abilityAnimationTimeout=8f;		//Safety timeout so a looping/missing animation does not lock the game forever.
+
+		public float jrpgMeleeStepDistance=2f;	//JRPG mode only: visual step distance from target, measured in node-size units, for melee ability
 		
 		
 		//visual effects
@@ -156,13 +166,21 @@ namespace TBTK{
 			currentCD=GetCooldown();
 			
 			if(srcUnit!=null){
+				// Always pay the ability AP cost first, even when the ability ends all actions.
+				// Previously AP was only deducted when endAllActionAfterUse was false.
+				int actualAPCost=GetAPCost();
+				if(actualAPCost>0){
+					srcUnit.ap=Mathf.Max(0, srcUnit.ap-actualAPCost);
+				}
+				
 				if(!endAllActionAfterUse){
 					srcUnit.moveThisTurn+=moveCost;	
 					srcUnit.attackThisTurn+=attackCost;	
 					srcUnit.abilityThisTurn+=abilityCost;
-					srcUnit.ap-=GetAPCost();
 				}
-				else srcUnit.EndAllAction();
+				else{
+					srcUnit.EndAllAction();
+				}
 				
 				effectOnUse.Spawn(srcUnit.GetPos());
 			}
@@ -170,6 +188,7 @@ namespace TBTK{
 			Debug.Log("Play activateSound - "+activateSound);
 			AudioManager.PlaySound(activateSound);
 		}
+
 		
 		
 		
@@ -635,18 +654,14 @@ namespace TBTK{
 		public bool IsMeleeSkill(){ return skillRangeType==_SkillRangeType.Melee; }
 
 		public int GetRangeMin(){
-			if(IsMeleeSkill() && srcUnit!=null && srcUnit.hasMeleeAttack && srcUnit.statsMelee!=null){
-				return Mathf.Max(0, Mathf.RoundToInt(srcUnit.statsMelee.attackRangeMin));
-			}
-
+			// Both Distance and Melee ability use the ability's own range values.
+			// SkillRangeType only changes activation/animation behaviour, not where the range is read from.
 			if(IsUAB()) return (int)(rangeMin * PerkManager.GetUAbilityMulRange(prefabID) + PerkManager.GetUAbilityModRange(prefabID));
 			else 			return rangeMin;
 		}
 		public int GetRange(){
-			if(IsMeleeSkill() && srcUnit!=null && srcUnit.hasMeleeAttack && srcUnit.statsMelee!=null){
-				return Mathf.Max(0, Mathf.RoundToInt(srcUnit.statsMelee.attackRange));
-			}
-
+			// Both Distance and Melee ability use the ability's own range values.
+			// This prevents melee ability from being forced to Unit.statsMelee attack range.
 			if(IsUAB()) return (int)(range * PerkManager.GetUAbilityMulRange(prefabID) + PerkManager.GetUAbilityModRange(prefabID));
 			else 			return range;
 		}
@@ -708,8 +723,15 @@ namespace TBTK{
 			clone.switchFacControllable=switchFacControllable;
 			
 			clone.useAttackSequence=useAttackSequence;
+			clone.fireShootObjectWithAbilityAnimation=fireShootObjectWithAbilityAnimation;
 			clone.aimAtUnit=aimAtUnit;
 			clone.shootObject=shootObject;
+			clone.abilityAnimationTrigger=abilityAnimationTrigger;
+			clone.abilityAnimationState=abilityAnimationState;
+			clone.abilityAnimationLayer=abilityAnimationLayer;
+			clone.waitForAbilityAnimationComplete=waitForAbilityAnimationComplete;
+			clone.abilityAnimationTimeout=abilityAnimationTimeout;
+			clone.jrpgMeleeStepDistance=jrpgMeleeStepDistance;
 			
 			clone.effectOnUse=effectOnUse!=null ? effectOnUse.Clone() : new VisualObject();
 			clone.effectOnHit=effectOnHit!=null ? effectOnHit.Clone() : new VisualObject();

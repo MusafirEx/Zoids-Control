@@ -194,6 +194,20 @@ namespace TBTK {
 				TBE.Label(startX, startY+=spaceY, width, height, "Description:", "Unit description shown in factory/team/colosseum UI");
 				unit.unitDescription=EditorGUI.TextField(new Rect(startX+spaceX-10, startY, width*1.5f, height), unit.unitDescription);
 
+				startY+=10;
+
+				TBE.Label(startX, startY+=spaceY, width, height, "Limited Owned:", "If checked, player can only own a limited number of this Zoid prefab");
+				unit.limitedOwned=EditorGUI.Toggle(new Rect(startX+spaceX-10, startY, widthS, height), unit.limitedOwned);
+
+				TBE.Label(startX, startY+=spaceY, width, height, "Owned Limit:", "Maximum number of this Zoid the player can own. Only used when Limited Owned is checked.");
+				if(unit.limitedOwned){
+					unit.ownedLimit=EditorGUI.DelayedIntField(new Rect(startX+spaceX-10, startY, widthS, height), unit.ownedLimit);
+					if(unit.ownedLimit<1) unit.ownedLimit=1;
+				}
+				else{
+					TBE.Label(startX+spaceX-10, startY, width, height, "Unlimited", "");
+				}
+
 				startY+=10+spaceY;
 			
 				foldSetting=EditorGUI.Foldout(new Rect(startX, startY, spaceX, height), foldSetting, "Settings", TBE.foldoutS);
@@ -570,7 +584,7 @@ namespace TBTK {
 						int effIdx=EffectDB.GetPrefabIndex(unit.immuneEffectList[i]);
 						effIdx = EditorGUI.Popup(new Rect(startX+spaceX, startY, width, height), effIdx, EffectDB.label);
 						int prefabID=EffectDB.GetItemID(effIdx);
-						if(!unit.attackEffectIDList.Contains(prefabID)) unit.attackEffectIDList[i]=prefabID;
+						if(!unit.immuneEffectList.Contains(prefabID)) unit.immuneEffectList[i]=prefabID;
 						
 						if(GUI.Button(new Rect(startX+spaceX+width+3, startY, height, height), "-")){ unit.immuneEffectList.RemoveAt(i); }
 					}
@@ -635,6 +649,20 @@ namespace TBTK {
 					TBE.Label(startX, startY+=spaceY, width, height, " - Destroyed:", "");
 					unit.clipDestroyed=(AnimationClip)EditorGUI.ObjectField(new Rect(startX+spaceX, startY, width, height), unit.clipDestroyed, typeof(AnimationClip), true);
 					
+					startY+=spaceY*0.5f;
+					TBE.Label(startX, startY+=spaceY, width, height, "Status Animation:", "Animation settings for status effects such as stun", TBE.headerS);
+					
+					TBE.Label(startX, startY+=spaceY, width, height, " - Use Stun Anim:", "If enabled, Unit.cs sets the Animator bool when Effect.stun is active");
+					unit.useStunAnimation=EditorGUI.Toggle(new Rect(startX+spaceX, startY, widthS, height), unit.useStunAnimation);
+					
+					TBE.Label(startX, startY+=spaceY, width, height, " - Stun Bool:", "Animator bool parameter name. Default is Stunned");
+					if(unit.useStunAnimation) unit.stunAnimatorBool=EditorGUI.TextField(new Rect(startX+spaceX, startY, width, height), unit.stunAnimatorBool);
+					else TBE.Label(startX+spaceX, startY, width, height, "-", "");
+					
+					TBE.Label(startX, startY+=spaceY, width, height, " - Stunned:", "Optional animation clip override for animator state named Stunned");
+					if(unit.useStunAnimation) unit.clipStunned=(AnimationClip)EditorGUI.ObjectField(new Rect(startX+spaceX, startY, width, height), unit.clipStunned, typeof(AnimationClip), true);
+					else TBE.Label(startX+spaceX, startY, width, height, "-", "");
+					
 					widthS-=5;
 					startY+=spaceY*0.5f;
 					
@@ -666,13 +694,42 @@ namespace TBTK {
 					
 					while(unit.animAbilityDelayList.Count<count) unit.animAbilityDelayList.Add(0);
 					while(unit.animAbilityDelayList.Count>count) unit.animAbilityDelayList.RemoveAt(unit.animAbilityDelayList.Count-1);
+
+					while(unit.abilityShootPointSetList.Count<count) unit.abilityShootPointSetList.Add(new UnitAbilityShootPointSet());
+					while(unit.abilityShootPointSetList.Count>count) unit.abilityShootPointSetList.RemoveAt(unit.abilityShootPointSetList.Count-1);
+					for(int i=0; i<unit.abilityShootPointSetList.Count; i++){
+						if(unit.abilityShootPointSetList[i]==null) unit.abilityShootPointSetList[i]=new UnitAbilityShootPointSet();
+					}
 					
 					for(int i=0; i<count; i++){
-						TBE.Label(startX, startY+=spaceY, width, height, " - Ability"+(i+1)+" (delay):", "Second column being the delay in second after the animation is played before the target is hit\nThis is for synchronizing the ability sequence to the animation");
+						TBE.Label(startX, startY+=spaceY, width, height, " - Ability"+(i+1)+" (delay):", "Second column being the delay in second after the animation is played before the shoot-object is fired\nThis is for synchronizing the ability sequence to the animation");
 						unit.clipAbilityList[i]=(AnimationClip)EditorGUI.ObjectField(new Rect(startX+spaceX, startY, width-widthS, height), unit.clipAbilityList[i], typeof(AnimationClip), true);
 						
 						if(unit.clipAbilityList[i]==null)	GUI.color=Color.grey;
 						unit.animAbilityDelayList[i]=EditorGUI.DelayedFloatField(new Rect(startX+spaceX+(width-widthS), startY, widthS, height), unit.animAbilityDelayList[i]);	GUI.color=Color.white;
+
+						UnitAbilityShootPointSet abSP=unit.abilityShootPointSetList[i];
+						int spCount=abSP.shootPointList.Count;
+						TBE.Label(startX+10, startY+=spaceY, width, height, "   ShootPoint Count:", "Shoot points used by this ability slot when the selected ability uses Distance range and Use Attack Sequence is enabled. Empty means fallback to the unit default ShootPoint list.");
+						spCount=EditorGUI.DelayedIntField(new Rect(startX+spaceX, startY, widthS, height), spCount);
+						if(spCount<0) spCount=0;
+						while(abSP.shootPointList.Count<spCount) abSP.shootPointList.Add(null);
+						while(abSP.shootPointList.Count>spCount) abSP.shootPointList.RemoveAt(abSP.shootPointList.Count-1);
+
+						for(int n=0; n<abSP.shootPointList.Count; n++){
+							TBE.Label(startX+20, startY+=spaceY, width, height, "      - Element "+(n+1)+":", "Transform used as shoot point for Ability"+(i+1));
+							if(!useDropDownMenuForHierarchy){
+								abSP.shootPointList[n]=(Transform)EditorGUI.ObjectField(new Rect(startX+spaceX, startY, width, height), abSP.shootPointList[n], typeof(Transform), true);
+							}
+							else{
+								objIdx=GetIndexFromHierarchy(abSP.shootPointList[n], objHierarchyList);
+								objIdx = EditorGUI.Popup(new Rect(startX+spaceX, startY, width, height), objIdx, objHierarchylabel);
+								abSP.shootPointList[n] = objHierarchyList[objIdx];
+							}
+						}
+
+						TBE.Label(startX+10, startY+=spaceY, width, height, "   ShootPoint Spacing:", "Delay between this ability shoot points. Use -1 to fallback to unit default Shoot Point Spacing.");
+						abSP.shootPointSpacing=EditorGUI.DelayedFloatField(new Rect(startX+spaceX, startY, widthS, height), abSP.shootPointSpacing);
 					}
 					
 					widthS+=5;

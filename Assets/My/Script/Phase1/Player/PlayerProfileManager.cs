@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerProfileManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerProfileManager : MonoBehaviour
     [Header("Local Save")]
     [SerializeField] private string saveKey = DefaultSaveKey;
     [SerializeField] private bool autoLoadOnAwake = true;
+    
 
     public PlayerProfileData CurrentProfile { get; private set; }
 
@@ -140,4 +142,6 @@ public class PlayerProfileManager : MonoBehaviour
         CurrentProfile.nextAreaBattleUnix = now + (hours * 3600L);
         SaveProfile();
     }
+
+    
 }

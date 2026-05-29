@@ -1,8 +1,16 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class FactionSelectButtonBridge : MonoBehaviour
+public class FactionSelectButtonBridge : MonoBehaviour,IPointerEnterHandler
 {
     [SerializeField] private int factionId = 0;
+    private MapSFX soundManager;
+    public AudioClip buttonHoverFx;
+
+    public void Start()
+    {
+        soundManager = MapSFX.Instance;
+    }
 
     public void ChooseFaction()
     {
@@ -13,5 +21,10 @@ public class FactionSelectButtonBridge : MonoBehaviour
         }
 
         ZoidsGameJoltProfileBridge.Instance.ChooseFactionWithCurrentAccount(factionId);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        soundManager.sfx.PlayOneShot(buttonHoverFx);
     }
 }

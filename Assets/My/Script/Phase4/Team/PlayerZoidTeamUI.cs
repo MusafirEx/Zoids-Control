@@ -9,6 +9,10 @@ public class PlayerZoidTeamUI : MonoBehaviour
     [Header("References")]
     [SerializeField] private PlayerZoidTeamManager teamManager;
     [SerializeField] private UnitProgressManager progressManager;
+    private MapSFX soundManager;
+    public AudioClip saveSfx;
+    public AudioClip moveSfxSucces;
+    public AudioClip moveSfxFailed;
 
     [Header("Left Column - Available Owned Zoids")]
     [SerializeField] private Transform availableParent;
@@ -75,6 +79,11 @@ public class PlayerZoidTeamUI : MonoBehaviour
     {
         RefreshRuntimeReferences();
         HookButtons();
+    }
+
+    public void Start()
+    {
+        soundManager = MapSFX.Instance;
     }
 
     private void OnEnable()
@@ -201,10 +210,12 @@ public class PlayerZoidTeamUI : MonoBehaviour
             SetStatus("Added unit " + unitId + " to Team " + (activeTeamIndex + 1));
             ClearSelection();
             RefreshUI();
+            soundManager.sfx.PlayOneShot(moveSfxSucces);
         }
         else
         {
             SetStatus("Failed to add unit " + unitId);
+            soundManager.sfx.PlayOneShot(moveSfxFailed);
         }
     }
 
@@ -239,10 +250,12 @@ public class PlayerZoidTeamUI : MonoBehaviour
             SetStatus("Removed " + unitName + " from Team " + (activeTeamIndex + 1));
             ClearSelection();
             RefreshUI();
+            soundManager.sfx.PlayOneShot(moveSfxSucces);
         }
         else
         {
             SetStatus("Failed to remove " + unitName);
+            soundManager.sfx.PlayOneShot(moveSfxFailed);
         }
     }
 
@@ -279,6 +292,8 @@ public class PlayerZoidTeamUI : MonoBehaviour
 
         teamManager.SaveTeams();
         SetStatus("Teams saved.");
+
+        soundManager.sfx.PlayOneShot(saveSfx);
 
         if (uploadCloudSaveAfterSaveButton)
             UploadTeamDataToGameJolt("Uploading teams...");

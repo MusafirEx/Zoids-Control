@@ -14,20 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rscIcon: {fileID: 0}
   perkList:
-  - prefabID: 15
+  - prefabID: 0
     instanceID: -1
-    icon: {fileID: 2056357784, guid: 0dd901aa51534c659f29ba1e0428b4da, type: 3}
-    name: SCHENEIDER CAS
-    desp: The first CAS Unit for the Liger Zero to be developed, and was released
-      as the CP-17 Schneider Unit.
+    icon: {fileID: 0}
+    name: Item
+    desp: Item's description
     type: 0
     repeatable: 0
     unlocked: 0
-    cost: 30
+    cost: 1
     minPerkPoint: 0
     prereq: 
     statsType: 1
-    abilityPID: 18
+    abilityPID: 0
     stats:
       hp: 1
       ap: 1
@@ -68,126 +67,8 @@ MonoBehaviour:
       effduration: 1
       effHP: 1
       effAP: 1
-    applyToAll: 0
-    itemPIDList: 120000001800000019000000
-    effModType: 0
-    effIDList: 
-    unitImmuneEffIDList: 
-  - prefabID: 13
-    instanceID: -1
-    icon: {fileID: -574966007, guid: 0dd901aa51534c659f29ba1e0428b4da, type: 3}
-    name: JAGER CAS
-    desp: 'The second CAS to be developed for the Liger Zero. It focuses on speed
-      and maneuverability. '
-    type: 0
-    repeatable: 0
-    unlocked: 0
-    cost: 30
-    minPerkPoint: 0
-    prereq: 0f000000
-    statsType: 1
-    abilityPID: 16
-    stats:
-      hp: 1
-      ap: 1
-      hpRegen: 1
-      apRegen: 1
-      attack: 1
-      defense: 1
-      hit: 1
-      dodge: 1
-      dmgHPMin: 1
-      dmgHPMax: 1
-      dmgAPMin: 1
-      dmgAPMax: 1
-      critChance: 1
-      critReduc: 1
-      critMultiplier: 1
-      cDmgMultip: 1
-      cHitPenalty: 1
-      cCritPenalty: 1
-      oDmgMultip: 1
-      oHitPenalty: 1
-      oCritPenalty: 1
-      attackRange: 1
-      attackRangeMin: 1
-      moveRange: 1
-      turnPriority: 1
-      sight: 1
-      moveLimit: 1
-      attackLimit: 1
-      counterLimit: 1
-      abilityLimit: 1
-      abDuration: 1
-      abCooldown: 1
-      abUseLimit: 1
-      abApCost: 1
-      abAoeRange: 1
-      abEffHitChance: 1
-      effduration: 1
-      effHP: 1
-      effAP: 1
-    applyToAll: 0
-    itemPIDList: 120000001700000019000000
-    effModType: 0
-    effIDList: 
-    unitImmuneEffIDList: 
-  - prefabID: 14
-    instanceID: -1
-    icon: {fileID: 1155697118, guid: 0dd901aa51534c659f29ba1e0428b4da, type: 3}
-    name: PANZER CAS
-    desp: The CP-21 Liger Zero Panzer is specifically designed to be a heavy-artillery
-      Zoid.
-    type: 0
-    repeatable: 0
-    unlocked: 0
-    cost: 30
-    minPerkPoint: 0
-    prereq: 0d000000
-    statsType: 1
-    abilityPID: 17
-    stats:
-      hp: 1
-      ap: 1
-      hpRegen: 1
-      apRegen: 1
-      attack: 1
-      defense: 1
-      hit: 1
-      dodge: 1
-      dmgHPMin: 1
-      dmgHPMax: 1
-      dmgAPMin: 1
-      dmgAPMax: 1
-      critChance: 1
-      critReduc: 1
-      critMultiplier: 1
-      cDmgMultip: 1
-      cHitPenalty: 1
-      cCritPenalty: 1
-      oDmgMultip: 1
-      oHitPenalty: 1
-      oCritPenalty: 1
-      attackRange: 1
-      attackRangeMin: 1
-      moveRange: 1
-      turnPriority: 1
-      sight: 1
-      moveLimit: 1
-      attackLimit: 1
-      counterLimit: 1
-      abilityLimit: 1
-      abDuration: 1
-      abCooldown: 1
-      abUseLimit: 1
-      abApCost: 1
-      abAoeRange: 1
-      abEffHitChance: 1
-      effduration: 1
-      effHP: 1
-      effAP: 1
-    applyToAll: 0
-    itemPIDList: 120000001800000017000000
+    applyToAll: 1
+    itemPIDList: 
     effModType: 0
     effIDList: 
     unitImmuneEffIDList: 
