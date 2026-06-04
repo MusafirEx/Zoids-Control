@@ -228,13 +228,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Atlas_menu_d1_2
+      name: Ranking
       rect:
         serializedVersion: 2
-        x: 904
-        y: 1364
-        width: 73
-        height: 26
+        x: 867
+        y: 1393
+        width: 60
+        height: 51
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -520,11 +520,11 @@ TextureImporter:
       Hand_Pointing: -1489269971
       Nameplate: 1403828658
       Perk: 1823440272
+      Ranking: 1540137658
       Save: 926518415
       TeamManager: 1161918176
       UI_Atlas_menu_d1_0: 277418777
       UI_Atlas_menu_d1_1: -1857099723
-      UI_Atlas_menu_d1_2: 1540137658
       UI_Atlas_menu_d1_3: -896179013
       UI_Atlas_menu_d1_4: -1231528735
       UI_Atlas_menu_d1_5: -906547661

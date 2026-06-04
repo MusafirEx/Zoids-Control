@@ -4,6 +4,32 @@ using UnityEngine;
 
 namespace TBTK{
 	
+
+	public enum AbilityActionCamAnchor{
+		Attacker,
+		Target
+	}
+
+	public enum AbilityActionCamChain{
+		Move,	//Move smoothly from this keyframe to the next keyframe
+		Snap,	//Hold this keyframe, then snap to the next keyframe at its timestamp
+		Follow	//Keep following this keyframe's anchor until the next timestamp
+	}
+
+	public enum AbilityActionCamStartMode{
+		OnAbilityActivated,		//Timeline starts as soon as the ability routine starts
+		OnAbilityAnimationStart	//Timeline starts only when Ability/Attack animation starts, after any pre-movement
+	}
+
+	[System.Serializable]
+	public class AbilityActionCamKeyframe{
+		public AbilityActionCamAnchor anchor=AbilityActionCamAnchor.Attacker;
+		public Vector3 position=new Vector3(0, 3, -6);
+		public Vector3 rotation=new Vector3(20, 0, 0);
+		public float timeStamp=0f;
+		public AbilityActionCamChain chain=AbilityActionCamChain.Move;
+	}
+
 	[System.Serializable]
 	public class Ability : TBTKItem{
 		
@@ -36,6 +62,13 @@ namespace TBTK{
 		public int range=5;
 		public int aoeRange=0;
 		public bool useLineAOE=false;	//aoe only applies in the directions of the adjacent neighbours
+
+		[Header("Multiple Target Lock")]
+		public bool multipleTargetLock=false;	//Unit ability only: automatically lock hostile units instead of selecting one target
+		public bool multipleTargetLockUseSight=true;	//When true, use srcUnit.GetSight() as the lock range. When false, use ability range
+		public bool multipleTargetLockRequireLOS=true;	//When true, each locked hostile unit must pass line-of-sight check
+		public int multipleTargetLockMaxTargets=0;	//0 means unlimited targets
+		public float multipleTargetLockShootDelay=0.08f;	//Delay between locked target shots when visual shoot objects are fired
 		
 		public int fov=60;
 		
@@ -119,6 +152,15 @@ namespace TBTK{
 		public float abilityAnimationTimeout=8f;		//Safety timeout so a looping/missing animation does not lock the game forever.
 
 		public float jrpgMeleeStepDistance=2f;	//JRPG mode only: visual step distance from target, measured in node-size units, for melee ability
+
+		[Header("Ability Action Cam Timeline")]
+		public bool useActionCamTimeline=false;
+		public AbilityActionCamStartMode actionCamTimelineStartMode=AbilityActionCamStartMode.OnAbilityAnimationStart;
+		public bool actionCamTimelineReturnToNormal=true;
+		public float actionCamTimelineHoldAfterLast=0.25f;
+		public float actionCamTimelineReturnDuration=0.5f;
+		public List<AbilityActionCamKeyframe> actionCamTimeline=new List<AbilityActionCamKeyframe>();
+
 		
 		
 		//visual effects
@@ -589,6 +631,39 @@ namespace TBTK{
 			if(node!=null) effectOnHit.Spawn(node.GetPos());
 		}
 
+		public IEnumerator HitMultipleTargetLock(List<Unit> targetList){
+			Debug.Log("HitMultipleTargetLock "+name+" targets="+(targetList!=null ? targetList.Count : 0));
+			
+			if(impactDelay>0) yield return new WaitForSeconds(impactDelay);
+			if(targetList==null) yield break;
+			
+			for(int i=0; i<targetList.Count; i++){
+				Unit target=targetList[i];
+				if(target==null || target.node==null || target.hp<=0) continue;
+				if(srcUnit!=null && target.GetFacID()==srcUnit.GetFacID()) continue;
+				
+				// Multiple Target Lock is hostile-only. Generic abilities apply normal ability impact/effects.
+				// None abilities are allowed for custom/no-impact visual lock-on abilities.
+				if(type==_AbilityType.Generic) target.ApplyAttack(this);
+				
+				effectOnHit.Spawn(target.GetPos());
+			}
+		}
+
+		public bool IsMultipleTargetLock(){ return isUnitAbility && multipleTargetLock; }
+		public int GetMultipleTargetLockRange(){
+			if(multipleTargetLockUseSight && srcUnit!=null) return srcUnit.GetSight();
+			return GetRange();
+		}
+		public int GetMultipleTargetLockMaxTargets(){ return Mathf.Max(0, multipleTargetLockMaxTargets); }
+		public float GetMultipleTargetLockShootDelay(){ return Mathf.Max(0, multipleTargetLockShootDelay); }
+
+		public bool UseActionCamTimeline(){ return isUnitAbility && useActionCamTimeline && actionCamTimeline!=null && actionCamTimeline.Count>0; }
+		public bool StartActionCamTimelineOnActivation(){ return actionCamTimelineStartMode==AbilityActionCamStartMode.OnAbilityActivated; }
+		public bool StartActionCamTimelineOnAnimationStart(){ return actionCamTimelineStartMode==AbilityActionCamStartMode.OnAbilityAnimationStart; }
+		public float GetActionCamTimelineHoldAfterLast(){ return Mathf.Max(0, actionCamTimelineHoldAfterLast); }
+		public float GetActionCamTimelineReturnDuration(){ return Mathf.Max(0, actionCamTimelineReturnDuration); }
+		
 		public static bool OnSameFac(Unit unit1, Unit unit2){ return unit1.GetFacID()==unit2.GetFacID(); }
 		
 		
@@ -689,6 +764,12 @@ namespace TBTK{
 			clone.skillRangeType=skillRangeType;
 			clone.rangeMin=rangeMin;					clone.range=range;							clone.aoeRange=aoeRange;		
 			clone.fov=fov;
+
+			clone.multipleTargetLock=multipleTargetLock;
+			clone.multipleTargetLockUseSight=multipleTargetLockUseSight;
+			clone.multipleTargetLockRequireLOS=multipleTargetLockRequireLOS;
+			clone.multipleTargetLockMaxTargets=multipleTargetLockMaxTargets;
+			clone.multipleTargetLockShootDelay=multipleTargetLockShootDelay;
 			
 			
 			clone.spawnUnitPrefab=spawnUnitPrefab;
@@ -732,6 +813,26 @@ namespace TBTK{
 			clone.waitForAbilityAnimationComplete=waitForAbilityAnimationComplete;
 			clone.abilityAnimationTimeout=abilityAnimationTimeout;
 			clone.jrpgMeleeStepDistance=jrpgMeleeStepDistance;
+			
+			clone.useActionCamTimeline=useActionCamTimeline;
+			clone.actionCamTimelineStartMode=actionCamTimelineStartMode;
+			clone.actionCamTimelineReturnToNormal=actionCamTimelineReturnToNormal;
+			clone.actionCamTimelineHoldAfterLast=actionCamTimelineHoldAfterLast;
+			clone.actionCamTimelineReturnDuration=actionCamTimelineReturnDuration;
+			clone.actionCamTimeline=new List<AbilityActionCamKeyframe>();
+			if(actionCamTimeline!=null){
+				for(int i=0; i<actionCamTimeline.Count; i++){
+					AbilityActionCamKeyframe srcFrame=actionCamTimeline[i];
+					if(srcFrame==null) continue;
+					AbilityActionCamKeyframe newFrame=new AbilityActionCamKeyframe();
+					newFrame.anchor=srcFrame.anchor;
+					newFrame.position=srcFrame.position;
+					newFrame.rotation=srcFrame.rotation;
+					newFrame.timeStamp=srcFrame.timeStamp;
+					newFrame.chain=srcFrame.chain;
+					clone.actionCamTimeline.Add(newFrame);
+				}
+			}
 			
 			clone.effectOnUse=effectOnUse!=null ? effectOnUse.Clone() : new VisualObject();
 			clone.effectOnHit=effectOnHit!=null ? effectOnHit.Clone() : new VisualObject();

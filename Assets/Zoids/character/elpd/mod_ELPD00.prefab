@@ -662,6 +662,7 @@ MonoBehaviour:
   unitDescription: The Elephander is a Zoid designed to be easily adaptable to a
     variety of roles.  The Zoid's base form is very heavily armoured, comparable
     to the Iron Kong or Gojulas.
+  isUpgradedUnit: 0
   limitedOwned: 0
   ownedLimit: 1
   facID: 0
@@ -677,7 +678,7 @@ MonoBehaviour:
   abilityThisTurn: 0
   canMovePastUnit: 0
   canMovePastObs: 0
-  targetPoint: {fileID: 0}
+  targetPoint: {fileID: 3187}
   radius: 0.3
   soRange: {fileID: 114412276860498308, guid: 09a463b997518ca4ba2b0574c697a0c1, type: 3}
   soMelee: {fileID: 0}
@@ -717,7 +718,7 @@ MonoBehaviour:
     oDmgMultip: 0.5
     oHitPenalty: 0.5
     oCritPenalty: 0.5
-    attackRange: 3
+    attackRange: 7
     attackRangeMin: 0
     moveRange: 4
     turnPriority: 8
@@ -930,7 +931,7 @@ MonoBehaviour:
     autoDestroy: 1
     duration: 1.5
   effectOnDestroyed:
-    obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
+    obj: {fileID: 1607639869435452, guid: f487dd708b3da6d40b5f888c92be35ce, type: 3}
     autoDestroy: 1
     duration: 1.5
   animatorT: {fileID: 4115}

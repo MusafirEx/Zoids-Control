@@ -16,6 +16,7 @@ public class ZoidsGameJoltCloudSaveManager : MonoBehaviour
     [SerializeField] private string playerTeamsKey = "ZOIDS_PLAYER_TEAMS_V1";
     [SerializeField] private string areaBattleStateKey = "ZOIDS_AREA_BATTLE_STATE_V1";
     [SerializeField] private string perkProgressKey = "ZOIDS_PERK_PROGRESS_V1";
+    [SerializeField] private string scoreboardProgressKey = "ZOIDS_GAMEJOLT_SCOREBOARD_PROGRESS_V1";
 
     [Header("References")]
     [SerializeField] private ZoidsGameJoltAccountManager accountManager;
@@ -93,6 +94,7 @@ public class ZoidsGameJoltCloudSaveManager : MonoBehaviour
         payload.playerTeamsJson = PlayerPrefs.GetString(playerTeamsKey, "");
         payload.areaBattleStateJson = PlayerPrefs.GetString(areaBattleStateKey, "");
         payload.perkProgressJson = PlayerPrefs.GetString(perkProgressKey, "");
+        payload.scoreboardProgressJson = PlayerPrefs.GetString(scoreboardProgressKey, "");
 
         LastPayload = payload;
 
@@ -103,7 +105,8 @@ public class ZoidsGameJoltCloudSaveManager : MonoBehaviour
                       " unit=" + payload.unitProgressJson.Length +
                       " teams=" + payload.playerTeamsJson.Length +
                       " area=" + payload.areaBattleStateJson.Length +
-                      " perk=" + payload.perkProgressJson.Length);
+                      " perk=" + payload.perkProgressJson.Length +
+                      " scoreboard=" + payload.scoreboardProgressJson.Length);
         }
 
         return payload;
@@ -272,6 +275,9 @@ public class ZoidsGameJoltCloudSaveManager : MonoBehaviour
         if (!string.IsNullOrEmpty(payload.perkProgressJson))
             PlayerPrefs.SetString(perkProgressKey, payload.perkProgressJson);
 
+        if (!string.IsNullOrEmpty(payload.scoreboardProgressJson))
+            PlayerPrefs.SetString(scoreboardProgressKey, payload.scoreboardProgressJson);
+
         PlayerPrefs.Save();
 
         LastPayload = payload;
@@ -304,6 +310,9 @@ public class ZoidsGameJoltCloudSaveManager : MonoBehaviour
             ZoidsPerkProgressManager.Instance.LoadProgress();
             ZoidsPerkProgressManager.Instance.ApplyProgressToPerkManager();
         }
+
+        if (ZoidsGameJoltScoreboardManager.Instance != null)
+            ZoidsGameJoltScoreboardManager.Instance.LoadProgress();
 
         if (debugLog)
             Debug.Log("[ZoidsGameJoltCloudSaveManager] Reloaded local managers from PlayerPrefs.");

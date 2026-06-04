@@ -22,6 +22,8 @@ public class FactoryUnitDetailUI : MonoBehaviour
     [Header("Manufacture")]
     [SerializeField] private int quantity = 1;
 
+    public int fakenufactureId;
+
     private int currentUnitId = -1;
 
     private void Reset()
@@ -139,6 +141,29 @@ public class FactoryUnitDetailUI : MonoBehaviour
 
         if (success)
         {
+            SetStatus("Manufactured unit " + currentUnitId);
+
+            if (listUI != null)
+                listUI.NotifyManufactureSuccess();
+        }
+        else
+        {
+            SetStatus("Manufacture failed");
+        }
+
+        Refresh();
+
+        if (listUI != null)
+            listUI.RefreshAll();
+    }
+
+    public void fakenufacture()
+    {
+        bool success = factoryManager.TryFakenufacture(fakenufactureId, 1);
+
+        if (success)
+        {
+            Debug.Log("Fakenufacture "+success);
             SetStatus("Manufactured unit " + currentUnitId);
 
             if (listUI != null)

@@ -78,6 +78,7 @@ namespace TBTK {
 				Unit.actionCamCheck=ActionCamCheck;
 				Unit.actionCamStart=ActionCamFadeIn;
 				Unit.actionCamEnd=ActionCamFadeOut;
+				Unit.actionCamAbilityTimelineStart=ActionCamAbilityTimeline;
 			}
 		}
 		
@@ -115,7 +116,7 @@ namespace TBTK {
 			TBTK.onSelectUnitE += OnSelectUnit ;
 		}
 		void OnDisable(){
-			TBTK.onSelectUnitE += OnSelectUnit ;
+			TBTK.onSelectUnitE -= OnSelectUnit ;
 		}
 		
 		void Update(){
@@ -338,6 +339,10 @@ namespace TBTK {
 		private Quaternion cachedRot;
 		private float cachedZoom;
 		private bool inActionCam=false;
+
+		// Incremented whenever a new ability action-camera timeline starts.
+		// Old running timelines stop themselves when this value changes.
+		private int actionCamTimelineToken=0;
 		
 		public static IEnumerator ActionCamFadeIn(Vector3 srcPos, Vector3 tgtPos){
 			if(instance==null) yield break;
@@ -374,6 +379,191 @@ namespace TBTK {
 			
 			yield return new WaitForSeconds(0.5f);
 		}
+
+		public static IEnumerator ActionCamAbilityTimeline(Unit srcUnit, Unit tgtUnit, Ability ability){
+			if(instance==null || srcUnit==null || ability==null || !ability.UseActionCamTimeline()) yield break;
+			yield return instance.StartCoroutine(instance._ActionCamAbilityTimeline(srcUnit, tgtUnit, ability));
+		}
+
+		private IEnumerator _ActionCamAbilityTimeline(Unit srcUnit, Unit tgtUnit, Ability ability){
+			if(camT==null && thisT.childCount>0) camT=thisT.GetChild(0);
+			if(camT==null) yield break;
+
+			int token=++actionCamTimelineToken;
+			inActionCam=true;
+
+			Vector3 localCachedPos=thisT.position;
+			Quaternion localCachedRot=thisT.rotation;
+			float localCachedZoom=camT.localPosition.z;
+
+			cachedPos=localCachedPos;
+			cachedRot=localCachedRot;
+			cachedZoom=localCachedZoom;
+
+			List<AbilityActionCamKeyframe> frames=new List<AbilityActionCamKeyframe>();
+			for(int i=0; i<ability.actionCamTimeline.Count; i++){
+				if(ability.actionCamTimeline[i]!=null) frames.Add(ability.actionCamTimeline[i]);
+			}
+			frames.Sort((a,b)=>a.timeStamp.CompareTo(b.timeStamp));
+
+			if(frames.Count==0){
+				inActionCam=false;
+				yield break;
+			}
+
+			float elapsed=0f;
+			camT.localPosition=Vector3.zero;
+
+			for(int i=0; i<frames.Count; i++){
+				if(token!=actionCamTimelineToken) yield break;
+
+				AbilityActionCamKeyframe frame=frames[i];
+				if(frame==null) continue;
+
+				float currentTime=Mathf.Max(0, frame.timeStamp);
+				while(elapsed<currentTime){
+					if(token!=actionCamTimelineToken) yield break;
+					elapsed+=Time.deltaTime;
+					yield return null;
+				}
+
+				// Always place the camera on this keyframe when its timestamp is reached.
+				// The keyframe Chain then controls what happens FROM this keyframe UNTIL the next keyframe.
+				ApplyAbilityActionCamFrame(srcUnit, tgtUnit, frame);
+
+				if(i>=frames.Count-1) continue;
+
+				AbilityActionCamKeyframe nextFrame=frames[i+1];
+				if(nextFrame==null) continue;
+
+				float nextTime=Mathf.Max(currentTime, nextFrame.timeStamp);
+				float segmentDuration=Mathf.Max(0, nextTime-currentTime);
+				if(segmentDuration<=0.001f) continue;
+
+				if(frame.chain==AbilityActionCamChain.Snap){
+					// Hold the current camera pose until the next timestamp. The next loop will snap to nextFrame.
+					while(elapsed<nextTime){
+						if(token!=actionCamTimelineToken) yield break;
+						elapsed+=Time.deltaTime;
+						yield return null;
+					}
+				}
+				else if(frame.chain==AbilityActionCamChain.Follow){
+					// Keep recomputing this keyframe from its anchor transform until the next timestamp.
+					// This makes the camera follow a moving attacker/target using the same local offset/rotation.
+					while(elapsed<nextTime){
+						if(token!=actionCamTimelineToken) yield break;
+						ApplyAbilityActionCamFrame(srcUnit, tgtUnit, frame);
+						elapsed+=Time.deltaTime;
+						yield return null;
+					}
+				}
+				else{
+					// Smoothly move from the current camera pose to the next keyframe.
+					// The next pose is recalculated every frame, so moving targets are still respected.
+					Vector3 startPos=thisT.position;
+					Quaternion startRot=thisT.rotation;
+					float segment=0f;
+
+					while(segment<segmentDuration){
+						if(token!=actionCamTimelineToken) yield break;
+
+						AbilityActionCamPose nextPose=GetAbilityActionCamPose(srcUnit, tgtUnit, nextFrame);
+						float t=Mathf.Clamp01(segment/segmentDuration);
+
+						thisT.position=Vector3.Lerp(startPos, nextPose.position, t);
+						thisT.rotation=Quaternion.Slerp(startRot, nextPose.rotation, t);
+						camT.localPosition=Vector3.zero;
+
+						segment+=Time.deltaTime;
+						elapsed+=Time.deltaTime;
+						yield return null;
+					}
+				}
+			}
+
+			float hold=ability.GetActionCamTimelineHoldAfterLast();
+			if(hold>0){
+				AbilityActionCamKeyframe lastFrame=frames[frames.Count-1];
+				float holdElapsed=0f;
+				while(holdElapsed<hold){
+					if(token!=actionCamTimelineToken) yield break;
+					if(lastFrame!=null && lastFrame.chain==AbilityActionCamChain.Follow){
+						ApplyAbilityActionCamFrame(srcUnit, tgtUnit, lastFrame);
+					}
+					holdElapsed+=Time.deltaTime;
+					yield return null;
+				}
+			}
+
+			if(ability.actionCamTimelineReturnToNormal && token==actionCamTimelineToken){
+				yield return StartCoroutine(RestoreAbilityActionCam(localCachedPos, localCachedRot, localCachedZoom, ability.GetActionCamTimelineReturnDuration(), token));
+			}
+			else if(token==actionCamTimelineToken){
+				inActionCam=false;
+			}
+		}
+
+		private struct AbilityActionCamPose{
+			public Vector3 position;
+			public Quaternion rotation;
+		}
+
+		private AbilityActionCamPose GetAbilityActionCamPose(Unit srcUnit, Unit tgtUnit, AbilityActionCamKeyframe frame){
+			Transform anchorT=null;
+
+			if(frame.anchor==AbilityActionCamAnchor.Target && tgtUnit!=null) anchorT=tgtUnit.transform;
+			if(anchorT==null && srcUnit!=null) anchorT=srcUnit.transform;
+			if(anchorT==null) anchorT=thisT;
+
+			AbilityActionCamPose pose=new AbilityActionCamPose();
+			pose.position=anchorT.TransformPoint(frame.position);
+			pose.rotation=anchorT.rotation * Quaternion.Euler(frame.rotation);
+			return pose;
+		}
+
+		private void ApplyAbilityActionCamFrame(Unit srcUnit, Unit tgtUnit, AbilityActionCamKeyframe frame){
+			AbilityActionCamPose pose=GetAbilityActionCamPose(srcUnit, tgtUnit, frame);
+			thisT.position=pose.position;
+			thisT.rotation=pose.rotation;
+			if(camT!=null) camT.localPosition=Vector3.zero;
+		}
+
+		private IEnumerator RestoreAbilityActionCam(Vector3 restorePos, Quaternion restoreRot, float restoreZoom, float duration, int token){
+			Vector3 startPos=thisT.position;
+			Quaternion startRot=thisT.rotation;
+			Vector3 startCamLocal=camT.localPosition;
+			Vector3 endCamLocal=new Vector3(0, 0, restoreZoom);
+
+			if(duration<=0.001f){
+				thisT.position=restorePos;
+				thisT.rotation=restoreRot;
+				camT.localPosition=endCamLocal;
+				currentZoom=restoreZoom;
+				inActionCam=false;
+				yield break;
+			}
+
+			float elapsed=0f;
+			while(elapsed<duration){
+				if(token!=actionCamTimelineToken) yield break;
+
+				float t=Mathf.Clamp01(elapsed/duration);
+				thisT.position=Vector3.Lerp(startPos, restorePos, t);
+				thisT.rotation=Quaternion.Slerp(startRot, restoreRot, t);
+				camT.localPosition=Vector3.Lerp(startCamLocal, endCamLocal, t);
+
+				elapsed+=Time.deltaTime;
+				yield return null;
+			}
+
+			thisT.position=restorePos;
+			thisT.rotation=restoreRot;
+			camT.localPosition=endCamLocal;
+			currentZoom=restoreZoom;
+			inActionCam=false;
+		}
+
 		public static IEnumerator ActionCamFadeOut(){
 			if(instance==null || !instance.inActionCam) yield break;
 			yield return instance.StartCoroutine(instance._ActionCamFadeOut());

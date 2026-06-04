@@ -695,6 +695,7 @@ MonoBehaviour:
 
     Attack Type: Melee-focused
     hybrid'
+  isUpgradedUnit: 0
   limitedOwned: 0
   ownedLimit: 1
   facID: 0
@@ -962,7 +963,7 @@ MonoBehaviour:
     autoDestroy: 1
     duration: 1.5
   effectOnDestroyed:
-    obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
+    obj: {fileID: 1607639869435452, guid: f487dd708b3da6d40b5f888c92be35ce, type: 3}
     autoDestroy: 1
     duration: 1.5
   animatorT: {fileID: 3732}

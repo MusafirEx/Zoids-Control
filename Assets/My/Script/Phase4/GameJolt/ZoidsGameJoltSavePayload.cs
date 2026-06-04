@@ -14,6 +14,7 @@ public class ZoidsGameJoltSavePayload
     public string playerTeamsJson = "";
     public string areaBattleStateJson = "";
     public string perkProgressJson = "";
+    public string scoreboardProgressJson = "";
 
     public void Touch(string userId, string username)
     {

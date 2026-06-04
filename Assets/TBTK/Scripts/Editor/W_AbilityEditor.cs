@@ -242,20 +242,39 @@ namespace TBTK {
 					
 					TBE.Label(startX, startY+=spaceY, width, height, "Require Target:", "Check if the ability will require the player to actively select a target\nIf left uncheck, as unity-ability the ability will target the source unit, as faction ability the ability will target will valid target on the grid");
 					item.requireTarget=EditorGUI.Toggle(new Rect(startX+spaceX, startY, widthS, height), item.requireTarget);
+
+					if(editUnitAbility){
+						TBE.Label(startX, startY+=spaceY, width, height, "Multiple Target Lock:", "Unit ability only. Auto-lock hostile units instead of selecting one target. Best used with Require Target disabled.");
+						item.multipleTargetLock=EditorGUI.Toggle(new Rect(startX+spaceX, startY, widthS, height), item.multipleTargetLock);
+						if(item.multipleTargetLock){
+							item.targetType=Ability._TargetType.HostileUnit;
+							item.requireTarget=false;
+							TBE.Label(startX, startY+=spaceY, width, height, "Lock Uses Sight:", "When checked, lock range uses source unit Sight. When unchecked, uses ability Range.");
+							item.multipleTargetLockUseSight=EditorGUI.Toggle(new Rect(startX+spaceX, startY, widthS, height), item.multipleTargetLockUseSight);
+							TBE.Label(startX, startY+=spaceY, width, height, "Lock Require LOS:", "When checked, each locked hostile unit must be in line-of-sight.");
+							item.multipleTargetLockRequireLOS=EditorGUI.Toggle(new Rect(startX+spaceX, startY, widthS, height), item.multipleTargetLockRequireLOS);
+							TBE.Label(startX, startY+=spaceY, width, height, "Max Lock Targets:", "0 means unlimited locked hostile targets.");
+							item.multipleTargetLockMaxTargets=EditorGUI.DelayedIntField(new Rect(startX+spaceX, startY, widthS, height), item.multipleTargetLockMaxTargets);
+							if(item.multipleTargetLockMaxTargets<0) item.multipleTargetLockMaxTargets=0;
+							TBE.Label(startX, startY+=spaceY, width, height, "Shot Delay:", "Delay between each locked target shot when shoot object visuals are fired.");
+							item.multipleTargetLockShootDelay=EditorGUI.DelayedFloatField(new Rect(startX+spaceX, startY, widthS, height), item.multipleTargetLockShootDelay);
+							if(item.multipleTargetLockShootDelay<0) item.multipleTargetLockShootDelay=0;
+						}
+					}
 					
 					if(editUnitAbility){
 						TBE.Label(startX, startY+=spaceY, width, height, "Require LOS:", "Check if the ability require the target to be in line-of-sight");
-						if(!item.requireTarget) TBE.Label(startX+spaceX, startY, widthS, height, "n/a");
+						if(!item.requireTarget && !item.multipleTargetLock) TBE.Label(startX+spaceX, startY, widthS, height, "n/a");
 						else item.requireLos=EditorGUI.Toggle(new Rect(startX+spaceX, startY, widthS, height), item.requireLos);
 					}
 				
 					if(editUnitAbility){
 						TBE.Label(startX, startY+=spaceY, width, height, "Skill Range Type:", "Distance uses the ability range fields. Melee uses the source unit's statsMelee attack range and blocks activation if target is outside melee range.");
-						if(!item.requireTarget) TBE.Label(startX+spaceX, startY, widthS, height, "n/a");
+						if(!item.requireTarget && !item.multipleTargetLock) TBE.Label(startX+spaceX, startY, widthS, height, "n/a");
 						else item.skillRangeType=(Ability._SkillRangeType)EditorGUI.EnumPopup(new Rect(startX+spaceX, startY, width, height), item.skillRangeType);
 
 						TBE.Label(startX, startY+=spaceY, width, height, "Range (min/max):", "The effective range of the ability. Distance and Melee abilities both use this ability range.");
-						if(!item.requireTarget) TBE.Label(startX+spaceX, startY, widthS, height, "n/a");
+						if(!item.requireTarget && !item.multipleTargetLock) TBE.Label(startX+spaceX, startY, widthS, height, "n/a");
 						else{
 							GUI.color=item.rangeMin>1 ? Color.white : Color.grey ;
 							item.rangeMin=EditorGUI.DelayedIntField(new Rect(startX+spaceX, startY, widthS, height), item.rangeMin); GUI.color=Color.white;
@@ -282,12 +301,12 @@ namespace TBTK {
 					
 					if(editUnitAbility){
 						TBE.Label(startX, startY+=spaceY, width, height, "Use Attack Sequence:", "Check to use the standard attack sequence. If disabled, the unit uses Ability1/Ability2/etc animation trigger instead.");
-						if(!item.requireTarget) TBE.Label(startX+spaceX+10, startY, widthS, height, "n/a");
+						if(!item.requireTarget && !item.multipleTargetLock) TBE.Label(startX+spaceX+10, startY, widthS, height, "n/a");
 						else item.useAttackSequence=EditorGUI.Toggle(new Rect(startX+spaceX+10, startY, widthS, height), item.useAttackSequence);
 
 						if(!item.useAttackSequence){
 							TBE.Label(startX, startY+=spaceY, width, height, "Fire SO With Ability Anim:", "If enabled, the unit uses Ability1/Ability2/etc animation and still fires the ShootObject after the animation delay.");
-							if(!item.requireTarget) TBE.Label(startX+spaceX+10, startY, widthS, height, "n/a");
+							if(!item.requireTarget && !item.multipleTargetLock) TBE.Label(startX+spaceX+10, startY, widthS, height, "n/a");
 							else item.fireShootObjectWithAbilityAnimation=EditorGUI.Toggle(new Rect(startX+spaceX+10, startY, widthS, height), item.fireShootObjectWithAbilityAnimation);
 						}
 						else item.fireShootObjectWithAbilityAnimation=false;
@@ -295,11 +314,11 @@ namespace TBTK {
 						bool abilityWillFireSO=item.useAttackSequence || item.fireShootObjectWithAbilityAnimation;
 						
 						TBE.Label(startX, startY+=spaceY, width, height, "Aim At Target Unit:", "Check to have the unit aim at the unit (if there's one) when using the ability\nOtherwise the ability will aim at the node");
-						if(!item.requireTarget || !abilityWillFireSO || item.type==Ability._AbilityType.Line ||  item.type==Ability._AbilityType.Cone) TBE.Label(startX+spaceX+10, startY, widthS, height, "-");
+						if((!item.requireTarget && !item.multipleTargetLock) || !abilityWillFireSO || item.type==Ability._AbilityType.Line ||  item.type==Ability._AbilityType.Cone) TBE.Label(startX+spaceX+10, startY, widthS, height, "-");
 						else item.aimAtUnit=EditorGUI.Toggle(new Rect(startX+spaceX+10, startY, widthS, height), item.aimAtUnit);
 						
 						TBE.Label(startX, startY+=spaceY, width, height, "Shoot Object:", "OPTIONAL: The alternate shoot-object to use for the ability\nIf left unassigned, the unit will use its default shoot-object");
-						if(!item.requireTarget || !abilityWillFireSO) TBE.Label(startX+spaceX+10, startY, width, height, "-");
+						if((!item.requireTarget && !item.multipleTargetLock) || !abilityWillFireSO) TBE.Label(startX+spaceX+10, startY, width, height, "-");
 						else item.shootObject=(ShootObject)EditorGUI.ObjectField(new Rect(startX+spaceX+10, startY, width-10, height), item.shootObject, typeof(ShootObject), true);
 
 						if(!item.useAttackSequence){
@@ -575,6 +594,75 @@ namespace TBTK {
 					startX-=10;
 				}
 				
+
+			startY+=spaceY*0.5f;
+
+				if(editUnitAbility){
+					TBE.Label(startX, startY+=spaceY, width, height, "Use Action Cam Timeline:", "Check to use a custom camera timeline for this ability. Timeline can start from ability activation or from ability animation start.");
+					item.useActionCamTimeline=EditorGUI.Toggle(new Rect(startX+spaceX, startY, widthS, height), item.useActionCamTimeline);
+
+					if(item.useActionCamTimeline){
+						startX+=10;
+
+						TBE.Label(startX, startY+=spaceY, width, height, "Start Mode:", "On Ability Activated starts immediately when the ability routine begins. On Ability Animation Start waits until pre-movement/positioning is done and the Ability/Attack animation begins.");
+						item.actionCamTimelineStartMode=(AbilityActionCamStartMode)EditorGUI.EnumPopup(new Rect(startX+spaceX, startY, width, height), item.actionCamTimelineStartMode);
+
+						TBE.Label(startX, startY+=spaceY, width, height, "Return To Normal:", "Return camera to the previous normal tactical camera after the last keyframe.");
+						item.actionCamTimelineReturnToNormal=EditorGUI.Toggle(new Rect(startX+spaceX, startY, widthS, height), item.actionCamTimelineReturnToNormal);
+
+						TBE.Label(startX, startY+=spaceY, width, height, "Hold After Last:", "Seconds to hold the final keyframe before returning.");
+						item.actionCamTimelineHoldAfterLast=EditorGUI.DelayedFloatField(new Rect(startX+spaceX, startY, widthS, height), item.actionCamTimelineHoldAfterLast);
+						if(item.actionCamTimelineHoldAfterLast<0) item.actionCamTimelineHoldAfterLast=0;
+
+						TBE.Label(startX, startY+=spaceY, width, height, "Return Duration:", "Seconds to move back to the previous camera.");
+						item.actionCamTimelineReturnDuration=EditorGUI.DelayedFloatField(new Rect(startX+spaceX, startY, widthS, height), item.actionCamTimelineReturnDuration);
+						if(item.actionCamTimelineReturnDuration<0) item.actionCamTimelineReturnDuration=0;
+
+						if(item.actionCamTimeline==null) item.actionCamTimeline=new List<AbilityActionCamKeyframe>();
+
+						TBE.Label(startX, startY+=spaceY, width, height, "Timeline Keyframes:", "Camera keyframes. Time Stamp is counted from the selected Start Mode.");
+						if(GUI.Button(new Rect(startX+spaceX, startY, 80, height), "Add")){
+							AbilityActionCamKeyframe frame=new AbilityActionCamKeyframe();
+							frame.timeStamp=item.actionCamTimeline.Count>0 ? item.actionCamTimeline[item.actionCamTimeline.Count-1].timeStamp+0.5f : 0f;
+							item.actionCamTimeline.Add(frame);
+						}
+
+						for(int i=0; i<item.actionCamTimeline.Count; i++){
+							AbilityActionCamKeyframe frame=item.actionCamTimeline[i];
+							if(frame==null){
+								frame=new AbilityActionCamKeyframe();
+								item.actionCamTimeline[i]=frame;
+							}
+
+							TBE.Label(startX, startY+=spaceY, width, height, "Keyframe "+i+":", "", TBE.headerS);
+							if(GUI.Button(new Rect(startX+spaceX+90, startY, 70, height), "Remove")){
+								item.actionCamTimeline.RemoveAt(i);
+								i-=1;
+								continue;
+							}
+
+							TBE.Label(startX, startY+=spaceY, width, height, " - Anchor:", "Attacker or targeted unit transform. Target falls back to attacker when no target exists.");
+							frame.anchor=(AbilityActionCamAnchor)EditorGUI.EnumPopup(new Rect(startX+spaceX, startY, width, height), frame.anchor);
+
+							TBE.Label(startX, startY+=spaceY, width, height, " - Position:", "Local position offset from anchor transform.");
+							frame.position=EditorGUI.Vector3Field(new Rect(startX+spaceX, startY, width+100, height), GUIContent.none, frame.position);
+
+							TBE.Label(startX, startY+=spaceY, width, height, " - Rotation:", "Local camera rotation from anchor transform.");
+							frame.rotation=EditorGUI.Vector3Field(new Rect(startX+spaceX, startY, width+100, height), GUIContent.none, frame.rotation);
+
+							TBE.Label(startX, startY+=spaceY, width, height, " - Time Stamp:", "Seconds from the selected Action Cam Start Mode.");
+							frame.timeStamp=EditorGUI.DelayedFloatField(new Rect(startX+spaceX, startY, widthS, height), frame.timeStamp);
+							if(frame.timeStamp<0) frame.timeStamp=0;
+
+							TBE.Label(startX, startY+=spaceY, width, height, " - Chain:", "How this keyframe connects to the next timestamp. Move = smooth move to next frame. Snap = hold then jump to next frame. Follow = keep camera attached to this anchor/offset until next timestamp.");
+							frame.chain=(AbilityActionCamChain)EditorGUI.EnumPopup(new Rect(startX+spaceX, startY, width, height), frame.chain);
+						}
+
+						startX-=10;
+					}
+				}
+
+
 			startY+=spaceY*0.5f;
 				
 				foldVisual=EditorGUI.Foldout(new Rect(startX, startY+=spaceY, spaceX, height), foldVisual, "Visual & Audio Setting", TBE.foldoutS);

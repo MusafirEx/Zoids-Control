@@ -194,6 +194,9 @@ namespace TBTK {
 				TBE.Label(startX, startY+=spaceY, width, height, "Description:", "Unit description shown in factory/team/colosseum UI");
 				unit.unitDescription=EditorGUI.TextField(new Rect(startX+spaceX-10, startY, width*1.5f, height), unit.unitDescription);
 
+				TBE.Label(startX, startY+=spaceY, width, height, "Is Upgraded Unit:", "If checked, this Zoid is treated as an upgraded/evolved unit and will not appear in the Factory List even when the player has data for it.");
+				unit.isUpgradedUnit=EditorGUI.Toggle(new Rect(startX+spaceX-10, startY, widthS, height), unit.isUpgradedUnit);
+
 				startY+=10;
 
 				TBE.Label(startX, startY+=spaceY, width, height, "Limited Owned:", "If checked, player can only own a limited number of this Zoid prefab");

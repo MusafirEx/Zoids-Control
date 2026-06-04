@@ -9,9 +9,10 @@ public class MapSFX : MonoBehaviour/*, IPointerEnterHandler*/
 {
     public static MapSFX Instance { get; private set; }
 
-    [SerializeField] private AudioSource Bgm;
+    public AudioSource Bgm;
     public AudioSource sfx;
-    public Slider volumeSlider;
+    //public Slider bgmVolumeSlider;
+    //public Slider sfxVolumeSlider;
     [SerializeField] private BGMSceneSetting[] theScene;
 
     // Start is called before the first frame update
@@ -29,14 +30,7 @@ public class MapSFX : MonoBehaviour/*, IPointerEnterHandler*/
     }
     void Start()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-       if(volumeSlider!=null)
-        Bgm.volume = volumeSlider.value; ;
     }
 
     /*public void OnPointerEnter(PointerEventData eventData)
@@ -47,7 +41,7 @@ public class MapSFX : MonoBehaviour/*, IPointerEnterHandler*/
     [Serializable]
     public class BGMSceneSetting
     {
-        public SceneAsset CurrentScene;
+        public string CurrentScene;
         public AudioClip[] SceneBGM;
     }
 
@@ -66,15 +60,42 @@ public class MapSFX : MonoBehaviour/*, IPointerEnterHandler*/
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("Loaded scene: " + scene.name);
-        foreach (BGMSceneSetting bss in theScene) 
+        foreach (BGMSceneSetting bss in theScene)
         {
-            if (bss.CurrentScene.name == SceneManager.GetActiveScene().name)
+            if (bss.CurrentScene == SceneManager.GetActiveScene().name)
             {
-                Bgm.clip = bss.SceneBGM[UnityEngine.Random.Range(0,bss.SceneBGM.Length)];
-                Bgm.loop=true;
+                Bgm.clip = bss.SceneBGM[UnityEngine.Random.Range(0, bss.SceneBGM.Length)];
+                Bgm.loop = true;
                 Bgm.Play();
             }
         }
+
+        volumeLoad();
+    }
+
+    public void volumeSave()
+    {
+        PlayerPrefs.SetFloat("BGM_Volume", Bgm.volume);
+        PlayerPrefs.SetFloat("SFX_Volume", sfx.volume);
+        PlayerPrefs.Save();
+    }
+
+    public void volumeLoad()
+    {
+        if (PlayerPrefs.HasKey("BGM_Volume")) Bgm.volume = PlayerPrefs.GetFloat("BGM_Volume");
+        else 
+        {
+            Bgm.volume = 0.3f ;
+            PlayerPrefs.SetFloat("BGM_Volume", Bgm.volume);
+        }
+
+        if (PlayerPrefs.HasKey("SFX_Volume")) sfx.volume = PlayerPrefs.GetFloat("SFX_Volume");
+        else
+        {
+            sfx.volume = 0.3f;
+            PlayerPrefs.SetFloat("SFX_Volume", sfx.volume);
+        }
+        PlayerPrefs.Save();
     }
 
 }

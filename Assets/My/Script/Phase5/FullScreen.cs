@@ -19,5 +19,6 @@ public class FullScreen : MonoBehaviour
     {
         // Inverts the current fullscreen state
         Screen.fullScreen = !Screen.fullScreen;
+        Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
     }
 }

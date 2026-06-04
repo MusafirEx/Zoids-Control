@@ -175,6 +175,30 @@ public class FactoryManager : MonoBehaviour
         return IsOwnedLimited(unitId) ? GetOwnedLimit(unitId).ToString() : "Unlimited";
     }
 
+    public bool IsUpgradedUnit(int unitId)
+    {
+        Unit unit = GetUnitDefinition(unitId);
+        return unit != null && unit.isUpgradedUnit;
+    }
+
+    public bool ShouldShowInFactoryList(int unitId)
+    {
+        // Factory list visibility rules:
+        // 1) hide units with 0 data
+        // 2) hide upgraded units, even if data exists
+        // 3) hide limited units when player already reached the owned limit
+        if (GetCurrentData(unitId) <= 0)
+            return false;
+
+        if (IsUpgradedUnit(unitId))
+            return false;
+
+        if (!CanOwnMore(unitId, 1))
+            return false;
+
+        return true;
+    }
+
     public int GetRemainingOwnedCapacity(int unitId)
     {
         if (!IsOwnedLimited(unitId))
@@ -239,6 +263,22 @@ public class FactoryManager : MonoBehaviour
             OnManufactureFailed?.Invoke(unitId);
             return false;
         }
+
+        progressManager.AddOwnedCount(unitId, quantity, false);
+        progressManager.SaveProgress();
+
+        if (debugLog)
+            Debug.Log("[FactoryManager] Manufactured unitId=" + unitId +
+                      " quantity=" + quantity +
+                      " owned=" + progressManager.GetOwnedCount(unitId));
+
+        OnManufactureSuccess?.Invoke(unitId);
+        return true;
+    }
+
+    public bool TryFakenufacture(int unitId, int quantity)
+    {
+        RefreshRuntimeReferences();
 
         progressManager.AddOwnedCount(unitId, quantity, false);
         progressManager.SaveProgress();

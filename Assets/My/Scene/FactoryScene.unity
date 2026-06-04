@@ -528,9 +528,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1530586166}
-        m_TargetAssemblyTypeName: FactoryTestUI, Assembly-CSharp
-        m_MethodName: Add100Data
+      - m_Target: {fileID: 1993648532}
+        m_TargetAssemblyTypeName: FactoryUnitDetailUI, Assembly-CSharp
+        m_MethodName: fakenufacture
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4244,6 +4244,7 @@ MonoBehaviour:
   iconImage: {fileID: 293014813}
   manufactureButton: {fileID: 1029664945}
   quantity: 1
+  fakenufactureId: 7
 --- !u!114 &1993648533
 MonoBehaviour:
   m_ObjectHideFlags: 0

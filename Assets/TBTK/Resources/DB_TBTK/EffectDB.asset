@@ -402,7 +402,7 @@ MonoBehaviour:
       obj: {fileID: 0}
       autoDestroy: 1
       duration: 1.5
-    activeVisualEffect: {fileID: 4441788593414716, guid: 262e841c96607cc40950b6af5b4310cd,
+    activeVisualEffect: {fileID: 1790296897053600392, guid: 2322bf4974ed1a944b1ffeb6816b1ace,
       type: 3}
   - prefabID: 7
     instanceID: -1

@@ -4175,6 +4175,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ScorePanel
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 1263
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 61, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d5c9d8906009ae4fa731490a3b03468
+      internalID: 730153744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -4188,6 +4209,7 @@ TextureImporter:
     nameFileIdTable:
       A_Panel: -396446930
       B_Panel: -1217772712
+      ScorePanel: 730153744
       UI_Atlas_league_0: -652451547
       UI_Atlas_league_1: -358487072
       UI_Atlas_league_10: -1669435872

@@ -495,7 +495,11 @@ namespace TBTK{
 			for(int i=0; i<unit.abilityList.Count; i++){
 				Ability ability=unit.abilityList[i];
 				if(ability==null) continue;
-				if(ability.IsAvailable()==Ability._AbilityStatus.Ready) return true;
+				if(ability.IsAvailable()!=Ability._AbilityStatus.Ready) continue;
+				if(ability.IsMultipleTargetLock()){
+					if(GetMultipleTargetLockTargetsFromNode(unit, unit.node, ability).Count<=0) continue;
+				}
+				return true;
 			}
 			return false;
 		}
@@ -508,6 +512,21 @@ namespace TBTK{
 				Ability ability=unit.abilityList[i];
 				if(ability==null) continue;
 				if(ability.IsAvailable()!=Ability._AbilityStatus.Ready) continue;
+
+				if(ability.IsMultipleTargetLock()){
+					List<Unit> lockedTargets=GetMultipleTargetLockTargetsFromNode(unit, moveNode, ability);
+					if(lockedTargets.Count<=0) continue;
+					float score=EvaluateMultipleTargetLockScore(unit, ability, lockedTargets);
+					if(score<instance.minimumAbilityScore) continue;
+					AIAction action=new AIAction(moveNode, coverScore);
+					action.ability=ability;
+					action.abilityIdx=i;
+					action.abilityTargetNode=lockedTargets[0].node;
+					action.abilityLookNode=lockedTargets[0].node;
+					action.score+=score*instance.abilityMultiplier;
+					actionList.Add(action);
+					continue;
+				}
 
 				List<Node> targetList=GetPotentialAbilityTargetNodes(unit, moveNode, ability);
 				for(int n=0; n<targetList.Count; n++){
@@ -524,6 +543,62 @@ namespace TBTK{
 					actionList.Add(action);
 				}
 			}
+		}
+
+		private static List<Unit> GetMultipleTargetLockTargetsFromNode(Unit unit, Node sourceNode, Ability ability){
+			List<Unit> targetList=new List<Unit>();
+			if(unit==null || sourceNode==null || ability==null || !ability.IsMultipleTargetLock()) return targetList;
+			
+			List<Unit> hostileList=UnitManager.GetAllHostileUnits(unit.GetFacID());
+			if(hostileList==null) return targetList;
+			
+			int lockRange=ability.multipleTargetLockUseSight ? unit.GetSight() : ability.GetRange();
+			for(int i=0; i<hostileList.Count; i++){
+				Unit target=hostileList[i];
+				if(target==null || target.node==null || target.hp<=0) continue;
+				if(target.GetFacID()==unit.GetFacID()) continue;
+				
+				int dist=GridManager.GetDistance(sourceNode, target.node);
+				if(dist<ability.GetRangeMin()) continue;
+				if(lockRange>0 && dist>lockRange) continue;
+				if(ability.multipleTargetLockRequireLOS && !GridManager.CheckLOS(sourceNode, target.node, unit.GetSight())) continue;
+				
+				targetList.Add(target);
+			}
+			
+			targetList.Sort((a,b)=>GridManager.GetDistance(sourceNode, a.node).CompareTo(GridManager.GetDistance(sourceNode, b.node)));
+			
+			int maxTargets=ability.GetMultipleTargetLockMaxTargets();
+			if(maxTargets>0 && targetList.Count>maxTargets) targetList.RemoveRange(maxTargets, targetList.Count-maxTargets);
+			return targetList;
+		}
+
+		private static float EvaluateMultipleTargetLockScore(Unit unit, Ability ability, List<Unit> targetList){
+			if(unit==null || ability==null || targetList==null || targetList.Count<=0) return 0;
+			float score=0;
+			float hpImpact=(ability.GetHPMin()+ability.GetHPMax())*0.5f;
+			float apImpact=(ability.GetAPMin()+ability.GetAPMax())*0.25f;
+			float hitScore=Mathf.Clamp01(ability.GetHit())*100f*instance.hitChanceMultiplier;
+			float critScore=Mathf.Clamp01(ability.GetCritChance())*100f*instance.critChanceMultiplier;
+			
+			for(int i=0; i<targetList.Count; i++){
+				Unit target=targetList[i];
+				if(target==null || target.hp<=0) continue;
+				if(ability.HasNegativeImpact()){
+					score+=(hpImpact+apImpact)*instance.abilityImpactMultiplier;
+					score+=hitScore+critScore;
+					if(hpImpact>=target.hp) score+=75;
+				}
+				else if(ability.effectIDList!=null && ability.effectIDList.Count>0){
+					score+=ability.effectIDList.Count*25*instance.abilityEffectMultiplier;
+				}
+				else if(ability.type==Ability._AbilityType.None){
+					score+=20*instance.abilityEffectMultiplier;
+				}
+			}
+			
+			if(targetList.Count>1) score+=(targetList.Count-1)*40*instance.abilityAOEMultiplier;
+			return score;
 		}
 
 		private static List<Node> GetPotentialAbilityTargetNodes(Unit unit, Node moveNode, Ability ability){
@@ -875,7 +950,7 @@ namespace TBTK{
 
 		private static IEnumerator RotateUnitTowardAbilityLookTarget(Unit unit, AIAction action){
 			if(unit==null || action==null || action.ability==null) yield break;
-			if(action.ability.type!=Ability._AbilityType.Line && action.ability.type!=Ability._AbilityType.Cone) yield break;
+			if(!action.ability.IsMultipleTargetLock() && action.ability.type!=Ability._AbilityType.Line && action.ability.type!=Ability._AbilityType.Cone) yield break;
 
 			Node lookNode=action.abilityLookNode!=null ? action.abilityLookNode : action.abilityTargetNode;
 			if(lookNode==null) yield break;

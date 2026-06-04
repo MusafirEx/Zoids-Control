@@ -28,6 +28,7 @@ namespace TBTK{
 		public UnitRarity rarity=UnitRarity.Common;
 		public int factoryCost=100;
 		[TextArea] public string unitDescription="";
+		public bool isUpgradedUnit=false;
 
 		[Header("Ownership Limit")]
 		public bool limitedOwned=false;
@@ -146,10 +147,12 @@ namespace TBTK{
 		public delegate bool ActionCamCheck (bool actionType);
 		public delegate IEnumerator ActionCamStart(Vector3 srcPos, Vector3 tgtPos);
 		public delegate IEnumerator ActionCamEnd();
+		public delegate IEnumerator ActionCamAbilityTimelineStart(Unit srcUnit, Unit tgtUnit, Ability ability);
 		
 		public static ActionCamCheck actionCamCheck;
 		public static ActionCamStart actionCamStart;
 		public static ActionCamEnd actionCamEnd;
+		public static ActionCamAbilityTimelineStart actionCamAbilityTimelineStart;
 		
 		
 		void Awake(){
@@ -694,11 +697,219 @@ namespace TBTK{
 			GameControl.UnitUseAbility(this, abilityList[idx], target);
 			//StartCoroutine(_UseAbility(abilityList[idx], target)); 
 		}
+
+		public List<Node> GetMultipleTargetLockTargetNodes(Ability ability){
+			List<Node> targetNodeList=new List<Node>();
+			if(ability==null || !ability.IsMultipleTargetLock()) return targetNodeList;
+			if(node==null) return targetNodeList;
+			
+			List<Unit> hostileList=UnitManager.GetAllHostileUnits(GetFacID());
+			if(hostileList==null) return targetNodeList;
+			
+			int lockRange=ability.GetMultipleTargetLockRange();
+			for(int i=0; i<hostileList.Count; i++){
+				Unit target=hostileList[i];
+				if(target==null || target==this || target.node==null || target.hp<=0) continue;
+				if(target.GetFacID()==GetFacID()) continue;
+				if(target.node==node) continue;
+				if(target.node.unit!=target) continue;
+				
+				int dist=GridManager.GetDistance(node, target.node);
+				if(dist<ability.GetRangeMin()) continue;
+				if(lockRange>0 && dist>lockRange) continue;
+				
+				if(ability.multipleTargetLockRequireLOS && !GridManager.CheckLOS(node, target.node, GetSight())) continue;
+				
+				if(!targetNodeList.Contains(target.node)) targetNodeList.Add(target.node);
+			}
+			
+			targetNodeList.Sort((a,b)=>GridManager.GetDistance(node, a).CompareTo(GridManager.GetDistance(node, b)));
+			
+			int maxTargets=ability.GetMultipleTargetLockMaxTargets();
+			if(maxTargets>0 && targetNodeList.Count>maxTargets){
+				targetNodeList.RemoveRange(maxTargets, targetNodeList.Count-maxTargets);
+			}
+			
+			return targetNodeList;
+		}
+
+		public List<Unit> GetMultipleTargetLockTargets(Ability ability){
+			List<Unit> targetList=new List<Unit>();
+			List<Node> nodeList=GetMultipleTargetLockTargetNodes(ability);
+			for(int i=0; i<nodeList.Count; i++){
+				if(nodeList[i]==null || nodeList[i].unit==null) continue;
+				targetList.Add(nodeList[i].unit);
+			}
+			return targetList;
+		}
+
+		private Vector3 GetMultipleTargetLockLookPosition(Node targetNode){
+			if(targetNode!=null && targetNode.unit!=null) return targetNode.unit.GetTargetPoint();
+			if(targetNode!=null) return targetNode.GetPos();
+			return GetTargetPoint();
+		}
+
+		private IEnumerator UseMultipleTargetLockAbilityRoutine(Ability ability, bool actionCam, bool startTimelineOnAnimationStart, Unit actionCamTargetUnit){
+			List<Node> targetNodeList=GetMultipleTargetLockTargetNodes(ability);
+			Debug.Log("[MultipleTargetLock] "+name+" ability="+ability.name+" filtered hostile nodes="+targetNodeList.Count);
+
+			if(actionCam && actionCamStart!=null && targetNodeList.Count>0){
+				yield return StartCoroutine(actionCamStart(GetTargetPoint(), GetMultipleTargetLockLookPosition(targetNodeList[0])));
+			}
+
+			if(targetNodeList.Count>0){
+				Vector3 lookPos=GetMultipleTargetLockLookPosition(targetNodeList[0]);
+				while(Rotate(lookPos)>2) yield return null;
+			}
+
+			if(startTimelineOnAnimationStart) StartAbilityActionCamTimeline(ability, actionCamTargetUnit);
+
+			if(ability.useAttackSequence){
+				float attackDelay=AnimPlayAttack(ability.IsMeleeSkill());
+				AudioPlayAttack(ability.IsMeleeSkill());
+				if(attackDelay>0) yield return new WaitForSeconds(attackDelay);
+			}
+			else{
+				float animationDelay=AnimPlayAbility(ability.index);
+				if(animationDelay>0) yield return new WaitForSeconds(animationDelay);
+			}
+
+			bool shouldFireShootObject=ability.useAttackSequence || ability.fireShootObjectWithAbilityAnimation;
+			bool useAbilityShootPoint=(ability.skillRangeType==Ability._SkillRangeType.Distance);
+			List<Transform> usedShootPointList=useAbilityShootPoint ? GetAbilityShootPointList(ability.index) : shootPointList;
+
+			if(shouldFireShootObject && targetNodeList.Count>0){
+				GameObject soObj=ability.shootObject!=null ? ability.shootObject.gameObject : GetShootObject(targetNodeList[0]);
+				float launchSpacing=ability.GetMultipleTargetLockShootDelay();
+				if(launchSpacing<=0) launchSpacing=GetAbilityShootPointSpacing(ability.index);
+
+				Debug.Log("[MultipleTargetLock] Distributed SO launch from "+name+
+				          " shootPoints="+(usedShootPointList!=null ? usedShootPointList.Count : 0)+
+				          " targets="+targetNodeList.Count+
+				          " sourceFac="+GetFacID());
+
+				yield return StartCoroutine(FireMultipleTargetLockDistributedShootObjects(soObj, targetNodeList, usedShootPointList, launchSpacing));
+			}
+
+			for(int i=0; i<targetNodeList.Count; i++){
+				Node targetNode=targetNodeList[i];
+				if(targetNode==null || targetNode.unit==null || targetNode.unit.hp<=0) continue;
+				if(targetNode==node || targetNode.unit==this) continue;
+				if(targetNode.unit.GetFacID()==GetFacID()) continue;
+
+				yield return CRoutine.Get().StartCoroutine(ability.HitTarget(targetNode));
+			}
+
+			if(actionCam && actionCamEnd!=null) yield return StartCoroutine(actionCamEnd());
+		}
+
+		private IEnumerator FireMultipleTargetLockDistributedShootObjects(GameObject soPrefab, List<Node> targetNodeList, List<Transform> customShootPointList=null, float customShootPointSpacing=-1){
+			if(soPrefab==null || targetNodeList==null || targetNodeList.Count==0) yield break;
+
+			ShootObject prefabSO=soPrefab.GetComponent<ShootObject>();
+			if(prefabSO==null){
+				Debug.LogWarning("[MultipleTargetLock] ShootObject prefab missing ShootObject component: "+soPrefab.name);
+				yield break;
+			}
+
+			List<Unit> targetUnitList=new List<Unit>();
+			for(int i=0; i<targetNodeList.Count; i++){
+				Node targetNode=targetNodeList[i];
+				if(targetNode==null || targetNode.unit==null || targetNode.unit.hp<=0) continue;
+				if(targetNode==node || targetNode.unit==this) continue;
+				if(targetNode.unit.GetFacID()==GetFacID()) continue;
+				if(!targetUnitList.Contains(targetNode.unit)) targetUnitList.Add(targetNode.unit);
+			}
+
+			if(targetUnitList.Count==0){
+				Debug.LogWarning("[MultipleTargetLock] No valid hostile unit target for distributed shoot object.");
+				yield break;
+			}
+
+			List<Transform> usedShootPointList=HasValidShootPoint(customShootPointList) ? customShootPointList : shootPointList;
+			if(!HasValidShootPoint(usedShootPointList)){
+				usedShootPointList=new List<Transform>();
+				usedShootPointList.Add(thisT);
+			}
+
+			float usedSpacing=customShootPointSpacing>=0 ? customShootPointSpacing : shootPointSpacing;
+
+			waitingForHit=true;
+
+			for(int i=0; i<usedShootPointList.Count; i++){
+				Transform shootPoint=usedShootPointList[i]!=null ? usedShootPointList[i] : thisT;
+				Unit targetUnit=targetUnitList[i % targetUnitList.Count];
+
+				if(targetUnit==null || targetUnit.node==null || targetUnit.hp<=0){
+					continue;
+				}
+
+				GameObject sObj=(GameObject)Instantiate(soPrefab, shootPoint.position, shootPoint.rotation);
+				ShootObject soInstance=sObj.GetComponent<ShootObject>();
+
+				if(soInstance==null){
+					Destroy(sObj);
+					continue;
+				}
+
+				Debug.Log("[MultipleTargetLock] Missile "+i+
+				          " shootPoint="+shootPoint.name+
+				          " target="+targetUnit.name+
+				          " targetFac="+targetUnit.GetFacID()+
+				          " sourceFac="+GetFacID());
+
+				if(i==usedShootPointList.Count-1) soInstance.InitShoot(targetUnit, HitCallback, shootPoint);
+				else soInstance.InitShoot(targetUnit, null, shootPoint);
+
+				if(i<usedShootPointList.Count-1 && usedSpacing>0) yield return new WaitForSeconds(usedSpacing);
+			}
+
+			while(waitingForHit) yield return null;
+		}
+
+
+		private Unit GetAbilityActionCamTargetUnit(Ability ability, Node tgtNode){
+			if(ability==null) return null;
+
+			if(ability.IsMultipleTargetLock()){
+				List<Unit> targetList=GetMultipleTargetLockTargets(ability);
+				if(targetList!=null && targetList.Count>0) return targetList[0];
+				return null;
+			}
+
+			Node actionCamNode=tgtNode;
+			if(ability.IsLine() && actionCamNode!=null && actionCamNode.abLineParent!=null) actionCamNode=actionCamNode.abLineParent;
+
+			if(actionCamNode!=null && actionCamNode.unit!=null) return actionCamNode.unit;
+			return null;
+		}
+
+		private bool CanUseAbilityActionCamTimeline(Ability ability){
+			return actionCamAbilityTimelineStart!=null && ability!=null && ability.UseActionCamTimeline();
+		}
+
+		private bool StartAbilityActionCamTimeline(Ability ability, Unit actionCamTargetUnit){
+			if(!CanUseAbilityActionCamTimeline(ability)) return false;
+
+			CRoutine.Get().StartCoroutine(actionCamAbilityTimelineStart(this, actionCamTargetUnit, ability));
+			return true;
+		}
+
 		public IEnumerator UseAbilityRoutine(Ability ability, Node tgtNode){
 			if(ability==null) yield break;
 
-			bool actionCam=(actionCamCheck!=null && actionCamStart!=null && actionCamCheck(false));
-			if(actionCam && tgtNode!=null) yield return StartCoroutine(actionCamStart(GetTargetPoint(), tgtNode.GetPos()));
+			bool useAbilityActionCamTimeline=CanUseAbilityActionCamTimeline(ability);
+			bool startTimelineOnActivation=useAbilityActionCamTimeline && ability.StartActionCamTimelineOnActivation();
+			bool startTimelineOnAnimationStart=useAbilityActionCamTimeline && ability.StartActionCamTimelineOnAnimationStart();
+			Unit actionCamTargetUnit=GetAbilityActionCamTargetUnit(ability, tgtNode);
+			bool actionCam=(!useAbilityActionCamTimeline && actionCamCheck!=null && actionCamStart!=null && actionCamCheck(false));
+
+			if(startTimelineOnActivation){
+				StartAbilityActionCamTimeline(ability, actionCamTargetUnit);
+			}
+			else if(actionCam && tgtNode!=null && !ability.IsMultipleTargetLock()){
+				yield return StartCoroutine(actionCamStart(GetTargetPoint(), tgtNode.GetPos()));
+			}
 			
 			ability.Activate();
 
@@ -707,6 +918,11 @@ namespace TBTK{
 			Quaternion jrpgAbilityOriginalRot=thisT.rotation;
 			bool waitedForAbilityAnimation=false;
 			bool abilityReplacesSourceUnit=(ability.type==Ability._AbilityType.ChangeForm || ability.type==Ability._AbilityType.Fusion);
+			
+			if(ability.IsMultipleTargetLock()){
+				yield return StartCoroutine(UseMultipleTargetLockAbilityRoutine(ability, actionCam, startTimelineOnAnimationStart, actionCamTargetUnit));
+				yield break;
+			}
 			
 			if(ability.requireTarget && tgtNode!=null){
 				if(ability.IsLine()) tgtNode=tgtNode.abLineParent;
@@ -724,6 +940,8 @@ namespace TBTK{
 					while(Rotate(tgtNode.GetPos())>2) yield return null;
 				}
 			
+				if(startTimelineOnAnimationStart) StartAbilityActionCamTimeline(ability, actionCamTargetUnit);
+
 				if(ability.useAttackSequence){
 					// Distance ability must stay as ranged/default attack even when target is close.
 					// Melee ability uses melee attack animation/logic only when Skill Range Type is Melee.
@@ -757,6 +975,7 @@ namespace TBTK{
 				}
 			}
 			else{
+				if(startTimelineOnAnimationStart) StartAbilityActionCamTimeline(ability, actionCamTargetUnit);
 				float animationDelay=AnimPlayAbility(ability.index);
 				if(animationDelay>0) yield return new WaitForSeconds(animationDelay);
 			}
@@ -1230,6 +1449,40 @@ namespace TBTK{
 				if(i<usedShootPointList.Count-1) yield return new WaitForSeconds(usedSpacing);
 			}
 			
+			while(waitingForHit) yield return null;
+		}
+
+		public IEnumerator FireShootObject(GameObject soPrefab, Unit tgtUnit, List<Transform> customShootPointList=null, float customShootPointSpacing=-1){
+			if(soPrefab==null || tgtUnit==null || tgtUnit==this || tgtUnit.node==null || tgtUnit.hp<=0){
+				yield break;
+			}
+
+			waitingForHit=true;
+
+			List<Transform> usedShootPointList=HasValidShootPoint(customShootPointList) ? customShootPointList : shootPointList;
+			if(!HasValidShootPoint(usedShootPointList)){
+				usedShootPointList=new List<Transform>();
+				usedShootPointList.Add(thisT);
+			}
+
+			float usedSpacing=customShootPointSpacing>=0 ? customShootPointSpacing : shootPointSpacing;
+
+			for(int i=0; i<usedShootPointList.Count; i++){
+				Transform shootPoint=usedShootPointList[i]!=null ? usedShootPointList[i] : thisT;
+				GameObject sObj=(GameObject)Instantiate(soPrefab, shootPoint.position, shootPoint.rotation);
+				ShootObject soInstance=sObj.GetComponent<ShootObject>();
+
+				if(soInstance==null){
+					Destroy(sObj);
+					continue;
+				}
+
+				if(i==usedShootPointList.Count-1) soInstance.InitShoot(tgtUnit, HitCallback, shootPoint);
+				else soInstance.InitShoot(tgtUnit, null, shootPoint);
+
+				if(i<usedShootPointList.Count-1) yield return new WaitForSeconds(usedSpacing);
+			}
+
 			while(waitingForHit) yield return null;
 		}
 		

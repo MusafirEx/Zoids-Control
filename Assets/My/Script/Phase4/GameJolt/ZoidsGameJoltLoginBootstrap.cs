@@ -5,6 +5,7 @@ public class ZoidsGameJoltLoginBootstrap : MonoBehaviour
     [SerializeField] private bool createAccountManagerIfMissing = true;
     [SerializeField] private bool createCloudSaveManagerIfMissing = true;
     [SerializeField] private bool createProfileBridgeIfMissing = true;
+    [SerializeField] private bool createScoreboardManagerIfMissing = true;
 
     private void Awake()
     {
@@ -35,6 +36,16 @@ public class ZoidsGameJoltLoginBootstrap : MonoBehaviour
             {
                 GameObject obj = new GameObject("ZoidsGameJoltProfileBridge_AUTO");
                 obj.AddComponent<ZoidsGameJoltProfileBridge>();
+            }
+        }
+
+        if (createScoreboardManagerIfMissing && ZoidsGameJoltScoreboardManager.Instance == null)
+        {
+            ZoidsGameJoltScoreboardManager found = FindManager<ZoidsGameJoltScoreboardManager>();
+            if (found == null)
+            {
+                GameObject obj = new GameObject("ZoidsGameJoltScoreboardManager_AUTO");
+                obj.AddComponent<ZoidsGameJoltScoreboardManager>();
             }
         }
     }

@@ -33,6 +33,11 @@ MonoBehaviour:
     range: 5
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -75,6 +80,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -103,6 +114,11 @@ MonoBehaviour:
     range: 3
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -145,6 +161,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 100000, guid: 48aa9bbb06ab8e34f9baa19eee93c358, type: 3}
       autoDestroy: 1
@@ -174,6 +196,11 @@ MonoBehaviour:
     range: 7
     aoeRange: 1
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -217,6 +244,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -246,6 +279,11 @@ MonoBehaviour:
     range: 5
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -288,6 +326,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 100000, guid: 48aa9bbb06ab8e34f9baa19eee93c358, type: 3}
       autoDestroy: 1
@@ -316,6 +360,11 @@ MonoBehaviour:
     range: 5
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -358,6 +407,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -386,6 +441,11 @@ MonoBehaviour:
     range: 5
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -428,6 +488,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -457,6 +523,11 @@ MonoBehaviour:
     range: 3
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -499,6 +570,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -527,6 +604,11 @@ MonoBehaviour:
     range: 3
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -569,6 +651,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -597,6 +685,11 @@ MonoBehaviour:
     range: 5
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -639,6 +732,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 100000, guid: 48aa9bbb06ab8e34f9baa19eee93c358, type: 3}
       autoDestroy: 1
@@ -651,7 +750,7 @@ MonoBehaviour:
   - prefabID: 9
     instanceID: -1
     icon: {fileID: 21300098, guid: 829675e3673863042b49e7db0431f3e3, type: 3}
-    name: Aim Shot
+    name: Scout
     desp: Gain 100% critical chance for the next attack
     srcUnit: {fileID: 0}
     facID: 0
@@ -661,12 +760,17 @@ MonoBehaviour:
     type: 0
     targetType: 0
     requireTarget: 0
-    requireLos: 1
-    skillRangeType: 0
+    requireLos: 0
+    skillRangeType: 1
     rangeMin: 0
-    range: 5
+    range: 7
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -676,8 +780,8 @@ MonoBehaviour:
     obstaclePrefab: {fileID: 0}
     moveCost: 0
     attackCost: 0
-    abilityCost: 1
-    apCost: 5
+    abilityCost: 0
+    apCost: 4
     endAllActionAfterUse: 0
     cooldown: 4
     useLimit: 0
@@ -708,7 +812,13 @@ MonoBehaviour:
     abilityAnimationLayer: 0
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
-    jrpgMeleeStepDistance: 2
+    jrpgMeleeStepDistance: 0.05
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 100000, guid: 48aa9bbb06ab8e34f9baa19eee93c358, type: 3}
       autoDestroy: 1
@@ -717,7 +827,7 @@ MonoBehaviour:
       obj: {fileID: 0}
       autoDestroy: 1
       duration: 1.5
-    activateSound: {fileID: 0}
+    activateSound: {fileID: 8300000, guid: 83a5cdf2db644808a96fb167a21d1d16, type: 3}
   - prefabID: 10
     instanceID: -1
     icon: {fileID: 21300072, guid: 829675e3673863042b49e7db0431f3e3, type: 3}
@@ -737,6 +847,11 @@ MonoBehaviour:
     range: 3
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -779,6 +894,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -807,6 +928,11 @@ MonoBehaviour:
     range: 5
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -849,6 +975,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 100000, guid: c95020d061a23034a95837de205d2ee4, type: 3}
       autoDestroy: 1
@@ -877,6 +1009,11 @@ MonoBehaviour:
     range: 5
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -919,6 +1056,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -948,6 +1091,11 @@ MonoBehaviour:
     range: 5
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 90
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -990,6 +1138,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -1018,6 +1172,11 @@ MonoBehaviour:
     range: 5
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -1061,6 +1220,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -1090,6 +1255,11 @@ MonoBehaviour:
     range: 5
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: -5201215917033341885, guid: 387970f5e8724034b41717a7598e4184,
       type: 3}
@@ -1134,8 +1304,14 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
-      obj: {fileID: 0}
+      obj: {fileID: 100000, guid: c95020d061a23034a95837de205d2ee4, type: 3}
       autoDestroy: 1
       duration: 1.5
     effectOnHit:
@@ -1163,6 +1339,11 @@ MonoBehaviour:
     range: 5
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: -2189805427929086001, guid: 700b4982429d4d28932fdd5cc4fb06c0,
       type: 3}
@@ -1207,8 +1388,14 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
-      obj: {fileID: 0}
+      obj: {fileID: 100000, guid: c95020d061a23034a95837de205d2ee4, type: 3}
       autoDestroy: 1
       duration: 1.5
     effectOnHit:
@@ -1235,6 +1422,11 @@ MonoBehaviour:
     range: 7
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 90
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -1278,6 +1470,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -1306,6 +1504,11 @@ MonoBehaviour:
     range: 7
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 90
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -1323,7 +1526,7 @@ MonoBehaviour:
     impactDelay: 0
     impactType: 1
     hpModifierMin: 30
-    hpModifierMax: 50
+    hpModifierMax: 40
     apModifierMin: 0
     apModifierMax: 0
     damageType: 0
@@ -1349,15 +1552,21 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 1
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
-      duration: 1.5
+      duration: 1
     effectOnHit:
       obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
       autoDestroy: 1
       duration: 1.5
-    activateSound: {fileID: 8300000, guid: 1f481a1871904741a261ef0a55a30321, type: 3}
+    activateSound: {fileID: 0}
   - prefabID: 15
     instanceID: 0
     icon: {fileID: 21300000, guid: 8f4bef73f52531149a4f7771ad814c78, type: 3}
@@ -1377,6 +1586,11 @@ MonoBehaviour:
     range: 7
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 90
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -1420,6 +1634,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -1449,6 +1669,11 @@ MonoBehaviour:
     range: 5
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: -3139401339251525811, guid: bcfe78d7263f402b98e767eb4f678181,
       type: 3}
@@ -1493,8 +1718,14 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
-      obj: {fileID: 0}
+      obj: {fileID: 100000, guid: c95020d061a23034a95837de205d2ee4, type: 3}
       autoDestroy: 1
       duration: 1.5
     effectOnHit:
@@ -1502,3 +1733,671 @@ MonoBehaviour:
       autoDestroy: 1
       duration: 1.5
     activateSound: {fileID: 8300000, guid: 1f481a1871904741a261ef0a55a30321, type: 3}
+  - prefabID: 18
+    instanceID: 0
+    icon: {fileID: 21300000, guid: 2260cd24c2546444fa629f1453159994, type: 3}
+    name: 5 Blade Attack
+    desp: Fire an unstoppable that shoot through all units in a line
+    srcUnit: {fileID: 0}
+    facID: 0
+    index: 0
+    isUnitAbility: 0
+    isFacAbility: 0
+    type: 0
+    targetType: 2
+    requireTarget: 1
+    requireLos: 0
+    skillRangeType: 1
+    rangeMin: 0
+    range: 7
+    aoeRange: 0
+    useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
+    fov: 90
+    spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
+    changeFormKeepHPPercent: 1
+    obstaclePrefab: {fileID: 0}
+    moveCost: 0
+    attackCost: 0
+    abilityCost: 0
+    apCost: 3
+    endAllActionAfterUse: 1
+    cooldown: 3
+    useLimit: 0
+    impactDelay: 0
+    impactType: 1
+    hpModifierMin: 35
+    hpModifierMax: 45
+    apModifierMin: 0
+    apModifierMax: 0
+    damageType: 0
+    attack: 100
+    hitChance: 100
+    critChance: 0.5
+    critMultiplier: 2
+    factorInTargetStats: 1
+    effHitChance: 1
+    effectIDList: 
+    clearAllEffect: 0
+    switchFaction: 0
+    switchFacControllable: 1
+    duration: 1
+    useAttackSequence: 0
+    fireShootObjectWithAbilityAnimation: 0
+    aimAtUnit: 0
+    shootObject: {fileID: 114531568714686454, guid: 4004113fd6c045b4cae9b8f5f74728f9,
+      type: 3}
+    abilityAnimationTrigger: Ability2
+    abilityAnimationState: Ability2
+    abilityAnimationLayer: 0
+    waitForAbilityAnimationComplete: 1
+    abilityAnimationTimeout: 8
+    jrpgMeleeStepDistance: 1.5
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
+    effectOnUse:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1
+    effectOnHit:
+      obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
+      autoDestroy: 1
+      duration: 1.5
+    activateSound: {fileID: 8300000, guid: 7fb822b6eaed4c74be6cbbb2734de669, type: 3}
+  - prefabID: 22
+    instanceID: 0
+    icon: {fileID: 21300000, guid: 62f820a9bd5060640bfabe008fb8609a, type: 3}
+    name: 7 Blade Attack
+    desp: Fire an unstoppable that shoot through all units in a line
+    srcUnit: {fileID: 0}
+    facID: 0
+    index: 0
+    isUnitAbility: 0
+    isFacAbility: 0
+    type: 0
+    targetType: 2
+    requireTarget: 1
+    requireLos: 0
+    skillRangeType: 1
+    rangeMin: 0
+    range: 7
+    aoeRange: 0
+    useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
+    fov: 90
+    spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
+    changeFormKeepHPPercent: 1
+    obstaclePrefab: {fileID: 0}
+    moveCost: 0
+    attackCost: 0
+    abilityCost: 0
+    apCost: 3
+    endAllActionAfterUse: 1
+    cooldown: 3
+    useLimit: 0
+    impactDelay: 0
+    impactType: 1
+    hpModifierMin: 40
+    hpModifierMax: 50
+    apModifierMin: 0
+    apModifierMax: 0
+    damageType: 0
+    attack: 100
+    hitChance: 100
+    critChance: 0.5
+    critMultiplier: 2
+    factorInTargetStats: 1
+    effHitChance: 1
+    effectIDList: 
+    clearAllEffect: 0
+    switchFaction: 0
+    switchFacControllable: 1
+    duration: 1
+    useAttackSequence: 0
+    fireShootObjectWithAbilityAnimation: 0
+    aimAtUnit: 0
+    shootObject: {fileID: 114531568714686454, guid: 4004113fd6c045b4cae9b8f5f74728f9,
+      type: 3}
+    abilityAnimationTrigger: Ability3
+    abilityAnimationState: Ability3
+    abilityAnimationLayer: 0
+    waitForAbilityAnimationComplete: 1
+    abilityAnimationTimeout: 8
+    jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
+    effectOnUse:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1
+    effectOnHit:
+      obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
+      autoDestroy: 1
+      duration: 1.5
+    activateSound: {fileID: 8300000, guid: 7fb822b6eaed4c74be6cbbb2734de669, type: 3}
+  - prefabID: 24
+    instanceID: 0
+    icon: {fileID: 21300000, guid: 6ebda55115f212845b8c81f89be47297, type: 3}
+    name: Twin Hybrid Cannons
+    desp: Fire an unstoppable that shoot through all units in a line
+    srcUnit: {fileID: 0}
+    facID: 0
+    index: 0
+    isUnitAbility: 0
+    isFacAbility: 0
+    type: 6
+    targetType: 2
+    requireTarget: 1
+    requireLos: 0
+    skillRangeType: 0
+    rangeMin: 0
+    range: 7
+    aoeRange: 0
+    useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
+    fov: 90
+    spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
+    changeFormKeepHPPercent: 1
+    obstaclePrefab: {fileID: 0}
+    moveCost: 0
+    attackCost: 0
+    abilityCost: 0
+    apCost: 5
+    endAllActionAfterUse: 1
+    cooldown: 3
+    useLimit: 0
+    impactDelay: 0
+    impactType: 1
+    hpModifierMin: 45
+    hpModifierMax: 50
+    apModifierMin: 0
+    apModifierMax: 0
+    damageType: 0
+    attack: 100
+    hitChance: 100
+    critChance: 0.5
+    critMultiplier: 2
+    factorInTargetStats: 1
+    effHitChance: 1
+    effectIDList: 
+    clearAllEffect: 0
+    switchFaction: 0
+    switchFacControllable: 1
+    duration: 1
+    useAttackSequence: 0
+    fireShootObjectWithAbilityAnimation: 1
+    aimAtUnit: 1
+    shootObject: {fileID: 114531568714686454, guid: 4004113fd6c045b4cae9b8f5f74728f9,
+      type: 3}
+    abilityAnimationTrigger: Ability2
+    abilityAnimationState: Ability2
+    abilityAnimationLayer: 0
+    waitForAbilityAnimationComplete: 1
+    abilityAnimationTimeout: 8
+    jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
+    effectOnUse:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1.5
+    effectOnHit:
+      obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
+      autoDestroy: 1
+      duration: 1.5
+    activateSound: {fileID: 8300000, guid: 40da45237ca141a7b2ae1f5b0599868e, type: 3}
+  - prefabID: 25
+    instanceID: -1
+    icon: {fileID: 21300000, guid: b03a3f2f596c41244aaac31665df5de8, type: 3}
+    name: Burning Big Bang
+    desp: "unleashes the Panzer's entire artillery payload at once\u2014firing 80
+      missiles, hybrid cannons, and grenade launchers simultaneously. "
+    srcUnit: {fileID: 0}
+    facID: 0
+    index: 0
+    isUnitAbility: 0
+    isFacAbility: 0
+    type: 0
+    targetType: 2
+    requireTarget: 1
+    requireLos: 0
+    skillRangeType: 0
+    rangeMin: 0
+    range: 8
+    aoeRange: 1
+    useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 0
+    multipleTargetLockMaxTargets: 10
+    multipleTargetLockShootDelay: 1
+    fov: 60
+    spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
+    changeFormKeepHPPercent: 1
+    obstaclePrefab: {fileID: 0}
+    moveCost: 0
+    attackCost: 0
+    abilityCost: 0
+    apCost: 3
+    endAllActionAfterUse: 1
+    cooldown: 0
+    useLimit: 0
+    impactDelay: 0
+    impactType: 1
+    hpModifierMin: 30
+    hpModifierMax: 45
+    apModifierMin: 0
+    apModifierMax: 0
+    damageType: 0
+    attack: 1
+    hitChance: 1
+    critChance: 0
+    critMultiplier: 2
+    factorInTargetStats: 0
+    effHitChance: 0
+    effectIDList: 
+    clearAllEffect: 0
+    switchFaction: 0
+    switchFacControllable: 1
+    duration: 1
+    useAttackSequence: 0
+    fireShootObjectWithAbilityAnimation: 1
+    aimAtUnit: 0
+    shootObject: {fileID: 114964489815701678, guid: 89e0f3b4dd2e5f94c89e013cec30a308,
+      type: 3}
+    abilityAnimationTrigger: Ability3
+    abilityAnimationState: Ability3
+    abilityAnimationLayer: 0
+    waitForAbilityAnimationComplete: 1
+    abilityAnimationTimeout: 8
+    jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
+    effectOnUse:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1.5
+    effectOnHit:
+      obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
+      autoDestroy: 1
+      duration: 1.5
+    activateSound: {fileID: 8300000, guid: 52fe54c36eeedcb4b9d70d45e727cdf1, type: 3}
+  - prefabID: 23
+    instanceID: -1
+    icon: {fileID: 21300000, guid: 708d35ddb4a983c4c8e3f2cbaa4076df, type: 3}
+    name: Buster Fusion
+    desp: 'The Buster is a Fuzor Zoid, and is a combination with Buster Eagle. '
+    srcUnit: {fileID: 0}
+    facID: 0
+    index: 0
+    isUnitAbility: 0
+    isFacAbility: 0
+    type: 3
+    targetType: 0
+    requireTarget: 0
+    requireLos: 1
+    skillRangeType: 0
+    rangeMin: 0
+    range: 5
+    aoeRange: 0
+    useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
+    fov: 60
+    spawnUnitPrefab: {fileID: 4501713615680632305, guid: 9e4fc25447b3b8a4d84e2239464892c9,
+      type: 3}
+    requiredUnit:
+    - {fileID: 7189116812433571272, guid: 25bca7a1c9f2c29468d15a04623e8aec, type: 3}
+    fusionRange: 1
+    fusionUseMainNode: 1
+    changeFormKeepHPPercent: 1
+    obstaclePrefab: {fileID: 0}
+    moveCost: 0
+    attackCost: 0
+    abilityCost: 0
+    apCost: 5
+    endAllActionAfterUse: 0
+    cooldown: 1
+    useLimit: 0
+    impactDelay: 0
+    impactType: 0
+    hpModifierMin: 5
+    hpModifierMax: 5
+    apModifierMin: 5
+    apModifierMax: 5
+    damageType: 0
+    attack: 1
+    hitChance: 1
+    critChance: 0
+    critMultiplier: 2
+    factorInTargetStats: 0
+    effHitChance: 0
+    effectIDList: 
+    clearAllEffect: 0
+    switchFaction: 0
+    switchFacControllable: 1
+    duration: 1
+    useAttackSequence: 0
+    fireShootObjectWithAbilityAnimation: 0
+    aimAtUnit: 0
+    shootObject: {fileID: 0}
+    abilityAnimationTrigger: Ability2
+    abilityAnimationState: Ability2
+    abilityAnimationLayer: 0
+    waitForAbilityAnimationComplete: 1
+    abilityAnimationTimeout: 8
+    jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
+    effectOnUse:
+      obj: {fileID: 100000, guid: 48aa9bbb06ab8e34f9baa19eee93c358, type: 3}
+      autoDestroy: 1
+      duration: 1.5
+    effectOnHit:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1.5
+    activateSound: {fileID: 8300000, guid: 4eb6c85c37754906bd07d26bb4e58c16, type: 3}
+  - prefabID: 26
+    instanceID: 0
+    icon: {fileID: 21300000, guid: 69fa05775f021ca4f9d4429ee485ccb9, type: 3}
+    name: Laser Blade Stab
+    desp: There are two blades, one equipped to each side of the Liger. When not
+      in use they fold up against the sides and rotate backwards, resting over the
+      back.
+    srcUnit: {fileID: 0}
+    facID: 0
+    index: 0
+    isUnitAbility: 0
+    isFacAbility: 0
+    type: 0
+    targetType: 2
+    requireTarget: 1
+    requireLos: 0
+    skillRangeType: 1
+    rangeMin: 0
+    range: 7
+    aoeRange: 0
+    useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
+    fov: 90
+    spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
+    changeFormKeepHPPercent: 1
+    obstaclePrefab: {fileID: 0}
+    moveCost: 0
+    attackCost: 0
+    abilityCost: 0
+    apCost: 3
+    endAllActionAfterUse: 1
+    cooldown: 4
+    useLimit: 0
+    impactDelay: 0
+    impactType: 1
+    hpModifierMin: 35
+    hpModifierMax: 45
+    apModifierMin: 0
+    apModifierMax: 0
+    damageType: 0
+    attack: 100
+    hitChance: 100
+    critChance: 0.5
+    critMultiplier: 2
+    factorInTargetStats: 1
+    effHitChance: 1
+    effectIDList: 
+    clearAllEffect: 0
+    switchFaction: 0
+    switchFacControllable: 1
+    duration: 1
+    useAttackSequence: 0
+    fireShootObjectWithAbilityAnimation: 0
+    aimAtUnit: 0
+    shootObject: {fileID: 114531568714686454, guid: 4004113fd6c045b4cae9b8f5f74728f9,
+      type: 3}
+    abilityAnimationTrigger: Ability2
+    abilityAnimationState: Ability2
+    abilityAnimationLayer: 0
+    waitForAbilityAnimationComplete: 1
+    abilityAnimationTimeout: 8
+    jrpgMeleeStepDistance: 1.5
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
+    effectOnUse:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1
+    effectOnHit:
+      obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
+      autoDestroy: 1
+      duration: 1.5
+    activateSound: {fileID: 8300000, guid: 7fb822b6eaed4c74be6cbbb2734de669, type: 3}
+  - prefabID: 27
+    instanceID: 0
+    icon: {fileID: 21300000, guid: 4adec339cf46f1e4c8eacfafea73e255, type: 3}
+    name: Laser Blade Slash
+    desp: There are two blades, one equipped to each side of the Liger. When not
+      in use they fold up against the sides and rotate backwards, resting over the
+      back.
+    srcUnit: {fileID: 0}
+    facID: 0
+    index: 0
+    isUnitAbility: 0
+    isFacAbility: 0
+    type: 0
+    targetType: 2
+    requireTarget: 1
+    requireLos: 0
+    skillRangeType: 1
+    rangeMin: 0
+    range: 7
+    aoeRange: 0
+    useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
+    fov: 90
+    spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
+    changeFormKeepHPPercent: 1
+    obstaclePrefab: {fileID: 0}
+    moveCost: 0
+    attackCost: 0
+    abilityCost: 0
+    apCost: 3
+    endAllActionAfterUse: 1
+    cooldown: 3
+    useLimit: 0
+    impactDelay: 0
+    impactType: 1
+    hpModifierMin: 40
+    hpModifierMax: 50
+    apModifierMin: 0
+    apModifierMax: 0
+    damageType: 0
+    attack: 100
+    hitChance: 100
+    critChance: 0.5
+    critMultiplier: 2
+    factorInTargetStats: 1
+    effHitChance: 1
+    effectIDList: 
+    clearAllEffect: 0
+    switchFaction: 0
+    switchFacControllable: 1
+    duration: 1
+    useAttackSequence: 0
+    fireShootObjectWithAbilityAnimation: 0
+    aimAtUnit: 0
+    shootObject: {fileID: 114531568714686454, guid: 4004113fd6c045b4cae9b8f5f74728f9,
+      type: 3}
+    abilityAnimationTrigger: Ability3
+    abilityAnimationState: Ability3
+    abilityAnimationLayer: 0
+    waitForAbilityAnimationComplete: 1
+    abilityAnimationTimeout: 8
+    jrpgMeleeStepDistance: 1
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
+    effectOnUse:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1
+    effectOnHit:
+      obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
+      autoDestroy: 1
+      duration: 1.5
+    activateSound: {fileID: 8300000, guid: 7fb822b6eaed4c74be6cbbb2734de669, type: 3}
+  - prefabID: 28
+    instanceID: 0
+    icon: {fileID: 21300000, guid: 5ee54e812e7627c4da3f1d3f5733cf4a, type: 3}
+    name: Jager Strike Lazer Claw
+    desp: 'ager''s Strike Laser Claws are shown with a greenish-yellow glow, with
+      electricity arching off of them. '
+    srcUnit: {fileID: 0}
+    facID: 0
+    index: 0
+    isUnitAbility: 0
+    isFacAbility: 0
+    type: 0
+    targetType: 2
+    requireTarget: 1
+    requireLos: 0
+    skillRangeType: 1
+    rangeMin: 0
+    range: 7
+    aoeRange: 0
+    useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
+    fov: 90
+    spawnUnitPrefab: {fileID: 0}
+    requiredUnit: []
+    fusionRange: 2
+    fusionUseMainNode: 1
+    changeFormKeepHPPercent: 1
+    obstaclePrefab: {fileID: 0}
+    moveCost: 0
+    attackCost: 0
+    abilityCost: 0
+    apCost: 4
+    endAllActionAfterUse: 1
+    cooldown: 4
+    useLimit: 0
+    impactDelay: 0
+    impactType: 1
+    hpModifierMin: 30
+    hpModifierMax: 40
+    apModifierMin: 0
+    apModifierMax: 0
+    damageType: 0
+    attack: 100
+    hitChance: 100
+    critChance: 0.5
+    critMultiplier: 2
+    factorInTargetStats: 1
+    effHitChance: 1
+    effectIDList: 06000000
+    clearAllEffect: 0
+    switchFaction: 0
+    switchFacControllable: 1
+    duration: 1
+    useAttackSequence: 0
+    fireShootObjectWithAbilityAnimation: 0
+    aimAtUnit: 0
+    shootObject: {fileID: 114531568714686454, guid: 4004113fd6c045b4cae9b8f5f74728f9,
+      type: 3}
+    abilityAnimationTrigger: Ability2
+    abilityAnimationState: Ability2
+    abilityAnimationLayer: 0
+    waitForAbilityAnimationComplete: 1
+    abilityAnimationTimeout: 8
+    jrpgMeleeStepDistance: 1
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline:
+    - anchor: 0
+      position: {x: 0, y: 3, z: -6}
+      rotation: {x: 20, y: 0, z: 0}
+      timeStamp: 0
+      chain: 0
+    effectOnUse:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1
+    effectOnHit:
+      obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
+      autoDestroy: 1
+      duration: 1.5
+    activateSound: {fileID: 0}

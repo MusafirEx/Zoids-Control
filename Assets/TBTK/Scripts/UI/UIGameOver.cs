@@ -22,6 +22,12 @@ namespace TBTK
         [SerializeField] private TMP_Text labelReward;
         [SerializeField] private TMP_Text labelContinueButton;
 
+        [Header("Sound")]
+        public AudioClip nextButton;
+        public AudioClip winSound;
+        public AudioClip loseSound;
+
+
         [Header("Zoids Reward Hook")]
         [SerializeField] private BattleRewardManager rewardManager;
         [SerializeField] private bool applyBattleReward = true;
@@ -34,13 +40,19 @@ namespace TBTK
         [Header("Area Battle Hook")]
         [SerializeField] private bool applyAreaResult = true;
 
+        [Header("Game Jolt Scoreboard Hook")]
+        [SerializeField] private bool submitGameJoltScoreOnWin = true;
+        [SerializeField] private ZoidsGameJoltScoreboardManager scoreboardManager;
+
         private bool rewardApplied = false;
+        private bool scoreboardApplied = false;
         private bool lastPlayerWon = false;
         private bool showingColosseumResult = false;
 
         private BattleResultData lastRewardResult;
         private int lastPerkCurrencyReward = 0;
 
+        private MapSFX soundManager;
         private static UIGameOver instance;
 
         public override void Awake()
@@ -77,6 +89,15 @@ namespace TBTK
 
             if (rewardManager != null)
                 rewardManager.RefreshRuntimeReferences();
+
+            if(soundManager==null)
+                soundManager=MapSFX.Instance;
+
+            if (scoreboardManager == null && ZoidsGameJoltScoreboardManager.Instance != null)
+                scoreboardManager = ZoidsGameJoltScoreboardManager.Instance;
+
+            if (scoreboardManager == null)
+                scoreboardManager = FindManager<ZoidsGameJoltScoreboardManager>();
         }
 
         private T FindManager<T>() where T : Object
@@ -131,6 +152,20 @@ namespace TBTK
             if (!showingColosseumResult && applyAreaResult)
                 BattleAreaResultApplier.ApplyResult(playerWon);
 
+            ApplyScoreboardOnce(playerWon);
+
+            ///SoundPart
+            if (playerWon)
+            {
+                soundManager.Bgm.Stop();    
+                soundManager.sfx.PlayOneShot(winSound);
+            }
+            else
+            {
+                soundManager.Bgm.Stop();
+                soundManager.sfx.PlayOneShot(loseSound);
+            }
+
             RefreshResultDisplay(playerWon);
 
             base.Show();
@@ -140,6 +175,54 @@ namespace TBTK
                 Debug.Log("[UIGameOver] Colosseum result shown. PlayerWon=" + playerWon +
                           ". Press Continue to proceed.");
             }
+        }
+
+        private void ApplyScoreboardOnce(bool playerWon)
+        {
+            if (!submitGameJoltScoreOnWin) return;
+            if (!playerWon) return;
+            if (scoreboardApplied) return;
+
+            RefreshRuntimeReferences();
+
+            if (scoreboardManager == null)
+            {
+                Debug.LogWarning("[UIGameOver] Game Jolt scoreboard manager missing. Score not submitted.");
+                return;
+            }
+
+            BattleContextData context = GetContext();
+
+            if (showingColosseumResult)
+            {
+                ColosseumManager manager = FindManager<ColosseumManager>();
+                ColosseumRunData run = manager != null ? manager.CurrentRun : null;
+
+                if (run != null && run.IsFinalRound())
+                {
+                    scoreboardApplied = true;
+                    scoreboardManager.ReportColosseumClearWin(run);
+                }
+                else
+                {
+                    // Colosseum round wins are not submitted. Only the full run clear on final round gives score.
+                    if (run != null)
+                    {
+                        Debug.Log("[UIGameOver] Colosseum scoreboard not submitted. Round " +
+                                  run.currentRound + "/" + run.totalRounds +
+                                  " is not the final clear.");
+                    }
+                    else
+                    {
+                        Debug.LogWarning("[UIGameOver] Colosseum scoreboard not submitted. ColosseumRunData missing.");
+                    }
+                }
+
+                return;
+            }
+
+            scoreboardApplied = true;
+            scoreboardManager.ReportBattleWin(context);
         }
 
         private void RefreshResultDisplay(bool playerWon)

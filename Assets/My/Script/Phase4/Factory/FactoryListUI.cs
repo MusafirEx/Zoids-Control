@@ -105,6 +105,9 @@ public class FactoryListUI : MonoBehaviour
             if (unit == null)
                 continue;
 
+            if (!factoryManager.ShouldShowInFactoryList(unit.prefabID))
+                continue;
+
             FactoryUnitButtonUI button = Instantiate(buttonPrefab, buttonParent);
             button.gameObject.SetActive(true);
             button.Setup(unit, factoryManager, this);

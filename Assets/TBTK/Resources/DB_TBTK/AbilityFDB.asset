@@ -32,6 +32,11 @@ MonoBehaviour:
     range: 0
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -74,6 +79,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -102,6 +113,11 @@ MonoBehaviour:
     range: 0
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -144,6 +160,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -172,6 +194,11 @@ MonoBehaviour:
     range: 0
     aoeRange: 4
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -214,6 +241,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -242,6 +275,11 @@ MonoBehaviour:
     range: 0
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -284,6 +322,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -313,6 +357,11 @@ MonoBehaviour:
     range: 0
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -355,6 +404,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -383,6 +438,11 @@ MonoBehaviour:
     range: 5
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 114105213224067032, guid: a40cc5d55d9dcb64ea04dc6a1b318bd2,
       type: 3}
@@ -426,6 +486,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1
@@ -455,6 +521,11 @@ MonoBehaviour:
     range: 0
     aoeRange: 0
     useLineAOE: 0
+    multipleTargetLock: 0
+    multipleTargetLockUseSight: 1
+    multipleTargetLockRequireLOS: 1
+    multipleTargetLockMaxTargets: 0
+    multipleTargetLockShootDelay: 0.08
     fov: 60
     spawnUnitPrefab: {fileID: 0}
     requiredUnit: []
@@ -497,6 +568,12 @@ MonoBehaviour:
     waitForAbilityAnimationComplete: 1
     abilityAnimationTimeout: 8
     jrpgMeleeStepDistance: 2
+    useActionCamTimeline: 0
+    actionCamTimelineStartMode: 1
+    actionCamTimelineReturnToNormal: 1
+    actionCamTimelineHoldAfterLast: 0.25
+    actionCamTimelineReturnDuration: 0.5
+    actionCamTimeline: []
     effectOnUse:
       obj: {fileID: 0}
       autoDestroy: 1

@@ -226,12 +226,14 @@ MonoBehaviour:
   value: 100
   rarity: 2
   factoryCost: 100
-  unitDescription: 'Role: Speed Melee
-
-    Size: Medium
-
-    Attack Type: Melee-focused
-    hybrid'
+  unitDescription: The Lightning Saix is a high-speed land Zoid. The Lightning Saix
+    is well armed, carrying a pair of Pulse Laser Rifles on its back, as well as
+    a pair of small Vulcan Guns in its head. The Saix's Pulse Laser Rifles only point
+    directly forward and cannot be turned, meaning that the Zoid is rather vulnerable
+    to attacks from the flanks or behind. However, the fixed position of the back-mounted
+    weapons is a necessity, as the Saix would lose its balance if the rifles were
+    to turn while running at high speeds.
+  isUpgradedUnit: 0
   limitedOwned: 0
   ownedLimit: 1
   facID: 0
@@ -499,7 +501,7 @@ MonoBehaviour:
     autoDestroy: 1
     duration: 1.5
   effectOnDestroyed:
-    obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
+    obj: {fileID: 1607639869435452, guid: f487dd708b3da6d40b5f888c92be35ce, type: 3}
     autoDestroy: 1
     duration: 1.5
   animatorT: {fileID: 2955}
