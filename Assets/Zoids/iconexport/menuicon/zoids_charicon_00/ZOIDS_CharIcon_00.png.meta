@@ -471,6 +471,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Gojulas
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 123
+        width: 135
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a369cf060b99df341b83d3d280cce362
+      internalID: -2120897433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gunblaster
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 935
+        width: 145
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96de09b82d68ba44682bca3e94f59187
+      internalID: -1101979024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gordos
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 131
+        width: 140
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6878d54e65ffd0145a9388228d0c2681
+      internalID: 1040592161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -491,6 +554,9 @@ TextureImporter:
       Elephander: -1889333995
       GenoSaurer: -848061037
       Genobreaker: 146385383
+      Gojulas: -2120897433
+      Gordos: 1040592161
+      Gunblaster: -1101979024
       Liger Zero: 1527451655
       LigerZero_Jager: -574966007
       LigerZero_Panzer: 1155697118

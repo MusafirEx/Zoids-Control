@@ -549,6 +549,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2926}
   - component: {fileID: 4398}
+  - component: {fileID: 6591247768095617107}
   m_Layer: 0
   m_Name: mod_GJLS00
   m_TagString: 
@@ -566,7 +567,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 83, y: 83, z: 83}
+  m_LocalScale: {x: 41.5, y: 41.5, z: 41.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2868}
@@ -594,6 +595,381 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6591247768095617107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3e65cdc3be52354583818ea1257da3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabID: 10
+  instanceID: -1
+  icon: {fileID: -2120897433, guid: 0dd901aa51534c659f29ba1e0428b4da, type: 3}
+  itemName: Gojulas
+  desp: 'Gojulas is slow, the Zoid is extremely agile, especially when considering
+    its size; on top of that, it is capable of functioning underwater. The Zoid is
+    very capable in close combat, able to attack opponents with its claws and fangs
+    or, if need be, whip them with its tail, which packs a wallop powerful enough
+    to knock even mid-sized Zoids off their feet. '
+  thisT: {fileID: 0}
+  thisObj: {fileID: 0}
+  node:
+    idx: 0
+    idxX: 0
+    idxZ: 0
+    x: 0
+    y: 0
+    z: 0
+    objT: {fileID: 0}
+    rend: {fileID: 0}
+    walkable: 0
+    cost: 0
+    pos: {x: 0, y: 0, z: 0}
+    obstacleT: {fileID: 0}
+    unit: {fileID: 0}
+    collectible: {fileID: 0}
+    wallList: []
+    coverList: 
+    deployFacID: 0
+    spawnGroupFacID: 0
+    spawnGroupID: 0
+    scoreG: 0
+    scoreH: 0
+    scoreF: 0
+    tempScoreG: 0
+    listState: 0
+  loadedFromCache: 0
+  value: 100
+  rarity: 3
+  factoryCost: 200
+  unitDescription: 'Gojulas is slow, the Zoid is extremely agile, especially when
+    considering its size; on top of that, it is capable of functioning underwater.
+    The Zoid is very capable in close combat, able to attack opponents with its claws
+    and fangs or, if need be, whip them with its tail, which packs a wallop powerful
+    enough to knock even mid-sized Zoids off their feet. '
+  isUpgradedUnit: 0
+  limitedOwned: 0
+  ownedLimit: 1
+  facID: 0
+  playableUnit: 0
+  aiBehaviour: 0
+  requireTrigger: 1
+  triggered: 0
+  hp: 215
+  ap: 5
+  moveThisTurn: 0
+  attackThisTurn: 0
+  counterThisTurn: 0
+  abilityThisTurn: 0
+  canMovePastUnit: 0
+  canMovePastObs: 0
+  targetPoint: {fileID: 2235}
+  radius: 0.3
+  soRange: {fileID: 114412276860498308, guid: 09a463b997518ca4ba2b0574c697a0c1, type: 3}
+  soMelee: {fileID: 0}
+  shootPointSpacing: 0.1
+  shootPointList:
+  - {fileID: 3950}
+  - {fileID: 3908}
+  turretPivot: {fileID: 2926}
+  barrelPivot: {fileID: 0}
+  snapAiming: 0
+  aimInXAxis: 0
+  rotateWhileAiming: 1
+  moveSpeed: 2
+  hasMeleeAttack: 1
+  requireLOSToAttack: 1
+  armorType: 0
+  damageType: 0
+  stats:
+    hp: 215
+    ap: 5
+    hpRegen: 1
+    apRegen: 1
+    attack: 45
+    defense: 34
+    hit: 87
+    dodge: 11
+    dmgHPMin: 32
+    dmgHPMax: 52
+    dmgAPMin: 0
+    dmgAPMax: 0
+    critChance: 0.12
+    critReduc: 16
+    critMultiplier: 1.5
+    cDmgMultip: 0.5
+    cHitPenalty: 0.5
+    cCritPenalty: 0.5
+    oDmgMultip: 0.5
+    oHitPenalty: 0.5
+    oCritPenalty: 0.5
+    attackRange: 3
+    attackRangeMin: 0
+    moveRange: 4
+    turnPriority: 9
+    sight: 5
+    moveLimit: 1
+    attackLimit: 1
+    counterLimit: 1
+    abilityLimit: 2
+    abDuration: 2
+    abCooldown: 2
+    abUseLimit: 0
+    abApCost: 0
+    abAoeRange: 0
+    abEffHitChance: 0
+    effduration: 0
+    effHP: 0
+    effAP: 0
+  damageTypeMelee: 0
+  statsMelee:
+    hp: 215
+    ap: 5
+    hpRegen: 1
+    apRegen: 1
+    attack: 52
+    defense: 34
+    hit: 91
+    dodge: 11
+    dmgHPMin: 37
+    dmgHPMax: 60
+    dmgAPMin: 0
+    dmgAPMax: 0
+    critChance: 0.13
+    critReduc: 16
+    critMultiplier: 1.5
+    cDmgMultip: 0.5
+    cHitPenalty: 0.5
+    cCritPenalty: 0.5
+    oDmgMultip: 0.5
+    oHitPenalty: 0.5
+    oCritPenalty: 0.5
+    attackRange: 2
+    attackRangeMin: 0
+    moveRange: 4
+    turnPriority: 9
+    sight: 5
+    moveLimit: 1
+    attackLimit: 1
+    counterLimit: 1
+    abilityLimit: 2
+    abDuration: 2
+    abCooldown: 2
+    abUseLimit: 0
+    abApCost: 0
+    abAoeRange: 0
+    abEffHitChance: 0
+    effduration: 0
+    effHP: 0
+    effAP: 0
+  auraIDList: 
+  auraMulList: []
+  auraModList: []
+  attackEffectIDList: 
+  overwatching: 0
+  tempFacID: -1
+  tempFacDur: -1
+  tempFacControl: 0
+  immuneEffectList: 
+  activeEffectMod:
+    prefabID: -1
+    instanceID: -1
+    icon: {fileID: 0}
+    name: Item
+    desp: Item's description
+    showInUnitInfo: 1
+    stackable: 0
+    duration: 1
+    durationRemain: 1
+    range: 2
+    impactType: 0
+    damageType: 0
+    hpModifierMin: 5
+    hpModifierMax: 5
+    apModifierMin: 5
+    apModifierMax: 5
+    effType: 1
+    stats:
+      hp: 10
+      ap: 10
+      hpRegen: 0
+      apRegen: 2
+      attack: 80
+      defense: 20
+      hit: 70
+      dodge: 20
+      dmgHPMin: 4
+      dmgHPMax: 7
+      dmgAPMin: 4
+      dmgAPMax: 7
+      critChance: 0.15
+      critReduc: 0
+      critMultiplier: 2
+      cDmgMultip: 0.5
+      cHitPenalty: 0.5
+      cCritPenalty: 0.5
+      oDmgMultip: 0.5
+      oHitPenalty: 0.5
+      oCritPenalty: 0.5
+      attackRange: 3
+      attackRangeMin: 0
+      moveRange: 3
+      turnPriority: 1
+      sight: 10
+      moveLimit: 1
+      attackLimit: 1
+      counterLimit: 1
+      abilityLimit: 1
+      abDuration: 2
+      abCooldown: 2
+      abUseLimit: 0
+      abApCost: 0
+      abAoeRange: 0
+      abEffHitChance: 0
+      effduration: 0
+      effHP: 0
+      effAP: 0
+    overwatch: 0
+    stun: 0
+    disableAbility: 0
+    hitVisualEffect:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1.5
+    activeVisualEffect: {fileID: 0}
+  activeEffectMul:
+    prefabID: -1
+    instanceID: -1
+    icon: {fileID: 0}
+    name: Item
+    desp: Item's description
+    showInUnitInfo: 1
+    stackable: 0
+    duration: 1
+    durationRemain: 1
+    range: 2
+    impactType: 0
+    damageType: 0
+    hpModifierMin: 5
+    hpModifierMax: 5
+    apModifierMin: 5
+    apModifierMax: 5
+    effType: 1
+    stats:
+      hp: 10
+      ap: 10
+      hpRegen: 0
+      apRegen: 2
+      attack: 80
+      defense: 20
+      hit: 70
+      dodge: 20
+      dmgHPMin: 4
+      dmgHPMax: 7
+      dmgAPMin: 4
+      dmgAPMax: 7
+      critChance: 0.15
+      critReduc: 0
+      critMultiplier: 2
+      cDmgMultip: 0.5
+      cHitPenalty: 0.5
+      cCritPenalty: 0.5
+      oDmgMultip: 0.5
+      oHitPenalty: 0.5
+      oCritPenalty: 0.5
+      attackRange: 3
+      attackRangeMin: 0
+      moveRange: 3
+      turnPriority: 1
+      sight: 10
+      moveLimit: 1
+      attackLimit: 1
+      counterLimit: 1
+      abilityLimit: 1
+      abDuration: 2
+      abCooldown: 2
+      abUseLimit: 0
+      abApCost: 0
+      abAoeRange: 0
+      abEffHitChance: 0
+      effduration: 0
+      effHP: 0
+      effAP: 0
+    overwatch: 0
+    stun: 0
+    disableAbility: 0
+    hitVisualEffect:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1.5
+    activeVisualEffect: {fileID: 0}
+  effectList: []
+  abilityIDList: 
+  abilityList: []
+  dead: 0
+  effectAttackHit:
+    obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
+    autoDestroy: 1
+    duration: 1.5
+  effectAttackHitMelee:
+    obj: {fileID: 1408636310352560, guid: 3cf93ee15e741f84eb5a729b20e1a1a5, type: 3}
+    autoDestroy: 1
+    duration: 1.5
+  effectOnDestroyed:
+    obj: {fileID: 1607639869435452, guid: f487dd708b3da6d40b5f888c92be35ce, type: 3}
+    autoDestroy: 1
+    duration: 1.5
+  animatorT: {fileID: 2926}
+  clipIdle: {fileID: 7400000, guid: 2a69161e3f444d7ea3ab3ecf112746a6, type: 2}
+  clipMove: {fileID: 7400000, guid: 0e7ba1e049cf424b905691ced29ce728, type: 2}
+  clipHit: {fileID: 7400000, guid: 05dc09474586491e965c8cfd105d4da6, type: 2}
+  clipDestroyed: {fileID: 7400000, guid: deaf1319e078435da6626ad640527fcc, type: 2}
+  useStunAnimation: 1
+  stunAnimatorBool: Stunned
+  clipStunned: {fileID: 7400000, guid: c4935a540b1744839405908541060f61, type: 2}
+  clipAttackRange: {fileID: 7400000, guid: ec05c2f128b145df9c66af1a2f312ea3, type: 2}
+  clipAttackMelee: {fileID: 7400000, guid: fa336cb247234479a51caeff9553acbd, type: 2}
+  animAttackDelayRange: 0.3
+  animAttackDelayMelee: 1.18
+  clipAbilityList:
+  - {fileID: 7400000, guid: 06699ff309c144be8925f3a11d6703b2, type: 2}
+  - {fileID: 7400000, guid: e5d4ee28041d41daa0b2e89bec487769, type: 2}
+  - {fileID: 7400000, guid: e5d4ee28041d41daa0b2e89bec487769, type: 2}
+  - {fileID: 7400000, guid: e5d4ee28041d41daa0b2e89bec487769, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  animAbilityDelayList:
+  - 0.9
+  - 3.5
+  - 3.5
+  - 3.5
+  - 0
+  - 0
+  abilityShootPointSetList:
+  - shootPointList: []
+    shootPointSpacing: 0
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  loopMoveSound: 1
+  selectSound: {fileID: 8300000, guid: c87582d740b14c52835a10e99867f45f, type: 3}
+  moveSound: {fileID: 8300000, guid: 13c370424c054beb92fc2fd58dbcba52, type: 3}
+  attackRangeSound: {fileID: 8300000, guid: 6bee9726ffe64ff2bee4d0c5951e2ed3, type: 3}
+  attackMeleeSound: {fileID: 8300000, guid: aa9b4f7f239747508db226919bb707cf, type: 3}
+  hitSound: {fileID: 8300000, guid: aef8741825604af58acbd5eaa8251c98, type: 3}
+  destroySound: {fileID: 8300000, guid: f4a8a8410147403aafc3d0d8bd3df787, type: 3}
 --- !u!1 &873
 GameObject:
   m_ObjectHideFlags: 0

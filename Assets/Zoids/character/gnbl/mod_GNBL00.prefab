@@ -493,6 +493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3480}
   - component: {fileID: 5417}
+  - component: {fileID: 470829201861323479}
   m_Layer: 0
   m_Name: mod_GNBL00
   m_TagString: 
@@ -538,6 +539,378 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &470829201861323479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3e65cdc3be52354583818ea1257da3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabID: 11
+  instanceID: -1
+  icon: {fileID: -1101979024, guid: 0dd901aa51534c659f29ba1e0428b4da, type: 3}
+  itemName: Gunblaster
+  desp: 'Liger Zero is a lion type Zoid originally designed by the Imperial Army.
+    It was stolen during the development process and became known as one of the Republic''s
+    greatest assets. In the republic, it gained multiple conversion systems (CAS:
+    Changing Armor Systems.)'
+  thisT: {fileID: 0}
+  thisObj: {fileID: 0}
+  node:
+    idx: 0
+    idxX: 0
+    idxZ: 0
+    x: 0
+    y: 0
+    z: 0
+    objT: {fileID: 0}
+    rend: {fileID: 0}
+    walkable: 0
+    cost: 0
+    pos: {x: 0, y: 0, z: 0}
+    obstacleT: {fileID: 0}
+    unit: {fileID: 0}
+    collectible: {fileID: 0}
+    wallList: []
+    coverList: 
+    deployFacID: 0
+    spawnGroupFacID: 0
+    spawnGroupID: 0
+    scoreG: 0
+    scoreH: 0
+    scoreF: 0
+    tempScoreG: 0
+    listState: 0
+  loadedFromCache: 0
+  value: 100
+  rarity: 2
+  factoryCost: 100
+  unitDescription: 'Designed for fire support, the Gun Blaster''s most distinctive
+    feature is the array of twenty-two cannons built into its back. These weapons
+    are designed to be fired as one mass assault, allowing the Gun Blaster to wipe
+    out most anything that it faces. '
+  isUpgradedUnit: 0
+  limitedOwned: 0
+  ownedLimit: 1
+  facID: 0
+  playableUnit: 0
+  aiBehaviour: 0
+  requireTrigger: 1
+  triggered: 0
+  hp: 120
+  ap: 4
+  moveThisTurn: 0
+  attackThisTurn: 0
+  counterThisTurn: 0
+  abilityThisTurn: 0
+  canMovePastUnit: 0
+  canMovePastObs: 0
+  targetPoint: {fileID: 2770}
+  radius: 0.3
+  soRange: {fileID: 114412276860498308, guid: 09a463b997518ca4ba2b0574c697a0c1, type: 3}
+  soMelee: {fileID: 0}
+  shootPointSpacing: 0.1
+  shootPointList:
+  - {fileID: 4370}
+  turretPivot: {fileID: 3480}
+  barrelPivot: {fileID: 0}
+  snapAiming: 0
+  aimInXAxis: 0
+  rotateWhileAiming: 1
+  moveSpeed: 2
+  hasMeleeAttack: 1
+  requireLOSToAttack: 1
+  armorType: 0
+  damageType: 0
+  stats:
+    hp: 120
+    ap: 4
+    hpRegen: 0
+    apRegen: 1
+    attack: 33
+    defense: 19
+    hit: 85
+    dodge: 15
+    dmgHPMin: 24
+    dmgHPMax: 38
+    dmgAPMin: 0
+    dmgAPMax: 0
+    critChance: 0.12
+    critReduc: 8
+    critMultiplier: 1.5
+    cDmgMultip: 0.5
+    cHitPenalty: 0.5
+    cCritPenalty: 0.5
+    oDmgMultip: 0.5
+    oHitPenalty: 0.5
+    oCritPenalty: 0.5
+    attackRange: 3
+    attackRangeMin: 0
+    moveRange: 5
+    turnPriority: 12
+    sight: 5
+    moveLimit: 1
+    attackLimit: 1
+    counterLimit: 0
+    abilityLimit: 1
+    abDuration: 2
+    abCooldown: 2
+    abUseLimit: 0
+    abApCost: 0
+    abAoeRange: 0
+    abEffHitChance: 0
+    effduration: 0
+    effHP: 0
+    effAP: 0
+  damageTypeMelee: 0
+  statsMelee:
+    hp: 120
+    ap: 4
+    hpRegen: 0
+    apRegen: 1
+    attack: 37
+    defense: 19
+    hit: 89
+    dodge: 15
+    dmgHPMin: 27
+    dmgHPMax: 43
+    dmgAPMin: 0
+    dmgAPMax: 0
+    critChance: 0.13
+    critReduc: 8
+    critMultiplier: 1.5
+    cDmgMultip: 0.5
+    cHitPenalty: 0.5
+    cCritPenalty: 0.5
+    oDmgMultip: 0.5
+    oHitPenalty: 0.5
+    oCritPenalty: 0.5
+    attackRange: 1
+    attackRangeMin: 0
+    moveRange: 5
+    turnPriority: 12
+    sight: 5
+    moveLimit: 1
+    attackLimit: 1
+    counterLimit: 0
+    abilityLimit: 1
+    abDuration: 2
+    abCooldown: 2
+    abUseLimit: 0
+    abApCost: 0
+    abAoeRange: 0
+    abEffHitChance: 0
+    effduration: 0
+    effHP: 0
+    effAP: 0
+  auraIDList: 
+  auraMulList: []
+  auraModList: []
+  attackEffectIDList: 
+  overwatching: 0
+  tempFacID: -1
+  tempFacDur: -1
+  tempFacControl: 0
+  immuneEffectList: 
+  activeEffectMod:
+    prefabID: -1
+    instanceID: -1
+    icon: {fileID: 0}
+    name: Item
+    desp: Item's description
+    showInUnitInfo: 1
+    stackable: 0
+    duration: 1
+    durationRemain: 1
+    range: 2
+    impactType: 0
+    damageType: 0
+    hpModifierMin: 5
+    hpModifierMax: 5
+    apModifierMin: 5
+    apModifierMax: 5
+    effType: 1
+    stats:
+      hp: 10
+      ap: 10
+      hpRegen: 0
+      apRegen: 2
+      attack: 80
+      defense: 20
+      hit: 70
+      dodge: 20
+      dmgHPMin: 4
+      dmgHPMax: 7
+      dmgAPMin: 4
+      dmgAPMax: 7
+      critChance: 0.15
+      critReduc: 0
+      critMultiplier: 2
+      cDmgMultip: 0.5
+      cHitPenalty: 0.5
+      cCritPenalty: 0.5
+      oDmgMultip: 0.5
+      oHitPenalty: 0.5
+      oCritPenalty: 0.5
+      attackRange: 3
+      attackRangeMin: 0
+      moveRange: 3
+      turnPriority: 1
+      sight: 10
+      moveLimit: 1
+      attackLimit: 1
+      counterLimit: 1
+      abilityLimit: 1
+      abDuration: 2
+      abCooldown: 2
+      abUseLimit: 0
+      abApCost: 0
+      abAoeRange: 0
+      abEffHitChance: 0
+      effduration: 0
+      effHP: 0
+      effAP: 0
+    overwatch: 0
+    stun: 0
+    disableAbility: 0
+    hitVisualEffect:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1.5
+    activeVisualEffect: {fileID: 0}
+  activeEffectMul:
+    prefabID: -1
+    instanceID: -1
+    icon: {fileID: 0}
+    name: Item
+    desp: Item's description
+    showInUnitInfo: 1
+    stackable: 0
+    duration: 1
+    durationRemain: 1
+    range: 2
+    impactType: 0
+    damageType: 0
+    hpModifierMin: 5
+    hpModifierMax: 5
+    apModifierMin: 5
+    apModifierMax: 5
+    effType: 1
+    stats:
+      hp: 10
+      ap: 10
+      hpRegen: 0
+      apRegen: 2
+      attack: 80
+      defense: 20
+      hit: 70
+      dodge: 20
+      dmgHPMin: 4
+      dmgHPMax: 7
+      dmgAPMin: 4
+      dmgAPMax: 7
+      critChance: 0.15
+      critReduc: 0
+      critMultiplier: 2
+      cDmgMultip: 0.5
+      cHitPenalty: 0.5
+      cCritPenalty: 0.5
+      oDmgMultip: 0.5
+      oHitPenalty: 0.5
+      oCritPenalty: 0.5
+      attackRange: 3
+      attackRangeMin: 0
+      moveRange: 3
+      turnPriority: 1
+      sight: 10
+      moveLimit: 1
+      attackLimit: 1
+      counterLimit: 1
+      abilityLimit: 1
+      abDuration: 2
+      abCooldown: 2
+      abUseLimit: 0
+      abApCost: 0
+      abAoeRange: 0
+      abEffHitChance: 0
+      effduration: 0
+      effHP: 0
+      effAP: 0
+    overwatch: 0
+    stun: 0
+    disableAbility: 0
+    hitVisualEffect:
+      obj: {fileID: 0}
+      autoDestroy: 1
+      duration: 1.5
+    activeVisualEffect: {fileID: 0}
+  effectList: []
+  abilityIDList: 
+  abilityList: []
+  dead: 0
+  effectAttackHit:
+    obj: {fileID: 1720826579206936, guid: 4a5bca9c97861774692ab06a66a75ec2, type: 3}
+    autoDestroy: 1
+    duration: 1.5
+  effectAttackHitMelee:
+    obj: {fileID: 1408636310352560, guid: 3cf93ee15e741f84eb5a729b20e1a1a5, type: 3}
+    autoDestroy: 1
+    duration: 1.5
+  effectOnDestroyed:
+    obj: {fileID: 1607639869435452, guid: f487dd708b3da6d40b5f888c92be35ce, type: 3}
+    autoDestroy: 1
+    duration: 1.5
+  animatorT: {fileID: 3480}
+  clipIdle: {fileID: 7400000, guid: 997e600b333e465f869eead959f39fb0, type: 2}
+  clipMove: {fileID: 7400000, guid: 5c3d6fdbdd264a7994cc5cc8d304d70e, type: 2}
+  clipHit: {fileID: 7400000, guid: b6f99da6065d4d89969f9cb9b16eed60, type: 2}
+  clipDestroyed: {fileID: 7400000, guid: fcfa94037e0e4a7c9597815c7a4bf8f0, type: 2}
+  useStunAnimation: 1
+  stunAnimatorBool: Stunned
+  clipStunned: {fileID: 7400000, guid: 31fa0ca6859e4cdfaf722f76a9ea893c, type: 2}
+  clipAttackRange: {fileID: 7400000, guid: 05000fa5367c4f499955ba40f1983c9f, type: 2}
+  clipAttackMelee: {fileID: 7400000, guid: de2f411b59414d018a0abc1b2b56e70b, type: 2}
+  animAttackDelayRange: 0.3
+  animAttackDelayMelee: 1.18
+  clipAbilityList:
+  - {fileID: 7400000, guid: bd1f85f66ea7446b85fa7012b62de90a, type: 2}
+  - {fileID: 7400000, guid: 1b7bdcf4cede417aba9b8049a7c4aa2e, type: 2}
+  - {fileID: 7400000, guid: e5d4ee28041d41daa0b2e89bec487769, type: 2}
+  - {fileID: 7400000, guid: e5d4ee28041d41daa0b2e89bec487769, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  animAbilityDelayList:
+  - 0.9
+  - 3.5
+  - 3.5
+  - 3.5
+  - 0
+  - 0
+  abilityShootPointSetList:
+  - shootPointList: []
+    shootPointSpacing: 0
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  - shootPointList: []
+    shootPointSpacing: -1
+  loopMoveSound: 1
+  selectSound: {fileID: 8300000, guid: c87582d740b14c52835a10e99867f45f, type: 3}
+  moveSound: {fileID: 8300000, guid: 13c370424c054beb92fc2fd58dbcba52, type: 3}
+  attackRangeSound: {fileID: 8300000, guid: 6bee9726ffe64ff2bee4d0c5951e2ed3, type: 3}
+  attackMeleeSound: {fileID: 8300000, guid: aa9b4f7f239747508db226919bb707cf, type: 3}
+  hitSound: {fileID: 8300000, guid: aef8741825604af58acbd5eaa8251c98, type: 3}
+  destroySound: {fileID: 8300000, guid: f4a8a8410147403aafc3d0d8bd3df787, type: 3}
 --- !u!1 &883
 GameObject:
   m_ObjectHideFlags: 0

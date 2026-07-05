@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,8 +10,11 @@ namespace UFE3D
         public enum Type
         {
             Vertical,
-            Horizontal
+            Horizontal,
+            DiagonalBottomLeftToTopRight,
+            DiagonalBottomRightToTopLeft
         }
+
         [SerializeField]
         public Type GradientType = Type.Vertical;
 
@@ -21,75 +24,92 @@ namespace UFE3D
 
         [SerializeField]
         private Color32 StartColor = Color.white;
+
         [SerializeField]
         private Color32 EndColor = Color.black;
 
+        private readonly List<UIVertex> vertexList = new List<UIVertex>();
+
         public override void ModifyMesh(VertexHelper helper)
         {
-            if (!IsActive() || helper.currentVertCount == 0)
+            if (!IsActive() || helper == null || helper.currentVertCount == 0)
                 return;
 
-            List<UIVertex> _vertexList = new List<UIVertex>();
-            helper.GetUIVertexStream(_vertexList);
+            vertexList.Clear();
+            helper.GetUIVertexStream(vertexList);
 
-            int nCount = _vertexList.Count;
-            switch (GradientType)
+            if (vertexList.Count == 0)
+                return;
+
+            float leftX = vertexList[0].position.x;
+            float rightX = leftX;
+            float bottomY = vertexList[0].position.y;
+            float topY = bottomY;
+
+            for (int i = 1; i < vertexList.Count; i++)
             {
-                case Type.Vertical:
-                    {
-                        float fBottomY = _vertexList[0].position.y;
-                        float fTopY = _vertexList[0].position.y;
-                        float fYPos = 0f;
+                Vector3 position = vertexList[i].position;
 
-                        for (int i = nCount - 1; i >= 1; --i)
-                        {
-                            fYPos = _vertexList[i].position.y;
-                            if (fYPos > fTopY)
-                                fTopY = fYPos;
-                            else if (fYPos < fBottomY)
-                                fBottomY = fYPos;
-                        }
+                if (position.x < leftX)
+                    leftX = position.x;
+                else if (position.x > rightX)
+                    rightX = position.x;
 
-                        float fUIElementHeight = 1f / (fTopY - fBottomY);
-                        UIVertex v = new UIVertex();
+                if (position.y < bottomY)
+                    bottomY = position.y;
+                else if (position.y > topY)
+                    topY = position.y;
+            }
 
-                        for (int i = 0; i < helper.currentVertCount; i++)
-                        {
-                            helper.PopulateUIVertex(ref v, i);
-                            v.color = Color32.Lerp(EndColor, StartColor, (v.position.y - fBottomY) * fUIElementHeight - Offset);
-                            helper.SetUIVertex(v, i);
-                        }
-                    }
-                    break;
-                case Type.Horizontal:
-                    {
-                        float fLeftX = _vertexList[0].position.x;
-                        float fRightX = _vertexList[0].position.x;
-                        float fXPos = 0f;
+            float width = rightX - leftX;
+            float height = topY - bottomY;
 
-                        for (int i = nCount - 1; i >= 1; --i)
-                        {
-                            fXPos = _vertexList[i].position.x;
-                            if (fXPos > fRightX)
-                                fRightX = fXPos;
-                            else if (fXPos < fLeftX)
-                                fLeftX = fXPos;
-                        }
+            UIVertex vertex = default;
 
-                        float fUIElementWidth = 1f / (fRightX - fLeftX);
-                        UIVertex v = new UIVertex();
+            for (int i = 0; i < helper.currentVertCount; i++)
+            {
+                helper.PopulateUIVertex(ref vertex, i);
 
-                        for (int i = 0; i < helper.currentVertCount; i++)
-                        {
-                            helper.PopulateUIVertex(ref v, i);
-                            v.color = Color32.Lerp(EndColor, StartColor, (v.position.x - fLeftX) * fUIElementWidth - Offset);
-                            helper.SetUIVertex(v, i);
-                        }
+                float normalizedX = Mathf.Approximately(width, 0f)
+                    ? 0f
+                    : (vertex.position.x - leftX) / width;
 
-                    }
-                    break;
-                default:
-                    break;
+                float normalizedY = Mathf.Approximately(height, 0f)
+                    ? 0f
+                    : (vertex.position.y - bottomY) / height;
+
+                float gradientValue;
+
+                switch (GradientType)
+                {
+                    case Type.Vertical:
+                        gradientValue = normalizedY;
+                        break;
+
+                    case Type.Horizontal:
+                        gradientValue = normalizedX;
+                        break;
+
+                    case Type.DiagonalBottomLeftToTopRight:
+                        gradientValue = (normalizedX + normalizedY) * 0.5f;
+                        break;
+
+                    case Type.DiagonalBottomRightToTopLeft:
+                        gradientValue = ((1f - normalizedX) + normalizedY) * 0.5f;
+                        break;
+
+                    default:
+                        gradientValue = normalizedY;
+                        break;
+                }
+
+                vertex.color = Color32.Lerp(
+                    EndColor,
+                    StartColor,
+                    gradientValue - Offset
+                );
+
+                helper.SetUIVertex(vertex, i);
             }
         }
     }
